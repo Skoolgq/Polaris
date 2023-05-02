@@ -1,0 +1,28 @@
+{
+  "name": "polaris",
+  "version": "1.0.0",
+  "description": "The future of school gaming",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/polarisdevs/Polaris.git"
+  },
+  "keywords": [
+    "games",
+    "unblocked",
+    "proxy"
+  ],
+  "author": "Polaris Development Group",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/polarisdevs/Polaris/issues"
+  },
+  "homepage": "https://github.com/polarisdevs/Polaris#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
