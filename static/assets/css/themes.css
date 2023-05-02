@@ -1,0 +1,8 @@
+/*
+Here is the theme template.
+Make sure there is a space between the theme selector and the target.
+*/
+
+body[data-theme="theme name"] .exampleclass {
+    content: 'examplecontent';
+}

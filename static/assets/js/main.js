@@ -1,3 +1,7 @@
+import * as theme from '/assets/js/themes.js';
+/*Please link all javascript files here using import*/
+
+//Someone should put this code somewhere
 document.querySelectorAll('a').forEach(a => {
     a.onclick = (e) => {
         if (a.dataset.link !== 'true') {
@@ -5,33 +9,23 @@ document.querySelectorAll('a').forEach(a => {
         }
 
         if (a.href.startsWith(location.origin)) {
-            console.log(location.href);
+            fetch(a.href)
+                .then(res => res.text())
+                .then(content => {
+                    setTimeout(() => {
+                        console.log('a');
 
-            if (location.href !== a.href) {
-                fetch(a.href)
-                    .then(res => res.text())
-                    .then(content => {                        
-                        setTimeout(() => {
-                            console.log('a');
+                        window.history.pushState({}, '', a.href);
 
-                            window.history.pushState({}, '', a.href);
-
-                            document.documentElement.innerHTML = content;
-                        }, 500);
-                    }).catch(e => {
-                        console.log('c');
-
-                        a.setAttribute('data-link', 'true');
-                        a.click();
-                    });
-            } else {
-                alert('whyyyyy');
-            }
+                        document.documentElement.innerHTML = content;
+                    }, 500);
+                }).catch(e => {
+                    a.setAttribute('data-link', 'true');
+                    a.click();
+                });
         } else {
-            console.log('d');
-
             a.setAttribute('data-link', 'true');
-            //a.click();
+            a.click();
         }
     }
 });

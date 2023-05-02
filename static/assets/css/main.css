@@ -1,2 +1,8 @@
 @import url('/assets/css/fonts.css');
 @import url('/assets/css/themes.css');
+
+/*Please try to keep this organized*/
+
+* {
+    font-family: 'Lato';
+}
