@@ -1,6 +1,8 @@
 body[data-theme='dark'] {
     --background-color: #000;
     --text: #fff;
+    --sidebar-bg: rgba(0, 0, 0, 0.350);
+    --button-bg: rgba(0, 0, 0, 0.350);
 
     background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
     background-repeat: no-repeat;
@@ -8,7 +10,9 @@ body[data-theme='dark'] {
 
 body[data-theme='light'] {
     --background-color: #fff;
-    --text: #00;
+    --text: #000;
+    --sidebar-bg: rgba(255, 255, 255, 0.350);
+    --button-bg: rgba(255, 255, 255, 0.350);
 
     background: radial-gradient(ellipse at bottom, #b1b1b1 0%, #f6f5f0 100%);
     background-repeat: no-repeat;

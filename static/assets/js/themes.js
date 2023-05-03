@@ -6,17 +6,19 @@ class Theme {
             this.set(this.theme);
         } else {
             if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                this.set('dark');
+                this.set('dark', false);
             } else {
-                this.set('light');
+                this.set('light', false);
             }
         }
     }
 
-    set = (theme) => {
+    set = (theme, save) => {
         document.body.setAttribute('data-theme', theme);
 
-        localStorage.setItem('theme', theme);
+        if (save !== false) {
+            localStorage.setItem('theme', theme);
+        }
     }
 }
 

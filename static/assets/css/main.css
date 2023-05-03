@@ -2,11 +2,11 @@
 @import url('/assets/css/themes.css');
 @import url('/assets/css/games.css');
 @import url('/assets/css/nav.css');
-
-/*Please try to keep this organized*/
+@import url('/assets/css/sidebar.css');
 
 * {
     font-family: 'Lato';
+    user-select: none;
 }
 
 html,
@@ -23,4 +23,39 @@ html {
 a {
     color: var(--text);
     text-decoration: none;
+}
+
+input {
+    text-align: center;
+    box-shadow: 0.5vh 0.5vh 1vh 0vh rgba(0, 0, 0, 0.75);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    background-color: var(--button-bg);
+    width: 250px;
+    height: 40px;
+    color: var(--text);
+    transition: 0.4s;
+}
+
+input:focus {
+    border: none;
+    opacity: 0.8;
+}
+
+button {
+    text-align: center;
+    box-shadow: 0.5vh 0.5vh 1vh 0vh rgba(0, 0, 0, 0.75);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    background-color: var(--button-bg);
+    width: 70px;
+    height: 40px;
+    color: var(--text);
+    transition: 0.4s;
+}
+
+button:hover {
+    opacity: 0.8;
 }
