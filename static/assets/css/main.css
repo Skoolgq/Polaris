@@ -1,5 +1,7 @@
 @import url('/assets/css/fonts.css');
 @import url('/assets/css/themes.css');
+@import url('/assets/css/games.css');
+@import url('/assets/css/nav.css');
 
 /*Please try to keep this organized*/
 
@@ -10,25 +12,11 @@
 html,
 body {
     margin: 0px;
+    background-color: var(--background-color);
+    color: var(--text);
 }
 
-.navbar {
-    width: calc(100%-margin);
-    position: sticky;
-    display: flex;
-    justify-content: space-between;
-    margin: 10px;
-}
-
-.navbar>.title>img {
-    width: 75px;
-    border-radius: 10px;
-}
-
-.navbar>.title>span {
-    font-family: 'Lato-Black';
-    font-size: 60px;
-    margin-left: 13px;
-    position: relative;
-    bottom: 13px;
+a {
+    color: var(--text);
+    text-decoration: none;
 }

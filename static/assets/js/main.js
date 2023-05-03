@@ -1,7 +1,4 @@
 import Theme from '/assets/js/themes.js';
-/*Please link all javascript files here using import*/
-
-console.log(Theme);
 
 fetch('/assets/misc/nav.html')
     .then(res => res.text())
@@ -11,9 +8,13 @@ fetch('/assets/misc/nav.html')
         alert('Failed to load navbar');
 
         if (confirm('Try again?')) location.reload();
-    })
+    });
 
-/*setTimeout(() => {
+onbeforeunload = (e) => {
+    return e;
+}
+
+const registerLinks = () => {
     document.querySelectorAll('a').forEach(a => {
         a.onclick = (e) => {
             if (a.dataset.link !== 'true') {
@@ -22,23 +23,43 @@ fetch('/assets/misc/nav.html')
 
             if (a.href.startsWith(location.origin)) {
                 if (window.location.href !== a.href) {
-                    fetch(a.href)
-                        .then(res => res.text())
-                        .then(content => {
-                            setTimeout(() => {
-                                window.history.pushState({}, '', a.href);
+                    const frame = document.createElement('iframe');
+                    frame.src = a.href;
+                    frame.style = 'display: none';
+                    document.body.appendChild(frame);
 
-                                document.documentElement.innerHTML = content;
-                            }, 500);
-                        }).catch(e => {
-                            a.setAttribute('data-link', 'true');
-                            a.click();
-                        });
+                    frame.contentWindow.addEventListener('DOMContentLoaded', () => {
+                        document.body.style.display = 'none';
+
+                        setTimeout(() => {
+                            window.history.pushState({}, '', a.href);
+                            document.documentElement.innerHTML = frame.contentDocument.documentElement.innerHTML;
+                            document.body.style.display = 'none';
+
+                            registerLinks();
+
+                            setTimeout(() => {
+                                document.body.style.display = 'block';
+                            }, 100);
+                        }, 500);
+                    });
                 }
             } else {
+                alert('buh');
+
                 a.setAttribute('data-link', 'true');
                 a.click();
             }
         }
     });
-}, 500)*/
+}
+
+if (window.self === window.top) {
+    const load = setInterval(() => {
+        if (loaded) {
+            clearInterval(load);
+
+            registerLinks();
+        }
+    }, 100);
+}

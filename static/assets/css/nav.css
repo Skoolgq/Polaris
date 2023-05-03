@@ -1,0 +1,32 @@
+.navbar {
+    width: calc(100%-margin);
+    position: sticky;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.navbar>.title>img {
+    width: 75px;
+    border-radius: 10px;
+}
+
+.navbar>.title>span {
+    font-family: 'Lato-Black';
+    font-size: 60px;
+    margin-left: 13px;
+    position: relative;
+    bottom: 13px;
+}
+
+.navbar>.end {
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar>.end>a {
+    margin: 1rem;
+    padding: 1rem;
+    background: var(--nav-color);
+    border-radius: 10px;
+}
