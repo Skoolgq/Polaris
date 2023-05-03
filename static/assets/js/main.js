@@ -1,9 +1,13 @@
 import Theme from '/assets/js/themes.js';
 
+var loaded = false;
+
 fetch('/assets/misc/nav.html')
     .then(res => res.text())
     .then(content => {
         document.body.insertAdjacentHTML('afterbegin', content);
+
+        loaded = true;
     }).catch(e => {
         alert('Failed to load navbar');
 
