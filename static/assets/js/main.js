@@ -14,9 +14,9 @@ fetch('/assets/misc/nav.html')
         if (confirm('Try again?')) location.reload();
     });
 
-onbeforeunload = (e) => {
+/*onbeforeunload = (e) => {
     return e;
-}
+}*/
 
 const registerLinks = () => {
     document.querySelectorAll('a').forEach(a => {
@@ -44,13 +44,11 @@ const registerLinks = () => {
 
                             setTimeout(() => {
                                 document.body.style.display = 'block';
-                            }, 100);
+                            }, 50);
                         }, 500);
                     });
                 }
             } else {
-                alert('buh');
-
                 a.setAttribute('data-link', 'true');
                 a.click();
             }

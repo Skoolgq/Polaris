@@ -1,5 +1,4 @@
 .navbar {
-    width: calc(100%-margin);
     position: sticky;
     display: flex;
     justify-content: space-between;
@@ -25,8 +24,10 @@
 }
 
 .navbar>.end>a {
-    margin: 1rem;
-    padding: 1rem;
-    background: var(--nav-color);
-    border-radius: 10px;
+    margin: 0.5rem;
+    padding: 1.5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    cursor: pointer;
+    font-size: 20px;
 }

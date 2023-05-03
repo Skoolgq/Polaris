@@ -1,9 +1,15 @@
-/*
-Here is the theme template.
-Make sure there is a space between the theme selector and the target.
-*/
-
-body[data-theme='dark']  {
+body[data-theme='dark'] {
     --background-color: #000;
     --text: #fff;
+
+    background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+    background-repeat: no-repeat;
+}
+
+body[data-theme='light'] {
+    --background-color: #fff;
+    --text: #00;
+
+    background: radial-gradient(ellipse at bottom, #b1b1b1 0%, #f6f5f0 100%);
+    background-repeat: no-repeat;
 }

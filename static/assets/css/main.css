@@ -16,6 +16,10 @@ body {
     color: var(--text);
 }
 
+html {
+    height: 100%;
+}
+
 a {
     color: var(--text);
     text-decoration: none;
