@@ -5,11 +5,7 @@ class Theme {
         if (this.theme) {
             this.set(this.theme);
         } else {
-            if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                this.set('dark', false);
-            } else {
-                this.set('light', false);
-            }
+            this.set('system default');
         }
     }
 
