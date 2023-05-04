@@ -1,4 +1,6 @@
 import Settings from './settings.js';
+import Games from './games.js';
+import Apps from './apps.js';
 
 window.onerror = (e) => {
     alert(e);
@@ -53,6 +55,14 @@ const registerLinks = () => {
                                     Settings.load();
                                     registerLinks();
 
+                                    if (location.pathname === '/games') {
+                                        Games.load();
+                                    }
+
+                                    if (location.pathname === '/apps') {
+                                        Apps.load();
+                                    }
+
                                     setTimeout(() => {
                                         document.body.style.display = 'block';
                                     }, 500);
@@ -73,5 +83,13 @@ if (window.self === window.top) {
     setTimeout(() => {
         Settings.load();
         registerLinks();
+
+        if (location.pathname === '/games') {
+            Games.load();
+        }
+
+        if (location.pathname === '/apps') {
+            Apps.load();
+        }
     }, 500);
 }
