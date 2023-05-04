@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
 @import url('/assets/css/fonts.css');
 @import url('/assets/css/themes.css');
 @import url('/assets/css/games.css');
@@ -9,6 +10,7 @@
     font-family: 'Lato';
     user-select: none;
     transition: all 0.5s ease;
+    scroll-behavior: smooth;
 }
 
 html,
@@ -46,6 +48,14 @@ a {
     text-decoration: none;
 }
 
+h1 {
+    text-align: center;
+}
+
+h3 {
+    margin-bottom: 0px;
+}
+
 input {
     text-align: center;
     box-shadow: 0.5vh 0.5vh 1vh 0vh var(--shadow-color);
@@ -58,6 +68,7 @@ input {
     color: var(--text);
     transition: 0.4s;
     margin: auto;
+    margin-top: 20px;
 }
 
 button {
@@ -75,6 +86,7 @@ button {
     margin-right: 10px;
     padding-left: 20px;
     padding-right: 20px;
+    margin-top: 20px;
 }
 
 select {
@@ -92,6 +104,7 @@ select {
     margin-right: 10px;
     padding-left: 20px;
     padding-right: 20px;
+    margin-top: 20px;
 }
 
 button:hover {
@@ -103,6 +116,7 @@ button:hover {
     display: inline-block;
     width: 60px;
     height: 34px;
+    margin-top: 20px;
 }
 
 .switch input {
@@ -111,6 +125,7 @@ button:hover {
     height: 34px;
     position: relative;
     z-index: 500;
+    bottom: 20px;
 }
 
 .slider {

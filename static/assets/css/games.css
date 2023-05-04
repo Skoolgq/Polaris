@@ -54,6 +54,7 @@
     color: #fff;
     font-size: 25px;
     z-index: 10;
+    margin-bottom: 20px;
 }
 
 .game>span {
