@@ -1,4 +1,10 @@
-import Theme from '/assets/js/themes.js';
+import Settings from './settings.js';
+import Games from './games.js';
+import Apps from './apps.js';
+
+window.onerror = (e) => {
+    alert(e);
+}
 
 fetch('/assets/misc/nav.html')
     .then(res => res.text())
@@ -43,61 +49,18 @@ const registerLinks = () => {
 
                                 if (e.data == 'loaded') {
                                     window.history.pushState({}, '', a.href);
-                                    console.log(frame.contentWindow);
                                     document.documentElement.innerHTML = frame.contentWindow.document.documentElement.innerHTML;
                                     document.body.style.display = 'none';
 
+                                    Settings.load();
                                     registerLinks();
 
-                                    if (localStorage.getItem('panic_key')) {
-                                        document.querySelector('#panic_key').value = localStorage.getItem('panic_key');
+                                    if (location.pathname === '/games') {
+                                        Games.load();
                                     }
 
-                                    if (localStorage.getItem('panic_url')) {
-                                        document.querySelector('#panic_url').value = localStorage.getItem('panic_url');
-                                    }
-
-                                    if (sessionStorage.getItem('settings-open') === 'true') {
-                                        document.querySelector('.sidebar').style.transition = 'all 0s ease';
-                                        document.querySelector('.sidebar').classList.add('active');
-
-                                        setInterval(() => {
-                                            document.querySelector('.sidebar').removeAttribute('style');
-                                        }, 1000);
-
-                                        window.history.pushState({}, '', '#settings');
-                                    }
-
-                                    document.querySelectorAll('[data-attr="sidebar_trigger"]').forEach(el => {
-                                        el.addEventListener('click', (e) => {
-                                            if (document.querySelector('.sidebar').classList.contains('active')) {
-                                                document.querySelector('.sidebar').classList.remove('active');
-
-                                                setTimeout(() => {
-                                                    window.history.pushState({}, '', location.href.split('#')[0]);
-                                                }, 50);
-
-                                                sessionStorage.setItem('settings-open', false);
-                                            } else {
-                                                document.querySelector('.sidebar').classList.add('active');
-
-                                                sessionStorage.setItem('settings-open', true);
-                                            }
-                                        });
-                                    });
-
-                                    document.querySelector('#themes').querySelectorAll('button').forEach(el => {
-                                        el.onclick = () => {
-                                            Theme.set(el.innerText.toLocaleLowerCase());
-                                        }
-                                    });
-
-                                    document.querySelector('#prevent_close').addEventListener('click', () => {
-                                        localStorage.setItem('prevent_close', document.querySelector('#prevent_close').checked);
-                                    });
-
-                                    if (localStorage.getItem('prevent_close') == 'true') {
-                                        document.querySelector('#prevent_close').checked = true;
+                                    if (location.pathname === '/apps') {
+                                        Apps.load();
                                     }
 
                                     setTimeout(() => {
@@ -118,91 +81,15 @@ const registerLinks = () => {
 
 if (window.self === window.top) {
     setTimeout(() => {
-        if (localStorage.getItem('panic_key')) {
-            document.querySelector('#panic_key').value = localStorage.getItem('panic_key');
-        }
-
-        if (localStorage.getItem('panic_url')) {
-            document.querySelector('#panic_url').value = localStorage.getItem('panic_url');
-        }
-
-        document.querySelector('#reset_panic').addEventListener('click', (e) => {
-            localStorage.setItem('panic_key', '');
-            document.querySelector('#panic_key').value = '';
-        });
-
-        document.querySelector('#panic_url').addEventListener('input', (e) => {
-            localStorage.setItem('panic_url', document.querySelector('#panic_url').value);
-        })
-
-        window.onkeydown = (e) => {
-            if (document.querySelector('#panic_key') == document.activeElement) {
-                document.querySelector('#panic_key').value = e.key;
-
-                localStorage.setItem('panic_key', document.querySelector('#panic_key').value);
-            } else {
-                if (e.key == localStorage.getItem('panic_key')) {
-                    if (localStorage.getItem('panic_url')) {
-                        window.location.href = localStorage.getItem('panic_url');
-                    } else {
-                        alert('A panic key was used but no url was found');
-                    }
-                }
-            }
-        }
-
-        document.querySelector('#prevent_close').addEventListener('click', () => {
-            localStorage.setItem('prevent_close', document.querySelector('#prevent_close').checked);
-        });
-
-        if (localStorage.getItem('prevent_close') == 'true') {
-            document.querySelector('#prevent_close').checked = true;
-        }
-
-        document.querySelector('#themes').querySelectorAll('button').forEach(el => {
-            el.onclick = () => {
-                Theme.set(el.innerText.toLocaleLowerCase());
-            }
-        });
-
-        if (window.location.hash.slice(1)) {
-            document.querySelector('.sidebar').style.transition = 'all 0s ease';
-            document.querySelector('.sidebar').classList.add('active');
-
-            setInterval(() => {
-                document.querySelector('.sidebar').removeAttribute('style');
-            }, 1000);
-        }
-
-        if (sessionStorage.getItem('settings-open') === 'true') {
-            document.querySelector('.sidebar').style.transition = 'all 0s ease';
-            document.querySelector('.sidebar').classList.add('active');
-
-            setInterval(() => {
-                document.querySelector('.sidebar').removeAttribute('style');
-            }, 1000);
-
-            window.history.pushState({}, '', '#settings');
-        }
-
+        Settings.load();
         registerLinks();
 
-        document.querySelectorAll('[data-attr="sidebar_trigger"]').forEach(el => {
-            el.addEventListener('click', (e) => {
-                if (document.querySelector('.sidebar').classList.contains('active')) {
-                    document.querySelector('.sidebar').classList.remove('active');
+        if (location.pathname === '/games') {
+            Games.load();
+        }
 
-                    setTimeout(() => {
-                        window.history.pushState({}, '', location.href.split('#')[0]);
-                    }, 50);
-
-                    sessionStorage.setItem('settings-open', false);
-                } else {
-                    document.querySelector('.sidebar').classList.add('active');
-
-                    sessionStorage.setItem('settings-open', true);
-                }
-            });
-        });
+        if (location.pathname === '/apps') {
+            Apps.load();
+        }
     }, 500);
 }

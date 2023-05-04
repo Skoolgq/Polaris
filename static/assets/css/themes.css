@@ -6,6 +6,7 @@ body[data-theme='dark'] {
     --shadow-color: #4242424b;
     --switch-color: #42424259;
     --scrollbar-color: #ffffff59;
+    --solid: #1b2735;
 
     background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
     background-repeat: no-repeat;
@@ -19,6 +20,7 @@ body[data-theme='light'] {
     --shadow-color: #4242424b;
     --switch-color: #111111b0;
     --scrollbar-color: #4242424b;
+    --solid: #f6f5f0;
 
     background: radial-gradient(ellipse at bottom, #b1b1b1 0%, #f6f5f0 100%);
     background-repeat: no-repeat;
@@ -33,6 +35,7 @@ body[data-theme='light'] {
         --shadow-color: #4242424b;
         --switch-color: #111111b0;
         --scrollbar-color: #4242424b;
+        --solid: #f6f5f0;
 
         background: radial-gradient(ellipse at bottom, #b1b1b1 0%, #f6f5f0 100%);
         background-repeat: no-repeat;
@@ -48,6 +51,7 @@ body[data-theme='light'] {
         --shadow-color: #4242424b;
         --switch-color: #42424259;
         --scrollbar-color: #ffffff59;
+        --solid: #1b2735;
 
         background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
         background-repeat: no-repeat;
