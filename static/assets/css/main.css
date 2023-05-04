@@ -3,6 +3,7 @@
 @import url('/assets/css/games.css');
 @import url('/assets/css/nav.css');
 @import url('/assets/css/sidebar.css');
+@import url('/assets/css/dropdown.css');
 
 * {
     font-family: 'Lato';
@@ -21,6 +22,25 @@ html {
     height: 100%;
 }
 
+::-webkit-scrollbar {
+    width: 16px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-color);
+    border: 4px solid transparent;
+    background-clip: content-box;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
 a {
     color: var(--text);
     text-decoration: none;
@@ -28,9 +48,9 @@ a {
 
 input {
     text-align: center;
-    box-shadow: 0.5vh 0.5vh 1vh 0vh rgba(0, 0, 0, 0.75);
+    box-shadow: 0.5vh 0.5vh 1vh 0vh var(--shadow-color);
     border: none;
-    border-radius: 50px;
+    border-radius: 10px;
     cursor: pointer;
     background-color: var(--button-bg);
     width: 250px;
@@ -40,16 +60,28 @@ input {
     margin: auto;
 }
 
-/*input:focus {
-    border: none;
-    opacity: 0.8;
-}*/
-
 button {
     text-align: center;
-    box-shadow: 0.5vh 0.5vh 1vh 0vh rgba(0, 0, 0, 0.75);
+    box-shadow: 0.5vh 0.5vh 1vh 0vh var(--shadow-color);
     border: none;
-    border-radius: 50px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: var(--button-bg);
+    min-width: 70px;
+    height: 40px;
+    color: var(--text);
+    transition: 0.4s;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+select {
+    text-align: center;
+    box-shadow: 0.5vh 0.5vh 1vh 0vh var(--shadow-color);
+    border: none;
+    border-radius: 10px;
     cursor: pointer;
     background-color: var(--button-bg);
     min-width: 70px;
@@ -64,4 +96,67 @@ button {
 
 button:hover {
     opacity: 0.8;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 60px;
+    height: 34px;
+    position: relative;
+    z-index: 500;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 10px;
+    box-shadow: 0.5vh 0.5vh 1vh 0vh var(--shadow-color);
+    background-color: var(--switch-color);
+}
+
+.switch>label {
+    position: relative;
+    right: 60px;
+    font-size: 1.17em;
+    top: 5px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 10px;
+}
+
+input:checked+.slider {
+    background-color: #2196F3;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px var(--switch-color);
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
 }

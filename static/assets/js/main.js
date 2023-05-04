@@ -15,7 +15,11 @@ fetch('/assets/misc/nav.html')
     });
 
 onbeforeunload = (e) => {
-    sessionStorage.setItem('settings-open', false);
+    if (localStorage.getItem('prevent_close') === 'true') {
+        e.preventDefault();
+        return e;
+    }
+    sessionStorage.clear();
 }
 
 const registerLinks = () => {
@@ -34,13 +38,24 @@ const registerLinks = () => {
                         frame.contentWindow.addEventListener('DOMContentLoaded', () => {
                             document.body.style.display = 'none';
 
-                            window.addEventListener('message', (e) => {
-                                if (e.data) {
+                            window.onmessage = (e) => {
+                                console.log(e);
+
+                                if (e.data == 'loaded') {
                                     window.history.pushState({}, '', a.href);
-                                    document.documentElement.innerHTML = frame.contentDocument.documentElement.innerHTML;
+                                    console.log(frame.contentWindow);
+                                    document.documentElement.innerHTML = frame.contentWindow.document.documentElement.innerHTML;
                                     document.body.style.display = 'none';
 
                                     registerLinks();
+
+                                    if (localStorage.getItem('panic_key')) {
+                                        document.querySelector('#panic_key').value = localStorage.getItem('panic_key');
+                                    }
+
+                                    if (localStorage.getItem('panic_url')) {
+                                        document.querySelector('#panic_url').value = localStorage.getItem('panic_url');
+                                    }
 
                                     if (sessionStorage.getItem('settings-open') === 'true') {
                                         document.querySelector('.sidebar').style.transition = 'all 0s ease';
@@ -71,11 +86,25 @@ const registerLinks = () => {
                                         });
                                     });
 
+                                    document.querySelector('#themes').querySelectorAll('button').forEach(el => {
+                                        el.onclick = () => {
+                                            Theme.set(el.innerText.toLocaleLowerCase());
+                                        }
+                                    });
+
+                                    document.querySelector('#prevent_close').addEventListener('click', () => {
+                                        localStorage.setItem('prevent_close', document.querySelector('#prevent_close').checked);
+                                    });
+
+                                    if (localStorage.getItem('prevent_close') == 'true') {
+                                        document.querySelector('#prevent_close').checked = true;
+                                    }
+
                                     setTimeout(() => {
                                         document.body.style.display = 'block';
                                     }, 500);
                                 }
-                            });
+                            }
                         });
                     }
                 } else {
@@ -89,31 +118,45 @@ const registerLinks = () => {
 
 if (window.self === window.top) {
     setTimeout(() => {
-        if (localStorage.getItem('panick_key')) {
-            document.querySelector('#panic_key').value = localStorage.getItem('panick_key');
+        if (localStorage.getItem('panic_key')) {
+            document.querySelector('#panic_key').value = localStorage.getItem('panic_key');
         }
 
-        if (localStorage.getItem('panick_url')) {
-            document.querySelector('#panic_url').value = localStorage.getItem('panick_url');
+        if (localStorage.getItem('panic_url')) {
+            document.querySelector('#panic_url').value = localStorage.getItem('panic_url');
         }
 
         document.querySelector('#reset_panic').addEventListener('click', (e) => {
-            localStorage.setItem('panick_key', '');
+            localStorage.setItem('panic_key', '');
             document.querySelector('#panic_key').value = '';
         });
 
         document.querySelector('#panic_url').addEventListener('input', (e) => {
-            localStorage.setItem('panick_url', document.querySelector('#panic_url').value);
+            localStorage.setItem('panic_url', document.querySelector('#panic_url').value);
         })
 
         window.onkeydown = (e) => {
-
-            
             if (document.querySelector('#panic_key') == document.activeElement) {
                 document.querySelector('#panic_key').value = e.key;
 
-                localStorage.setItem('panick_key', document.querySelector('#panic_key').value);
+                localStorage.setItem('panic_key', document.querySelector('#panic_key').value);
+            } else {
+                if (e.key == localStorage.getItem('panic_key')) {
+                    if (localStorage.getItem('panic_url')) {
+                        window.location.href = localStorage.getItem('panic_url');
+                    } else {
+                        alert('A panic key was used but no url was found');
+                    }
+                }
             }
+        }
+
+        document.querySelector('#prevent_close').addEventListener('click', () => {
+            localStorage.setItem('prevent_close', document.querySelector('#prevent_close').checked);
+        });
+
+        if (localStorage.getItem('prevent_close') == 'true') {
+            document.querySelector('#prevent_close').checked = true;
         }
 
         document.querySelector('#themes').querySelectorAll('button').forEach(el => {

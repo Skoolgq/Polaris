@@ -1,8 +1,11 @@
 body[data-theme='dark'] {
     --background-color: #000;
     --text: #fff;
-    --sidebar-bg: rgba(0, 0, 0, 0.350);
-    --button-bg: rgba(0, 0, 0, 0.350);
+    --sidebar-bg: #00000059;
+    --button-bg: #42424259;
+    --shadow-color: #4242424b;
+    --switch-color: #42424259;
+    --scrollbar-color: #ffffff59;
 
     background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
     background-repeat: no-repeat;
@@ -11,31 +14,42 @@ body[data-theme='dark'] {
 body[data-theme='light'] {
     --background-color: #fff;
     --text: #000;
-    --sidebar-bg: rgba(255, 255, 255, 0.350);
-    --button-bg: rgba(255, 255, 255, 0.350);
+    --sidebar-bg: #ffffff59;
+    --button-bg: #ffffff59;
+    --shadow-color: #4242424b;
+    --switch-color: #111111b0;
+    --scrollbar-color: #4242424b;
 
     background: radial-gradient(ellipse at bottom, #b1b1b1 0%, #f6f5f0 100%);
     background-repeat: no-repeat;
 }
 
-body[data-theme='system default'] {
-    @media screen and (prefers-color-scheme: dark) {
-        --background-color: #000;
-        --text: #fff;
-        --sidebar-bg: rgba(0, 0, 0, 0.350);
-        --button-bg: rgba(0, 0, 0, 0.350);
-
-        background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
-        background-repeat: no-repeat;
-    }
-
-    @media screen and (prefers-color-scheme: light) {
+@media screen and (prefers-color-scheme: light) {
+    body[data-theme='system default'] {
         --background-color: #fff;
         --text: #000;
-        --sidebar-bg: rgba(255, 255, 255, 0.350);
-        --button-bg: rgba(255, 255, 255, 0.350);
+        --sidebar-bg: #ffffff59;
+        --button-bg: #ffffff59;
+        --shadow-color: #4242424b;
+        --switch-color: #111111b0;
+        --scrollbar-color: #4242424b;
 
         background: radial-gradient(ellipse at bottom, #b1b1b1 0%, #f6f5f0 100%);
+        background-repeat: no-repeat;
+    }
+}
+
+@media screen and (prefers-color-scheme: dark) {
+    body[data-theme='system default'] {
+        --background-color: #000;
+        --text: #fff;
+        --sidebar-bg: #00000059;
+        --button-bg: #42424259;
+        --shadow-color: #4242424b;
+        --switch-color: #42424259;
+        --scrollbar-color: #ffffff59;
+
+        background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
         background-repeat: no-repeat;
     }
 }
