@@ -1,10 +1,7 @@
 import Settings from './settings.js';
 import Games from './games.js';
 import Apps from './apps.js';
-
-window.onerror = (e) => {
-    alert(e);
-}
+import PolarisError from './error.js';
 
 fetch('/assets/misc/nav.html')
     .then(res => res.text())
@@ -15,9 +12,7 @@ fetch('/assets/misc/nav.html')
             window.parent.postMessage('loaded', location.origin);
         }
     }).catch(e => {
-        alert('Failed to load navbar');
-
-        if (confirm('Try again?')) location.reload();
+       new PolarisError('Failed to load navbar <a href="javascript:location.reload();" data-link="true"><button>Reload</button></a>');
     });
 
 onbeforeunload = (e) => {

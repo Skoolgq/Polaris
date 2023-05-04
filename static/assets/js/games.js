@@ -1,3 +1,5 @@
+import PolarisError from './error.js';
+
 const load = () => {
     fetch('/assets/JSON/games.json')
         .then(res => res.json())
@@ -10,10 +12,10 @@ const load = () => {
 
                 el.addEventListener('click', () => {
                     
-                })
+                });
             });
         }).catch(e => {
-            alert('Failed to load games');
+            new PolarisError('Failed to load games');
         });
 }
 

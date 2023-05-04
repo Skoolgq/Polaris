@@ -1,4 +1,5 @@
 import Theme from './themes.js';
+import PolarisError from './error.js';
 
 const load = () => {
     const isScrollable = (element) => {
@@ -32,7 +33,7 @@ const load = () => {
                 if (localStorage.getItem('panic_url')) {
                     window.location.href = localStorage.getItem('panic_url');
                 } else {
-                    alert('A panic key was used but no url was found');
+                    new PolarisError('A panic key was used but no url was found.');
                 }
             }
         }

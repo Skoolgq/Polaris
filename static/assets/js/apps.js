@@ -1,3 +1,5 @@
+import PolarisError from './error.js';
+
 const load = () => {
     fetch('/assets/JSON/apps.json')
         .then(res => res.json())
@@ -13,7 +15,7 @@ const load = () => {
                 })
             });
         }).catch(e => {
-            alert('Failed to load apps');
+            new PolarisError('Failed to load apps');
         });
 }
 
