@@ -40,7 +40,6 @@ body[data-theme='flamingo'] {
     --solid: #FB5E4C;
 
     background: linear-gradient(304deg, #ff8800, #f507e2);
-    background-repeat: no-repeat;
     animation: flamingo-gradient 12s ease infinite;
 
     @keyframes flamingo-gradient {
@@ -73,6 +72,35 @@ body[data-theme='frost'] {
     animation: frost-gradient 12s ease infinite;
 
     @keyframes frost-gradient {
+        0% {
+            background-position: 0% 50%;
+        }
+    
+        50% {
+            background-position: 100% 50%;
+        }
+    
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+}
+
+body[data-theme='crimsion'] {
+    --background-color: #000;
+    --text: #fff;
+    --sidebar-bg: #000000ee;
+    --button-bg: #00000059;
+    --shadow-color: #940C284b;
+    --switch-color: #42424259;
+    --switch-active: #B90F32;
+    --scrollbar-color: #ffffff59;
+    --solid: #940C28;
+
+    background: linear-gradient(304deg, #000000, #dc143c);
+    animation: crimsion-gradient 12s ease infinite;
+
+    @keyframes crimsion-gradient {
         0% {
             background-position: 0% 50%;
         }

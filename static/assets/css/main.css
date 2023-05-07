@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+@import url('https://site-assets.fontawesome.com/releases/v6.2.0/css/all.css');
 @import url('/assets/css/fonts.css');
 @import url('/assets/css/themes.css');
 @import url('/assets/css/nav.css');
@@ -40,6 +40,10 @@ html {
 
 ::-webkit-scrollbar-corner {
     background: transparent;
+}
+
+i {
+    margin: 10px;
 }
 
 a {
