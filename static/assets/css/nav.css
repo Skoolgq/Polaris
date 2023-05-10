@@ -6,13 +6,13 @@
 }
 
 .navbar>.title>img {
-    width: 75px;
+    width: 55px;
     border-radius: 10px;
 }
 
 .navbar>.title>span {
     font-family: 'Lato-Black';
-    font-size: 60px;
+    font-size: 40px;
     margin-left: 13px;
     position: relative;
     bottom: 13px;
@@ -25,7 +25,7 @@
 
 .navbar>.end>a {
     margin: 0.5rem;
-    padding: 1.5rem;
+    padding: 1rem;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
     cursor: pointer;
