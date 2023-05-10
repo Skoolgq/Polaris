@@ -7,7 +7,7 @@ const load = () => {
             games.forEach(game => {
                 const el = document.createElement('div');
                 el.classList = 'game';
-                el.innerHTML = `<img src="${game.image}"><h3>${game.name}</h3><span>${game.desc}</span>`;
+                el.innerHTML = `<a href="#" onclick="localStorage.setItem('currentgame', '${game.source}'); window.location.href = 'play';"><img src="${game.image}"><h3>${game.name}</h3><span>${game.desc}</span>`;
                 document.querySelector('.games').appendChild(el);
 
                 el.addEventListener('click', () => {
