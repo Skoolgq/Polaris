@@ -1,6 +1,10 @@
 import Theme from './themes.js';
 import PolarisError from './error.js';
 
+const set = () => {
+
+};
+
 const load = () => {
     const isScrollable = (element) => {
         return element.scrollWidth > element.clientWidth || element.scrollHeight > element.clientHeight;
@@ -116,7 +120,7 @@ const load = () => {
 
     document.querySelector('#panic_url').addEventListener('input', (e) => {
         localStorage.setItem('panic_url', document.querySelector('#panic_url').value);
-    })
+    });
 
     window.onkeydown = (e) => {
         if (document.querySelector('#panic_key') == document.activeElement) {
@@ -140,6 +144,35 @@ const load = () => {
 
     if (localStorage.getItem('prevent_close') == 'true') {
         document.querySelector('#prevent_close').checked = true;
+    }
+
+    document.querySelector('#dev_mode').addEventListener('change', () => {
+        localStorage.setItem('dev_mode', document.querySelector('#dev_mode').checked);
+
+        if (document.querySelector('#dev_mode').checked) {
+            const erudaSrc = document.createElement('script');
+            erudaSrc.src = 'https://cdnjs.cloudflare.com/ajax/libs/eruda/3.0.0/eruda.js';
+            document.body.appendChild(erudaSrc);
+
+            erudaSrc.onload = () => {
+                eruda.init();
+            }
+        } else {
+            document.querySelector('#eruda').remove();
+            document.querySelector('.__chobitsu-hide__').remove();
+        }
+    });
+
+    if (localStorage.getItem('dev_mode') == 'true') {
+        document.querySelector('#dev_mode').checked = true;
+
+        const erudaSrc = document.createElement('script');
+        erudaSrc.src = 'https://cdnjs.cloudflare.com/ajax/libs/eruda/3.0.0/eruda.js';
+        document.body.appendChild(erudaSrc);
+
+        erudaSrc.onload = () => {
+            eruda.init();
+        }
     }
 
     document.querySelector('#themes').querySelectorAll('button').forEach(el => {
