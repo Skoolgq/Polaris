@@ -7,14 +7,14 @@
 }
 
 .navbar>.title>img {
-    width: 11vh;
-    border-radius: 1.5vh;
+    width: 75px;
+    border-radius: 10px;
 }
 
 .navbar>.title>span {
     font-family: 'Lato-Black';
-    font-size: 9vh;
-    margin-left: 2vh;
+    font-size: 60px;
+    margin-left: 13px;
     position: relative;
     bottom: 2vh;
 }
@@ -26,7 +26,7 @@
 
 .navbar>.end>a {
     margin: 0.5rem;
-    padding: 1.5rem;
+    padding: 0.5rem;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
     cursor: pointer;
@@ -35,5 +35,5 @@
 }
 
 .navbar>.end>a:hover {
-    color: ;
+    color: var(--solid);
 }
