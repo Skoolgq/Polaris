@@ -14,6 +14,101 @@ const load = () => {
         document.querySelector('#panic_url').value = localStorage.getItem('panic_url');
     }
 
+    if (localStorage.getItem('cloak')) {
+        document.querySelector('#cloak_select').value = localStorage.getItem('cloak');
+
+        if (localStorage.getItem('cloak') == 'custom') {
+            document.querySelector('#custom_cloak').classList.remove('hidden');
+
+            document.querySelector('#title').addEventListener('input', () => {
+                if (document.querySelector('#title').value) {
+                    localStorage.setItem('cloak_title', document.querySelector('#title').value);
+                    document.title = document.querySelector('#title').value;
+                } else {
+                    document.title = 'Polaris';
+                }
+            });
+
+            document.querySelector('#domain').addEventListener('input', () => {
+                if (document.querySelector('#domain').value) {
+                    localStorage.setItem('cloak_website', document.querySelector('#domain').value);
+
+                    document.querySelector('link[rel="shortcut icon"]').href = 'https://www.google.com/s2/favicons?domain=' + document.querySelector('#domain').value;
+                } else {
+                    document.querySelector('link[rel="shortcut icon"]').href = '/favicon.ico';
+                }
+            });
+
+            if (localStorage.getItem('cloak_title')) {
+                document.querySelector('#title').value = localStorage.getItem('cloak_title');
+                document.title = localStorage.getItem('cloak_title');
+            }
+
+            if (localStorage.getItem('cloak_website')) {
+                document.querySelector('#domain').value = localStorage.getItem('cloak_website');
+                document.querySelector('link[rel="shortcut icon"]').href = 'https://www.google.com/s2/favicons?domain=' + localStorage.getItem('cloak_website');
+            }
+        } else {
+            fetch('/assets/JSON/cloaks.json')
+                .then(res => res.json())
+                .then(cloaks => {
+                    if (cloaks[localStorage.getItem('cloak')]) {
+                        document.title = cloaks[localStorage.getItem('cloak')].title;
+                        document.querySelector('link[rel="shortcut icon"]').href = cloaks[localStorage.getItem('cloak')].icon;
+                    } else {
+                        new PolarisError(`The theme ${localStorage.getItem('cloak')} does not exist`);
+                    }
+                });
+        }
+    }
+
+    fetch('/assets/JSON/cloaks.json')
+        .then(res => res.json())
+        .then(cloaks => {
+            document.querySelector('#cloak_select').addEventListener('change', () => {
+                if (document.querySelector('#cloak_select').value == 'custom') {
+                    localStorage.setItem('cloak', document.querySelector('#cloak_select').value);
+
+                    document.querySelector('#custom_cloak').classList.remove('hidden');
+
+                    document.querySelector('#title').addEventListener('input', () => {
+                        if (document.querySelector('#title').value) {
+                            localStorage.setItem('cloak_title', document.querySelector('#title').value);
+                            document.title = document.querySelector('#title').value;
+                        } else {
+                            document.title = 'Polaris';
+                        }
+                    });
+
+                    document.querySelector('#domain').addEventListener('input', () => {
+                        if (document.querySelector('#domain').value) {
+                            localStorage.setItem('cloak_website', document.querySelector('#domain').value);
+
+                            document.querySelector('link[rel="shortcut icon"]').href = 'https://www.google.com/s2/favicons?domain=' + document.querySelector('#domain').value;
+                        } else {
+                            document.querySelector('link[rel="shortcut icon"]').href = '/favicon.ico';
+                        }
+                    });
+                } else if (document.querySelector('#cloak_select').value == 'none') {
+                    document.title = 'Polaris';
+                    document.querySelector('link[rel="shortcut icon"]').href = '/favicon.ico';
+
+                    document.querySelector('#custom_cloak').classList.add('hidden');
+                } else {
+                    if (cloaks[document.querySelector('#cloak_select').value]) {
+                        document.title = cloaks[document.querySelector('#cloak_select').value].title;
+                        document.querySelector('link[rel="shortcut icon"]').href = cloaks[document.querySelector('#cloak_select').value].icon;
+
+                        localStorage.setItem('cloak', document.querySelector('#cloak_select').value);
+                    } else {
+                        new PolarisError(`The cloak ${document.querySelector('#cloak_select').value} does not exist`);
+                    }
+
+                    document.querySelector('#custom_cloak').classList.add('hidden');
+                }
+            });
+        });
+
     document.querySelector('#reset_panic').addEventListener('click', (e) => {
         localStorage.setItem('panic_key', '');
         document.querySelector('#panic_key').value = 'No Key Selected';

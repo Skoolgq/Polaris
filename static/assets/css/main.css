@@ -42,6 +42,10 @@ html {
     background: transparent;
 }
 
+.hidden {
+    display: none;
+}
+
 i {
     margin: 10px;
 }

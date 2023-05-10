@@ -1,0 +1,14 @@
+{
+    "canvas": {
+        "icon": "https://www.google.com/s2/favicons?domain=https://canvas.instructure.com",
+        "title": "Dashboard"
+    },
+    "google": {
+        "icon": "https://www.google.com/s2/favicons?domain=https://google.com",
+        "title": "Google"
+    },
+    "classroom": {
+        "icon": "https://play-lh.googleusercontent.com/w0s3au7cWptVf648ChCUP7sW6uzdwGFTSTenE178Tz87K_w1P1sFwI6h1CLZUlC2Ug",
+        "title": "Classes"
+    }
+}

@@ -9,7 +9,7 @@
         <a href="/games"><i class="fa-solid fa-gamepad-modern"></i>Games</a>
         <a href="/apps"><i class="fa-solid fa-rocket-launch"></i>Apps</a>
         <a href="/search"><i class="fa-solid fa-magnifying-glass"></i>Search</a>
-        <a href="#settings" data-link="true" data-attr="sidebar_trigger" id="open_sidebar"><i class="fa-solid fa-gear"></i> Settings</a>
+        <a href="#settings" data-link="true" data-attr="sidebar_trigger"><i class="fa-solid fa-gear"></i> Settings</a>
     </div>
 </div>
 
@@ -37,8 +37,21 @@
         <button class="padded">Crimsion</button>
     </div>
 
+    <h3>Tab Cloak</h3>
+    <select id="cloak_select">
+        <option value="none">None</option>
+        <option value="custom">Custom</option>
+        <option value="canvas">Canvas Dashboard</option>
+        <option value="google">Google</option>
+        <option value="classroom">Google Classroom</option>
+    </select>
+    <div class="hidden" id="custom_cloak">
+        <input type="text" placeholder="Title" id="title" />
+        <input type="text" placeholder="eg: google.com" id="domain" />
+    </div>
+
     <h3>Select a proxy</h3>
-    <select name="proxy-selection" id="proxy">
+    <select id="proxy">
         <option value="uv">Ultraviolet</option>
         <option value="rh">Rammerhead</option>
     </select>

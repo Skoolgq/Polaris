@@ -9,13 +9,13 @@ body[data-theme='dark'] {
     --scrollbar-color: #ffffff59;
     --solid: #1b2735;
 
-    background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+    background: radial-gradient(ellipse at bottom, #1b2735 0%, #171820 100%);
     background-repeat: no-repeat;
 }
-
 body[data-theme='light'] {
     --background-color: #fff;
     --text: #000;
+    
     --sidebar-bg: #ffffffee;
     --button-bg: #ffffff59;
     --shadow-color: #4242424b;

@@ -1,21 +1,22 @@
+
 .navbar {
     position: sticky;
     display: flex;
     justify-content: space-between;
-    margin: 10px;
+    margin: 1.5vh;
 }
 
 .navbar>.title>img {
-    width: 75px;
-    border-radius: 10px;
+    width: 11vh;
+    border-radius: 1.5vh;
 }
 
 .navbar>.title>span {
     font-family: 'Lato-Black';
-    font-size: 60px;
-    margin-left: 13px;
+    font-size: 9vh;
+    margin-left: 2vh;
     position: relative;
-    bottom: 13px;
+    bottom: 2vh;
 }
 
 .navbar>.end {
@@ -29,5 +30,10 @@
     padding-left: 0.5rem;
     padding-right: 0.5rem;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 3vh;
+    transition: color 0.3s ease-in-out;
+}
+
+.navbar>.end>a:hover {
+    color: ;
 }
