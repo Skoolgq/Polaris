@@ -1,4 +1,5 @@
 import PolarisError from './error.js';
+import frame from './frame.js';
 
 const load = () => {
     fetch('/assets/JSON/games.json')
@@ -11,7 +12,7 @@ const load = () => {
                 document.querySelector('.games').appendChild(el);
 
                 el.addEventListener('click', () => {
-                    
+                    frame
                 });
             });
         }).catch(e => {

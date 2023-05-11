@@ -1,6 +1,7 @@
 import Settings from './settings.js';
 import Games from './games.js';
 import Apps from './apps.js';
+import WPM from './wpm.js';
 import PolarisError from './error.js';
 
 fetch('/assets/misc/nav.html')
@@ -58,6 +59,10 @@ const registerLinks = () => {
                                         Apps.load();
                                     }
 
+                                    if (location.pathname === '/search') {
+                                        WPM.load();
+                                    }
+
                                     setTimeout(() => {
                                         document.body.style.display = 'block';
                                     }, 500);
@@ -85,6 +90,10 @@ if (window.self === window.top) {
 
         if (location.pathname === '/apps') {
             Apps.load();
+        }
+
+        if (location.pathname === '/search') {
+            WPM.load();
         }
     }, 500);
 }

@@ -23,6 +23,8 @@
   },
   "homepage": "https://github.com/polarisdevs/Polaris#readme",
   "dependencies": {
+    "@titaniumnetwork-dev/ultraviolet": "^1.0.11",
+    "@tomphttp/bare-server-node": "^1.2.5",
     "express": "^4.18.2"
   }
 }
