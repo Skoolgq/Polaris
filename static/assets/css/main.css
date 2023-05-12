@@ -4,6 +4,7 @@
 @import url('/assets/css/nav.css');
 @import url('/assets/css/sidebar.css');
 @import url('/assets/css/dropdown.css');
+@import url('/asset/css/launcher.csss');
 
 * {
     font-family: 'Lato';
@@ -17,6 +18,7 @@ body {
     margin: 0px;
     background-color: var(--background-color);
     color: var(--text);
+    text-align: center;
 }
 
 html {
@@ -327,7 +329,9 @@ input:checked+.slider:before {
     transition: .5s;
     cursor: pointer;
     background: var(--solid);
-};
+}
+
+;
 
 .notifications>.notification.error {
     background: rgba(171, 61, 222, 0.801);
@@ -335,4 +339,16 @@ input:checked+.slider:before {
     transition: .5s;
     inline-size: 100%;
     overflow-wrap: break-word;
+}
+
+.box {
+    background: var(--sidebar-bg);
+    padding: 50px;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 5px 10px 0px var(--shadow-color);
 }

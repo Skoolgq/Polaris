@@ -1,4 +1,4 @@
-#game-frame {
+/*#game-frame {
     margin: 0 auto;
     display: block;
     border-top: 10px solid black;
@@ -27,7 +27,6 @@
     padding-top: 2px;
     margin: 0;
     display: inline-block;
-    float: right;
 }
 
 .game-name-icon {
@@ -42,4 +41,5 @@
 
 #game-icon-sm {
     border-radius: 5px;
-}
+}*/
+

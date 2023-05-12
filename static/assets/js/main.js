@@ -41,8 +41,6 @@ const registerLinks = () => {
                             document.body.style.display = 'none';
 
                             window.onmessage = (e) => {
-                                console.log(e);
-
                                 if (e.data == 'loaded') {
                                     window.history.pushState({}, '', a.href);
                                     document.documentElement.innerHTML = frame.contentWindow.document.documentElement.innerHTML;
@@ -97,3 +95,7 @@ if (window.self === window.top) {
         }
     }, 500);
 }
+
+const Polaris = { Settings, Games, Apps, WPM, PolarisError, registerLinks };
+
+export default Polaris;

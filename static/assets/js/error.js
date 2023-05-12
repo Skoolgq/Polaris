@@ -48,6 +48,11 @@ class PolarisError {
 }
 
 window.onerror = (a, b, c, d, e) => {
+    //alert(a);
+    //alert(b);
+    alert(c);
+    //alert(d);
+    //alert(e);
     new PolarisError(e);
 }
 

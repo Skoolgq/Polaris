@@ -32,7 +32,3 @@
     font-size: 3vh;
     transition: color 0.3s ease-in-out;
 }
-
-.navbar>.end>a:hover {
-    color: var(--solid);
-}
