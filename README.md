@@ -8,7 +8,7 @@ The future of school gaming.
 ### Prerequisites
 We require NodeJS v18 and higher.<br>
 
-### Steps
+### Stepss
 1. Cloning
 ````bash
 git clone https://github.com/polarisdevs/polaris-V1.git
