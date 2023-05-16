@@ -8,6 +8,7 @@ body[data-theme='dark'] {
     --switch-active: #2196F3;
     --scrollbar-color: #ffffff59;
     --solid: #1b2735;
+    --hover: #757575;
 
     background: radial-gradient(ellipse at bottom, #1b2735 0%, #171820 100%);
     background-repeat: no-repeat;
@@ -15,14 +16,14 @@ body[data-theme='dark'] {
 body[data-theme='light'] {
     --background-color: #fff;
     --text: #000;
-    
+    --hover: #757575;
     --sidebar-bg: #ffffffee;
     --button-bg: #ffffff59;
     --shadow-color: #4242424b;
     --switch-color: #111111b0;
     --switch-active: #2196F3;
     --scrollbar-color: #4242424b;
-    --solid: #f6f5f0;
+    --hover: #757575;
 
     background: radial-gradient(ellipse at bottom, #b1b1b1 0%, #f6f5f0 100%);
     background-repeat: no-repeat;
@@ -38,7 +39,7 @@ body[data-theme='flamingo'] {
     --switch-active: #FB5E4C;
     --scrollbar-color: #ffffff59;
     --solid: #FB5E4C;
-
+    --hover: #fcac0;
     background: linear-gradient(304deg, #ff8800, #f507e2);
     animation: flamingo-gradient 12s ease infinite;
 
@@ -67,7 +68,7 @@ body[data-theme='frost'] {
     --switch-active: #056181;
     --scrollbar-color: #ffffff59;
     --solid: #056181;
-
+    --hover: #6491fa;
     background: linear-gradient(304deg, #000000, #08c1ff);
     animation: frost-gradient 12s ease infinite;
 
@@ -96,7 +97,7 @@ body[data-theme='crimsion'] {
     --switch-active: #B90F32;
     --scrollbar-color: #ffffff59;
     --solid: #940C28;
-
+    --hover: #fc3f42;
     background: linear-gradient(304deg, #000000, #dc143c);
     animation: crimsion-gradient 12s ease infinite;
 
@@ -126,7 +127,7 @@ body[data-theme='crimsion'] {
         --switch-active: #2196F3;
         --scrollbar-color: #4242424b;
         --solid: #f6f5f0;
-
+        --hover: #757575;
         background: radial-gradient(ellipse at bottom, #b1b1b1 0%, #f6f5f0 100%);
         background-repeat: no-repeat;
     }
@@ -143,7 +144,7 @@ body[data-theme='crimsion'] {
         --switch-active: #2196F3;
         --scrollbar-color: #ffffff59;
         --solid: #1b2735;
-
+        --hover: #757575;
         background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
         background-repeat: no-repeat;
     }
