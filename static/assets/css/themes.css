@@ -39,7 +39,7 @@ body[data-theme='flamingo'] {
     --switch-active: #FB5E4C;
     --scrollbar-color: #ffffff59;
     --solid: #FB5E4C;
-    --hover: #fcac0;
+    --hover: #ed58b4;
     background: linear-gradient(304deg, #ff8800, #f507e2);
     animation: flamingo-gradient 12s ease infinite;
 
