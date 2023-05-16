@@ -5,7 +5,7 @@
 The future of school gaming.
 
 ## Terminal Deployment
-### Prerequisites
+### Prerequisites 
 We require NodeJS v18 and higher.<br>
 
 ### Stepss
