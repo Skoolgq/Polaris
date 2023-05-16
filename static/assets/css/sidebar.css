@@ -5,7 +5,7 @@
   width: 50vh;
   height: 75vh;
   background: var(--sidebar-bg);
-  border-radius: 10px;
+  border-radius: 2vh;
   box-shadow: 0px 5px 10px 0px var(--shadow-color);
   text-align: center;
   z-index: 100;
