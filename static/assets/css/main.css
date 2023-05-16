@@ -89,6 +89,29 @@ button {
     transition: 0.4s;
 }
 
+.mainpageimage-button {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  justify-content: center;
+  width: 45vh;
+  margin-top: 20vh;
+  transition: all 0.4s ease;
+}
+
+.mainpageimage-button:hover{
+  transform: scale(1.025);
+}
+
+.mainpageimage-button img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 4vh;
+  box-shadow: 0vh 0.75vh 1.5vh 0vh black;
+}
+
 select {
     text-align: center;
     box-shadow: 0.5vh 0.5vh 1vh 0vh var(--shadow-color);
