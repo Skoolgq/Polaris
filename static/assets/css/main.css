@@ -209,17 +209,16 @@ input:checked+.slider:before {
 }
 
 .game {
-    min-width: 200px;
-    min-height: 200px;
+    min-width: 20vh;
+    min-height: 20vh;
     display: block;
-    border-radius: 15px;
-    border: 1px solid #ffffff;
+    border: none;
     cursor: pointer;
     transition: .4s;
     overflow: hidden;
     position: relative;
-    box-shadow: 0px 0px 10px #00000020;
-    margin: 10px;
+    box-shadow: 0vh 0.75vh 1.5vh 0vh black;
+    margin: 1vh;
 }
 
 .game:hover {
