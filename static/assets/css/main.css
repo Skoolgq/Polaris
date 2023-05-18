@@ -219,10 +219,10 @@ input:checked+.slider:before {
     position: relative;
     box-shadow: 0vh 0.75vh 1.5vh 0vh black;
     margin: 1vh;
+    border-radius: 1.5vh;
 }
 
-.game:hover {
-    box-shadow: 0px 0px 20px #00000030;
+.game:hover { 
     filter: brightness(95%);
     transform: translateY(-2px);
     border-color: #ffffff;
