@@ -1,27 +1,6 @@
 import PolarisError from './error.js';
 import frame from './frame.js';
 
-const load = () => {
-    fetch('/assets/JSON/games.json')
-        .then(res => res.json())
-        .then(games => {
-            games.forEach(game => {
-                const el = document.createElement('div');
-                el.classList = 'game';
-                el.innerHTML = `<img src="${game.image}"><h3>${game.name}</h3><span>${game.desc}</span>`;
-                document.querySelector('.games').appendChild(el);
-
-                el.addEventListener('click', () => {
-                    frame
-                });
-            });
-        }).catch(e => {
-            new PolarisError('Failed to load games');
-        });
-}
-
-export default { load };
-
 const tiltEffectSettings = {
   max: 10, // max tilt rotation (degrees (deg))
   perspective: 1000, // transform perspective, the lower the more extreme the tilt gets (pixels (px))
@@ -30,13 +9,29 @@ const tiltEffectSettings = {
   easing: 'cubic-bezier(.03,.98,.52,.99)' // easing (transition-timing-function) of the enter/exit transition
 };
 
-const games = document.querySelectorAll('.game');
+const load = () => {
+  fetch('/assets/JSON/games.json')
+    .then(res => res.json())
+    .then(games => {
+      games.forEach(game => {
+        const el = document.createElement('div');
+        el.classList = 'game';
+        el.innerHTML = `<img src="${game.image}"><h3>${game.name}</h3><span>${game.desc}</span>`;
+        document.querySelector('.games').appendChild(el);
 
-games.forEach(game => {
-  game.addEventListener('mouseenter', gameMouseEnter);
-  game.addEventListener('mousemove', gameMouseMove);
-  game.addEventListener('mouseleave', gameMouseLeave);
-});
+        el.addEventListener('click', () => {
+          frame();
+        });
+
+        el.addEventListener('mouseenter', gameMouseEnter);
+        el.addEventListener('mousemove', gameMouseMove);
+        el.addEventListener('mouseleave', gameMouseLeave);
+      });
+    })
+    .catch(e => {
+      new PolarisError('Failed to load games');
+    });
+};
 
 function gameMouseEnter(event) {
   setTransition(event);
@@ -74,3 +69,6 @@ function setTransition(event) {
     game.style.transition = '';
   }, tiltEffectSettings.speed);
 }
+
+export default { load };
+
