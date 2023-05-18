@@ -10,7 +10,7 @@
   text-align: center;
   z-index: 100;
   overflow-y: auto;
-  padding: 20px;
+  padding: 1vh;
 }
 
 .sidebar.active {
