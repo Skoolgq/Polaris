@@ -6,14 +6,14 @@
 }
 
 .navbar>.title>img {
-    width: 55px;
-    border-radius: 10px;
+    width: 6vh;
+    border-radius: 1vh;
 }
 
 .navbar>.title>span {
     font-family: 'Lato-Black';
-    font-size: 30px;
-    margin-left: 13px;
+    font-size: 3vh;
+    margin-left: 1.3vh;
     position: relative;
     bottom: 2vh;
 }
@@ -33,6 +33,14 @@
     transition: color 0.3s ease-in-out;
 }
 
+.navbar>.end>a>i {
+   transition: color 0.3s ease-in-out;
+}
+
 .navbar>.end>a:hover {
+   color: var(--hover);
+}
+
+.navbar>.end>a>i:hover {
    color: var(--hover);
 }
