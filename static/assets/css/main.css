@@ -15,7 +15,7 @@
 
 html,
 body {
-    margin: 0px;
+    margin: 0vh;
     background-color: var(--background-color);
     color: var(--text);
     text-align: center;
@@ -26,7 +26,7 @@ html {
 }
 
 ::-webkit-scrollbar {
-    width: 16px;
+    width: 1.8vh;
 }
 
 ::-webkit-scrollbar-track {
@@ -35,9 +35,9 @@ html {
 
 ::-webkit-scrollbar-thumb {
     background: var(--scrollbar-color);
-    border: 4px solid transparent;
+    border: 0.5vh solid transparent;
     background-clip: content-box;
-    border-radius: 10px;
+    border-radius: 1vh;
 }
 
 ::-webkit-scrollbar-corner {
@@ -49,7 +49,7 @@ html {
 }
 
 i {
-    margin: 10px;
+    margin: 1vh;
 }
 
 a {
@@ -65,26 +65,26 @@ input {
     text-align: center;
     box-shadow: 0.5vh 0.5vh 1vh 0vh var(--shadow-color);
     border: none;
-    border-radius: 10px;
+    border-radius: 1vh;
     cursor: pointer;
     background-color: var(--button-bg);
-    width: 250px;
-    height: 40px;
+    width: 25vh;
+    height: 4vh;
     color: var(--text);
     transition: 0.4s;
     margin: auto;
-    margin-top: 20px;
+    margin-top: 2vh;
 }
 
 button {
     text-align: center;
     box-shadow: 0.5vh 0.5vh 1vh 0vh var(--shadow-color);
     border: none;
-    border-radius: 10px;
+    border-radius: 1vh;
     cursor: pointer;
     background-color: var(--button-bg);
-    min-width: 70px;
-    height: 40px;
+    min-width: 7vh;
+    height: 4vh;
     color: var(--text);
     transition: 0.4s;
 }
@@ -117,18 +117,18 @@ select {
     text-align: center;
     box-shadow: 0.5vh 0.5vh 1vh 0vh var(--shadow-color);
     border: none;
-    border-radius: 10px;
+    border-radius: 1vh;
     cursor: pointer;
     background-color: var(--button-bg);
-    min-width: 70px;
-    height: 40px;
+    min-width: 7vh;
+    height: 4vh;
     color: var(--text);
     transition: 0.4s;
-    margin-left: 10px;
-    margin-right: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-    margin-top: 20px;
+    margin-left: 1vh;
+    margin-right: 1vh;
+    padding-left: 2vh;
+    padding-right: 2vh;
+    margin-top: 2vh;
 }
 
 button:hover {
@@ -138,18 +138,18 @@ button:hover {
 .switch {
     position: relative;
     display: inline-block;
-    width: 60px;
-    height: 34px;
-    margin-top: 20px;
+    width: 6vh;
+    height: 3.4vh;
+    margin-top: 2vh;
 }
 
 .switch input {
     opacity: 0;
-    width: 60px;
-    height: 34px;
+    width: 6vh;
+    height: 3.4vh;
     position: relative;
     z-index: 500;
-    bottom: 20px;
+    bottom: 2vh;
 }
 
 .slider {
@@ -161,29 +161,29 @@ button:hover {
     bottom: 0;
     -webkit-transition: .4s;
     transition: .4s;
-    border-radius: 10px;
+    border-radius: 1vh;
     box-shadow: 0.5vh 0.5vh 1vh 0vh var(--shadow-color);
     background-color: var(--switch-color);
 }
 
 .switch>label {
     position: relative;
-    right: 60px;
+    right: 6vh;
     font-size: 1.17em;
-    top: 5px;
+    top: 0.5vh;
 }
 
 .slider:before {
     position: absolute;
     content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
+    height: 2.6vh;
+    width: 2.6vh;
+    left: 0.4vh;
+    bottom: 0.4vh;
     background-color: white;
     -webkit-transition: .4s;
     transition: .4s;
-    border-radius: 10px;
+    border-radius: 1vh;
 }
 
 input:checked+.slider {
@@ -191,13 +191,13 @@ input:checked+.slider {
 }
 
 input:focus+.slider {
-    box-shadow: 0 0 1px var(--switch-color);
+    box-shadow: 0 0 0.1vh var(--switch-color);
 }
 
 input:checked+.slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
+    -webkit-transform: translateX(2.6vh);
+    -ms-transform: translateX(2.6vh);
+    transform: translateX(2.6vh);
 }
 
 .games {
@@ -205,7 +205,7 @@ input:checked+.slider:before {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    padding-bottom: 30px;
+    padding-bottom: 3vh;
 }
 
 .game {
@@ -224,7 +224,7 @@ input:checked+.slider:before {
 
 .game:hover { 
     filter: brightness(95%);
-    transform: translateY(-2px);
+    transform: translateY(-0.2vh);
     border-color: #ffffff;
 }
 
@@ -250,20 +250,20 @@ input:checked+.slider:before {
 
 .game>h3 {
     position: absolute;
-    bottom: 25px;
-    left: 20px;
+    bottom: 2.5vh;
+    left: 2vh;
     color: #fff;
-    font-size: 25px;
+    font-size: 2.5vh;
     z-index: 10;
 }
 
 .game>span {
     position: absolute;
-    bottom: 20px;
-    left: 20px;
+    bottom: 2vh;
+    left: 2vh;
     color: #fff;
     z-index: 10;
-    font-size: 15px;
+    font-size: 1.5vh;
 }
 
 .apps {
@@ -271,27 +271,27 @@ input:checked+.slider:before {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    padding-bottom: 30px;
+    padding-bottom: 3vh;
 }
 
 .app {
-    min-width: 200px;
-    min-height: 200px;
+    min-width: 20vh;
+    min-height: 20vh;
     display: block;
-    border-radius: 15px;
-    border: 1px solid #ffffff;
+    border-radius: 1.5vh;
+    border: 0.1vh solid #ffffff;
     cursor: pointer;
     transition: .4s;
     overflow: hidden;
     position: relative;
-    box-shadow: 0px 0px 10px #00000020;
-    margin: 10px;
+    box-shadow: 0vh 0vh 1vh #00000020;
+    margin: 1vh;
 }
 
 .app:hover {
-    box-shadow: 0px 0px 20px #00000030;
+    box-shadow: 0vh 0vh 2vh #00000030;
     filter: brightness(95%);
-    transform: translateY(-2px);
+    transform: translateY(-0.2vh);
     border-color: #ffffff;
 }
 
@@ -317,21 +317,21 @@ input:checked+.slider:before {
 
 .app>h3 {
     position: absolute;
-    bottom: 25px;
-    left: 20px;
+    bottom: 2.5vh;
+    left: 2vh;
     color: #fff;
-    font-size: 25px;
+    font-size: 2.5vh;
     z-index: 10;
-    margin-bottom: 20px;
+    margin-bottom: 2vh;
 }
 
 .app>span {
     position: absolute;
-    bottom: 20px;
-    left: 20px;
+    bottom: 2vh;
+    left: 2vh;
     color: #fff;
     z-index: 10;
-    font-size: 15px;
+    font-size: 1.5vh;
 }
 
 .notifications {
@@ -346,9 +346,9 @@ input:checked+.slider:before {
 }
 
 .notifications>.notification {
-    padding: 15px;
-    border-radius: 20px;
-    margin-top: 10px;
+    padding: 1.5vh;
+    border-radius: 2vh;
+    margin-top: 1vh;
     transition: .5s;
     cursor: pointer;
     background: var(--solid);
@@ -366,12 +366,12 @@ input:checked+.slider:before {
 
 .box {
     background: var(--sidebar-bg);
-    padding: 50px;
-    border-radius: 10px;
+    padding: 5vh;
+    border-radius: 1vh;
     position: absolute;
     top: 50%;
     left: 50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    box-shadow: 0px 5px 10px 0px var(--shadow-color);
+    box-shadow: 0vh 0.5vh 1vh 0vh var(--shadow-color);
 }
