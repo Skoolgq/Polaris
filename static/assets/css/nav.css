@@ -23,7 +23,7 @@
     justify-content: space-between;
 }
 
-.navbar>.end>a {
+.navbar>.end> {
     margin: 0.5rem;
     padding: 0.3rem;
     padding-left: 0.5rem;
@@ -33,16 +33,8 @@
     transition: color 0.3s ease-in-out;
 }
 
-.navbar>.end>a>i {
-   transition: color 0.3s ease-in-out;
+
+.navbar>.end:hover {
+   color: var(--hover);
 }
 
-.navbar>.end>a:hover {
-   color: var(--hover);
-   transition: color 0.3s ease-in-out;
-}
-
-.navbar>.end>a>i:hover {
-   color: var(--hover);
-   transition: color 0.3s ease-in-out;
-}
