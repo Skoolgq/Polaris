@@ -39,8 +39,10 @@
 
 .navbar>.end>a:hover {
    color: var(--hover);
+   transition: color 0.3s ease-in-out;
 }
 
 .navbar>.end>a>i:hover {
    color: var(--hover);
+   transition: color 0.3s ease-in-out;
 }
