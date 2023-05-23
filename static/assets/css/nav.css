@@ -23,7 +23,7 @@
     justify-content: space-between;
 }
 
-.navbar>.end> {
+.navbar>.end>a {
     margin: 0.5rem;
     padding: 0.3rem;
     padding-left: 0.5rem;
@@ -34,7 +34,7 @@
 }
 
 
-.navbar>.end:hover {
+.navbar>.end>a:hover {
    color: var(--hover);
 }
 
