@@ -15,18 +15,18 @@
 
 html,
 body {
-    margin: 0vh;
+    margin: 0px;
     background-color: var(--background-color);
     color: var(--text);
     text-align: center;
 }
 
 html {
-    height: 100vh;
+    height: 100%;
 }
 
 ::-webkit-scrollbar {
-    width: 1.6vh;
+    width: 16px;
 }
 
 ::-webkit-scrollbar-track {
@@ -35,9 +35,9 @@ html {
 
 ::-webkit-scrollbar-thumb {
     background: var(--scrollbar-color);
-    border: 0.4vh solid transparent;
+    border: 4px solid transparent;
     background-clip: content-box;
-    border-radius: 1vh;
+    border-radius: 10px;
 }
 
 ::-webkit-scrollbar-corner {
@@ -49,7 +49,7 @@ html {
 }
 
 i {
-    margin: 1vh;
+    margin: 10px;
 }
 
 a {
@@ -63,28 +63,28 @@ h1 {
 
 input {
     text-align: center;
-    box-shadow: 0.05vh 0.05vh 0.1vh 0vh var(--shadow-color);
+    box-shadow: 0.5vh 0.5vh 1vh 0vh var(--shadow-color);
     border: none;
-    border-radius: 1vh;
+    border-radius: 10px;
     cursor: pointer;
     background-color: var(--button-bg);
-    width: 25vh;
-    height: 4vh;
+    width: 250px;
+    height: 40px;
     color: var(--text);
     transition: 0.4s;
     margin: auto;
-    margin-top: 2vh;
+    margin-top: 20px;
 }
 
 button {
     text-align: center;
-    box-shadow: 0.05vh 0.05vh 0.1vh 0vh var(--shadow-color);
+    box-shadow: 0.5vh 0.5vh 1vh 0vh var(--shadow-color);
     border: none;
-    border-radius: 1vh;
+    border-radius: 10px;
     cursor: pointer;
     background-color: var(--button-bg);
-    min-width: 7vh;
-    height: 4vh;
+    min-width: 70px;
+    height: 40px;
     color: var(--text);
     transition: 0.4s;
 }
@@ -95,8 +95,8 @@ button {
   padding: 0;
   cursor: pointer;
   justify-content: center;
-  width: 4.5vh;
-  margin-top: 1vh;
+  width: 45vh;
+  margin-top: 10vh;
   transition: all 0.4s ease;
 }
 
@@ -109,26 +109,26 @@ button {
   display: block;
   width: 100%;
   height: auto;
-  border-radius: 0.4vh;
-  box-shadow: 0vh 0.075vh 0.15vh 0vh black;
+  border-radius: 4vh;
+  box-shadow: 0vh 0.75vh 1.5vh 0vh black;
 }
 
 select {
     text-align: center;
-    box-shadow: 0.05vh 0.05vh 0.1vh 0vh var(--shadow-color);
+    box-shadow: 0.5vh 0.5vh 1vh 0vh var(--shadow-color);
     border: none;
-    border-radius: 1vh;
+    border-radius: 10px;
     cursor: pointer;
     background-color: var(--button-bg);
-    min-width: 7vh;
-    height: 4vh;
+    min-width: 70px;
+    height: 40px;
     color: var(--text);
     transition: 0.4s;
-    margin-left: 1vh;
-    margin-right: 1vh;
-    padding-left: 2vh;
-    padding-right: 2vh;
-    margin-top: 2vh;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 20px;
 }
 
 button:hover {
@@ -138,18 +138,18 @@ button:hover {
 .switch {
     position: relative;
     display: inline-block;
-    width: 6vh;
-    height: 3.4vh;
-    margin-top: 2vh;
+    width: 60px;
+    height: 34px;
+    margin-top: 20px;
 }
 
 .switch input {
     opacity: 0;
-    width: 6vh;
-    height: 3.4vh;
+    width: 60px;
+    height: 34px;
     position: relative;
     z-index: 500;
-    bottom: 2vh;
+    bottom: 20px;
 }
 
 .slider {
@@ -159,45 +159,45 @@ button:hover {
     left: 0;
     right: 0;
     bottom: 0;
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
-    border-radius: 1vh;
-    box-shadow: 0.05vh 0.05vh 0.1vh 0vh var(--shadow-color);
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 10px;
+    box-shadow: 0.5vh 0.5vh 1vh 0vh var(--shadow-color);
     background-color: var(--switch-color);
 }
 
-.switch > label {
+.switch>label {
     position: relative;
-    right: 6vh;
-    font-size: 0.117em;
-    top: 0.5vh;
+    right: 60px;
+    font-size: 1.17em;
+    top: 5px;
 }
 
 .slider:before {
     position: absolute;
     content: "";
-    height: 2.6vh;
-    width: 2.6vh;
-    left: 0.4vh;
-    bottom: 0.4vh;
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
     background-color: white;
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
-    border-radius: 1vh;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 10px;
 }
 
-input:checked + .slider {
+input:checked+.slider {
     background-color: var(--switch-active);
 }
 
-input:focus + .slider {
-    box-shadow: 0 0 0.1vh var(--switch-color);
+input:focus+.slider {
+    box-shadow: 0 0 1px var(--switch-color);
 }
 
-input:checked + .slider:before {
-    -webkit-transform: translateX(2.6vh);
-    -ms-transform: translateX(2.6vh);
-    transform: translateX(2.6vh);
+input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
 }
 
 .games {
@@ -205,30 +205,30 @@ input:checked + .slider:before {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    padding-bottom: 3vh;
+    padding-bottom: 30px;
 }
 
 .game {
-    min-width: 2vh;
-    min-height: 2vh;
+    min-width: 20vh;
+    min-height: 20vh;
     display: block;
     border: none;
     cursor: pointer;
-    transition: 0.4s;
+    transition: .4s;
     overflow: hidden;
     position: relative;
-    box-shadow: 0vh 0.075vh 0.15vh 0vh black;
-    margin: 0.1vh;
-    border-radius: 0.15vh;
+    box-shadow: 0vh 0.75vh 1.5vh 0vh black;
+    margin: 1vh;
+    border-radius: 1.5vh;
 }
 
 .game:hover { 
-    filter: brightness(0.95);
-    transform: translateY(-0.2vh);
+    filter: brightness(95%);
+    transform: translateY(-2px);
     border-color: #ffffff;
 }
 
-.game > img {
+.game>img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -248,22 +248,22 @@ input:checked + .slider:before {
     background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%);
 }
 
-.game > h3 {
+.game>h3 {
     position: absolute;
-    bottom: 2.5vh;
-    left: 2vh;
+    bottom: 25px;
+    left: 20px;
     color: #fff;
-    font-size: 2.5vh;
+    font-size: 25px;
     z-index: 10;
 }
 
-.game > span {
+.game>span {
     position: absolute;
-    bottom: 2vh;
-    left: 2vh;
+    bottom: 20px;
+    left: 20px;
     color: #fff;
     z-index: 10;
-    font-size: 1.5vh;
+    font-size: 15px;
 }
 
 .apps {
@@ -271,31 +271,31 @@ input:checked + .slider:before {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    padding-bottom: 3vh;
+    padding-bottom: 30px;
 }
 
 .app {
-    min-width: 20vh;
-    min-height: 20vh;
+    min-width: 200px;
+    min-height: 200px;
     display: block;
-    border-radius: 1.5vh;
-    border: 0.1vh solid #ffffff;
+    border-radius: 15px;
+    border: 1px solid #ffffff;
     cursor: pointer;
-    transition: 0.4s;
+    transition: .4s;
     overflow: hidden;
     position: relative;
-    box-shadow: 0px 0px 1vh #00000020;
-    margin: 1vh;
+    box-shadow: 0px 0px 10px #00000020;
+    margin: 10px;
 }
 
 .app:hover {
-    box-shadow: 0px 0px 2vh #00000030;
-    filter: brightness(0.95);
-    transform: translateY(-0.2vh);
+    box-shadow: 0px 0px 20px #00000030;
+    filter: brightness(95%);
+    transform: translateY(-2px);
     border-color: #ffffff;
 }
 
-.app > img {
+.app>img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -315,63 +315,63 @@ input:checked + .slider:before {
     background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%);
 }
 
-.app > h3 {
+.app>h3 {
     position: absolute;
-    bottom: 2.5vh;
-    left: 2vh;
+    bottom: 25px;
+    left: 20px;
     color: #fff;
-    font-size: 2.5vh;
+    font-size: 25px;
     z-index: 10;
-    margin-bottom: 2vh;
+    margin-bottom: 20px;
 }
 
-.app > span {
+.app>span {
     position: absolute;
-    bottom: 2vh;
-    left: 2vh;
+    bottom: 20px;
+    left: 20px;
     color: #fff;
     z-index: 10;
-    font-size: 1.5vh;
+    font-size: 15px;
 }
 
 .notifications {
-    top: 0.5%;
+    top: 1%;
     width: 20%;
     position: fixed;
     z-index: 99999999999999999;
     left: 50%;
     transform: translate(-50%, -50%);
-    transition: 0.5s;
-    height: 0.2%;
+    transition: .5s;
+    height: 2%;
 }
 
-.notifications > .notification {
-    padding: 1.5vh;
-    border-radius: 2vh;
-    margin-top: 1vh;
-    transition: 0.5s;
+.notifications>.notification {
+    padding: 15px;
+    border-radius: 20px;
+    margin-top: 10px;
+    transition: .5s;
     cursor: pointer;
     background: var(--solid);
 }
 
 ;
 
-.notifications > .notification.error {
+.notifications>.notification.error {
     background: rgba(171, 61, 222, 0.801);
     color: #fff;
-    transition: 0.5s;
+    transition: .5s;
     inline-size: 100%;
     overflow-wrap: break-word;
 }
 
 .box {
     background: var(--sidebar-bg);
-    padding: 5vh;
-    border-radius: 1vh;
+    padding: 50px;
+    border-radius: 10px;
     position: absolute;
     top: 50%;
     left: 50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    box-shadow: 0vh 0.5vh 1vh 0vh var(--shadow-color);
+    box-shadow: 0px 5px 10px 0px var(--shadow-color);
 }
