@@ -32,7 +32,7 @@ html {
 ::-webkit-scrollbar-track {
     background: transparent;
     margin-top: 2vh;
-    margin-botton: 2vh;
+    margin-bottom: 2vh;
 }
 
 ::-webkit-scrollbar-thumb {
