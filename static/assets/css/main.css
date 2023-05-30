@@ -79,7 +79,6 @@ input {
 
 button {
     text-align: center;
-    box-shadow: 0.5vh 0.5vh 1vh 0vh var(--shadow-color);
     border: none;
     border-radius: 1vh;
     cursor: pointer;
@@ -112,6 +111,10 @@ button {
   height: auto;
   border-radius: 4vh;
   box-shadow: 0vh 0.75vh 1.5vh 0vh black;
+}
+
+.settings-button {
+  box-shadow: 0.5vh 0.5vh 1vh 0vh var(--shadow-color);
 }
 
 select {
