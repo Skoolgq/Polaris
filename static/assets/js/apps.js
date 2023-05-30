@@ -10,15 +10,14 @@ const tiltEffectSettings = {
 };
 
 const load = () => {
-    fetch('/assets/JSON/apps.json')
-        .then(res => res.json())
-        .then(apps => {
-            apps.forEach(app => {
-                const el = document.createElement('div');
-                el.classList = 'app';
-                el.innerHTML = `<img src="${app.image}"><h3>${app.name}</h3><span>${app.desc}</span>`;
-                document.querySelector('.apps').appendChild(el);
-
+  fetch('/assets/JSON/apps.json')
+    .then(res => res.json())
+    .then(games => {
+      games.forEach(game => {
+        const el = document.createElement('div');
+        el.classList = 'game';
+        el.innerHTML = `<img src="${game.image}"><h3>${game.name}</h3><span>${game.desc}</span>`;
+        document.querySelector('.games').appendChild(el);
 
         el.addEventListener('click', () => {
           frame();
@@ -30,7 +29,7 @@ const load = () => {
       });
     })
     .catch(e => {
-      new PolarisError('Failed to load apps');
+      new PolarisError('Failed to load games');
     });
 };
 
@@ -72,3 +71,4 @@ function setTransition(event) {
 }
 
 export default { load };
+
