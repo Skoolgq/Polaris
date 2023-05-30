@@ -17,7 +17,7 @@ const load = () => {
         const el = document.createElement('div');
         el.classList = 'game';
         el.innerHTML = `<img src="${game.image}"><h3>${game.name}</h3><span>${game.desc}</span>`;
-        document.querySelector('.games').appendChild(el);
+        document.querySelector('.apps').appendChild(el);
 
         el.addEventListener('click', () => {
           frame();
