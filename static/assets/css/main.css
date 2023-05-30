@@ -280,18 +280,17 @@ input:checked+.slider:before {
     min-width: 20vh;
     min-height: 20vh;
     display: block;
-    border-radius: 1.5vh;
-    border: 0.1vh solid #ffffff;
+    border: none;
     cursor: pointer;
     transition: .4s;
     overflow: hidden;
     position: relative;
-    box-shadow: 0vh 0vh 1vh #00000020;
+    box-shadow: 0vh 0.75vh 1.5vh 0vh black;
     margin: 1vh;
+    border-radius: 1.5vh;
 }
 
-.app:hover {
-    box-shadow: 0vh 0vh 2vh #00000030;
+.app:hover { 
     filter: brightness(95%);
     transform: translateY(-0.2vh);
     border-color: #ffffff;
@@ -324,7 +323,6 @@ input:checked+.slider:before {
     color: #fff;
     font-size: 2.5vh;
     z-index: 10;
-    margin-bottom: 2vh;
 }
 
 .app>span {
