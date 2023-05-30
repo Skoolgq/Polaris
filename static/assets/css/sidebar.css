@@ -11,10 +11,12 @@
   z-index: 100;
   overflow-y: auto;
   padding: 1vh;
+  transition: all 0.5s ease;
 }
 
 .sidebar.active {
   right: 5vh;
+  transition: all 0.5s ease;
 }
 
 .sidebar>.scroll {
