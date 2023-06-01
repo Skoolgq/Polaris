@@ -2,25 +2,9 @@
 
 import uv from './uv.js';
 
+uv.load();
+
 const load = () => {
-    const scripts = [
-        '/uv/uv.bundle.js'
-    ];
-
-    scripts.forEach(script => {
-        const el = document.createElement('script');
-        el.src = script;
-        document.body.appendChild(el);
-
-        if (script === '/uv/uv.bundle.js') {
-            el.onload = () => {
-                const el = document.createElement('script');
-                el.src = '/uv/uv.config.js';
-                document.body.appendChild(el);
-            }
-        }
-    });
-
     function getURL(input, template) {
         try {
             return new URL(input).toString();
@@ -41,16 +25,8 @@ const load = () => {
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        //if (localStorage.getItem('proxy')) {
-            try {
-                await uv.registerSW();
-            } catch (e) {
-                console.error(e);
-            }
-
-            const url = getURL(query.value, 'https://www.google.com/search?q=%s');
-            location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
-        //}
+        const url = getURL(query.value, 'https://www.google.com/search?q=%s');
+        location.href = Easyviolet.getProxiedUrl(url);
     });
 }
 
