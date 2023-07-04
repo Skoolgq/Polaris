@@ -36,7 +36,7 @@
 
 .sidebar>.scroll.active {
   opacity: 1;
-  height: 40px;
+  height: 4vh;
 }
 
 .sidebar>.scroll>span {
