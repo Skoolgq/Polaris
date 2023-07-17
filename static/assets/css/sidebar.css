@@ -58,6 +58,7 @@
   padding-bottom: 1vh;
   padding-top: 1vh;
   font-size: 3vh;
+  box-shadow: 0.5vh 0.5vh 1vh 0vh var(--shadow-color);
 }
 
 .sidebar h3 {
