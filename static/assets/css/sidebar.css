@@ -45,8 +45,8 @@
 }
 
 .sidebar>.settings-button {
-  margin-left: 1vh;
-  margin-right: 1vh;
+  margin-left: 2vh;
+  margin-right: 2vh;
   padding-left: 2vh;
   padding-right: 2vh;
   margin-top: 2vh;
@@ -59,6 +59,7 @@
   padding-top: 2vh;
   font-size: 3vh;
   box-shadow: 0.5vh 0.5vh 1vh 0vh var(--shadow-color);
+  margin: 2vh;
 }
 
 .sidebar h3 {
