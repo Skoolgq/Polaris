@@ -44,12 +44,20 @@
   margin: auto;
 }
 
-.sidebar button {
+.sidebar>.settings-button {
   margin-left: 1vh;
   margin-right: 1vh;
   padding-left: 2vh;
   padding-right: 2vh;
   margin-top: 2vh;
+}
+
+.icon-button {
+  padding-left: 1vh;
+  padding-right: 1vh;
+  padding-bottom: 1vh;
+  padding-top: 1vh;
+  font-size: 3vh;
 }
 
 .sidebar h3 {
