@@ -50,6 +50,7 @@
   padding-left: 2vh;
   padding-right: 2vh;
   margin-top: 2vh;
+  min-width: 7vh;
 }
 
 .icon-button {
