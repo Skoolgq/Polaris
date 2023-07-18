@@ -64,3 +64,9 @@
 .sidebar h3 {
   margin-bottom: 0vh;
 }
+
+.quick-options {
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
