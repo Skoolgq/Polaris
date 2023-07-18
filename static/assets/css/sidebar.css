@@ -70,8 +70,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-left: 8vh;
-  margin-right: 8vh;
+  margin-left: 12vh;
+  margin-right: 12vh;
 }
 
 .settings-button {
