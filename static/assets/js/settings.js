@@ -135,14 +135,6 @@ class Settings {
             }
         }
 
-        document.querySelector('#prevent_close').addEventListener('change', () => {
-            this.set('prevent_close', document.querySelector('#prevent_close').checked);
-        });
-
-        if (this.get('prevent_close')) {
-            document.querySelector('#prevent_close').checked = true;
-        }
-
         document.querySelector('#dev_mode').addEventListener('change', () => {
             this.set('dev_mode', document.querySelector('#dev_mode').checked);
 
