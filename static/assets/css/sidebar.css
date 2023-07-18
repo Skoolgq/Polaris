@@ -72,10 +72,11 @@
   align-items: center;
   margin-left: 12vh;
   margin-right: 12vh;
-  margin-top: 5vh;
+  margin-top: 3vh;
 }
 
 .settings-button {
   min-width: 7vh;
+  margin: 0.5vh;
 }
 
