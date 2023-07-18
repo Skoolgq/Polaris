@@ -23,7 +23,7 @@ body[data-theme='light'] {
     --switch-color: #111111b0;
     --switch-active: #2196F3;
     --scrollbar-color: #4242424b;
-    --solid: #FB5E4C;
+    --solid: #ffffffee;
     --hover: #757575;
 
     background: radial-gradient(ellipse at bottom, #b1b1b1 0%, #f6f5f0 100%);
