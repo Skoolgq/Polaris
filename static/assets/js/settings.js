@@ -110,14 +110,6 @@ class Settings {
                 });
             });
 
-        document.querySelector('#prevent_close').addEventListener('change', () => {
-            this.set('prevent_close', document.querySelector('#prevent_close').checked);
-        });
-
-        if (this.get('prevent_close')) {
-            document.querySelector('#prevent_close').checked = true;
-        }
-
         document.querySelector('#reset_panic').addEventListener('click', (e) => {
             this.set('panic_key', '');
             document.querySelector('#panic_key').value = 'No Key Selected';
