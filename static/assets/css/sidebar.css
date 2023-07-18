@@ -58,7 +58,8 @@
   justify-content: center;
   font-size: 3vh;
   box-shadow: 0.5vh 0.5vh 1vh 0vh var(--shadow-color);
-  width: 3vh;
+  width: 3.5vh;
+  height: 3.5vh;
 }
 
 .sidebar h3 {
