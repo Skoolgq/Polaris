@@ -88,7 +88,7 @@ body[data-theme='frost'] {
     }
 }
 
-body[data-theme='crimsion'] {
+body[data-theme='crimson'] {
     --background-color: #000;
     --text: #fff;
     --sidebar-bg: #000000ee;
@@ -102,7 +102,7 @@ body[data-theme='crimsion'] {
     background: linear-gradient(304deg, #000000, #dc143c);
     animation: crimsion-gradient 12s ease infinite;
 
-    @keyframes crimsion-gradient {
+    @keyframes crimson-gradient {
         0% {
             background-position: 0% 50%;
         }
