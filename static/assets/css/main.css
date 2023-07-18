@@ -83,7 +83,6 @@ button {
     border-radius: 1vh;
     cursor: pointer;
     background-color: var(--button-bg);
-    min-width: 7vh;
     height: 4vh;
     color: var(--text);
     transition: 0.4s;
