@@ -79,10 +79,3 @@
   min-width: 7vh;
 }
 
-#themes {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-left: 12vh;
-  margin-right: 12vh;
-}
