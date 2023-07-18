@@ -54,8 +54,7 @@
 
 .icon-button {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
   font-size: 3vh;
   box-shadow: 0.5vh 0.5vh 1vh 0vh var(--shadow-color);
   
