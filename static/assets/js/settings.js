@@ -91,6 +91,7 @@ class Settings {
                             }
                         });
                     } else if (document.querySelector('#cloak_select').value == 'none') {
+                        this.set('cloak', document.querySelector('#cloak_select').value);
                         document.title = 'Polaris';
                         document.querySelector('link[rel="shortcut icon"]').href = '/favicon.ico';
                         
