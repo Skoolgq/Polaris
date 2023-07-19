@@ -57,7 +57,7 @@ class Settings {
                             document.title = cloaks[this.get('cloak')].title;
                             document.querySelector('link[rel="shortcut icon"]').href = cloaks[this.get('cloak')].icon;
                         } else {
-                            new PolarisError(`The theme ${this.get('cloak')} does not exist`);
+                            /*new PolarisError(`The theme ${this.get('cloak')} does not exist`);*/
                         }
                     });
             }
