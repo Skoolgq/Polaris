@@ -94,8 +94,8 @@ class Settings {
                         document.title = 'Polaris';
                         document.querySelector('link[rel="shortcut icon"]').href = '/favicon.ico';
 
-                        document.querySelector('#custom_cloak').classList.add('hidden');
-                    } else {
+                    } 
+                    else {
                         if (cloaks[document.querySelector('#cloak_select').value]) {
                             document.title = cloaks[document.querySelector('#cloak_select').value].title;
                             document.querySelector('link[rel="shortcut icon"]').href = cloaks[document.querySelector('#cloak_select').value].icon;
