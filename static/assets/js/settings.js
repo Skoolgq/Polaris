@@ -93,7 +93,8 @@ class Settings {
                     } else if (document.querySelector('#cloak_select').value == 'none') {
                         document.title = 'Polaris';
                         document.querySelector('link[rel="shortcut icon"]').href = '/favicon.ico';
-
+                        
+                        document.querySelector('#custom_cloak').classList.add('hidden');
                     } 
                     else {
                         if (cloaks[document.querySelector('#cloak_select').value]) {
