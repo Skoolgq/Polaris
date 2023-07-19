@@ -58,6 +58,7 @@ class Settings {
                             document.querySelector('link[rel="shortcut icon"]').href = cloaks[this.get('cloak')].icon;
                         } else {
                             /*new PolarisError(`The theme ${this.get('cloak')} does not exist`);*/
+                            //this is a very bad way of doing this it is going to break eventually but who cares
                         }
                     });
             }
@@ -105,7 +106,7 @@ class Settings {
 
                             this.set('cloak', document.querySelector('#cloak_select').value);
                         } else {
-                            /*new PolarisError(`The cloak ${document.querySelector('#cloak_select').value} does not exist`);*/
+                            new PolarisError(`The cloak ${document.querySelector('#cloak_select').value} does not exist`);
                         }
 
                         document.querySelector('#custom_cloak').classList.add('hidden');
