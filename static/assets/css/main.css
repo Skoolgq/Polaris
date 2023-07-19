@@ -382,11 +382,16 @@ input:checked+.slider:before {
   box-shadow: 0vh 0.75vh 1.5vh 0vh var(--shadow-color);
   border-width: 3vh;
   position: absolute;
-  width:45%;
-  height:80%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
-
+.mainiframe {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9, for an aspect ratio of 1:1 change to this value to 100% */ 
+}
 
 
 
