@@ -382,6 +382,8 @@ mainiframe {
   box-shadow: 0vh 0.75vh 1.5vh 0vh var(--shadow-color);
   border-width: 3vh;
   position: absolute;
+  width:45%;
+  height:80%;
 }
 
 
