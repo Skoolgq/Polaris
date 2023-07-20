@@ -68,7 +68,7 @@ input {
     border: none;
     border-radius: 1vh;
     cursor: pointer;
-    background-color: var(--button-bg);
+    background: var(--sidebar-bg);
     width: 25vh;
     height: 4vh;
     color: var(--text);
