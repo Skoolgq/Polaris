@@ -126,6 +126,7 @@ button {
   margin-top: 5vh;
   position: relative;
   opacity: 0.9;
+  padding: 2vh;
 }
 
 .settings-button {
