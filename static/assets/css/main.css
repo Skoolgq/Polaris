@@ -116,12 +116,15 @@ button {
   box-shadow: 0.5vh 0.5vh 1vh 0vh var(--shadow-color);
   background-color: var(--background-color);
   width: 30vh;
-` height: 40vh;
+` height: 18vh;
   color: var(--text);
   text-align: center;
   border-radius: 2vh;
   justify-content: center;
-  padding: 3vh;
+  padding: 0.5vh;
+  margin: 0 auto;
+  margin-top: 5vh;
+  position: relative;
   
 }
 
@@ -409,7 +412,6 @@ input:checked+.slider:before {
 .center-content {
   text-align: center;
   justify-content: center;
-    margin: 0 auto;
 }
 
 
