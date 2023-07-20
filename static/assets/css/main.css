@@ -406,6 +406,12 @@ input:checked+.slider:before {
   padding-bottom: 56.25%; /* 16:9, for an aspect ratio of 1:1 change to this value to 100% */ 
 }
 
+.center-content {
+  text-align: center;
+  justify-content: center;
+}
+
+
 
 
 
