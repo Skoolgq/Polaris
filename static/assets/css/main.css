@@ -118,6 +118,11 @@ button {
   width: 30vh;
 ` height: 40vh;
   color: var(--text);
+  text-align: center;
+  border-radius: 2vh;
+  justify-content: center;
+  padding: 3vh;
+  
 }
 
 .settings-button {
