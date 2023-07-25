@@ -416,6 +416,67 @@ input:checked+.slider:before {
 }
 
 
+/*SCHMEEBLE WARP*/
+/*SCHMEEBLE WARP*/
+/*SCHMEEBLE WARP*/
+/*SCHMEEBLE WARP*/
+/*SCHMEEBLE WARP*/
+
+#game-frame{
+  margin: 0 auto;
+  display: block;
+  border-top: 3vh solid black;
+  border-left: 3vh solid black;
+  border-right: 3vh solid black;
+  border-radius: 16px 16px 0px 0px;
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+}
+#iframe-options{
+  max-width: 75%;
+  margin: 0 auto;
+  border-left: 3vh solid black;
+  border-right: 3vh solid black;
+  border-top: 0.8vh solid black;
+  border-bottom: 0.5vh solid black;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 0px 0px 16px 16px;
+  color: #ffffff;
+  background-color: #000000;
+}
+#iframe-options > b {
+  display: inline-block;
+}
+.icons-options{
+  padding-right: 15px;
+  padding-top: 1px;
+  margin: 0;
+  display: inline-block;
+  float: right;
+}
+.iframe-name{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo-options{
+  color: #ffffff;
+}
+
+/*JUOODLE SHOOP*/
+
+/*JUOODLE SHOOP*/
+
+/*JUOODLE SHOOP*/
+/*DO NOT TOUCH LINE 445!!!*/
+
+
+
+
+
+
+
+
 
 
 
