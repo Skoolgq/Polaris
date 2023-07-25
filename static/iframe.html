@@ -12,7 +12,17 @@
 </head>
 <body>
     <div class="mainiframe">
-        <iframe class="iframei" src="https://google.com" onload='' frameborder="0" width="100%" height="100%"></iframe>
+        <iframe id="game-frame" scrolling="no" frameborder="0" width="75%" height="80%" cellspacing="0" src="https://example.com"></iframe>
+   <div id="iframe-options">
+   <div class="iframe-icon">
+     <table style="width: 100%;">
+       <tr>
+         <td><img src="https://via.placeholder.com/20x20?text=img" id="game-icon-sm" width="20" height="20"></td>
+         <td style="width: 40vh;"><b><p class="iframe-name" id="iframe-options">Failed to load game</p></b></td>
+         <td><i class="fa-solid fa-expand" style="color: #ffffff; margin-left: 105vh;" onclick="fullscreen()"></i></a></td>
+     </table>
+    </div>
+   </div>
     </div>
     <script src="/assets/js/main.js" type="module"></script>
 </body>
