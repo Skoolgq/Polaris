@@ -429,8 +429,8 @@ input:checked+.slider:before {
   border-top: 3vh solid black;
   border-left: 3vh solid black;
   border-right: 3vh solid black;
-  border-radius: 16px 16px 0px 0px;
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  border-radius: 2vh 2vh 0vh 0vh;
+  box-shadow: 0vh 0.75vh 1.5vh 0vh var(--shadow-color);
 }
 #iframe-options{
   max-width: 75%;
@@ -441,16 +441,17 @@ input:checked+.slider:before {
   border-bottom: 0.5vh solid black;
   display: flex;
   justify-content: space-between;
-  border-radius: 0px 0px 16px 16px;
+  border-radius: 0vh 0vh 2vh 2vh;
   color: #ffffff;
   background-color: #000000;
+  box-shadow: 0vh 0.75vh 1.5vh 0vh var(--shadow-color);
 }
 #iframe-options > b {
   display: inline-block;
 }
 .icons-options{
-  padding-right: 15px;
-  padding-top: 1px;
+  padding-right: 1.5vh;
+  padding-top: 0.1vh;
   margin: 0;
   display: inline-block;
   float: right;
