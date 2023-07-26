@@ -1,17 +1,16 @@
 body[data-theme='dark'] {
     --background-color: #000;
-    --text: #fff;
-    --sidebar-bg: #404040;
-    --button-bg: #42424259;
-    --shadow-color: #4242424b;
-    --switch-color: #42424259;
-    --switch-active: #2196F3;
-    --scrollbar-color: #ffffff59;
-    --solid: #1b2735;
-    --hover: #757575;
-
-    background: radial-gradient(ellipse at bottom, #1b2735 0%, #171820 100%);
-    background-repeat: no-repeat;
+        --text: #fff;
+        --sidebar-bg: #000000ee;
+        --button-bg: #42424259;
+        --shadow-color: #4242424b;
+        --switch-color: #42424259;
+        --switch-active: #2196F3;
+        --scrollbar-color: #ffffff59;
+        --solid: #1b2735;
+        --hover: #757575;
+        background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+        background-repeat: no-repeat;
 }
 body[data-theme='light'] {
     --background-color: #fff;
