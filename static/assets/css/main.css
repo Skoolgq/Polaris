@@ -443,7 +443,7 @@ input:checked+.slider:before {
   justify-content: space-between;
   border-radius: 0vh 0vh 2vh 2vh;
   color: #ffffff;
-  border-color: rgba(0, 0, 0, 0.9);
+  border-color: rgba(0, 0, 0, 0);
   background: rgba(0, 0, 0, 0.9);
 }
 #iframe-options > b {
