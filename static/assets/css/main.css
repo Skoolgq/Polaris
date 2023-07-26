@@ -430,8 +430,6 @@ input:checked+.slider:before {
   border-left: 3vh solid black;
   border-right: 3vh solid black;
   border-radius: 2vh 2vh 0vh 0vh;
-  box-shadow: 0vh 0.75vh 1.5vh 0vh var(--shadow-color);
-  background: rgba(0, 0, 0, 0.9);
   border-color: rgba(0, 0, 0, 0.9);
 }
 #iframe-options{
@@ -447,7 +445,6 @@ input:checked+.slider:before {
   color: #ffffff;
   border-color: rgba(0, 0, 0, 0.9);
   background: rgba(0, 0, 0, 0.9);
-  box-shadow: 0vh 0.75vh 1.5vh 0vh var(--shadow-color);
 }
 #iframe-options > b {
   display: inline-block;
