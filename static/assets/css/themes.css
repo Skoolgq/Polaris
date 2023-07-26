@@ -1,7 +1,7 @@
 body[data-theme='dark'] {
     --background-color: #000;
     --text: #fff;
-    --sidebar-bg: #000000ee;
+    --sidebar-bg: #404040;
     --button-bg: #42424259;
     --shadow-color: #4242424b;
     --switch-color: #42424259;
@@ -19,7 +19,7 @@ body[data-theme='light'] {
     --hover: #757575;
     --sidebar-bg: #ffffffee;
     --button-bg: #ffffffee;
-    --shadow-color: #4242424b;
+    --shadow-color: #c9c9c9;
     --switch-color: #111111b0;
     --switch-active: #2196F3;
     --scrollbar-color: #4242424b;
