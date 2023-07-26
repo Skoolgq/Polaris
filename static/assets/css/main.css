@@ -128,6 +128,7 @@ button {
   position: relative;
   opacity: 0.9;
   padding: 2vh;
+  line-height: 2px;
 }
 
 .settings-button {
