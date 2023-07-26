@@ -455,8 +455,6 @@ input:checked+.slider:before {
 }
 .iframe-name{
   display: flex;
-  align-items: center;
-  justify-content: center;
 }
 .logo-options{
   color: #ffffff;
