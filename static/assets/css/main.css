@@ -448,7 +448,6 @@ input:checked+.slider:before {
   display: inline-block;
 }
 .icons-options{
-  padding-right: 0.5vh;
   padding-top: 0;
   margin: 0;
   display: inline-block;
