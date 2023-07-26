@@ -423,6 +423,7 @@ input:checked+.slider:before {
 
 #game-frame{
   margin: 0 auto;
+  height: 100%;
   display: block;
   border-top: 3vh solid black;
   border-left: 3vh solid black;
