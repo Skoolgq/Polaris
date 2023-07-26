@@ -23,7 +23,9 @@
   },
   "homepage": "https://github.com/polarisdevs/Polaris#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "easyviolet": "github:Russell2259/Easyviolet",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "mime": "^3.0.0"
   }
 }
