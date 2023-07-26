@@ -462,6 +462,9 @@ input:checked+.slider:before {
 .logo-options{
   color: #ffffff;
 }
+.container-frame {
+  height: 100%;
+}
 
 /*JUOODLE SHOOP*/
 
