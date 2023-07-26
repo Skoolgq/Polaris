@@ -117,7 +117,7 @@ button {
   box-shadow: 0.5vh 0.5vh 1vh 0vh var(--shadow-color);
   background-color: var(--background-color);
   width: 30vh;
-` height: 20vh;
+ height: 20vh;
   color: var(--text);
   text-align: center;
   border-radius: 2vh;
