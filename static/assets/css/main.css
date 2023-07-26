@@ -431,6 +431,7 @@ input:checked+.slider:before {
   border-right: 3vh solid black;
   border-radius: 2vh 2vh 0vh 0vh;
   box-shadow: 0vh 0.75vh 1.5vh 0vh var(--shadow-color);
+  background: var(--sidebar-bg);
 }
 #iframe-options{
   max-width: 75%;
@@ -443,7 +444,7 @@ input:checked+.slider:before {
   justify-content: space-between;
   border-radius: 0vh 0vh 2vh 2vh;
   color: #ffffff;
-  background-color: #000000;
+  background: var(--sidebar-bg);
   box-shadow: 0vh 0.75vh 1.5vh 0vh var(--shadow-color);
 }
 #iframe-options > b {
