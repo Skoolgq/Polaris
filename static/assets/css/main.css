@@ -437,8 +437,6 @@ input:checked+.slider:before {
   margin: 0 auto;
   border-left: 3vh solid black;
   border-right: 3vh solid black;
-  border-top: 0.8vh solid black;
-  border-bottom: 0.5vh solid black;
   display: flex;
   justify-content: space-between;
   border-radius: 0vh 0vh 2vh 2vh;
@@ -450,8 +448,8 @@ input:checked+.slider:before {
   display: inline-block;
 }
 .icons-options{
-  padding-right: 1.5vh;
-  padding-top: 0.1vh;
+  padding-right: 0.5vh;
+  padding-top: 0;
   margin: 0;
   display: inline-block;
   float: right;
