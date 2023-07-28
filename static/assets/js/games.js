@@ -20,7 +20,7 @@ const load = () => {
         document.querySelector('.games').appendChild(el);
 
         el.addEventListener('click', () => {
-          frame();
+          window.location.href = `/play?id=${game.id}`;
         });
 
         el.addEventListener('mouseenter', gameMouseEnter);
