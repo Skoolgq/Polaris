@@ -1,7 +1,7 @@
 body[data-theme='dark'] {
-    --background-color: #000;
+    --background-color: #272727;
         --text: #fff;
-        --sidebar-bg: #000000ee;
+        --sidebar-bg: #15181cee;
         --button-bg: #42424259;
         --shadow-color: #4242424b;
         --switch-color: #42424259;
@@ -9,7 +9,7 @@ body[data-theme='dark'] {
         --scrollbar-color: #ffffff59;
         --solid: #1b2735;
         --hover: #757575;
-        background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+        background: radial-gradient(ellipse at bottom, #1d2938 0%, #151823 100%);
         background-repeat: no-repeat;
 }
 body[data-theme='light'] {
