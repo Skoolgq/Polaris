@@ -430,7 +430,7 @@ input:checked+.slider:before {
   border-top: 3vh solid black;
   border-left: 3vh solid black;
   border-right: 3vh solid black;
-  border-radius: 2vh 2vh 0vh 0vh;
+  border-radius: 4vh 4vh 0vh 0vh;
   border-color: rgba(0, 0, 0, 0.9);
 }
 #iframe-options{
@@ -440,7 +440,7 @@ input:checked+.slider:before {
   border-right: 3vh solid black;
   display: flex;
   justify-content: space-between;
-  border-radius: 0vh 0vh 2vh 2vh;
+  border-radius: 0vh 0vh 4vh 4vh;
   color: #ffffff;
   border-color: rgba(0, 0, 0, 0);
   background: rgba(0, 0, 0, 0.9);
@@ -456,6 +456,8 @@ input:checked+.slider:before {
 }
 .iframe-name{
   display: flex;
+  padding-left: 1vh;
+  font-size: 17px;
 }
 .logo-options{
   color: #ffffff;
@@ -464,21 +466,12 @@ input:checked+.slider:before {
   height: 75%;
 }
 
+#game-icon-sm{
+    border-radius: 5px;
+}
 /*JUOODLE SHOOP*/
 
 /*JUOODLE SHOOP*/
 
 /*JUOODLE SHOOP*/
 /*DO NOT TOUCH LINE 445!!!*/
-
-
-
-
-
-
-
-
-
-
-
-
