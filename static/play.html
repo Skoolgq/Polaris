@@ -37,6 +37,32 @@
    </div>
  </div>
   <br>
+    <script>
+// Get the current URL
+const url = new URL(window.location.href);
+
+// Get the value of the game id
+const searchParams = new URLSearchParams(url.search);
+const gameID = searchParams.get('id');
+
+fetch('/assets/JSON/games.json')
+  .then(res => res.json())
+  .then(games => {
+    const game = games.find(game => game.id === gameID);
+
+    if (game) {
+      // Get a reference to the iframe element
+      const iframe = document.getElementById("game-frame");
+
+      // Set the src attribute of the iframe
+      iframe.src = game.source;
+      document.getElementById("game-icon-sm").src = game.image;
+      document.querySelector(".iframe-name").textContent = game.name;
+    } else {
+      document.querySelector(".iframe-name").textContent = "Internal error";
+    }
+  });
+    </script>
     <script src="/assets/js/main.js" type="module"></script>
 </body>
 </html>
