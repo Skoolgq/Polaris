@@ -1,21 +1,19 @@
 [
   {
-    "name": "",
-    "source": "",
-    "image": "",
-    "id": "001"
-  },
-
-  {
-    "name": "1v1.lol",
-    "source": "https://1v1.school/",
-    "image": "",
-    "id": "002"
+    "name": "Test",
+    "source": "https://example.com",
+    "image": "https://via.placeholder.com/220x220?text=Insert+fun+game",
   },
   {
-    "name": "10 Minutes Till Dawn",
-    "source": "/cdn/10-minutes-till-dawn/index.html",
-    "image": "/assets/img/tmtd.png",
-    "id": "003"
+    "name": "Game 2",
+    "image": "https://via.placeholder.com/220x220?text=Insert+fun+game",
   },
+  {
+    "name": "Game 3",
+    "image": "https://via.placeholder.com/220x220?text=Insert+fun+game",
+  },
+  {
+    "name": "Game 4",
+    "image": "https://via.placeholder.com/220x220?text=Insert+fun+game",
+  }
 ]
