@@ -241,6 +241,7 @@ input:checked+.slider:before {
     position: relative;
     box-shadow: 0vh 0.75vh 1.5vh 0vh black;
     margin: 1vh;
+    text-align: left;
     border-radius: 1.5vh;
 }
 
@@ -275,17 +276,8 @@ input:checked+.slider:before {
     bottom: -0.5vh;
     left: 2vh;
     color: #fff;
-    font-size: 2.5vh;
+    font-size: 1.8vh;
     z-index: 10;
-}
-
-.game>span {
-    position: absolute;
-    bottom: 2vh;
-    left: 2vh;
-    color: #fff;
-    z-index: 10;
-    font-size: 1.5vh;
 }
 
 .apps {
