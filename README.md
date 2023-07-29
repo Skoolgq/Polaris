@@ -1,14 +1,15 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/polarisdevs/polaris-V1/main/static/assets/img/polaris.png" width="190px"/>
+  <img src="https://raw.githubusercontent.com/polarisdevs/polaris-V1/main/static/assets/img/polaris.png" width="190px" style="border-radius:50%"/>
 </p>
 <h1 align="center">Polaris</h1>
 The future of school gaming.
 
-## Terminal Deployment
-### Prerequisites 
-We require NodeJS v18 and higher.<br>
+## Terminal Deployment 
 
-### Stepss
+> **Note:**
+> We require NodeJS V18 or higher
+
+### Steps
 1. Cloning
 ````bash
 git clone https://github.com/polarisdevs/polaris-V1.git
