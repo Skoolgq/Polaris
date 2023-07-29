@@ -41,7 +41,7 @@
  <br>
  <br>
  <h1>Description</h1>
- <p id="gamedesc">hi there big screen user :)</p>
+ <p id="gamedesc">Failed to load description</p>
   <br>
     <script>
 // Get the current URL
@@ -64,7 +64,8 @@ fetch('/assets/JSON/games.json')
       iframe.src = game.source;
       document.getElementById("game-icon-sm").src = game.image;
       document.querySelector(".iframe-name").textContent = game.name;
-      else {
+      document.getElementById("gamedesc").textContent = game.desc;
+    } else {
       document.querySelector(".iframe-name").textContent = "Game not found";
     }
   });
@@ -72,4 +73,3 @@ fetch('/assets/JSON/games.json')
     <script src="/assets/js/main.js" type="module"></script>
 </body>
 </html>
-
