@@ -22,7 +22,7 @@
   },
   {
     "name": "10 Minutes Till Dawn",
-    "source": "https://raw.githack.com/3kh0/3kh0-assets/main/10-minutes-till-dawn/index.html",
+    "source": "/cdn/10-minutes-till-dawn/index.html",
     "image": "/assets/img/tmtd.png",
     "desc": "Fun 10 minute timed game",
     "id": "004"
