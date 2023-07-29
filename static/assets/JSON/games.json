@@ -61,4 +61,11 @@
     "id": "008",
     "desc": ""
   },
+  {
+    "name": "Crossy Road",
+    "source": "/cdn/crossy-road/index.html",
+    "image": "/cdn/crossy-road/icon.png",
+    "id": "009",
+    "desc": ""
+  },
 ]
