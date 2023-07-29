@@ -7,23 +7,31 @@
     "id": "001"
   },
   {
-    "name": "Game 2",
-    "source": "https://discord.com",
-    "image": "https://via.placeholder.com/220x220?text=Insert+fun+game",
-    "desc": "A Game",
+    "name": "1 on 1 soccer",
+    "source": "https://skoolcdn.github.io/gfiles/gfiles/flash/?swf=1on1soccer.swf",
+    "image": "/assets/img/1on1soccer.jpg",
+    "desc": "A 1 on 1 2D soccer game",
     "id": "002"
   },
   {
-    "name": "Game 3",
-    "source": "https://wee.com",
-    "image": "https://via.placeholder.com/220x220?text=Insert+fun+game",
-    "desc": "A Game",
+    "name": "1v1.lol",
+    "source": "https://1v1.school/",
+    "image": "/assets/img/1v1lol.png",
+    "desc": "Fortnite, but in your browser",
     "id": "003"
   },
   {
-    "name": "Game 4",
-    "image": "https://via.placeholder.com/220x220?text=Insert+fun+game",
-    "desc": "A Game",
+    "name": "10 Minutes Till Dawn",
+    "source": "https://raw.githack.com/3kh0/3kh0-assets/main/10-minutes-till-dawn/index.html",
+    "image": "/assets/img/tmtd.png",
+    "desc": "Fun 10 minute timed game",
     "id": "004"
+  },
+  {
+    "name": "2048",
+    "source": "https://raw.githack.com/3kh0/3kh0-assets/main/2048/index.html",
+    "image": "/assets/img/2048.png",
+    "desc": "Enjoyable puzzle game with numbers",
+    "id": "005"
   }
 ]
