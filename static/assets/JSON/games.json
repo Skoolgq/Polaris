@@ -40,4 +40,10 @@
     "id": "005",
     "desc": ""
   }
+  {
+    "name": "Big NEON Tower Tiny Square",
+    "source": "/cdn/bntts/index.html",
+    "image": "/cdn/bntts/icons/icon-256.png",
+    "desc": ""
+  },
 ]
