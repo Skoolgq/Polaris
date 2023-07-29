@@ -1,37 +1,21 @@
 [
   {
-    "name": "Pizza Tower",
-    "source": "https://skoolv3.vercel.app/uv/service/hvtrs8%2F-lmloal460%3A.ktah%2Cim%2Frtuv",
-    "image": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/0d55ae41-e76d-4375-b2d9-5b40b36a2f82/dfy6oec-3cccc997-2959-4bd2-a2ee-32e7442e6bbd.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzBkNTVhZTQxLWU3NmQtNDM3NS1iMmQ5LTViNDBiMzZhMmY4MlwvZGZ5Nm9lYy0zY2NjYzk5Ny0yOTU5LTRiZDItYTJlZS0zMmU3NDQyZTZiYmQucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.Z05pdCZ6vBYPim2TdmOdwDEs_M4xxQsObk5jQxrZaLI",
-    "desc": "Fun pizza game",
+    "name": "",
+    "source": "",
+    "image": "",
     "id": "001"
   },
-  {
-    "name": "1 on 1 soccer",
-    "source": "https://skoolcdn.github.io/gfiles/gfiles/flash/?swf=1on1soccer.swf",
-    "image": "/assets/img/1on1soccer.jpg",
-    "desc": "A 1 on 1 2D soccer game",
-    "id": "002"
-  },
+
   {
     "name": "1v1.lol",
     "source": "https://1v1.school/",
-    "image": "/assets/img/1v1lol.png",
-    "desc": "Fortnite, but in your browser",
-    "id": "003"
+    "image": "",
+    "id": "002"
   },
   {
     "name": "10 Minutes Till Dawn",
     "source": "/cdn/10-minutes-till-dawn/index.html",
     "image": "/assets/img/tmtd.png",
-    "desc": "Fun 10 minute timed game",
-    "id": "004"
+    "id": "003"
   },
-  {
-    "name": "2048",
-    "source": "https://raw.githack.com/3kh0/3kh0-assets/main/2048/index.html",
-    "image": "/assets/img/2048.png",
-    "desc": "Enjoyable puzzle game with numbers",
-    "id": "005"
-  }
 ]
