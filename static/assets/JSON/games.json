@@ -1,26 +1,26 @@
 [
   {
-    "name": "Test",
-    "source": "https://example.com",
-    "image": "https://via.placeholder.com/220x220?text=Insert+fun+game",
+    "name": "10 Minutes Till dawn",
+    "source": "/cdn/10-minutes-till-dawn/index.html",
+    "image": "/assets/img/tmtd/png",
     "desc": ""
   },
   {
-    "name": "Game 2",
-    "source": "https://example.com",
-    "image": "https://via.placeholder.com/220x220?text=Insert+fun+game",
+    "name": "2048",
+    "source": "/cdn/2048/index.html",
+    "image": "/assets/img/2048.png",
     "desc": ""
   },
   {
-    "name": "Game 3",
-    "source": "https://example.com",
-    "image": "https://via.placeholder.com/220x220?text=Insert+fun+game",
+    "name": "Alien Hominid",
+    "source": "/cdn/alienhominid/index.html",
+    "image": "/cdn/alienhominid/alienhominid.jpg",
     "desc": ""
   },
   {
-    "name": "Game 4",
-    "source": "https://example.com",
-    "image": "https://via.placeholder.com/220x220?text=Insert+fun+game",
+    "name": "Amidst The Clouds",
+    "source": "/cdn/amidst-the-clouds/index.html",
+    "image": "/cdn/amidst-the-clouds/splash.png",
     "desc": ""
   }
 ]
