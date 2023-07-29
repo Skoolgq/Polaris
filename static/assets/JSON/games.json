@@ -85,7 +85,7 @@
   {
     "name": "Duck Life 4",
     "source": "/cdn/ducklife4/index.html",
-    "image": "/cdn/ducklife4/splash.png",
+    "image": "/cdn/ducklife4/splash.jpg",
     "id": "012",
     "desc": ""
   },
@@ -98,8 +98,8 @@
   },
   {
     "name": "Getaway Shootout",
-    "source": "/cdn/getaway-shooutout/index.html",
-    "image": "/cdn/getaway-shooutout/img/index.jpg",
+    "source": "/cdn/getaway-shootout/index.html",
+    "image": "/cdn/getaway-shootout/img/index.jpg",
     "id": "014",
     "desc": ""
   }
