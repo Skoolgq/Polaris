@@ -64,7 +64,7 @@ fetch('/assets/JSON/games.json')
       iframe.src = game.source;
       document.getElementById("game-icon-sm").src = game.image;
       document.querySelector(".iframe-name").textContent = game.name;
-    } else {
+      else {
       document.querySelector(".iframe-name").textContent = "Game not found";
     }
   });
