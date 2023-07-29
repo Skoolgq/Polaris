@@ -2,25 +2,42 @@
   {
     "name": "10 Minutes Till dawn",
     "source": "/cdn/10-minutes-till-dawn/index.html",
-    "image": "/assets/img/tmtd/png",
+    "image": "/assets/img/tmtd.png",
     "desc": ""
   },
   {
     "name": "2048",
     "source": "/cdn/2048/index.html",
     "image": "/assets/img/2048.png",
+    "id": "001",
     "desc": ""
   },
   {
     "name": "Alien Hominid",
     "source": "/cdn/alienhominid/index.html",
     "image": "/cdn/alienhominid/alienhominid.jpg",
+    "id": "002",
     "desc": ""
   },
   {
     "name": "Amidst The Clouds",
     "source": "/cdn/amidst-the-clouds/index.html",
     "image": "/cdn/amidst-the-clouds/splash.png",
+    "id": "003",
+    "desc": ""
+  },
+  {
+    "name": "Awesome Tanks 2",
+    "source": "/cdn/awesometanks2/index.html",
+    "image": "/assets/img/awesometanks.png",
+    "id": "004",
+    "desc": ""
+  },
+  {
+    "name": "Black Hole Square",
+    "source": "/cdn/black-hole-square/index.html",
+    "image": "/assets/img/blackholesquare.png",
+    "id": "005",
     "desc": ""
   }
 ]
