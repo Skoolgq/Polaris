@@ -16,7 +16,7 @@ const load = () => {
       games.forEach(game => {
         const el = document.createElement('div');
         el.classList = 'game';
-        el.innerHTML = `<img src="${game.image}"><h3>${game.name}</h3><span>${game.desc}</span>`;
+        el.innerHTML = `<img src="${game.image}"><h3>${game.name}</h3>`;
         document.querySelector('.games').appendChild(el);
 
         el.addEventListener('click', () => {
