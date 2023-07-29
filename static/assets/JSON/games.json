@@ -3,17 +3,21 @@
     "name": "Test",
     "source": "https://example.com",
     "image": "https://via.placeholder.com/220x220?text=Insert+fun+game",
+    "desc": ""
   },
   {
     "name": "Game 2",
     "image": "https://via.placeholder.com/220x220?text=Insert+fun+game",
+    "desc": ""
   },
   {
     "name": "Game 3",
     "image": "https://via.placeholder.com/220x220?text=Insert+fun+game",
+    "desc": ""
   },
   {
     "name": "Game 4",
     "image": "https://via.placeholder.com/220x220?text=Insert+fun+game",
+    "desc": ""
   }
 ]
