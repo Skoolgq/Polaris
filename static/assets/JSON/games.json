@@ -67,5 +67,40 @@
     "image": "/cdn/crossy-road/icon.png",
     "id": "009",
     "desc": ""
+  },
+  {
+    "name": "Dante",
+    "source": "/cdn/dante/index.html",
+    "image": "/cdn/dante/splash.png",
+    "id": "010",
+    "desc": ""
+  },
+  {
+    "name": "Doodle Jump",
+    "source": "/cdn/doodle-jump/index.html",
+    "image": "/cdn/doodle-jump/doodle.png",
+    "id": "011",
+    "desc": ""
+  },
+  {
+    "name": "Duck Life 4",
+    "source": "/cdn/ducklife4/index.html",
+    "image": "/cdn/ducklife4/splash.png",
+    "id": "012",
+    "desc": ""
+  },
+  {
+    "name": "Fruit Ninja",
+    "source": "/cdn/fruit-ninja/index.html",
+    "image": "/cdn/fruit-ninja/FruitNinjaTeaser.jpg",
+    "id": "013",
+    "desc": ""
+  },
+  {
+    "name": "Getaway Shootout",
+    "source": "/cdn/getaway-shooutout/index.html",
+    "image": "/cdn/getaway-shooutout/img/index.jpg",
+    "id": "014",
+    "desc": ""
   }
 ]
