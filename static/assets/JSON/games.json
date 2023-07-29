@@ -44,14 +44,21 @@
     "name": "Big Tower Tiny Square",
     "source": "/cdn/btts/index.html",
     "image": "/cdn/btts/images.png",
-    "desc": ""
     "id": "006",
+    "desc": ""
   },
   {
     "name": "Big NEON Tower Tiny Square",
     "source": "/cdn/bntts/index.html",
     "image": "/cdn/bntts/icons/icon-256.png",
     "id": "007",
+    "desc": ""
+  },
+  {
+    "name": "Circlo",
+    "source": "/cdn/circlo/index.html",
+    "image": "/cdn/circlo/img/circlo.png",
+    "id": "008",
     "desc": ""
   },
 ]
