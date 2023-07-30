@@ -3,104 +3,126 @@
     "name": "10 Minutes Till dawn",
     "source": "/cdn/10-minutes-till-dawn/index.html",
     "image": "/assets/img/tmtd.png",
+    "id": "001",
     "desc": ""
   },
   {
     "name": "2048",
     "source": "/cdn/2048/index.html",
     "image": "/assets/img/2048.png",
-    "id": "001",
+    "id": "002",
     "desc": ""
   },
   {
     "name": "Alien Hominid",
     "source": "/cdn/alienhominid/index.html",
     "image": "/cdn/alienhominid/alienhominid.jpg",
-    "id": "002",
+    "id": "003",
     "desc": ""
   },
   {
     "name": "Amidst The Clouds",
     "source": "/cdn/amidst-the-clouds/index.html",
     "image": "/cdn/amidst-the-clouds/splash.png",
-    "id": "003",
+    "id": "004",
     "desc": ""
   },
   {
     "name": "Awesome Tanks 2",
     "source": "/cdn/awesometanks2/index.html",
     "image": "/assets/img/awesometanks.jpg",
-    "id": "004",
+    "id": "005",
     "desc": ""
   },
   {
     "name": "Black Hole Square",
     "source": "/cdn/black-hole-square/index.html",
     "image": "/assets/img/blackholesquare.png",
-    "id": "005",
+    "id": "006",
     "desc": ""
   },
   {
     "name": "Big Tower Tiny Square",
     "source": "/cdn/btts/index.html",
     "image": "/cdn/btts/images.png",
-    "id": "006",
+    "id": "007",
     "desc": ""
   },
   {
     "name": "Big NEON Tower Tiny Square",
     "source": "/cdn/bntts/index.html",
     "image": "/cdn/bntts/icons/icon-256.png",
-    "id": "007",
+    "id": "008",
     "desc": ""
   },
   {
     "name": "Circlo",
     "source": "/cdn/circlo/index.html",
     "image": "/cdn/circlo/img/circlo.png",
-    "id": "008",
+    "id": "009",
     "desc": ""
   },
   {
     "name": "Crossy Road",
     "source": "/cdn/crossy-road/index.html",
     "image": "/cdn/crossy-road/icon.png",
-    "id": "009",
+    "id": "010",
     "desc": ""
   },
   {
     "name": "Dante",
     "source": "/cdn/dante/index.html",
     "image": "/cdn/dante/splash.png",
-    "id": "010",
+    "id": "011",
     "desc": ""
   },
   {
     "name": "Doodle Jump",
     "source": "/cdn/doodle-jump/index.html",
     "image": "/cdn/doodle-jump/doodle.png",
-    "id": "011",
+    "id": "012",
     "desc": ""
   },
   {
     "name": "Duck Life 4",
     "source": "/cdn/ducklife4/index.html",
     "image": "/cdn/ducklife4/splash.jpg",
-    "id": "012",
+    "id": "013",
     "desc": ""
   },
   {
     "name": "Fruit Ninja",
     "source": "/cdn/fruit-ninja/index.html",
     "image": "/cdn/fruit-ninja/FruitNinjaTeaser.jpg",
-    "id": "013",
+    "id": "014",
     "desc": ""
   },
   {
     "name": "Getaway Shootout",
     "source": "/cdn/getaway-shootout/index.html",
     "image": "/cdn/getaway-shootout/img/index.jpg",
-    "id": "014",
+    "id": "015",
+    "desc": ""
+  },
+  {
+    "name": "Jetpack Joyride",
+    "source": "/cdn/jetpack-joyride/index.html",
+    "image": "/cdn/jetpack-joyride/splash.jpg",
+    "id": "016",
+    "desc": ""
+  },
+  {
+    "name": "Super Mario Bros",
+    "source": "/cdn/mario/index.html",
+    "image": "/cdn/mario/Theme/Mario.gif",
+    "id": "017",
+    "desc": ""
+  },
+  {
+    "name": "Mindustry",
+    "source": "/cdn/mindustry/index.html",
+    "image": "/cdn/mindustry/splash.png",
+    "id": "018",
     "desc": ""
   }
 ]
