@@ -124,5 +124,54 @@
     "image": "/cdn/mindustry/splash.png",
     "id": "018",
     "desc": ""
+  },
+  {
+    "name": "Missiles",
+    "source": "/cdn/missiles/index.html",
+    "image": "/cdn/missiles/miss.png",
+    "id": "019",
+    "desc": ""
+  },
+  {
+    "name": "Monkey Mart",
+    "source": "/cdn/monkey-mart/index.html",
+    "image": "https://play-lh.googleusercontent.com/Mq2MGUBjTRHMmx1NLlgQF3fKZQ5Yvtvy2Hg0nD5eDhVDHvyBDxcZEj830uUzGxlbg94=w240-h480-rw",
+    "id": "020",
+    "desc": ""
+  },
+  {
+    "name": "Moto X3M",
+    "source": "/cdn/motox3m/index.html",
+    "image": "/cdn/motox3m/splash.jpg",
+    "id": "021",
+    "desc": ""
+  },
+  {
+    "name": "Moto X3M Pool Party",
+    "source": "/cdn/motox3m-pool/index.html",
+    "image": "/cdn/motox3m-pool/splash.jpg",
+    "id": "022",
+    "desc": ""
+  },
+  {
+    "name": "Moto X3M Spooky",
+    "source": "/cdn/motox3m-spooky/index.html",
+    "image": "/cdn/motox3m-spooky/splash.jpeg",
+    "id": "023",
+    "desc": ""
+  },
+  {
+    "name": "Moto X3M",
+    "source": "/cdn/motox3m-winter/index.html",
+    "image": "/cdn/motox3m-winter/download.jpeg",
+    "id": "024",
+    "desc": ""
+  },
+  {
+    "name": "Offline Paradise",
+    "source": "/cdn/offline-paradise/index.html",
+    "image": "/cdn/offline-paradise/assets/icon.jpeg",
+    "id": "025",
+    "desc": ""
   }
 ]
