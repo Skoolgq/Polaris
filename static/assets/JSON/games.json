@@ -92,7 +92,7 @@
   },
   {
     "name": "Fruit Ninja",
-    "source": "/cdn/fruit-ninja/index.html",
+    "source": "https://skoolgq.github.io/Polaris-Assets/fruit-ninja/index.html",
     "image": "/cdn/fruit-ninja/FruitNinjaTeaser.jpg",
     "id": "014",
     "desc": ""
