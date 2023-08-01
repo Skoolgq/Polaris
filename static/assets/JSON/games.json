@@ -194,12 +194,5 @@
     "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSs5Ei5kIaoCcE5x-QAJ4c4EzL68mBRk6RGQuo8_n-rXw&s",
     "id": "028",
     "desc": ""
-  },
-  {
-    "name": "asdf",
-    "source": "https://example.com",
-    "image": "https://auth.embernet.work/favicon.ico",
-    "id": 29,
-    "desc": ""
   }
 ]
