@@ -84,6 +84,13 @@
     "desc": ""
   },
   {
+    "name": "Dean",
+    "source": "https://example.com",
+    "image": "https://via.placeholder.com/400x400",
+    "id": "030",
+    "desc": ""
+  },
+  {
     "name": "Doodle Jump",
     "source": "/cdn/doodle-jump/index.html",
     "image": "/cdn/doodle-jump/doodle.png",
