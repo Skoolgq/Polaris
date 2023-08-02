@@ -40,7 +40,7 @@ body[data-theme='flamingo'] {
     --scrollbar-color: #ffffff59;
     --solid: #FB5E4C;
     --hover: #ed58b4;
-    background: linear-gradient(304deg, #ff8800, #f507e2);
+    background: linear-gradient(122deg, rgba(255,41,191,1) 0%, rgba(215,67,46,1) 85%);
     animation: flamingo-gradient 12s ease infinite;
 
     @keyframes flamingo-gradient {
@@ -98,7 +98,7 @@ body[data-theme='crimson'] {
     --scrollbar-color: #ffffff59;
     --solid: #940C28;
     --hover: #fc3f42;
-    background: linear-gradient(304deg, #000000, #dc143c);
+    background: linear-gradient(90deg, rgba(255,106,111,1) 0%, rgba(148,0,17,1) 85%);
     animation: crimsion-gradient 12s ease infinite;
 
     @keyframes crimson-gradient {
