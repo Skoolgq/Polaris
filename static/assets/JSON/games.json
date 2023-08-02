@@ -112,13 +112,6 @@
     "desc": ""
   },
   {
-    "name": "Hamburger",
-    "source": "https://example.com",
-    "image": "https://via.placeholder.com/300x300",
-    "id": "030",
-    "desc": ""
-  },
-  {
     "name": "Jetpack Joyride",
     "source": "/cdn/jetpack-joyride/index.html",
     "image": "/cdn/jetpack-joyride/splash.jpg",
