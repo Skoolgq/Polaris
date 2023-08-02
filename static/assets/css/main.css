@@ -435,29 +435,20 @@ input:checked+.slider:before {
     margin: auto 0;
 }
 
-.gameicon {
-  float: left;
-}
-
-.gametitle {
-  float: left;
+.gamebar i {
+    font-size: 30px;
+    margin: auto 0;
+    margin-left: auto;
 }
 
 .gamebar {
-  width: 75vw;
-  margin: 0 auto;
-  border-left: 3vh solid black;
-  border-right: 3vh solid black;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end; /* Align items to the right */
-  border-radius: 0vh 0vh 4vh 4vh;
-  color: #ffffff;
-  border-color: rgba(0, 0, 0);
-  background: rgba(0, 0, 0);
-}
-
-.gamebar i {
-    font-size: 30px;
-    margin: auto 5px; /* Add some margin between the icons */
+    width: 75vw;
+    margin: 0 auto;
+    border-left: 3vh solid black;
+    border-right: 3vh solid black;
+    display: flex;
+    border-radius: 0vh 0vh 4vh 4vh;
+    color: #ffffff;
+    border-color: rgba(0, 0, 0);
+    background: rgba(0, 0, 0);
 }
