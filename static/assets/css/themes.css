@@ -9,7 +9,7 @@ body[data-theme='dark'] {
         --scrollbar-color: #ffffff59;
         --solid: #1b2735;
         --hover: #757575;
-        background: radial-gradient(circle, rgba(44,47,94,1) 0%, rgba(42,35,52,1) 100%);
+        background: radial-gradient(circle, rgba(58,61,96,1) 0%, rgba(45,40,51,1) 100%);
         background-repeat: no-repeat;
 }
 body[data-theme='light'] {
