@@ -203,6 +203,13 @@
     "desc": ""
   },
   {
+    "name": "Slope",
+    "source": "/cdn/slope/index.html",
+    "image": "/cdn/slope/slope4.jpeg",
+    "id": "030",
+    "desc": ""
+  },
+  {
     "name": "Super Mario Bros",
     "source": "/cdn/mario/index.html",
     "image": "/cdn/mario/Theme/Mario.gif",
