@@ -196,20 +196,6 @@
     "desc": ""
   },
   {
-    "name": "skool",
-    "source": "https://wikipedia.com",
-    "image": "https://via.placeholder.com/200x200",
-    "id": "02911",
-    "desc": ""
-  },
-  {
-    "name": "skool",
-    "source": "https://wikipedia.com",
-    "image": "https://via.placeholder.com/200x200",
-    "id": "292",
-    "desc": ""
-  },
-  {
     "name": "Slope",
     "source": "/cdn/slope/index.html",
     "image": "/cdn/slope/slope4.jpeg",
@@ -221,13 +207,6 @@
     "source": "/cdn/mario/index.html",
     "image": "/cdn/mario/Theme/Mario.gif",
     "id": "029",
-    "desc": ""
-  },
-  {
-    "name": "testing",
-    "source": "https://wikipedia.com",
-    "image": "https://via.placeholder.com/300x300",
-    "id": "0291",
     "desc": ""
   }
 ]
