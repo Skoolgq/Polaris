@@ -36,6 +36,10 @@ const load = () => {
         else if (iframe.mozRequestFullScreen) iframe.mozRequestFullScreen();
         else if (iframe.msRequestFullscreen) iframe.msRequestFullscreen();
     });
+
+    document.querySelector('#clipboard').addEventListener('click', () => {
+        navigator.clipboard.writeText(window.location.href);
+    });
 };
 
 export default { load };
