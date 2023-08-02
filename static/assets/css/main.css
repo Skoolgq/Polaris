@@ -453,3 +453,11 @@ input:checked+.slider:before {
     font-size: 30px;
     margin: auto 5px; /* Add some margin between the icons */
 }
+
+.gameicon{
+    float: left;
+}
+
+.gametitle{
+    float: left:
+}
