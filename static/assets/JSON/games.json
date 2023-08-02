@@ -203,6 +203,13 @@
     "desc": ""
   },
   {
+    "name": "skool",
+    "source": "https://wikipedia.com",
+    "image": "https://via.placeholder.com/200x200",
+    "id": "292",
+    "desc": ""
+  },
+  {
     "name": "Slope",
     "source": "/cdn/slope/index.html",
     "image": "/cdn/slope/slope4.jpeg",
