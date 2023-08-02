@@ -69,7 +69,7 @@ body[data-theme='frost'] {
     --scrollbar-color: #ffffff59;
     --solid: #056181;
     --hover: #6491fa;
-    background: linear-gradient(304deg, #000000, #08c1ff);
+    background: linear-gradient(90deg, rgba(127,120,246,1) 0%, rgba(49,49,129,1) 84%);
     animation: frost-gradient 12s ease infinite;
 
     @keyframes frost-gradient {
