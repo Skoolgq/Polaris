@@ -2,74 +2,26 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="/assets/css/main.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/assets/css/main.css">
 
-    <title>Home | Polaris</title>
+  <title>Home | Polaris</title>
 </head>
-<body style="height: 100%;">
-  <script src="/assets/js/frame.js" type="module"></script>
- <script>
-      function fullscreen() {
-        let iframe = document.getElementById('game-frame');
-        if (!iframe) iframe = document.getElementById('app-frame');
 
-        if (iframe.requestFullscreen) iframe.requestFullscreen();
-        else if (iframe.webkitRequestFullscreen) iframe.webkitRequestFullscreen();
-        else if (iframe.mozRequestFullScreen) iframe.mozRequestFullScreen();
-        else if (iframe.msRequestFullscreen) iframe.msRequestFullscreen();
-    };
- </script>
- <div class="container-frame">
- <iframe id="game-frame" scrolling="no" frameborder="0" width="75%" height="80%" cellspacing="0" src="/loading.html"></iframe>
-   <div id="iframe-options">
-   <div class="iframe-icon">
-     <table style="width: 100%;">
-       <tr>
-         <td><img src="https://via.placeholder.com/20x20?text=img" id="game-icon-sm" width="20" height="20"></td>
-         <td style="width: 40vh; margin-left:3vh;"><b><p class="iframe-name">   Failed to load game</p></b></td>
-         <td><i class="fa-solid fa-expand" style="color: #ffffff; margin-left: 105vh;" onclick="fullscreen()"></i></a></td>
-     </table>
+<body>
+  <div>
+    <iframe class="frame" scrolling="no" frameborder="no"></iframe>
+    
+    <div class="gamebar">
+      <img src="https://via.placeholder.com/20x20?text=img" id="gameicon"/>
+      <p id="gametitle">Loading...</p>
+      <i class="fa-solid fa-expand" id="fullscreen"></i>
     </div>
-   </div>
- </div>
- <br>
- <br>
- <br>
- <br>
- <h1>Description</h1>
- <p id="gamedesc">Failed to load description</p>
-  <br>
-    <script>
-// Get the current URL
-const url = new URL(window.location.href);
-
-// Get the value of the game id
-const searchParams = new URLSearchParams(url.search);
-const gameID = searchParams.get('id');
-
-fetch('/assets/JSON/games.json')
-  .then(res => res.json())
-  .then(games => {
-    const game = games.find(game => game.id === gameID);
-
-    if (game) {
-      // Get a reference to the iframe element
-      const iframe = document.getElementById("game-frame");
-
-      // Set the src attribute of the iframe
-      iframe.src = game.source;
-      document.getElementById("game-icon-sm").src = game.image;
-      document.querySelector(".iframe-name").textContent = game.name;
-      document.getElementById("gamedesc").textContent = game.desc;
-    } else {
-      document.querySelector(".iframe-name").textContent = "Game not found";
-    }
-  });
-    </script>
-    <script src="/assets/js/main.js" type="module"></script>
+  </div>
+  <script src="/assets/js/main.js" type="module"></script>
 </body>
+
 </html>

@@ -90,49 +90,49 @@ button {
 }
 
 .mainpageimage-button {
-  background-color: transparent;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  justify-content: center;
-  width: 45vh;
-  margin-top: 10vh;
-  transition: all 0.4s ease;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    justify-content: center;
+    width: 45vh;
+    margin-top: 10vh;
+    transition: all 0.4s ease;
 }
 
-.mainpageimage-button:hover{
-  transform: scale(1.025);
+.mainpageimage-button:hover {
+    transform: scale(1.025);
     opacity: 1;
 }
 
 .mainpageimage-button img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 4vh;
-  box-shadow: 0vh 0.75vh 1.5vh 0vh black;
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 4vh;
+    box-shadow: 0vh 0.75vh 1.5vh 0vh black;
 }
 
 .mainpage-text {
-  box-shadow: 0.5vh 0.5vh 1vh 0vh var(--shadow-color);
-  background-color: var(--background-color);
-  width: 30vh;
- height: 20vh;
-  color: var(--text);
-  text-align: center;
-  border-radius: 2vh;
-  justify-content: center;
-  padding: 0.5vh;
-  margin: 0 auto;
-  margin-top: 5vh;
-  position: relative;
-  opacity: 0.9;
-  padding: 2vh;
-  line-height: 2vh;
+    box-shadow: 0.5vh 0.5vh 1vh 0vh var(--shadow-color);
+    background-color: var(--background-color);
+    width: 30vh;
+    height: 20vh;
+    color: var(--text);
+    text-align: center;
+    border-radius: 2vh;
+    justify-content: center;
+    padding: 0.5vh;
+    margin: 0 auto;
+    margin-top: 5vh;
+    position: relative;
+    opacity: 0.9;
+    padding: 2vh;
+    line-height: 2vh;
 }
 
 .settings-button {
-  box-shadow: 0.5vh 0.5vh 1vh 0vh var(--shadow-color);
+    box-shadow: 0.5vh 0.5vh 1vh 0vh var(--shadow-color);
 }
 
 select {
@@ -245,7 +245,7 @@ input:checked+.slider:before {
     border-radius: 1.5vh;
 }
 
-.game:hover { 
+.game:hover {
     filter: brightness(95%);
     transform: translateY(-0.2vh);
     border-color: #ffffff;
@@ -302,7 +302,7 @@ input:checked+.slider:before {
     border-radius: 1.5vh;
 }
 
-.app:hover { 
+.app:hover {
     filter: brightness(95%);
     transform: translateY(-0.2vh);
     border-color: #ffffff;
@@ -389,81 +389,66 @@ input:checked+.slider:before {
 }
 
 .framei {
-  border-radius: 2vh;
-  box-shadow: 0vh 0.75vh 1.5vh 0vh var(--shadow-color);
-  border-width: 3vh;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+    border-radius: 2vh;
+    box-shadow: 0vh 0.75vh 1.5vh 0vh var(--shadow-color);
+    border-width: 3vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .mainiframe {
-  position: relative;
+    position: relative;
 }
 
 .center-content {
-  text-align: center;
-  justify-content: center;
+    text-align: center;
+    justify-content: center;
 }
 
-
-/*SCHMEEBLE WARP*/
-/*SCHMEEBLE WARP*/
-/*SCHMEEBLE WARP*/
-/*SCHMEEBLE WARP*/
-/*SCHMEEBLE WARP*/
-
-#game-frame{
-  margin: 0 auto;
-  height: 100%;
-  display: block;
-  border-top: 3vh solid black;
-  border-left: 3vh solid black;
-  border-right: 3vh solid black;
-  border-radius: 4vh 4vh 0vh 0vh;
-  border-color: rgba(0, 0, 0, 0.9);
-}
-#iframe-options{
-  max-width: 75%;
-  margin: 0 auto;
-  border-left: 3vh solid black;
-  border-right: 3vh solid black;
-  display: flex;
-  justify-content: space-between;
-  border-radius: 0vh 0vh 4vh 4vh;
-  color: #ffffff;
-  border-color: rgba(0, 0, 0, 0);
-  background: rgba(0, 0, 0, 0.9);
-}
-#iframe-options > b {
-  display: inline-block;
-}
-.icons-options{
-  padding-top: 0;
-  margin: 0;
-  display: inline-block;
-  float: right;
-}
-.iframe-name{
-  display: flex;
-  padding-left: 1vh;
-  font-size: 17px;
-}
-.logo-options{
-  color: #ffffff;
-}
-.container-frame {
-  height: 75%;
+.frame {
+    margin: auto;
+    display: block;
+    border-top: 3vh solid;
+    border-left: 3vh solid;
+    border-right: 3vh solid;
+    border-radius: 4vh 4vh 0vh 0vh;
+    background: #fff;
+    height: 70vh;
+    width: 75vw;
+    outline: none;
+    border-color: rgba(0, 0, 0);
 }
 
-#game-icon-sm{
+.gamebar img {
+    width: 35px;
+    height: 35px;
+    margin: 10px;
     border-radius: 5px;
 }
-/*JUOODLE SHOOP*/
 
-/*JUOODLE SHOOP*/
+.gamebar p {
+    font-weight: 900;
+    font-size: 20px;
+    margin: auto 0;
+}
 
-/*JUOODLE SHOOP*/
-/*DO NOT TOUCH LINE 445!!!*/
+.gamebar i {
+    font-size: 30px;
+    margin: auto 0;
+    margin-left: auto;
+}
+
+.gamebar {
+    width: 75vw;
+    margin: 0 auto;
+    border-left: 3vh solid black;
+    border-right: 3vh solid black;
+    display: flex;
+    border-radius: 0vh 0vh 4vh 4vh;
+    color: #ffffff;
+    border-color: rgba(0, 0, 0);
+    background: rgba(0, 0, 0);
+}

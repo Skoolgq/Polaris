@@ -15,7 +15,14 @@
     font-size: 3vh;
     margin-left: 1.3vh;
     position: relative;
-    bottom: 2vh;
+    top: -2.8vh;
+}
+
+.navbar>.title>span>span {
+    display: block;
+    position: relative;
+    font-size: 12px;
+    margin-left: 3vh;
 }
 
 .navbar>.end {
@@ -35,9 +42,5 @@
 
 
 .navbar>.end>a:hover {
-   color: var(--hover);
-}
-
-.byskool{
-   float: left:
+    color: var(--hover);
 }

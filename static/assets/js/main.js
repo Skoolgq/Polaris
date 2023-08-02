@@ -1,6 +1,7 @@
 import Settings from './settings.js';
 import Games from './games.js';
 import Apps from './apps.js';
+import Frame from './frame.js';
 import WPM from './wpm.js';
 import PolarisError from './error.js';
 
@@ -92,6 +93,10 @@ if (window.self === window.top) {
 
         if (location.pathname === '/search') {
             WPM.load();
+        }
+
+        if (location.pathname === '/play') {
+            Frame.load();
         }
     }, 500);
 }

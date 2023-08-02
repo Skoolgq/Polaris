@@ -19,9 +19,11 @@ app.get('/cdn/*', cors({ origin: false }), async (req, res, next) => {
     if (asset.status == 200) {
         var data = Buffer.from(await asset.arrayBuffer());
 
-        res.writeHead(200, {
-            'content-type': mime.getType(reqTarget)
-        });
+        if (mime.getType(reqTarget) === 'text/html') {
+            res.writeHead(200, {
+                'content-type': mime.getType(reqTarget)
+            });
+        }
 
         if (mime.getType(reqTarget) === 'text/html') data = data + '<script src="/assets/js/cdn_inject.js" preload="true"></script>';
 
@@ -34,6 +36,6 @@ app.get('/cdn/*', cors({ origin: false }), async (req, res, next) => {
 app.use((req, res) => res.status(404).sendFile(path.join(__dirname, './static/', '404.html')));
 app.use((e, req, res, next) => res.status(500).send(`Something Broke \n\n The error was: ${e.stack}`));
 
-const server = app.listen(port, '0.0.0.0', () => {
+const server = app.listen(port, () => {
     console.log(`Polaris is running on port ${server.address().port}, using nodejs ${process.version}`);
 });
