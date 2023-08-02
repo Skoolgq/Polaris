@@ -39,6 +39,7 @@ const load = () => {
 
     document.querySelector('#clipboard').addEventListener('click', () => {
         navigator.clipboard.writeText(window.location.href);
+        alert("Game link copied.\nShare it with your friends!")
     });
 };
 
