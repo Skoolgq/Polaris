@@ -126,6 +126,13 @@
     "desc": ""
   },
   {
+    "name": "mathwizard2",
+    "source": "https://wikipedia.com",
+    "image": "https://via.placeholder.com/300x300",
+    "id": "18",
+    "desc": ""
+  },
+  {
     "name": "Mindustry",
     "source": "/cdn/mindustry/index.html",
     "image": "/cdn/mindustry/splash.png",
