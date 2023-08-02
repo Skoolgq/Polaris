@@ -1,7 +1,7 @@
 body[data-theme='dark'] {
     --background-color: #233147;
         --text: #fff;
-        --sidebar-bg: #233147;
+        --sidebar-bg: #161f2e;
         --button-bg: #42424259;
         --shadow-color: #4242424b;
         --switch-color: #42424259;
