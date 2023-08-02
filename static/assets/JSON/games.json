@@ -196,6 +196,13 @@
     "desc": ""
   },
   {
+    "name": "themathguy",
+    "source": "https://wikipedia.com",
+    "image": "https://via.placeholder.com/200x200",
+    "id": "018",
+    "desc": ""
+  },
+  {
     "name": "Super Mario Bros",
     "source": "/cdn/mario/index.html",
     "image": "/cdn/mario/Theme/Mario.gif",
