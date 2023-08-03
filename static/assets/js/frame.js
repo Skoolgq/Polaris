@@ -36,11 +36,6 @@ const load = () => {
         else if (iframe.mozRequestFullScreen) iframe.mozRequestFullScreen();
         else if (iframe.msRequestFullscreen) iframe.msRequestFullscreen();
     });
-
-    document.querySelector('#clipboard').addEventListener('click', () => {
-        navigator.clipboard.writeText(window.location.href);
-        alert("Game link copied.\nShare it with your friends!")
-    });
 };
 
 export default { load };

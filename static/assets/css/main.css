@@ -4,7 +4,6 @@
 @import url('/assets/css/nav.css');
 @import url('/assets/css/sidebar.css');
 @import url('/assets/css/dropdown.css');
-/*@import url('/asset/css/launcher.css');*/
 
 * {
     font-family: 'Lato';
@@ -15,14 +14,31 @@
 html,
 body {
     margin: 0vh;
-    background-color: var(--background-color);
+    background: var(--background-color);
+    background-attachment: fixed;
     color: var(--text);
     text-align: center;
-    overflow: hidden;
+    overflow: auto;
 }
 
 html {
-    height: 100%;
+    min-height: 100%;
+}
+
+body::-webkit-scrollbar-track {
+    background: var(--solid);
+    margin: 0;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-color);
+    border: 0.5vh solid var(--solid);
+    background-clip: content-box;
+    border-radius: 1vh;
+}
+
+body::-webkit-scrollbar-corner {
+    background: #000;
 }
 
 ::-webkit-scrollbar {
@@ -33,6 +49,7 @@ html {
     background: transparent;
     margin-top: 2vh;
     margin-bottom: 2vh;
+    margin-left: 1vh;
 }
 
 ::-webkit-scrollbar-thumb {

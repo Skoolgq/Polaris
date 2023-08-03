@@ -14,7 +14,7 @@ fetch('/assets/misc/nav.html')
             window.parent.postMessage('loaded', location.origin);
         }
     }).catch(e => {
-        new PolarisError('Failed to load navbar <a href="javascript:location.reload();" data-link="true"><button>Reload</button></a>');
+        new PolarisError('Failed to load navbar <a href="" onclick"javascript:location.reload();" data-link="true"><button>Reload</button></a>');
     });
 
 onbeforeunload = (e) => {
@@ -24,6 +24,16 @@ onbeforeunload = (e) => {
     }
     sessionStorage.clear();
 }
+
+var previousLocation = location.pathname;
+
+const urlchange = setInterval(() => {
+    if (location.pathname !== previousLocation) {
+
+    }
+
+    previousLocation = location.pathname;
+}, 1);
 
 const registerLinks = () => {
     document.querySelectorAll('a').forEach(a => {

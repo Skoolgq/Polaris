@@ -42,5 +42,6 @@
 
 
 .navbar>.end>a:hover {
-    color: var(--hover);
+    padding: 10px;
+    
 }
