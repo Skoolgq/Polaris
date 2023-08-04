@@ -84,7 +84,7 @@ input {
     text-align: center;
     box-shadow: 0.5vh 0.5vh 1vh 0vh var(--shadow-color);
     border: none;
-    border-radius: 1vh;
+    border-radius: 2vh;
     cursor: pointer;
     background: var(--sidebar-bg);
     width: 25vh;
