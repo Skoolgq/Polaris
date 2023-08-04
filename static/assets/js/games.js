@@ -1,34 +1,46 @@
 import PolarisError from './error.js';
 
 const tiltEffectSettings = {
-  max: 8, // max tilt rotation (degrees (deg))
-  perspective: 1000, // transform perspective, the lower the more extreme the tilt gets (pixels (px))
-  scale: 1.05, // transform scale - 2 = 200%, 1.5 = 150%, etc..
-  speed: 800, // speed (transition-duration) of the enter/exit transition (milliseconds (ms))
-  easing: 'cubic-bezier(.03,.98,.52,.99)' // easing (transition-timing-function) of the enter/exit transition
+  max: 8,
+  perspective: 1000,
+  scale: 1.05,
+  speed: 800,
+  easing: 'cubic-bezier(.03,.98,.52,.99)'
 };
+
+let games = [];
 
 const load = () => {
   fetch('/assets/JSON/games.json')
     .then(res => res.json())
-    .then(games => {
-      games.forEach(game => {
-        const el = document.createElement('div');
-        el.classList = 'game';
-        el.innerHTML = `<img src="${game.image}"><h3>${game.name}</h3>`;
-        document.querySelector('.games').appendChild(el);
-
-        el.addEventListener('click', () => location.href = `/play?id=${games.indexOf(game)}`);
-
-        el.addEventListener('mouseenter', gameMouseEnter);
-        el.addEventListener('mousemove', gameMouseMove);
-        el.addEventListener('mouseleave', gameMouseLeave);
-      });
+    .then(data => {
+      games = data;
+      handleSearch();
     })
     .catch(e => {
       new PolarisError('Failed to load games');
     });
 };
+
+function handleSearch() {
+  const searchTerm = searchInput.value.toLowerCase();
+  const gamesContainer = document.querySelector('.games');
+  gamesContainer.innerHTML = '';
+
+  games.forEach(game => {
+    if (game.name.toLowerCase().includes(searchTerm)) {
+      const el = document.createElement('div');
+      el.classList = 'game';
+      el.innerHTML = `<img src="${game.image}"><h3>${game.name}</h3>`;
+      gamesContainer.appendChild(el);
+
+      el.addEventListener('click', () => location.href = `/play?id=${games.indexOf(game)}`);
+      el.addEventListener('mouseenter', gameMouseEnter);
+      el.addEventListener('mousemove', gameMouseMove);
+      el.addEventListener('mouseleave', gameMouseLeave);
+    }
+  });
+}
 
 function gameMouseEnter(event) {
   setTransition(event);
@@ -64,7 +76,10 @@ function setTransition(event) {
   game.transitionTimeoutId = setTimeout(() => {
     game.style.transition = '';
   }, tiltEffectSettings.speed);
+
 }
 
-export default { load };
+const searchInput = document.getElementById('searchInput');
+searchInput.addEventListener('input', handleSearch);
 
+load();
