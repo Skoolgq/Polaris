@@ -138,6 +138,12 @@
     "desc": ""
   },
   {
+    "name": "new account",
+    "source": "https://example.com",
+    "image": "https://via.placeholder.com/200x200",
+    "desc": ""
+  },
+  {
     "name": "Offline Paradise",
     "source": "/cdn/offline-paradise/index.html",
     "image": "/cdn/offline-paradise/assets/icon.jpeg",
