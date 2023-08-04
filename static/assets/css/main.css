@@ -469,3 +469,20 @@ input:checked+.slider:before {
     border-color: rgba(0, 0, 0);
     background: rgba(0, 0, 0);
 }
+
+.featuredcontainer{
+  background-color: var(--background-color);
+  width: 400px;
+  margin: auto;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 20px;
+  color: var(--text);
+}
+.featuredimg{
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
