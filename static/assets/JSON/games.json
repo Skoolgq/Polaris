@@ -91,13 +91,6 @@
     "desc": ""
   },
   {
-    "name": "Duck Life 4",
-    "source": "/cdn/ducklife4/duck-life-4.swf",
-    "image": "/cdn/ducklife4/splash.jpg",
-    "id": "014",
-    "desc": ""
-  },
-  {
     "name": "Fruit Ninja",
     "source": "https://skoolgq.github.io/Polaris-Assets/fruit-ninja/index.html",
     "image": "/cdn/fruit-ninja/FruitNinjaTeaser.jpg",
