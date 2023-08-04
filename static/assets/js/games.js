@@ -1,5 +1,4 @@
 import PolarisError from './error.js';
-import frame from './frame.js';
 
 const tiltEffectSettings = {
   max: 8, // max tilt rotation (degrees (deg))
@@ -19,9 +18,7 @@ const load = () => {
         el.innerHTML = `<img src="${game.image}"><h3>${game.name}</h3>`;
         document.querySelector('.games').appendChild(el);
 
-        el.addEventListener('click', () => {
-          window.location.href = `/play?id=${game.id}`;
-        });
+        el.addEventListener('click', () => location.href = `/play?id=${games.indexOf(game)}`);
 
         el.addEventListener('mouseenter', gameMouseEnter);
         el.addEventListener('mousemove', gameMouseMove);
@@ -52,8 +49,7 @@ function gameMouseMove(event) {
   const rotateY = rotateYUncapped < -tiltEffectSettings.max ? -tiltEffectSettings.max :
     (rotateYUncapped > tiltEffectSettings.max ? tiltEffectSettings.max : rotateYUncapped);
 
-  game.style.transform = `perspective(${tiltEffectSettings.perspective}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) 
-                          scale3d(${tiltEffectSettings.scale}, ${tiltEffectSettings.scale}, ${tiltEffectSettings.scale})`;
+  game.style.transform = `perspective(${tiltEffectSettings.perspective}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(${tiltEffectSettings.scale}, ${tiltEffectSettings.scale}, ${tiltEffectSettings.scale})`;
 }
 
 function gameMouseLeave(event) {

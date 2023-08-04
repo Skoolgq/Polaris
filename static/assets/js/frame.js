@@ -10,12 +10,10 @@ const load = () => {
         }
     });
 
-    const gameID = new URLSearchParams(location.search).get('id');
-
     fetch('/assets/JSON/games.json')
         .then(res => res.json())
         .then(games => {
-            const game = games.find(game => game.id === gameID);
+            const game = games[Number(new URLSearchParams(location.search).get('id'))];
 
             if (game) {
                 const iframe = document.querySelector('.frame');
