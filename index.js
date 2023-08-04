@@ -19,11 +19,9 @@ app.get('/cdn/*', cors({ origin: false }), async (req, res, next) => {
     if (asset.status == 200) {
         var data = Buffer.from(await asset.arrayBuffer());
 
-        if (mime.getType(reqTarget) === 'text/html') {
-            res.writeHead(200, {
-                'content-type': mime.getType(reqTarget)
-            });
-        }
+        if (mime.getType(reqTarget) === 'text/html') res.writeHead(200, {
+            'content-type': mime.getType(reqTarget)
+        });
 
         if (mime.getType(reqTarget) === 'text/html') data = data + '<script src="/assets/js/cdn_inject.js" preload="true"></script>';
 
