@@ -488,7 +488,7 @@ input:checked+.slider:before {
   border-radius: 2vh;
   transition: all 0.4s ease;
   box-shadow: 0.5vh 0.5vh 1vh 0vh var(--shadow-color);
-  cursor: hover;
+  cursor: pointer;
 }
 
 .featuredimg:hover{
