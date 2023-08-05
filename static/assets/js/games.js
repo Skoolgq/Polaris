@@ -8,27 +8,53 @@ const tiltEffectSettings = {
   easing: 'cubic-bezier(.03,.98,.52,.99)' // easing (transition-timing-function) of the enter/exit transition
 };
 
+let games = []; // store all games
+let filteredGames = []; // store filtered games
+
 const load = () => {
   fetch('/assets/JSON/games.json')
     .then(res => res.json())
-    .then(games => {
-      games.forEach(game => {
-        const el = document.createElement('div');
-        el.classList = 'game';
-        el.innerHTML = `<img src="${game.image}"><h3>${game.name}</h3>`;
-        document.querySelector('.games').appendChild(el);
+    .then(data => {
+      games = data;
+      filteredGames = games; // initialize filtered games with all games
 
-        el.addEventListener('click', () => location.href = `/play?id=${games.indexOf(game)}`);
+      renderGames(filteredGames); // render games initially
 
-        el.addEventListener('mouseenter', gameMouseEnter);
-        el.addEventListener('mousemove', gameMouseMove);
-        el.addEventListener('mouseleave', gameMouseLeave);
-      });
+      // Add event listener to search input
+      const searchInput = document.getElementById('searchInput');
+      searchInput.addEventListener('input', filterGames);
     })
     .catch(e => {
       new PolarisError('Failed to load games');
     });
 };
+
+function filterGames() {
+  const searchInput = document.getElementById('searchInput');
+  const searchTerm = searchInput.value.toLowerCase();
+
+  filteredGames = games.filter(game => game.name.toLowerCase().includes(searchTerm));
+
+  renderGames(filteredGames); // render filtered games
+}
+
+function renderGames(gamesToRender) {
+  const gamesContainer = document.querySelector('.games');
+  gamesContainer.innerHTML = ''; // clear previous games
+
+  gamesToRender.forEach(game => {
+    const el = document.createElement('div');
+    el.classList = 'game';
+    el.innerHTML = `<img src="${game.image}"><h3>${game.name}</h3>`;
+    gamesContainer.appendChild(el);
+
+    el.addEventListener('click', () => location.href = `/play?id=${games.indexOf(game)}`);
+
+    el.addEventListener('mouseenter', gameMouseEnter);
+    el.addEventListener('mousemove', gameMouseMove);
+    el.addEventListener('mouseleave', gameMouseLeave);
+  });
+}
 
 function gameMouseEnter(event) {
   setTransition(event);

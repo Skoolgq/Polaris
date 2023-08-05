@@ -80,7 +80,8 @@ h1 {
     text-align: center;
 }
 
-input {
+
+.settings-input {
     text-align: center;
     box-shadow: 0.5vh 0.5vh 1vh 0vh var(--shadow-color);
     border: none;
@@ -120,14 +121,6 @@ button {
 .mainpageimage-button:hover {
     transform: scale(1.025);
     opacity: 1;
-}
-
-.mainpageimage-button img {
-    display: block;
-    width: 100%;
-    height: auto;
-    border-radius: 4vh;
-    box-shadow: 0vh 0.75vh 1.5vh 0vh black;
 }
 
 .mainpage-text {
@@ -470,7 +463,7 @@ input:checked+.slider:before {
     background: rgba(0, 0, 0);
 }
 
-.featuredcontainer{
+.featuredcontainer {
   background-color: var(--background-color);
   width: 60vh;
   margin: auto;
