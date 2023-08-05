@@ -475,7 +475,7 @@ input:checked+.slider:before {
   width: 60vh;
   margin: auto;
   padding-top: 0.3vh;
-  padding-bottom: 0.5vh;
+  padding-bottom: 0.3vh;
   padding-left: 1.5vh;
   padding-right: 1.5vh;
   border-radius: 2vh;
@@ -491,6 +491,10 @@ input:checked+.slider:before {
 }
 
 .featuredimg:hover{
-  transform: scale(1.025);
+  transform: scale(1.01);
+}
+
+.featuredlowbar {
+
 }
     
