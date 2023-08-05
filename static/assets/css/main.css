@@ -491,7 +491,7 @@ input:checked+.slider:before {
 }
 
 .featuredimg:hover{
-  transform: scale(1.01);
+  box-shadow: 0.6vh 0.6vh 1vh 0vh var(--shadow-color);
 }
 
 .featuredtopbar {
