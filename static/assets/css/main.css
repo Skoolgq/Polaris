@@ -442,8 +442,8 @@ input:checked+.slider:before {
 .gamebar img {
     width: 3.5vh;
     height: 3.5vh;
-    margin: 1vh
-    border-radius: 5px;
+    margin: 1vh;
+    border-radius: 0.5vh;
 }
 
 .gamebar p {
