@@ -459,7 +459,7 @@ input:checked+.slider:before {
 }
 
 .gamebar {
-    width: 75vw;
+    width: 80vw;
     margin: 0 auto;
     border-left: 3vh solid black;
     border-right: 3vh solid black;
@@ -472,7 +472,7 @@ input:checked+.slider:before {
 
 .featuredcontainer{
   background-color: var(--background-color);
-  width: 40vh;
+  width: 60vh;
   margin: auto;
   padding-top: 0.3vh;
   padding-bottom: 0.5vh;
