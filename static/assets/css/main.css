@@ -459,7 +459,7 @@ input:checked+.slider:before {
 }
 
 .gamebar {
-    width: 80vw;
+    width: 75vw;
     margin: 0 auto;
     border-left: 3vh solid black;
     border-right: 3vh solid black;
