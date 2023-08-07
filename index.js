@@ -18,8 +18,11 @@ app.get('/cdn/*', cors({ origin: false }), async (req, res, next) => {
     const asset = await fetch(reqTarget);
     if (asset.status == 200) {
         var data = Buffer.from(await asset.arrayBuffer());
+        const noRewrite = [
+            '.unityweb'
+        ];
 
-        if (mime.getType(reqTarget) === 'text/html') res.writeHead(200, {
+        if (!noRewrite.includes(mime.getExtension(reqTarget))) res.writeHead(200, {
             'content-type': mime.getType(reqTarget)
         });
 

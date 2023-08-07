@@ -10,7 +10,8 @@
         <a href="/apps"><i class="fa-solid fa-rocket-launch fa-xs"></i>Apps</a>
         <a href="/search"><i class="fa-solid fa-magnifying-glass fa-xs"></i>Proxy</a>
         <a href="/cheats"><i class="fa-solid fa-computer fa-xs"></i>Cheats</a>
-        <a href="#settings" data-link="true" data-attr="sidebar_trigger"><i class="fa-solid fa-gear fa-sm"></i>Settings</a>
+        <a href="#settings" data-link="true" data-attr="sidebar_trigger"><i
+                class="fa-solid fa-gear fa-sm"></i>Settings</a>
     </div>
 </div>
 
@@ -60,20 +61,13 @@
     <h3>Select a proxy</h3>
     <select id="proxy">
         <option value="uv">Ultraviolet</option>
-        <option value="rh">Rammerhead</option>
+        <option value="rh" disabled>Rammerhead</option>
     </select>
 
-    
+
     <h3>Prevent close</h3>
     <div class="switch">
         <input type="checkbox" id="prevent_close">
-        <span class="slider"></span>
-    </div>
-
-    
-    <h3>Proxy all Assets</h3>
-    <div class="switch">
-        <input type="checkbox" id="proxy_assets">
         <span class="slider"></span>
     </div>
 
@@ -83,11 +77,6 @@
         <span class="slider"></span>
     </div>
     <br>
+    <br>
     <button data-attr="sidebar_trigger">Close</button>
 </div>
-<script src='https://cdn.jsdelivr.net/npm/@widgetbot/crate@3' async defer>
-    new Crate({
-        server: '950407933408198717', // Skool Community
-        channel: '1044626679638806631' // #💬︱uv-chat
-    })
-</script>

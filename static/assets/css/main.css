@@ -96,6 +96,35 @@ h1 {
     margin-top: 2vh;
 }
 
+.proxyinput {
+    text-align: center;
+    font-size: 2vh;
+    box-shadow: 0.5vh 0.5vh 1vh 0vh var(--shadow-color);
+    border: none;
+    border-radius: 2vh;
+    cursor: pointer;
+    background: var(--sidebar-bg);
+    width: 35vh;
+    height: 4vh;
+    color: var(--text);
+    transition: 0.4s;
+    margin: auto;
+    margin-top: 2vh;
+}
+
+.proxycontainer {
+    background-color: var(--background-color);
+    width: 40vh;
+    margin: auto;
+    margin-top: 10vh;
+    padding-top: 1vh;
+    padding-bottom: 2vh;
+    padding-left: 1.5vh;
+    padding-right: 1.5vh;
+    border-radius: 2vh;
+    color: var(--text);
+}
+
 button {
     text-align: center;
     border: none;
@@ -173,6 +202,7 @@ button:hover {
     width: 6vh;
     height: 3.4vh;
     margin-top: 2vh;
+    cursor: pointer;
 }
 
 .switch input {
@@ -182,6 +212,7 @@ button:hover {
     position: relative;
     z-index: 500;
     bottom: 2vh;
+    cursor: pointer;
 }
 
 .slider {
@@ -464,31 +495,32 @@ input:checked+.slider:before {
 }
 
 .featuredcontainer {
-  background-color: var(--background-color);
-  width: 60vh;
-  margin: auto;
-  padding-top: 1vh;
-  padding-bottom: 1vh;
-  padding-left: 1.5vh;
-  padding-right: 1.5vh;
-  border-radius: 2vh;
-  color: var(--text);
+    background-color: var(--background-color);
+    width: 40vh;
+    height: 30vh;
+    margin: auto;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    padding-left: 1.5vh;
+    padding-right: 1.5vh;
+    border-radius: 2vh;
+    color: var(--text);
+    margin-bottom: 10vh;
 }
 
-.featuredimg{
-  width: 100%;
-  height: 100%;
-  border-radius: 2vh;
-  transition: all 0.4s ease;
-  box-shadow: 0.5vh 0.5vh 1vh 0vh var(--shadow-color);
-  cursor: pointer;
+.featuredimg {
+    width: 75%;
+    height: 100%;
+    border-radius: 1.5vh;
+    transition: all 0.4s ease;
+    box-shadow: 0.5vh 0.5vh 1vh 0vh var(--shadow-color);
+    cursor: pointer;
 }
 
-.featuredimg:hover{
-  box-shadow: 0.6vh 0.6vh 1vh 0vh var(--shadow-color);
+.featuredimg:hover {
+    box-shadow: 0.6vh 0.6vh 1vh 0vh var(--shadow-color);
 }
 
 .featuredtopbar {
-  font-size: 2.5vh;
+    font-size: 2.5vh;
 }
-    
