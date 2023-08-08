@@ -186,6 +186,12 @@
     "desc": ""
   },
   {
+    "name": "Space Huggers",
+    "source": "https://space-huggers.osrc.com/",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSr4o2H6a4_89ozRTKQKjGUEJjFRTjgGD-0Raolnv_MD0hw3N79F3aQvLJVqhPu7-JYS6c&usqp=CAU",
+    "desc": ""
+  },
+  {
     "name": "Subway Surfers",
     "source": "/cdn/subway-surfers/index.html",
     "image": "/cdn/subway-surfers/img/FirstAvatar.png",
