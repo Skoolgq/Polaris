@@ -192,6 +192,12 @@
     "desc": ""
   },
   {
+    "name": "The Final Earth",
+    "source": "/cdn/the-final-earth/index.html",
+    "image": "/cdn/the-final-earth/images.png",
+    "desc": ""
+  },
+  {
     "name": "Super Mario Bros",
     "source": "/cdn/mario/index.html",
     "image": "/cdn/mario/Theme/Mario.gif",
