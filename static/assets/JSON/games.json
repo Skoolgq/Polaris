@@ -180,6 +180,12 @@
     "desc": ""
   },
   {
+    "name": "Subway Surfers",
+    "source": "/cdn/subway-surfers/index.html",
+    "image": "/cdn/subway-surfers/img/splash.jpg",
+    "desc": ""
+  },
+  {
     "name": "Super Mario Bros",
     "source": "/cdn/mario/index.html",
     "image": "/cdn/mario/Theme/Mario.gif",
