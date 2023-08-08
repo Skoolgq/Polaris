@@ -186,6 +186,12 @@
     "desc": ""
   },
   {
+    "name": "SuperHot",
+    "source": "/cdn/superhot/index.html",
+    "image": "/cdn/superhot/hot.jpg",
+    "desc": ""
+  },
+  {
     "name": "Super Mario Bros",
     "source": "/cdn/mario/index.html",
     "image": "/cdn/mario/Theme/Mario.gif",
