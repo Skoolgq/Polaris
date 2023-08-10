@@ -499,7 +499,7 @@ input:checked+.slider:before {
     width: 40vh;
     margin: auto;
     padding-top: 1vh;
-    padding-bottom: 1vh;
+    padding-bottom: 2vh;
     padding-left: 1.5vh;
     padding-right: 1.5vh;
     border-radius: 2vh;
@@ -524,7 +524,7 @@ input:checked+.slider:before {
 }
 .quotebox {
     margin: auto;
-    margin-top: 12vh;
+    margin-top: 14vh;
     color: var(--text);
 }
 .homequote{
