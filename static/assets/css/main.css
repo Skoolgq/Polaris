@@ -523,16 +523,9 @@ input:checked+.slider:before {
     font-size: 2.5vh;
 }
 .quotebox {
-    background-color: var(--background-color);
-    width: 40vh;
-    height: 10vh;
     margin: auto;
-    padding-top: 1vh;
-    padding-left: 1.5vh;
-    padding-right: 1.5vh;
-    border-radius: 2vh;
+    margin-top: 12vh;
     color: var(--text);
-    margin-bottom: 3vh;
 }
 .homequote{
     line-height: 1;
