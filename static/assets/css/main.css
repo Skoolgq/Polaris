@@ -497,7 +497,6 @@ input:checked+.slider:before {
 .featuredcontainer {
     background-color: var(--background-color);
     width: 40vh;
-    height: 30vh;
     margin: auto;
     padding-top: 1vh;
     padding-bottom: 1vh;
@@ -505,7 +504,6 @@ input:checked+.slider:before {
     padding-right: 1.5vh;
     border-radius: 2vh;
     color: var(--text);
-    margin-bottom: 10vh;
 }
 
 .featuredimg {
