@@ -33,7 +33,7 @@ body[data-theme='light'] {
 body[data-theme='flamingo'] {
     --background-color: #e75166;
     --text: #fff;
-    --sidebar-bg: #e75166;
+    --sidebar-bg: #e75166ee;
     --button-bg: #00000059;
     --shadow-color: #F949724b;
     --switch-color: #959595;
