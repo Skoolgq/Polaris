@@ -447,6 +447,7 @@ input:checked+.slider:before {
 .center-content {
     text-align: center;
     justify-content: center;
+    margin-top: 5vh;
 }
 
 .frame {
