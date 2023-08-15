@@ -31,16 +31,17 @@
 }
 
 .navbar>.end>a {
+    border-style: solid;
+    border-width: 0.2vh;
     margin: 0.5rem;
     padding: 1rem;
     cursor: pointer;
     font-size: 3vh;
-    border-radius: 10px;
-    border-color: #fff;
+    border-radius: 2vh;
+    border-color: rgba( 0, 0, 0, 0);
+    transition: border-color 0.4s linear;
 }
 
 .navbar>.end>a:hover {
-    border-style: solid;
-    border-width: 2px;
-    margin: calc(0.5rem - 2px);
+    border-color: rgba(255, 255, 255, 1);
 }

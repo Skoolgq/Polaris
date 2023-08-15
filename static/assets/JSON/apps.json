@@ -2,21 +2,21 @@
   {
     "name": "App 1",
     "image": "https://via.placeholder.com/220x220?text=Insert+cool+app",
-    "desc": "An app"
+    "source": "https://example.com"
   },
   {
     "name": "App 2",
     "image": "https://via.placeholder.com/220x220?text=Insert+cool+app",
-    "desc": "An app"
+    "source": "https://example.com"
   },
   {
     "name": "App 3",
     "image": "https://via.placeholder.com/220x220?text=Insert+cool+app",
-    "desc": "An app"
+    "source": "https://example.com"
   },
   {
     "name": "App 4",
     "image": "https://via.placeholder.com/220x220?text=Insert+cool+app",
-    "desc": "An app"
+    "source": "https://example.com"
   }
 ]

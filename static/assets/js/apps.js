@@ -29,7 +29,7 @@ const load = () => {
       });
     })
     .catch(e => {
-      new PolarisError('Failed to load games');
+      new PolarisError('Failed to load Apps');
     });
 };
 
