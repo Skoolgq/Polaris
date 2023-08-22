@@ -12,7 +12,7 @@ let games = []; // store all games
 let filteredGames = []; // store filtered games
 
 const load = () => {
-  fetch('/assets/JSON/games.json')
+  fetch('/assets/JSON/apps.json')
     .then(res => res.json())
     .then(data => {
       games = data;
@@ -20,6 +20,9 @@ const load = () => {
 
       renderGames(filteredGames); // render games initially
 
+      // Add event listener to search input
+      const searchInput = document.getElementById('searchInput');
+      searchInput.addEventListener('input', filterGames);
     })
     .catch(e => {
       new PolarisError('Failed to load games');
@@ -27,6 +30,11 @@ const load = () => {
 };
 
 function filterGames() {
+  const searchInput = document.getElementById('searchInput');
+  const searchTerm = searchInput.value.toLowerCase();
+
+  filteredGames = games.filter(game => game.name.toLowerCase().includes(searchTerm));
+
   renderGames(filteredGames); // render filtered games
 }
 
