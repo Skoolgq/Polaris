@@ -19,9 +19,16 @@ const load = () => {
       filteredGames = games; // initialize filtered games with all games
 
       renderGames(filteredGames); // render games initially
+
     })
+    .catch(e => {
+      new PolarisError('Failed to load games');
+    });
 };
 
+function filterGames() {
+  renderGames(filteredGames); // render filtered games
+}
 
 function renderGames(gamesToRender) {
   const gamesContainer = document.querySelector('.games');
@@ -78,4 +85,3 @@ function setTransition(event) {
 }
 
 export default { load };
-
