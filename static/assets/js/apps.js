@@ -19,24 +19,12 @@ const load = () => {
       filteredGames = games; // initialize filtered games with all games
 
       renderGames(filteredGames); // render games initially
-
-      // Add event listener to search input
-      const searchInput = document.getElementById('searchInput');
-      searchInput.addEventListener('input', filterGames);
     })
     .catch(e => {
       new PolarisError('Failed to load apps');
     });
 };
 
-function filterGames() {
-  const searchInput = document.getElementById('searchInput');
-  const searchTerm = searchInput.value.toLowerCase();
-
-  filteredGames = games.filter(game => game.name.toLowerCase().includes(searchTerm));
-
-  renderGames(filteredGames); // render filtered games
-}
 
 function renderGames(gamesToRender) {
   const gamesContainer = document.querySelector('.games');
