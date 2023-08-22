@@ -12,7 +12,7 @@ let games = []; // store all games
 let filteredGames = []; // store filtered games
 
 const load = () => {
-  fetch('/assets/JSON/apps.json')
+  fetch('/assets/JSON/games.json')
     .then(res => res.json())
     .then(data => {
       games = data;
