@@ -20,9 +20,6 @@ const load = () => {
 
       renderGames(filteredGames); // render games initially
     })
-    .catch(e => {
-      new PolarisError('Failed to load apps');
-    });
 };
 
 
