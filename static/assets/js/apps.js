@@ -1,4 +1,5 @@
 import PolarisError from './error.js';
+import frame from './frame.js';
 
 const tiltEffectSettings = {
   max: 8, // max tilt rotation (degrees (deg))
@@ -8,53 +9,29 @@ const tiltEffectSettings = {
   easing: 'cubic-bezier(.03,.98,.52,.99)' // easing (transition-timing-function) of the enter/exit transition
 };
 
-let games = []; // store all games
-let filteredGames = []; // store filtered games
-
 const load = () => {
   fetch('/assets/JSON/apps.json')
     .then(res => res.json())
-    .then(data => {
-      games = data;
-      filteredGames = games; // initialize filtered games with all games
+    .then(games => {
+      games.forEach(game => {
+        const el = document.createElement('div');
+        el.classList = 'game';
+        el.innerHTML = `<img src="${game.image}"><h3>${game.name}</h3><span>${game.desc}</span>`;
+        document.querySelector('.apps').appendChild(el);
 
-      renderGames(filteredGames); // render games initially
+        el.addEventListener('click', () => {
+          frame();
+        });
 
-      // Add event listener to search input
-      const searchInput = document.getElementById('searchInput');
-      searchInput.addEventListener('input', filterGames);
+        el.addEventListener('mouseenter', gameMouseEnter);
+        el.addEventListener('mousemove', gameMouseMove);
+        el.addEventListener('mouseleave', gameMouseLeave);
+      });
     })
     .catch(e => {
-      new PolarisError('Failed to load games');
+      new PolarisError('Failed to load Apps');
     });
 };
-
-function filterGames() {
-  const searchInput = document.getElementById('searchInput');
-  const searchTerm = searchInput.value.toLowerCase();
-
-  filteredGames = games.filter(game => game.name.toLowerCase().includes(searchTerm));
-
-  renderGames(filteredGames); // render filtered games
-}
-
-function renderGames(gamesToRender) {
-  const gamesContainer = document.querySelector('.games');
-  gamesContainer.innerHTML = ''; // clear previous games
-
-  gamesToRender.forEach(game => {
-    const el = document.createElement('div');
-    el.classList = 'game';
-    el.innerHTML = `<img src="${game.image}"><h3>${game.name}</h3>`;
-    gamesContainer.appendChild(el);
-
-    el.addEventListener('click', () => location.href = `/play?id=${games.indexOf(game)}`);
-
-    el.addEventListener('mouseenter', gameMouseEnter);
-    el.addEventListener('mousemove', gameMouseMove);
-    el.addEventListener('mouseleave', gameMouseLeave);
-  });
-}
 
 function gameMouseEnter(event) {
   setTransition(event);
@@ -75,7 +52,8 @@ function gameMouseMove(event) {
   const rotateY = rotateYUncapped < -tiltEffectSettings.max ? -tiltEffectSettings.max :
     (rotateYUncapped > tiltEffectSettings.max ? tiltEffectSettings.max : rotateYUncapped);
 
-  game.style.transform = `perspective(${tiltEffectSettings.perspective}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(${tiltEffectSettings.scale}, ${tiltEffectSettings.scale}, ${tiltEffectSettings.scale})`;
+  game.style.transform = `perspective(${tiltEffectSettings.perspective}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) 
+                          scale3d(${tiltEffectSettings.scale}, ${tiltEffectSettings.scale}, ${tiltEffectSettings.scale})`;
 }
 
 function gameMouseLeave(event) {
