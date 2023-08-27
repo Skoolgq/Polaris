@@ -22,7 +22,7 @@ const load = () => {
                 document.querySelector('#gameicon').src = game.image;
                 document.querySelector('#gametitle').textContent = game.name;
             } else {
-                document.querySelector('#gametitle').textContent = 'Failed to load game';
+                document.querySelector('#gametitle').textContent = 'Failed to load Game';
             }
         });
 
