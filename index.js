@@ -13,15 +13,11 @@ app.use(new Easyviolet().express(app));
 app.use(express.static(path.join(__dirname, '/static'), { extensions: ['html'] }));
 
 app.get('/cdn/*', cors({ origin: false }), async (req, res, next) => {
-    const reqTarget = `https://raw.githubusercontent.com/Skoolgq/Polaris-Assets/main/${req.path.replace('/cdn/', '')}`;
-
-    const asset = await fetch(reqTarget);
+    const asset = await fetch(`https://raw.githubusercontent.com/Skoolgq/Polaris-Assets/main/${req.path.replace('/cdn/', '')}`);
     if (asset.status == 200) {
         var data = Buffer.from(await asset.arrayBuffer());
-        const noRewrite = [
-            '.unityweb'
-        ];
-
+        
+        const noRewrite = ['.unityweb'];
         if (!noRewrite.includes(mime.getExtension(reqTarget))) res.writeHead(200, {
             'content-type': mime.getType(reqTarget)
         });
@@ -29,14 +25,10 @@ app.get('/cdn/*', cors({ origin: false }), async (req, res, next) => {
         if (mime.getType(reqTarget) === 'text/html') data = data + '<script src="/assets/js/cdn_inject.js" preload="true"></script>';
 
         res.end(data);
-    } else {
-        next();
-    }
+    } else next();
 });
 
 app.use((req, res) => res.status(404).sendFile(path.join(__dirname, './static/', '404.html')));
 app.use((e, req, res, next) => res.status(500).send(`Something Broke \n\n The error was: ${e.stack}`));
 
-const server = app.listen(port, () => {
-    console.log(`Polaris is running on port ${server.address().port}, using nodejs ${process.version}`);
-});
+const server = app.listen(port, () => console.log(`Polaris is running!\n   Port: ${server.address().port}\n   Node: ${process.version}`));

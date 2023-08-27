@@ -2,6 +2,7 @@ import Settings from './settings.js';
 import Games from './games.js';
 import Apps from './apps.js';
 import Frame from './frame.js';
+import AppPlayer from './appplayer.js';
 import WPM from './wpm.js';
 import PolarisError from './error.js';
 
@@ -107,6 +108,10 @@ if (window.self === window.top) {
 
         if (location.pathname === '/play') {
             Frame.load();
+        }
+
+        if (location.pathname === '/appplayer') {
+            AppPlayer.load();
         }
     }, 500);
 }

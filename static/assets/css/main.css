@@ -481,6 +481,7 @@ input:checked+.slider:before {
     font-size: 3vh;
     margin: auto 0;
     margin-left: auto;
+    cursor: pointer;
 }
 
 .gamebar {
