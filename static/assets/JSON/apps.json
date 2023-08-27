@@ -1,26 +1,26 @@
 [
   {
-    "name": "Google",
-    "image": "https://via.placeholder.com/220x220?text=Insert+cool+app",
-    "source": "https://skoolv3.vercel.app/uv/service/hvtrs8%2F-wuw%2Cgmoelg.aoo%2F%3Dgus%5Drf%3Dqsn",
-    "quickname": "google"
+    "name": "Discord",
+    "image": "/static/assets/img/discord.png",
+    "source": "https://skoolv3.vercel.app/uv/service/hvtrs8%2F-dksaopd%2Ccmm-lmgkn",
+    "quickname": "discord"
   },
   {
-    "name": "App 2",
-    "image": "https://via.placeholder.com/220x220?text=Insert+cool+app",
-    "source": "https://example.com",
-    "quickname": "example_1"
+    "name": "Tiktok",
+    "image": "/static/assets/img/tiktok.png",
+    "source": "https://skoolv3.vercel.app/uv/service/hvtrs8%2F-wuw%2Ctkkvoi.aoo%2Fgn-",
+    "quickname": "tiktok"
   },
   {
-    "name": "App 3",
-    "image": "https://via.placeholder.com/220x220?text=Insert+cool+app",
-    "source": "https://example.com",
-    "quickname": "example_2"
+    "name": "Youtube",
+    "image": "/static/assets/img/youtube.png",
+    "source": "https://skoolv3.vercel.app/uv/service/hvtrs8%2F-wuw%2Cymuvu%60e%2Ccmm-",
+    "quickname": "youtube"
   },
   {
-    "name": "App 4",
-    "image": "https://via.placeholder.com/220x220?text=Insert+cool+app",
-    "source": "https://example.com",
-    "quickname": "example_3"
+    "name": "Spotify",
+    "image": "/static/assets/img/spotify.png",
+    "source": "https://skoolv3.vercel.app/uv/service/hvtrs8%2F-orel.qpmtkf%7B.aoo%2F",
+    "quickname": "spotify"
   }
 ]
