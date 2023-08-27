@@ -13,6 +13,7 @@ const load = () => {
   fetch('/assets/JSON/apps.json')
     .then(res => res.json())
     .then(games => {
+      console.log(games)
       games.forEach(game => {
         const el = document.createElement('div');
         el.classList = 'game';
@@ -20,7 +21,7 @@ const load = () => {
         document.querySelector('.apps').appendChild(el);
 
         el.addEventListener('click', () => {
-          frame();
+          location.href = `/appplayer?id=${game.quickname}`;
         });
 
         el.addEventListener('mouseenter', gameMouseEnter);
