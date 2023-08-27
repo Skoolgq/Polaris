@@ -1,25 +1,25 @@
 [
   {
     "name": "Discord",
-    "image": "/static/assets/img/discord.png",
+    "image": "/assets/img/discord.png",
     "source": "https://skoolv3.vercel.app/uv/service/hvtrs8%2F-dksaopd%2Ccmm-lmgkn",
     "quickname": "discord"
   },
   {
     "name": "Tiktok",
-    "image": "/static/assets/img/tiktok.png",
+    "image": "/assets/img/tiktok.png",
     "source": "https://skoolv3.vercel.app/uv/service/hvtrs8%2F-wuw%2Ctkkvoi.aoo%2Fgn-",
     "quickname": "tiktok"
   },
   {
     "name": "Youtube",
-    "image": "/static/assets/img/youtube.png",
+    "image": "/assets/img/youtube.png",
     "source": "https://skoolv3.vercel.app/uv/service/hvtrs8%2F-wuw%2Cymuvu%60e%2Ccmm-",
     "quickname": "youtube"
   },
   {
     "name": "Spotify",
-    "image": "/static/assets/img/spotify.png",
+    "image": "/assets/img/spotify.png",
     "source": "https://skoolv3.vercel.app/uv/service/hvtrs8%2F-orel.qpmtkf%7B.aoo%2F",
     "quickname": "spotify"
   }
