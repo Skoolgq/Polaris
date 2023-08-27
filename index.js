@@ -13,7 +13,9 @@ app.use(new Easyviolet().express(app));
 app.use(express.static(path.join(__dirname, '/static'), { extensions: ['html'] }));
 
 app.get('/cdn/*', cors({ origin: false }), async (req, res, next) => {
-    const asset = await fetch(`https://raw.githubusercontent.com/Skoolgq/Polaris-Assets/main/${req.path.replace('/cdn/', '')}`);
+    let reqTarget = `https://raw.githubusercontent.com/Skoolgq/Polaris-Assets/main/${req.path.replace('/cdn/', '')}`;
+    
+    const asset = await fetch(reqTarget);
     if (asset.status == 200) {
         var data = Buffer.from(await asset.arrayBuffer());
         
