@@ -1,22 +1,26 @@
 [
   {
-    "name": "test 1",
+    "name": "Google",
     "image": "https://via.placeholder.com/220x220?text=Insert+cool+app",
-    "source": "https://skoolv3.vercel.app/uv/service/hvtrs8%2F-wuw%2Cgmoelg.aoo%2F%3Dgus%5Drf%3Dqsn"
+    "source": "https://skoolv3.vercel.app/uv/service/hvtrs8%2F-wuw%2Cgmoelg.aoo%2F%3Dgus%5Drf%3Dqsn",
+    "quickname": "google"
   },
   {
     "name": "App 2",
     "image": "https://via.placeholder.com/220x220?text=Insert+cool+app",
-    "source": "https://example.com"
+    "source": "https://example.com",
+    "quickname": "example_1"
   },
   {
     "name": "App 3",
     "image": "https://via.placeholder.com/220x220?text=Insert+cool+app",
-    "source": "https://example.com"
+    "source": "https://example.com",
+    "quickname": "example_2"
   },
   {
     "name": "App 4",
     "image": "https://via.placeholder.com/220x220?text=Insert+cool+app",
-    "source": "https://example.com"
+    "source": "https://example.com",
+    "quickname": "example_3"
   }
 ]
