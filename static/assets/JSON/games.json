@@ -204,9 +204,15 @@
     "desc": ""
   },
   {
-    "name": "The Final Earth",
+    "name": "The Final Earth 2",
     "source": "/cdn/the-final-earth-2/index.html",
     "image": "/cdn/the-final-earth-2/thumb.png",
+    "desc": ""
+  },
+  {
+    "name": "There is No Game",
+    "source": "/cdn/there-is-no-game/index.html",
+    "image": "/cdn/there-is-no-game/logo.png",
     "desc": ""
   },
   {
