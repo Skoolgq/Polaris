@@ -216,6 +216,30 @@
     "desc": ""
   },
   {
+    "name": "Tiny Fishing",
+    "source": "/cdn/tiny-fishing/index.html",
+    "image": "/cdn/tiny-fishing/thumb.png",
+    "desc": ""
+  },
+  {
+    "name": "Wolfenstein",
+    "source": "/cdn/wolfenstein-3d/index.html",
+    "image": "/cdn/wolfenstein-3d/art/wolf3d.png",
+    "desc": ""
+  },
+  {
+    "name": "World's Hardest Game 2",
+    "source": "/cdn/worlds-hardest-game-2/index.html",
+    "image": "/cdn/worlds-hardest-game-2/the-worlds-hardest-game-2.jpg",
+    "desc": ""
+  },
+  {
+    "name": "xx142-b2.exe",
+    "source": "/cdn/xx142-b2exe/index.html",
+    "image": "/cdn/xx142-b2exe/splash.png",
+    "desc": ""
+  },
+  {
     "name": "Super Mario Bros",
     "source": "/cdn/mario/index.html",
     "image": "/cdn/mario/Theme/Mario.gif",
