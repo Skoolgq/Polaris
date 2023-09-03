@@ -22,5 +22,11 @@
     "image": "/assets/img/spotify.png",
     "source": "/uv/service/hvtrs8%2F-orel.qpmtkf%7B.aoo%2F",
     "quickname": "spotify"
+  },
+  {
+    "name": "GeForce Now",
+    "image": "/assets/img/youtube.png",
+    "source": "/uv/service/hvtrs8%2F-pna%7B.eedopcgnmw%2Ccmm-mcln%2F#/layout/games",
+    "quickname": "geforcenow"
   }
 ]
