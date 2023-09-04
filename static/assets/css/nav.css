@@ -21,7 +21,7 @@
 .navbar>.title>span>span {
     display: block;
     position: relative;
-    font-size: 12px;
+    font-size: 1.2vh;
     margin-left: 3vh;
 }
 
