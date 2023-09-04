@@ -1,8 +1,8 @@
 .dropbtn {
     background-color: #3498DB;
     color: white;
-    padding: 16px;
-    font-size: 16px;
+    padding: 1.6vh;
+    font-size: 1.6vh;
     border: none;
     cursor: pointer;
 }
@@ -21,15 +21,15 @@
     display: none;
     position: absolute;
     background-color: #f1f1f1;
-    min-width: 160px;
+    min-width: 16.5vh;
     overflow: auto;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0vh 0.8vh 1.6vh 0vh rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
 
 .dropdown-content a {
     color: black;
-    padding: 12px 16px;
+    padding: 1.2vh 1.6vh;
     text-decoration: none;
     display: block;
 }
