@@ -90,12 +90,6 @@
     "desc": ""
   },
   {
-    "name": "game",
-    "source": "https://example.com",
-    "image": "https://via.placeholder.com/200x200",
-    "desc": ""
-  },
-  {
     "name": "Getaway Shootout",
     "source": "https://skoolgq.github.io/Polaris-Assets/getaway-shootout/index.html",
     "image": "/cdn/getaway-shootout/img/index.jpg",
