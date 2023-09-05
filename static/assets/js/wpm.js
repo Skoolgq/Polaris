@@ -1,4 +1,4 @@
-/* Stands for Web Proxy Manager because the keywork proxy is usually blocked */
+/* Stands for Web prxy Manager because the keywork prxy is usually blocked */
 
 import uv from './uv.js';
 
