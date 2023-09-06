@@ -12,6 +12,12 @@
     "quickname": "tiktok"
   },
   {
+    "name": "Twitch",
+    "image": "/assets/img/twitch.png",
+    "source": "/uv/service/hvtrs8%2F-wuw%2Ctuivcj.vv-",
+    "quickname": "twitch"
+  },
+  {
     "name": "Youtube",
     "image": "/assets/img/youtube.png",
     "source": "/uv/service/hvtrs8%2F-wuw%2Cymuvu%60e%2Ccmm-",
