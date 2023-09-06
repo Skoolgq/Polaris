@@ -1,14 +1,4 @@
 const load = () => {
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'f') {
-            const iframe = document.querySelector('.frame');
-
-            if (iframe.requestFullscreen) iframe.requestFullscreen();
-            else if (iframe.webkitRequestFullscreen) iframe.webkitRequestFullscreen();
-            else if (iframe.mozRequestFullScreen) iframe.mozRequestFullScreen();
-            else if (iframe.msRequestFullscreen) iframe.msRequestFullscreen();
-        }
-    });
 
     fetch('/assets/JSON/games.json')
         .then(res => res.json())
