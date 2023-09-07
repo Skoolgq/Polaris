@@ -124,7 +124,9 @@ if (location.pathname === '/') {
             const randomID = 5; // :3
             const game = games[randomID];
 
-            document.querySelector('.featuredimg').parentElement.href = `/play?id=${randomID}`
+            document.querySelector('.featuredimg').addEventListener('click', function() {
+                window.location.href = '/play?id=' + randomID;
+            });
             document.querySelector('.featuredimg').src = game.image;
         }).catch(e => new PolarisError('Failed to load featured game'));
 }
