@@ -121,11 +121,11 @@ if (location.pathname === '/') {
     fetch('/assets/JSON/games.json')
         .then(res => res.json())
         .then(games => {
-            const randomID = 5; // :3
+            const randomID = 40; // :3
             const game = games[randomID];
 
             document.querySelector('.featuredimg').addEventListener('click', function() {
-                window.location.href = '/play?id=' + randomID;
+             window.location.href = '/play?id=' + randomID;
             });
             document.querySelector('.featuredimg').src = game.image;
         }).catch(e => new PolarisError('Failed to load featured game'));
