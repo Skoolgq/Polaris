@@ -66,12 +66,6 @@
     "desc": ""
   },
   {
-    "name": "Cookie Clicker",
-    "source": "https://watchdocumentaries.com/wp-content/uploads/games/cookie-clicker/",
-    "image": "https://play-lh.googleusercontent.com/OssE3ON9WsLZedOF39UCgtIHcRYfV0OqQS9O78LfmRdxSyKdHX52G2OFa0LkG6D-k9w",
-    "desc": ""
-  },
-  {
     "name": "Crossy Road",
     "source": "/cdn/crossy-road/index.html",
     "image": "/cdn/crossy-road/icon.png",
@@ -90,20 +84,14 @@
     "desc": ""
   },
   {
-    "name": "Dragon Joust",
-    "source": "https://dragonjoust.io/",
-    "image": "https://data.gameflare.com/games/9908/YbFeGjFSAhSmt5-400-300.jpg",
-    "desc": ""
-  },
-  {
     "name": "Fruit Ninja",
-    "source": "https://skoolgq.github.io/Polaris-Assets/fruit-ninja/index.html",
+    "source": "/cdn/fruit-ninja/index.html",
     "image": "/cdn/fruit-ninja/FruitNinjaTeaser.jpg",
     "desc": ""
   },
   {
     "name": "Getaway Shootout",
-    "source": "https://skoolgq.github.io/Polaris-Assets/getaway-shootout/index.html",
+    "source": "/cdn/getaway-shootout/index.html",
     "image": "/cdn/getaway-shootout/img/index.jpg",
     "desc": ""
   },
@@ -168,24 +156,6 @@
     "desc": ""
   },
   {
-    "name": "Pizza Tower",
-    "source": "https://kdata1.com/2021/03/3527391/2.1/",
-    "image": "https://cdn2.steamgriddb.com/file/sgdb-cdn/icon_thumb/b5ad9ce775f86f2a64e72c7f2c633fe0.png",
-    "desc": ""
-  },
-  {
-    "name": "Retro Bowl",
-    "source": "https://jakwhegf.github.io/iuertjklngkkdd/",
-    "image": "https://jakwhegf.github.io/iuertjklngkkdd/img/icon.jpg",
-    "desc": ""
-  },
-  {
-    "name": "Roblox",
-    "source": "/assets/misc/robloxservers.html",
-    "image": "/assets/img/roblox.png",
-    "desc": ""
-  },
-  {
     "name": "Run 3",
     "source": "/cdn/run-3/Run%203.html",
     "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSs5Ei5kIaoCcE5x-QAJ4c4EzL68mBRk6RGQuo8_n-rXw&s",
@@ -198,12 +168,6 @@
     "desc": ""
   },
   {
-    "name": "Space Huggers",
-    "source": "https://space-huggers.osrc.com/",
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSr4o2H6a4_89ozRTKQKjGUEJjFRTjgGD-0Raolnv_MD0hw3N79F3aQvLJVqhPu7-JYS6c&usqp=CAU",
-    "desc": ""
-  },
-  {
     "name": "Subway Surfers",
     "source": "/cdn/subway-surfers/index.html",
     "image": "/cdn/subway-surfers/img/FirstAvatar.png",
@@ -213,12 +177,6 @@
     "name": "SuperHot",
     "source": "/cdn/superhot/index.html",
     "image": "/cdn/superhot/hot.jpg",
-    "desc": ""
-  },
-  {
-    "name": "test game for thonk",
-    "source": "https://example.com",
-    "image": "https://placehold.co/400x400",
     "desc": ""
   },
   {
