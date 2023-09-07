@@ -120,10 +120,10 @@ if (location.pathname === '/') {
     fetch('/assets/JSON/games.json')
         .then(res => res.json())
         .then(games => {
-            const randomID = Math.floor(Math.random() * games.length);
+            const randomID = 5;
             const game = games[randomID];
 
-            document.querySelector('.featuredimg').parentElement.href = `/play?id=${randomID}`
+            document.querySelector('.featuredimg').parentElement.href = `/play?id=5`
             document.querySelector('.featuredimg').src = game.image;
         }).catch(e => new PolarisError('Failed to load featured game'));
 }
