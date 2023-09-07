@@ -121,7 +121,7 @@ if (location.pathname === '/') {
     fetch('/assets/JSON/games.json')
         .then(res => res.json())
         .then(games => {
-            const randomID = 40; // :3
+            const randomID = 1; // :3
             const game = games[randomID];
 
             document.querySelector('.featuredimg').addEventListener('click', function() {
