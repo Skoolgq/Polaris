@@ -1,3 +1,4 @@
+// THIS FILE IS CRITICAL, DO NOT TOUCH UNLESS YOU KNOW WHAT YOU'RE DOING
 import Settings from './settings.js';
 import Games from './games.js';
 import Apps from './apps.js';
