@@ -222,6 +222,12 @@
     "desc": ""
   },
   {
+    "name": "test game for thonk",
+    "source": "https://example.com",
+    "image": "https://placehold.co/400x400",
+    "desc": ""
+  },
+  {
     "name": "The Final Earth",
     "source": "/cdn/the-final-earth/index.html",
     "image": "/cdn/the-final-earth/images.png",
