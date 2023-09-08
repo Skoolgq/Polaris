@@ -118,9 +118,9 @@ body[data-theme='crimson'] {
 }
 
 body[data-theme='inferno'] {
-    --background-color: #a74c4cee;
+    --background-color: #ff3b38;
     --text: #fff;
-    --sidebar-bg: #a74c4cee;
+    --sidebar-bg: #ff3b38;
     --button-bg: #00000059;
     --shadow-color: #940C284b;
     --switch-color: #42424259;
