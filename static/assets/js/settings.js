@@ -139,42 +139,6 @@ class Settings {
             }
         }
 
-        document.querySelector('#prevent_close').addEventListener('change', () => {
-            this.set('prevent_close', document.querySelector('#prevent_close').checked);
-        });
-
-        if (this.get('prevent_close')) {
-            document.querySelector('#prevent_close').checked = true;
-        }
-
-        document.querySelector('#dev_mode').addEventListener('change', () => {
-            this.set('dev_mode', document.querySelector('#dev_mode').checked);
-
-            if (document.querySelector('#dev_mode').checked) {
-                const erudaSrc = document.createElement('script');
-                erudaSrc.src = 'https://cdnjs.cloudflare.com/ajax/libs/eruda/3.0.0/eruda.js';
-                document.body.appendChild(erudaSrc);
-
-                erudaSrc.onload = () => {
-                    eruda.init();
-                }
-            } else {
-                document.querySelector('#eruda').remove();
-                document.querySelector('.__chobitsu-hide__').remove();
-            }
-        });
-
-        if (this.get('dev_mode')) {
-            document.querySelector('#dev_mode').checked = true;
-
-            const erudaSrc = document.createElement('script');
-            erudaSrc.src = 'https://cdnjs.cloudflare.com/ajax/libs/eruda/3.0.0/eruda.js';
-            document.body.appendChild(erudaSrc);
-
-            erudaSrc.onload = () => {
-                eruda.init();
-            }
-        }
 
         document.querySelector('#themes').querySelectorAll('button').forEach(el => {
             el.onclick = () => {
