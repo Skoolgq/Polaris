@@ -128,7 +128,7 @@ body[data-theme='inferno'] {
     --scrollbar-color: #ffffff59;
     --solid: #940C28;
     --hover: #fc3f42;
-    background: linear-gradient(90deg, rgba(255, 106, 111, 1) 0%, rgba(252, 19, 3, 1) 85%);
+    background: linear-gradient(90deg, rgba(252, 19, 3, 1) 0%, rgba(33, 2, 0, 1) 85%);
     animation: inferno-gradient 12s ease infinite;
 
     @keyframes inferno-gradient {
@@ -145,6 +145,14 @@ body[data-theme='inferno'] {
         }
     }
 }
+
+
+
+
+
+
+
+
 
 @media screen and (prefers-color-scheme: light) {
     body[data-theme='system default'] {
