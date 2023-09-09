@@ -513,7 +513,6 @@ input:checked+.slider:before {
     width: 75%;
     height: 100%;
     transition: all 0.4s ease;
-    box-shadow: 0.5vh 0.5vh 1vh 0vh var(--shadow-color);
     cursor: pointer;
     border-radius: 2vh;
     border-color: rgba( 0, 0, 0, 0);
