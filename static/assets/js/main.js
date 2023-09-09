@@ -95,6 +95,7 @@ const registerLinks = () => {
                             window.onmessage = (e) => {
                                 if (e.data == 'loaded') {
                                     window.history.pushState({}, '', a.href);
+                                    previousLocation = location.pathname;
                                     document.documentElement.innerHTML = frame.contentWindow.document.documentElement.innerHTML;
                                     document.body.style.display = 'none';
 
