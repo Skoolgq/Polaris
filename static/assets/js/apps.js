@@ -1,5 +1,4 @@
 import PolarisError from './error.js';
-import frame from './frame.js';
 
 const tiltEffectSettings = {
   max: 8, // max tilt rotation (degrees (deg))
@@ -12,62 +11,59 @@ const tiltEffectSettings = {
 const load = () => {
   fetch('/assets/JSON/apps.json')
     .then(res => res.json())
-    .then(games => {
-      console.log(games)
-      games.forEach(game => {
+    .then(apps => {
+      apps.forEach(app => {
         const el = document.createElement('div');
-        el.classList = 'game';
-        el.innerHTML = `<img src="${game.image}"><h3>${game.name}</h3><span>${game.desc}</span>`;
+        el.classList = 'app';
+        el.innerHTML = `<img src="${app.image}"><h3>${app.name}</h3><span>${app.desc}</span>`;
         document.querySelector('.apps').appendChild(el);
 
         el.addEventListener('click', () => {
-          location.href = `/appplayer?id=${game.quickname}`;
+          location.href = `/appplayer?id=${app.quickname}`;
         });
 
-        el.addEventListener('mouseenter', gameMouseEnter);
-        el.addEventListener('mousemove', gameMouseMove);
-        el.addEventListener('mouseleave', gameMouseLeave);
+        el.addEventListener('mouseenter', appMouseEnter);
+        el.addEventListener('mousemove', appMouseMove);
+        el.addEventListener('mouseleave', appMouseLeave);
       });
     })
-    .catch(e => {
-      new PolarisError('Failed to load Apps');
-    });
+    .catch(e => new PolarisError('Failed to load Apps'));
 };
 
-function gameMouseEnter(event) {
+function appMouseEnter(event) {
   setTransition(event);
 }
 
-function gameMouseMove(event) {
-  const game = event.currentTarget;
-  const gameWidth = game.offsetWidth;
-  const gameHeight = game.offsetHeight;
-  const centerX = game.offsetLeft + gameWidth / 2;
-  const centerY = game.offsetTop + gameHeight / 2;
+function appMouseMove(event) {
+  const app = event.currentTarget;
+  const appWidth = app.offsetWidth;
+  const appHeight = app.offsetHeight;
+  const centerX = app.offsetLeft + appWidth / 2;
+  const centerY = app.offsetTop + appHeight / 2;
   const mouseX = event.clientX - centerX;
   const mouseY = event.clientY - centerY;
-  const rotateXUncapped = (+1) * tiltEffectSettings.max * mouseY / (gameHeight / 2);
-  const rotateYUncapped = (-1) * tiltEffectSettings.max * mouseX / (gameWidth / 2);
+  const rotateXUncapped = (+1) * tiltEffectSettings.max * mouseY / (appHeight / 2);
+  const rotateYUncapped = (-1) * tiltEffectSettings.max * mouseX / (appWidth / 2);
   const rotateX = rotateXUncapped < -tiltEffectSettings.max ? -tiltEffectSettings.max :
     (rotateXUncapped > tiltEffectSettings.max ? tiltEffectSettings.max : rotateXUncapped);
   const rotateY = rotateYUncapped < -tiltEffectSettings.max ? -tiltEffectSettings.max :
     (rotateYUncapped > tiltEffectSettings.max ? tiltEffectSettings.max : rotateYUncapped);
 
-  game.style.transform = `perspective(${tiltEffectSettings.perspective}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) 
+  app.style.transform = `perspective(${tiltEffectSettings.perspective}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) 
                           scale3d(${tiltEffectSettings.scale}, ${tiltEffectSettings.scale}, ${tiltEffectSettings.scale})`;
 }
 
-function gameMouseLeave(event) {
+function appMouseLeave(event) {
   event.currentTarget.style.transform = `perspective(${tiltEffectSettings.perspective}px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
   setTransition(event);
 }
 
 function setTransition(event) {
-  const game = event.currentTarget;
-  clearTimeout(game.transitionTimeoutId);
-  game.style.transition = `transform ${tiltEffectSettings.speed}ms ${tiltEffectSettings.easing}`;
-  game.transitionTimeoutId = setTimeout(() => {
-    game.style.transition = '';
+  const app = event.currentTarget;
+  clearTimeout(app.transitionTimeoutId);
+  app.style.transition = `transform ${tiltEffectSettings.speed}ms ${tiltEffectSettings.easing}`;
+  app.transitionTimeoutId = setTimeout(() => {
+    app.style.transition = '';
   }, tiltEffectSettings.speed);
 }
 

@@ -7,13 +7,11 @@ const isScrollable = (element) => {
 
 class Settings {
     constructor() {
-        if (this.get('panic_key')) {
-            document.querySelector('#panic_key').value = this.get('panic_key');
-        }
+        if (this.get('panic_key')) document.querySelector('#panic_key').value = this.get('panic_key');
 
-        if (this.get('panic_url')) {
-            document.querySelector('#panic_url').value = this.get('panic_url');
-        }
+        if (this.get('panic_url')) document.querySelector('#panic_url').value = this.get('panic_url');
+
+        if (this.get('proxy_type')) document.querySelector('#proxy_select').value = this.get('proxy_type');
 
         if (this.get('cloak')) {
             document.querySelector('#cloak_select').value = this.get('cloak');
@@ -49,19 +47,14 @@ class Settings {
                     document.querySelector('#domain').value = this.get('cloak_website');
                     document.querySelector('link[rel="shortcut icon"]').href = 'https://www.google.com/s2/favicons?domain=' + this.get('cloak_website');
                 }
-            } else {
-                fetch('/assets/JSON/cloaks.json')
-                    .then(res => res.json())
-                    .then(cloaks => {
-                        if (cloaks[this.get('cloak')]) {
-                            document.title = cloaks[this.get('cloak')].title;
-                            document.querySelector('link[rel="shortcut icon"]').href = cloaks[this.get('cloak')].icon;
-                        } else {
-                            /*new PolarisError(`The theme ${this.get('cloak')} does not exist`);*/
-                            //this is a very bad way of doing this it is going to break eventually but who cares
-                        }
-                    });
-            }
+            } else fetch('/assets/JSON/cloaks.json')
+                .then(res => res.json())
+                .then(cloaks => {
+                    if (cloaks[this.get('cloak')]) {
+                        document.title = cloaks[this.get('cloak')].title;
+                        document.querySelector('link[rel="shortcut icon"]').href = cloaks[this.get('cloak')].icon;
+                    } else if (this.get('cloak') !== 'none') new PolarisError(`The cloak ${this.get('cloak')} does not exist`);
+                });
         }
 
         fetch('/assets/JSON/cloaks.json')
@@ -93,12 +86,12 @@ class Settings {
                         });
                     } else if (document.querySelector('#cloak_select').value == 'none') {
                         this.set('cloak', document.querySelector('#cloak_select').value);
-                        
+
                         document.title = 'Polaris';
                         document.querySelector('link[rel="shortcut icon"]').href = '/favicon.ico';
-                        
+
                         document.querySelector('#custom_cloak').classList.add('hidden');
-                    } 
+                    }
                     else {
                         if (cloaks[document.querySelector('#cloak_select').value]) {
                             document.title = cloaks[document.querySelector('#cloak_select').value].title;
@@ -113,6 +106,8 @@ class Settings {
                     }
                 });
             });
+
+        document.querySelector('#proxy_select').addEventListener('change', (e) => this.set('proxy_type', e.target.value));
 
         document.querySelector('#reset_panic').addEventListener('click', (e) => {
             this.set('panic_key', '');
@@ -253,4 +248,4 @@ const load = () => {
     new Settings();
 };
 
-export default { load};
+export { load, Settings };

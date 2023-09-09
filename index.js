@@ -9,7 +9,8 @@ const app = express();
 const port = process.env.PORT || process.argv[2] || 8080;
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
-app.use(new Easyviolet().express(app));
+const ultraviolet = new Easyviolet();
+
 app.use(express.static(path.join(__dirname, '/static'), { extensions: ['html'] }));
 
 app.get('/cdn/*', cors({ origin: false }), async (req, res, next) => {
@@ -30,7 +31,10 @@ app.get('/cdn/*', cors({ origin: false }), async (req, res, next) => {
     } else next();
 });
 
-app.use((req, res) => res.status(404).sendFile(path.join(__dirname, './static/', '404.html')));
-app.use((e, req, res, next) => res.status(500).send(`Something Broke \n\n The error was: ${e.stack}`));
+app.use((req, res, next) => {
+    if (!ultraviolet.requiresRoute(req)) res.status(404).sendFile(path.join(__dirname, './static/', '404.html'));
+});
 
 const server = app.listen(port, () => console.log(`Polaris is running!\n   Port: ${server.address().port}\n   Node: ${process.version}`));
+
+ultraviolet.httpServer(server);
