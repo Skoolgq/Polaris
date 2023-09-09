@@ -147,9 +147,9 @@ body[data-theme='inferno'] {
 }
 
 body[data-theme='indigo'] {
-    --background-color: #6203fc;
+    --background-color: #7b2bfc;
     --text: #fff;
-    --sidebar-bg: #871a13;
+    --sidebar-bg: #7b2bfc;
     --button-bg: #c19ded;
     --shadow-color: #190633;
     --switch-color: #9759e3;
