@@ -146,6 +146,35 @@ body[data-theme='inferno'] {
     }
 }
 
+body[data-theme='indigo'] {
+    --background-color: #6203fc;
+    --text: #fff;
+    --sidebar-bg: #871a13;
+    --button-bg: #c19ded;
+    --shadow-color: #190633;
+    --switch-color: #9759e3;
+    --switch-active: #bf97f0;
+    --scrollbar-color: #ffffff59;
+    --solid: #9b6aeb;
+    --hover: #b07df0;
+    background: linear-gradient(90deg, rgba(98, 3, 252, 1) 0%, rgba(155, 106, 235, 1) 85%);
+    animation: indigo-gradient 12s ease infinite;
+
+    @keyframes indigo-gradient {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+}
+
 
 
 
