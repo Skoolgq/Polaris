@@ -147,10 +147,10 @@ body[data-theme='inferno'] {
 }
 
 body[data-theme='indigo'] {
-    --background-color: #7b2bfc;
+    --background-color: #9247fc;
     --text: #fff;
-    --sidebar-bg: #7b2bfc;
-    --button-bg: #c19ded;
+    --sidebar-bg: #9247fc;
+    --button-bg: #b77efc;
     --shadow-color: #190633;
     --switch-color: #9759e3;
     --switch-active: #bf97f0;
