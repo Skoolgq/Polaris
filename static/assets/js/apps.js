@@ -15,7 +15,7 @@ const load = () => {
       apps.forEach(app => {
         const el = document.createElement('div');
         el.classList = 'app';
-        el.innerHTML = `<img src="${app.image}"><h3>${app.name}</h3><span>${app.desc}</span>`;
+        el.innerHTML = `<img src="${app.image}"><h3>${app.name}</h3>`;
         document.querySelector('.apps').appendChild(el);
 
         el.addEventListener('click', () => {
