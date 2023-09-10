@@ -374,7 +374,7 @@ input:checked+.slider:before {
     bottom: -0.5vh;
     left: 2vh;
     color: #fff;
-    font-size: 2.5vh;
+    font-size: 1.8vh;
     z-index: 10;
 }
 
