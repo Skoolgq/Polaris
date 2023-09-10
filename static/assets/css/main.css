@@ -371,7 +371,7 @@ input:checked+.slider:before {
 
 .app>h3 {
     position: absolute;
-    bottom: 2.5vh;
+    bottom: -0.5vh;
     left: 2vh;
     color: #fff;
     font-size: 2.5vh;
