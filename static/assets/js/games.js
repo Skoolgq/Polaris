@@ -45,7 +45,7 @@ function renderGames(gamesToRender) {
   gamesToRender.forEach(game => {
     const el = document.createElement('div');
     el.classList = 'game';
-    el.innerHTML = `<img src="${game.image}"><h3>${game.name}</h3>`;
+    el.innerHTML = `<img loading="lazy" src="${game.image}"><h3>${game.name}</h3>`;
     gamesContainer.appendChild(el);
 
     el.addEventListener('click', () => location.href = `/play?id=${games.indexOf(game)}`);
