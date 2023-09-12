@@ -179,14 +179,14 @@ body[data-theme='violet'] {
     --background-color: #000000;
     --text: #fff;
     --sidebar-bg: #000000;
-    --button-bg: #9449fc;
-    --shadow-color: #f200ff;
+    --button-bg: #000000;
+    --shadow-color: #d100d1;
     --switch-color: #660a6b;
     --switch-active: #f759ff;
     --scrollbar-color: #000000;
     --solid: #000000;
     --hover: #b07df0;
-    background: linear-gradient(45deg, rgba(255, 33, 255, 1) 0%, rgba(0, 0, 0, 1) 85%);
+    background: linear-gradient(120deg, rgba(255, 33, 255, 1) 0%, rgba(0, 0, 0, 1) 85%);
     animation: violet-gradient 12s ease infinite;
 
     @keyframes violet-gradient {
