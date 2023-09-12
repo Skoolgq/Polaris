@@ -168,6 +168,12 @@
     "desc": ""
   },
   {
+    "name": "Soccer Random",
+    "source": "https://html5.gamedistribution.com/308d826f20034d7b972f25258c8d0a44/?gd_sdk_referrer_url=https://gamedistribution.com/games/soccer-random",
+    "image": "https://img.gamedistribution.com/308d826f20034d7b972f25258c8d0a44-512x512.jpeg",
+    "desc": ""
+  },
+  {
     "name": "Subway Surfers",
     "source": "/cdn/subway-surfers/index.html",
     "image": "/cdn/subway-surfers/img/FirstAvatar.png",
