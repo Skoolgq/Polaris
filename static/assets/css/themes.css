@@ -175,6 +175,34 @@ body[data-theme='indigo'] {
     }
 }
 
+body[data-theme='violet'] {
+    --background-color: #000000;
+    --text: #fff;
+    --sidebar-bg: #000000;
+    --button-bg: #9449fc;
+    --shadow-color: #f200ff;
+    --switch-color: #660a6b;
+    --switch-active: #f759ff;
+    --scrollbar-color: #000000;
+    --solid: #000000;
+    --hover: #b07df0;
+    background: linear-gradient(90deg, rgba(155, 106, 235, 1) 0%, rgba(0, 0, 0, 1) 85%);
+    animation: violet-gradient 12s ease infinite;
+
+    @keyframes violet-gradient {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+}
 
 
 
