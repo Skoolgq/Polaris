@@ -1,11 +1,5 @@
 [
   {
-    "name": "AnuraOS",
-    "image": "/assets/img/chromebook.jpg",
-    "source": "//anura.mercurywork.shop",
-    "quickname": "anuraos"
-  },
-  {
     "name": "Discord",
     "image": "/assets/img/discord.png",
     "source": "/uv/service/hvtrs8%2F-dksaopd%2Ccmm-lmgkn",
