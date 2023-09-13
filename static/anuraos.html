@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  <title>AnuraOS | Polaris</title>
+</head>
+
+<body>
+  <div>
+    <iframe class="frame" scrolling="no" frameborder="no" sandbox="allow-scripts allow-forms allow-pointer-lock allow-same-origin"></iframe>
+    
+    <div class="gamebar">
+      <img src="/assets/img/chromebook.jpg" id="gameicon"/>
+      <p id="gametitle">AnuraOS</p>
+      <i class="fa-solid fa-expand" id="fullscreen"></i>
+    </div>
+  </div>
+  <script>
+    const iframe = document.querySelector('.frame');
+    iframe.src = "//anura.mercurywork.shop";
+  </script>
+  <script src="/assets/js/main.js" type="module"></script>
+</body>
+
+</html>

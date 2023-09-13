@@ -163,7 +163,25 @@ button {
     justify-content: center;
     padding: 0.5vh;
     margin: 0 auto;
-    margin-top: 5vh;
+    margin-top: 3vh;
+    position: relative;
+    opacity: 0.9;
+    padding: 2vh;
+    line-height: 2vh;
+}
+
+.chromebook-btn-div {
+    box-shadow: 0.5vh 0.5vh 1vh 0vh var(--shadow-color);
+    background-color: var(--background-color);
+    width: 30vh;
+    height: 4.3vh;
+    color: var(--text);
+    text-align: center;
+    border-radius: 2vh;
+    justify-content: center;
+    padding: 0.5vh;
+    margin: 0 auto;
+    margin-top: 3vh;
     position: relative;
     opacity: 0.9;
     padding: 2vh;
