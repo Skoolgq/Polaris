@@ -2,49 +2,49 @@
   {
     "name": "Discord",
     "image": "/assets/img/discord.png",
-    "source": "/uv/service/hvtrs8%2F-dksaopd%2Ccmm-lmgkn",
+    "source": "/service/hvtrs8%2F-dksaopd%2Ccmm-lmgkn",
     "quickname": "discord"
   },
   {
     "name": "Reddit",
     "image": "/assets/img/reddit.png",
-    "source": "/uv/service/hvtrs8%2F-wuw%2Crgdfiv.aoo%2F%3Drft%3F40003",
+    "source": "/service/hvtrs8%2F-wuw%2Crgdfiv.aoo%2F%3Drft%3F40003",
     "quickname": "reddit"
   },
   {
     "name": "Tiktok",
     "image": "/assets/img/tiktok.png",
-    "source": "/uv/service/hvtrs8%2F-wuw%2Ctkkvoi.aoo%2Fgn-",
+    "source": "/service/hvtrs8%2F-wuw%2Ctkkvoi.aoo%2Fgn-",
     "quickname": "tiktok"
   },
   {
     "name": "Twitch",
     "image": "/assets/img/twitch.png",
-    "source": "/uv/service/hvtrs8%2F-wuw%2Ctuivcj.vv-",
+    "source": "/service/hvtrs8%2F-wuw%2Ctuivcj.vv-",
     "quickname": "twitch"
   },
   {
     "name": "Twitter",
     "image": "/assets/img/twitter.png",
-    "source": "/uv/service/hvtrs8%2F-tuivtgr%2Ccmm-",
+    "source": "/service/hvtrs8%2F-tuivtgr%2Ccmm-",
     "quickname": "twitter"
   },
   {
     "name": "Youtube",
     "image": "/assets/img/youtube.png",
-    "source": "/uv/service/hvtrs8%2F-wuw%2Cymuvu%60e%2Ccmm-",
+    "source": "/service/hvtrs8%2F-wuw%2Cymuvu%60e%2Ccmm-",
     "quickname": "youtube"
   },
   {
     "name": "Spotify",
     "image": "/assets/img/spotify.png",
-    "source": "/uv/service/hvtrs8%2F-orel.qpmtkf%7B.aoo%2F",
+    "source": "/service/hvtrs8%2F-orel.qpmtkf%7B.aoo%2F",
     "quickname": "spotify"
   },
   {
     "name": "GeForce Now",
     "image": "/assets/img/gnow.png",
-    "source": "/uv/service/hvtrs8%2F-pna%7B.eedopcgnmw%2Ccmm-mcln%2F#/layout/games",
+    "source": "/service/hvtrs8%2F-pna%7B.eedopcgnmw%2Ccmm-mcln%2F#/layout/games",
     "quickname": "geforcenow"
   }
 ]

@@ -11,8 +11,6 @@ class Settings {
 
         if (this.get('panic_url')) document.querySelector('#panic_url').value = this.get('panic_url');
 
-        if (this.get('proxy_type')) document.querySelector('#proxy_select').value = this.get('proxy_type');
-
         if (this.get('cloak')) {
             document.querySelector('#cloak_select').value = this.get('cloak');
 
@@ -107,8 +105,6 @@ class Settings {
                 });
             });
 
-        document.querySelector('#proxy_select').addEventListener('change', (e) => this.set('proxy_type', e.target.value));
-
         document.querySelector('#reset_panic').addEventListener('click', (e) => {
             this.set('panic_key', '');
             document.querySelector('#panic_key').value = 'No Key Selected';
@@ -194,7 +190,7 @@ class Settings {
                 document.querySelector('.scroll').classList.add('active');
             }
         });
-    }
+    };
 
     set = (name, value) => {
         if (!localStorage.getItem('settings')) {

@@ -1,27 +1,35 @@
-var workerLoaded;
+let xor = {
+    encode: (str, key = 2) => {
+        if (!str) return str;
 
-const worker = async () => {
-    return false;
-    return await navigator.serviceWorker.register('/dynamic/sw.js', {
-        scope: '/dynamic/service',
-    });
-}
+        return encodeURIComponent(str.split('').map((e, i) => i % key ? String.fromCharCode(e.charCodeAt(0) ^ key) : e).join(''));
+    },
+    decode: (str, key = 2) => {
+        if (!str) return str;
+
+        return decodeURIComponent(str).split('').map((e, i) => i % key ? String.fromCharCode(e.charCodeAt(0) ^ key) : e).join('');
+    }
+};
+
+let workerLoaded;
+
+const worker = async () => await navigator.serviceWorker.register('./sw.js', {
+    scope: '/service/',
+});
 
 document.addEventListener('DOMContentLoaded', async () => {
     await worker();
-
     workerLoaded = true;
 });
 
-const prependHttps = (url) => {
-    if (!url.startsWith('http://') && !url.startsWith('https://')) return 'https://' + url;
+const dynamicRedirect = async (link) => {
+    if (!workerLoaded) await worker();
+    
+    const url = /^(http(s)?:\/\/)?([\w-]+\.)+[\w]{2,}(\/.*)?$/.test(link) ?
+        ((!link.startsWith('http://') && !link.startsWith('https://')) ? 'https://' + link : link) :
+        'https://www.google.com/search?q=' + encodeURIComponent(link);
+        
+    location.href = `/service/${xor.encode(url)}`;
+};
 
-    return url;
-}
-
-const isUrl = (val = '') => {
-    const urlPattern = /^(http(s)?:\/\/)?([\w-]+\.)+[\w]{2,}(\/.*)?$/;
-    return urlPattern.test(val);
-}
-
-export { isUrl, prependHttps, worker, workerLoaded };
+export { dynamicRedirect, worker, workerLoaded };

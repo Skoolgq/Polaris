@@ -1,5 +1,4 @@
 const load = () => {
-
     fetch('/assets/JSON/games.json')
         .then(res => res.json())
         .then(games => {
