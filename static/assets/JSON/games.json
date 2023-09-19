@@ -114,6 +114,12 @@
     "desc": ""
   },
   {
+    "name": "Bloxorz",
+    "source": "//raw.githack.com/Skoolgq/flashgamedump/main/bloxorz.html",
+    "image": "/assets/img/bloxorz.png",
+    "desc": ""
+  },
+  {
     "name": "Circlo",
     "source": "/cdn/circlo/index.html",
     "image": "/cdn/circlo/img/circlo.png",
