@@ -12,6 +12,12 @@
     "desc": ""
   },
   {
+    "name": "99 Balls 3D",
+    "source": "https://gamesnacks.com/games/99balls3d",
+    "image": "/assets/img/99balls.png",
+    "desc": ""
+  },
+  {
     "name": "Alien Hominid",
     "source": "/cdn/alienhominid/index.html",
     "image": "/cdn/alienhominid/alienhominid.jpg",
