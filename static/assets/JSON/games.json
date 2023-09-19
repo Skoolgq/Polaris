@@ -108,6 +108,12 @@
     "desc": ""
   },
   {
+    "name": "Bloons TD 2",
+    "source": "//raw.githack.com/3kh0/3kh0-assets/main/bloonstd2/index.html",
+    "image": "/assets/img/btd2.png",
+    "desc": ""
+  },
+  {
     "name": "Circlo",
     "source": "/cdn/circlo/index.html",
     "image": "/cdn/circlo/img/circlo.png",
