@@ -60,6 +60,12 @@
     "desc": ""
   },
   {
+    "name": "Basket Bros",
+    "source": "https://raw.githack.com/3kh0/3kh0-assets/main/basketbros-io/index.html",
+    "image": "/assets/img/basketbros.jpg",
+    "desc": ""
+  },
+  {
     "name": "Basket Random",
     "source": "https://html5.gamedistribution.com/bf1268dccb5d43e7970bb3edaa54afc8/?gd_sdk_referrer_url=https://gamedistribution.com/games/basket-random",
     "image": "https://img.gamedistribution.com/bf1268dccb5d43e7970bb3edaa54afc8-512x512.jpeg",
