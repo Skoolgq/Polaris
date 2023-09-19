@@ -36,6 +36,12 @@
     "desc": ""
   },
   {
+    "name": "Asphalt Retro",
+    "source": "https://html5.gamedistribution.com/2c122cee7ef04222a962449e32a34e98/?gd_sdk_referrer_url=https://gamedistribution.com/games/asphalt-retro",
+    "image": "/assets/img/asr.jpg",
+    "desc": ""
+  },
+  {
     "name": "Awesome Tanks 2",
     "source": "/cdn/awesometanks2/index.html",
     "image": "/assets/img/awesometanks.jpg",
