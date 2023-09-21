@@ -552,13 +552,7 @@ input:checked+.slider:before {
 .homequote{
     line-height: 1;
 }
-body {
-  height: 100vh;
-  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
-  overflow: hidden;
-  filter: drop-shadow(0 0 10px white);
-}
-/* .snow {
+.snow {
   position: absolute;
   width: 10px;
   height: 10px;
@@ -1046,4 +1040,4 @@ body {
     transform: translate(48.705vw, 100vh) scale(0.5198);
   }
 }
-*/
+
