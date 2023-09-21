@@ -18,7 +18,6 @@ body {
     background-attachment: fixed;
     color: var(--text);
     text-align: center;
-    overflow: auto;
 }
 
 html {
