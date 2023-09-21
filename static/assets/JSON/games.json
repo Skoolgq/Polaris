@@ -150,6 +150,12 @@
     "desc": ""
   },
   {
+    "name": "Friday Night Funkin'",
+    "source": "/assets/misc/fridaynightfunkin/index.html",
+    "image": "/assets/img/fnf.png",
+    "desc": ""
+  },
+  {
     "name": "Fruit Ninja",
     "source": "/cdn/fruit-ninja/index.html",
     "image": "/cdn/fruit-ninja/FruitNinjaTeaser.jpg",
