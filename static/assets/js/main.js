@@ -146,7 +146,12 @@ if (location.pathname === '/') {
             document.querySelector('.featuredimg').src = game.image;
         }).catch(e => new PolarisError('Failed to load featured game'));
 }
-
+// Create 37 snow divs
+for (let i = 0; i < 37; i++) {
+  const snowDiv = document.createElement("div");
+  snowDiv.classList.add("snow");
+  document.body.appendChild(snowDiv);
+}
 
 const Polaris = { Settings, Games, Apps, WPM, PolarisError, registerLinks };
 
