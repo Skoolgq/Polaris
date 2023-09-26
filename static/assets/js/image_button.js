@@ -1,7 +1,7 @@
 const imageContainer = document.getElementById('imageContainer');
 const currentImage = document.getElementById('currentImage');
 const nextImage = document.getElementById('nextImage');
-const imageArray = ['image1.jpg', 'image2.jpg', 'image3.jpg']; // Add your image URLs here
+const imageArray = ['https://placehold.co/600x400?text=Hello+one', 'https://placehold.co/600x400?text=Hello+two', 'https://placehold.co/600x400?text=Hello+three']; // Add your image URLs here
 let currentIndex = 0;
 
 // Function to update the displayed images and trigger animation
