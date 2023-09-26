@@ -1,8 +1,7 @@
 const imageContainer = document.getElementById('imageContainer');
 const currentImage = document.getElementById('currentImage');
 const nextImage = document.getElementById('nextImage');
-const nextButton = document.getElementById('nextButton');
-const imageArray = ['image1.jpg', 'image2.jpg', 'image3.jpg']; 
+const imageArray = ['image1.jpg', 'image2.jpg', 'image3.jpg']; // Add your image URLs here
 let currentIndex = 0;
 
 // Function to update the displayed images and trigger animation
@@ -27,12 +26,14 @@ function updateImages() {
     }, 500); // Adjust the duration to match your transition time
 }
 
-// Event listener for the "Next" button
-nextButton.addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % imageArray.length;
-    updateImages();
-});
+// Function to automatically change images every 5 seconds
+function autoChangeImage() {
+    setInterval(() => {
+        currentIndex = (currentIndex + 1) % imageArray.length;
+        updateImages();
+    }, 5000); // Change image every 5 seconds (5000 milliseconds)
+}
 
-// Initial image setup
+// Initial image setup and start automatic image change
 updateImages();
-
+autoChangeImage();
