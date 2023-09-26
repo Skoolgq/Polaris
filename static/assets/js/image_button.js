@@ -2,7 +2,7 @@ const imageContainer = document.getElementById('imageContainer');
 const currentImage = document.getElementById('currentImage');
 const nextImage = document.getElementById('nextImage');
 const nextButton = document.getElementById('nextButton');
-const imageArray = ['image1.jpg', 'image2.jpg', 'image3.jpg']; // Add your image URLs here
+const imageArray = ['image1.jpg', 'image2.jpg', 'image3.jpg']; 
 let currentIndex = 0;
 
 // Function to update the displayed images and trigger animation
