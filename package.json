@@ -23,12 +23,9 @@
   },
   "homepage": "https://github.com/polarisdevs/Polaris#readme",
   "dependencies": {
-    "@fastify/compress": "^6.4.0",
-    "@fastify/static": "^6.11.0",
-    "@tomphttp/bare-server-node": "^2.0.1",
-    "easyviolet": "github:Russell2259/Easyviolet",
-    "fastify": "^4.23.1",
-    "fastify-cors": "^6.1.0",
-    "mime": "^3.0.0"
+    "@tomphttp/bare-server-node": "*",
+    "cors": "*",
+    "express": "*",
+    "mime": "*"
   }
 }
