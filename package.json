@@ -5,27 +5,24 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node index.js"
+      "start": "node index.js"
   },
   "repository": {
-    "type": "git",
-    "url": "git+https://github.com/polarisdevs/Polaris.git"
+      "type": "git",
+      "url": "git+https://github.com/polarisdevs/Polaris.git"
   },
   "keywords": [
-    "games",
-    "unblocked",
-    "proxy"
+      "games",
+      "unblocked",
+      "proxy"
   ],
-  "author": "Polaris Development Group",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/polarisdevs/Polaris/issues"
-  },
+  "author": "Polaris Developments",
+  "license": "GNU-3.0-or-later",
   "homepage": "https://github.com/polarisdevs/Polaris#readme",
   "dependencies": {
-    "@tomphttp/bare-server-node": "*",
-    "cors": "*",
-    "express": "*",
-    "mime": "*"
+      "@tomphttp/bare-server-node": "*",
+      "cors": "*",
+      "express": "*",
+      "mime": "*"
   }
 }

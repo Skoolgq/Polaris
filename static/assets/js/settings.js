@@ -8,7 +8,6 @@ const isScrollable = (element) => {
 class Settings {
     constructor() {
         if (this.get('panic_key')) document.querySelector('#panic_key').value = this.get('panic_key');
-
         if (this.get('panic_url')) document.querySelector('#panic_url').value = this.get('panic_url');
 
         if (this.get('cloak')) {

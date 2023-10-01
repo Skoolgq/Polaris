@@ -1,22 +1,33 @@
 const load = () => {
-    fetch('/assets/JSON/games.json')
-        .then(res => res.json())
-        .then(games => {
-            const game = games[Number(new URLSearchParams(location.search).get('id'))];
+    let frameData = JSON.parse(localStorage.getItem('frameData'));
+    if (!frameData) location.href = '/';
 
-            if (game) {
-                const iframe = document.querySelector('.frame');
+    const iframe = document.querySelector('.frame');
 
-                iframe.src = game.source;
-                document.querySelector('#gameicon').src = game.image;
-                document.querySelector('#gametitle').textContent = game.name;
-            } else {
-                document.querySelector('#gametitle').textContent = 'Failed to load Game';
-            }
-        });
+    if (frameData.type === 'game') {
+        if (frameData.game) {
+            iframe.src = frameData.game.source;
+            document.querySelector('#gameicon').src = frameData.game.image;
+            document.querySelector('#gametitle').textContent = frameData.game.name;
+        } else document.querySelector('#gametitle').textContent = 'Failed to load game.';
+    } else if (frameData.type === 'app') {
+        if (frameData.app) {
+            iframe.src = frameData.app.source;
+            document.querySelector('#gameicon').src = frameData.app.image;
+            document.querySelector('#gametitle').textContent = frameData.app.name;
+        } else document.querySelector('#gametitle').textContent = 'Failed to load app.';
+    } else if (frameData.type === 'cheat') {
+        if (frameData.cheat) {
+            iframe.src = frameData.cheat.source;
+            document.querySelector('#gameicon').src = frameData.cheat.image;
+            document.querySelector('#gametitle').textContent = frameData.cheat.name;
+        } else document.querySelector('#gametitle').textContent = 'Failed to load cheat.';
+    } else location.href = '/';
 
     document.querySelector('#fullscreen').addEventListener('click', () => {
         const iframe = document.querySelector('.frame');
+
+        iframe.style.borderRadius = '0px';
 
         if (iframe.requestFullscreen) iframe.requestFullscreen();
         else if (iframe.webkitRequestFullscreen) iframe.webkitRequestFullscreen();

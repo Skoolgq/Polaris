@@ -1,64 +1,69 @@
-import { createBareServer } from "@tomphttp/bare-server-node";
-import http from "node:http";
+import { createBareServer } from '@tomphttp/bare-server-node';
+import http from 'node:http';
 import express from 'express';
 import path from 'node:path';
 import mime from 'mime';
 import cors from 'cors';
 import url from 'url';
+import fs from 'node:fs';
 
 const app = express();
 const server = http.createServer();
-const bareServer = createBareServer("/bare/");
+const bareServer = createBareServer('/bare/');
+
 const port = process.env.PORT || process.argv[2] || 8080;
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
-app.use(express.static(path.join(__dirname, '/static'), { extensions: ['html'] }));
+let navbar = fs.readFileSync('./templates/navbar.html', 'utf-8');
 
-app.get('/cdn/*', cors({ origin: false }), async (req, res, next) => {
+
+fs.readdirSync('./pages').forEach(file => {
+    let fileData = fs.readFileSync('./pages/' + file, 'utf-8');
+    fileData = fileData.replace('<body>', '<body> ' + navbar);
+    app.get(`/${file.split('.')[0] === 'index' ? '' : file.split('.')[0]}`, (req, res) => res.status(200).send(fileData));
+});
+
+app.use(express.static(path.join(__dirname, '/static')));
+
+app.get('/cdn/*', cors({
+    origin: false
+}), async (req, res, next) => {
     let reqTarget = `https://raw.githubusercontent.com/Skoolgq/Polaris-Assets/main/${req.path.replace('/cdn/', '')}`;
-    
+
     const asset = await fetch(reqTarget);
     if (asset.status == 200) {
         var data = Buffer.from(await asset.arrayBuffer());
-        
+
         const noRewrite = ['.unityweb'];
         if (!noRewrite.includes(mime.getExtension(reqTarget))) res.writeHead(200, {
             'content-type': mime.getType(reqTarget)
         });
 
-        if (mime.getType(reqTarget) === 'text/html') data = data + '<script src="/assets/js/cdn_inject.js" preload="true"></script>';
+        if (mime.getType(reqTarget) === 'text/html') data = data + '<script src=\'/assets/js/cdn_inject.js\' preload=\'true\'></script>';
 
         res.end(data);
     } else next();
 });
 
-app.use((req, res, next) => {
-    res.status(404).sendFile(path.join(__dirname, './static/', '404.html'));
+let notFoundFile = fs.readFileSync('./pages/404.html', 'utf-8');
+notFoundFile = notFoundFile.replace('<body>', '<body> ' + navbar);
+app.use((req, res, next) => res.status(404).send(notFoundFile));
+
+server.on('request', (req, res) => {
+    if (bareServer.shouldRoute(req)) bareServer.routeRequest(req, res);
+    else app(req, res);
 });
 
-server.on("request", (req, res) => {
-    if (bareServer.shouldRoute(req)) {
-      bareServer.routeRequest(req, res);
-    } else {
-      app(req, res);
-    }
-});
-  
-  server.on("upgrade", (req, socket, head) => {
-    if (bareServer.shouldRoute(req)) {
-      bareServer.routeUpgrade(req, socket, head);
-    } else {
-      socket.end();
-    }
+server.on('upgrade', (req, socket, head) => {
+    if (bareServer.shouldRoute(req)) bareServer.routeUpgrade(req, socket, head);
+    else socket.end();
 });
 
 
-server.on("listening", () => {
-    // plastics you can modify this urself
-    console.log(`Polaris running at localhost:${port}`);
+server.on('listening', () => {
+    console.log(`Polaris started! http://localhost:${port}`);
 });
 
 server.listen({
-    port: port
+    port
 });
-//darian was here
