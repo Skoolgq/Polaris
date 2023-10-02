@@ -1,11 +1,12 @@
 import { createBareServer } from '@tomphttp/bare-server-node';
-import http from 'node:http';
 import express from 'express';
-import path from 'node:path';
 import mime from 'mime';
 import cors from 'cors';
-import url from 'url';
+
+import url from 'node:url';
 import fs from 'node:fs';
+import path from 'node:path';
+import http from 'node:http';
 
 const app = express();
 const server = http.createServer();
@@ -15,7 +16,6 @@ const port = process.env.PORT || process.argv[2] || 8080;
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
 let navbar = fs.readFileSync('./templates/navbar.html', 'utf-8');
-
 
 fs.readdirSync('./pages').forEach(file => {
     let fileData = fs.readFileSync('./pages/' + file, 'utf-8');
@@ -58,7 +58,6 @@ server.on('upgrade', (req, socket, head) => {
     if (bareServer.shouldRoute(req)) bareServer.routeUpgrade(req, socket, head);
     else socket.end();
 });
-
 
 server.on('listening', () => {
     console.log(`Polaris started! http://localhost:${port}`);

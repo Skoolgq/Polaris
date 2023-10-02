@@ -14,7 +14,6 @@ const Settings = {
 onbeforeunload = (e) => {
     if (localStorage.getItem('prevent_close') === 'true') {
         e.preventDefault();
-        
         return e;
     }
 
@@ -27,7 +26,7 @@ window.onhashchange = () => {
 };
 
 if (window.self === window.top) {
-    setTimeout(() => {
+    setTimeout(async () => {
         Settings.load();
 
         if (location.pathname === '/games') Games.load();
@@ -49,13 +48,6 @@ if (location.pathname === '/') {
         document.querySelector('.featuredimg').src = game.image;
     }).catch(e => new PolarisError('Failed to load featured game.'));
 }
-
-// Create 37 snow divs
-/*for (let i = 0; i < 37; i++) {
-  const snowDiv = document.createElement("div");
-  snowDiv.classList.add("snow");
-  document.body.appendChild(snowDiv);
-}*/
 
 const Polaris = { Settings, Games, Apps, Frame, PolarisError };
 export default Polaris;

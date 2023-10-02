@@ -1,4 +1,4 @@
-/* Stands for Web Prxxy Manager because the keywork Prxxy is usually blocked */
+import { workerLoaded, loadWorker, chosenProxy } from './wpm.js';
 
 const load = () => {
     let xor = {
@@ -11,16 +11,8 @@ const load = () => {
             return decodeURIComponent(str).split('').map((e, i) => i % key ? String.fromCharCode(e.charCodeAt(0) ^ key) : e).join('');
         }
     };
-    
-    let workerLoaded = false;
-    let loadWorker = async () => await navigator.serviceWorker.register('./sw.js', {
-        scope: '/service/',
-    });
 
-    (async () => {
-        await loadWorker();
-        workerLoaded = true;
-    })();
+    window.xor = xor;
 
     const form = document.querySelector('#wpf');
     const query = document.querySelector('#query');
@@ -35,7 +27,7 @@ const load = () => {
             ((!query.value.startsWith('http://') && !query.value.startsWith('https://')) ? 'https://' + query.value : query.value) :
             'https://www.google.com/search?q=' + encodeURIComponent(query.value);
         
-        location.href = `/service/${xor.encode(url)}`;
+        location.href = `/${chosenProxy}/service/${xor.encode(url)}`;
     });
 }
 

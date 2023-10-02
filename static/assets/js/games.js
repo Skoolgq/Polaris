@@ -1,4 +1,5 @@
 import PolarisError from './error.js';
+import { workerLoaded, loadWorker, chosenProxy } from './wpm.js';
 
 const tiltEffectSettings = {
     max: 8, // max tilt rotation (degrees (deg))
@@ -46,7 +47,10 @@ function renderGames(gamesToRender) {
         el.innerHTML = `<img loading="lazy" src="${game.image}"><h3>${game.name}</h3>`;
         gamesContainer.appendChild(el);
 
-        el.addEventListener('click', () => {
+        if (game.source.startsWith('/service')) game.source = `/${chosenProxy}${game.source}`;
+
+        el.addEventListener('click', async () => {
+            if (!workerLoaded) await loadWorker();
             localStorage.setItem('frameData', JSON.stringify({
                 type: 'game',
                 game
