@@ -1,6 +1,5 @@
 import Theme from './themes.js';
 import PolarisError from './error.js';
-import Search from './Search.js';
 
 const isScrollable = (element) => element.scrollWidth > element.clientWidth || element.scrollHeight > element.clientHeight;
 
