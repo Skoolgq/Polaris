@@ -12,7 +12,7 @@ const app = express();
 const server = http.createServer();
 const bareServer = createBareServer('/bare/');
 
-const port = process.env.PORT || process.argv[2] || 80;
+const port = process.env.PORT || process.argv[2] || 8080;
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
 let navbar = fs.readFileSync('./templates/navbar.html', 'utf-8');
