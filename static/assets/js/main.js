@@ -42,8 +42,12 @@ if (location.pathname === '/') {
         const randomID = 46; // :3
         const game = games[randomID];
 
-        document.querySelector('.featuredimg').addEventListener('click', function () {
-            window.location.href = '/view?id=' + randomID;
+        document.querySelector('.featuredimg').addEventListener('click', () => {
+            localStorage.setItem('frameData', JSON.stringify({
+                type: 'game',
+                game
+            }));
+            location.href = '/view';
         });
         document.querySelector('.featuredimg').src = game.image;
     }).catch(e => new PolarisError('Failed to load featured game.'));
