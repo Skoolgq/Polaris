@@ -17,7 +17,7 @@ const load = () => {
             el.innerHTML = `<img src="${app.image}"><h3>${app.name}</h3>`;
             document.querySelector('.apps').appendChild(el);
 
-            if (app.source.startsWith('/service')) app.source = `/${chosenProxy}${app.source}`;
+            //if (app.source.startsWith('/service')) app.source = `/${chosenProxy}${app.source}`;
 
             el.addEventListener('click', async () => {
                 if (!workerLoaded) await loadWorker();
