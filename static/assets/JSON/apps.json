@@ -8,5 +8,10 @@
         "name": "Youtube",
         "image": "/assets/img/youtube.png",
         "source": "/service/hvtrs8%2F-wuw%2Cymuvu%60e%2Ccmm-"
+    },
+    {
+        "name": "Netflix",
+        "image": "/assets/img/netlfix.png",
+        "source": "/service/hvtrs8%2F-wuw%2Cngtdlkx%2Ccmm-"
     }
 ]
