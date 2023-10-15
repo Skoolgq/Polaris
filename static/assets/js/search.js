@@ -1,4 +1,4 @@
-import { workerLoaded, loadWorker, chosenProxy } from './wpm.js';
+import { workerLoaded, loadWorker } from './wpm.js';
 
 const load = () => {
     let xor = {
@@ -27,7 +27,7 @@ const load = () => {
             ((!query.value.startsWith('http://') && !query.value.startsWith('https://')) ? 'https://' + query.value : query.value) :
             'https://www.google.com/search?q=' + encodeURIComponent(query.value);
         
-        location.href = `/${chosenProxy}/service/${xor.encode(url)}`;
+        location.href = `/service/${xor.encode(url)}`;
     });
 }
 

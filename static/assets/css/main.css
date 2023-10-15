@@ -255,7 +255,7 @@ button:hover {
 
 .slider:before {
     position: absolute;
-    content: "";
+    content: '';
     height: 2.6vh;
     width: 2.6vh;
     left: 0.4vh;

@@ -13,7 +13,7 @@ const load = () => {
       cheats.forEach(cheat => {
             const el = document.createElement('div');
             el.classList = 'game';
-            el.innerHTML = `<img src="${cheat.image}"><h3>${cheat.name}</h3>`;
+            el.innerHTML = `<img src='${cheat.image}'><h3>${cheat.name}</h3>`;
             document.querySelector('.games').appendChild(el);
 
             el.addEventListener('click', () => {

@@ -1,12 +1,32 @@
 [
     {
+        "name": "Tiktok",
+        "image": "/assets/img/tiktok.png",
+        "source": "/service/hvtrs8%2F-wuw%2Ctkkvoi.aoo%2Fgn-"
+    },
+    {
         "name": "Twitch",
         "image": "/assets/img/twitch.png",
-        "source": "/uv/service/hvtrs8%2F-wuw%2Ctuivcj.vv-"
+        "source": "/service/hvtrs8%2F-wuw%2Ctuivcj.vv-"
+    },
+    {
+        "name": "Twitter",
+        "image": "/assets/img/twitter.png",
+        "source": "/service/hvtrs8%2F-tuivtgr%2Ccmm-"
     },
     {
         "name": "Youtube",
         "image": "/assets/img/youtube.png",
-        "source": "/uv/service/hvtrs8%2F-wuw%2Cymuvu%60e%2Ccmm-"
+        "source": "/service/hvtrs8%2F-wuw%2Cymuvu%60e%2Ccmm-"
+    },
+    {
+        "name": "Spotify",
+        "image": "/assets/img/spotify.png",
+        "source": "/service/hvtrs8%2F-orel.qpmtkf%7B.aoo%2F"
+    },
+    {
+        "name": "GeForce Now",
+        "image": "/assets/img/gnow.png",
+        "source": "/service/hvtrs8%2F-pna%7B.eedopcgnmw%2Ccmm-mcln%2F"
     }
 ]

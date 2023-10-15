@@ -24,8 +24,8 @@ class Settings {
                 document.querySelector('#domain').addEventListener('input', () => {
                     if (document.querySelector('#domain').value) {
                         this.set('cloak_website', document.querySelector('#domain').value);
-                        document.querySelector('link[rel="shortcut icon"]').href = 'https://www.google.com/s2/favicons?domain=' + document.querySelector('#domain').value;
-                    } else document.querySelector('link[rel="shortcut icon"]').href = '/favicon.ico';
+                        document.querySelector('link[rel=\'shortcut icon\']').href = 'https://www.google.com/s2/favicons?domain=' + document.querySelector('#domain').value;
+                    } else document.querySelector('link[rel=\'shortcut icon\']').href = '/favicon.ico';
                 });
 
                 if (this.get('cloak_title')) {
@@ -35,12 +35,12 @@ class Settings {
 
                 if (this.get('cloak_website')) {
                     document.querySelector('#domain').value = this.get('cloak_website');
-                    document.querySelector('link[rel="shortcut icon"]').href = 'https://www.google.com/s2/favicons?domain=' + this.get('cloak_website');
+                    document.querySelector('link[rel=\'shortcut icon\']').href = 'https://www.google.com/s2/favicons?domain=' + this.get('cloak_website');
                 }
             } else fetch('/assets/JSON/cloaks.json').then(res => res.json()).then(cloaks => {
                 if (cloaks[this.get('cloak')]) {
                     document.title = cloaks[this.get('cloak')].title;
-                    document.querySelector('link[rel="shortcut icon"]').href = cloaks[this.get('cloak')].icon;
+                    document.querySelector('link[rel=\'shortcut icon\']').href = cloaks[this.get('cloak')].icon;
                 } else if (this.get('cloak') !== 'none') new PolarisError(`The cloak ${this.get('cloak')} does not exist`);
             });
         }
@@ -61,19 +61,19 @@ class Settings {
                     document.querySelector('#domain').addEventListener('input', () => {
                         if (document.querySelector('#domain').value) {
                             this.set('cloak_website', document.querySelector('#domain').value);
-                            document.querySelector('link[rel="shortcut icon"]').href = 'https://www.google.com/s2/favicons?domain=' + document.querySelector('#domain').value;
-                        } else document.querySelector('link[rel="shortcut icon"]').href = '/favicon.ico';
+                            document.querySelector('link[rel=\'shortcut icon\']').href = 'https://www.google.com/s2/favicons?domain=' + document.querySelector('#domain').value;
+                        } else document.querySelector('link[rel=\'shortcut icon\']').href = '/favicon.ico';
                     });
                 } else if (document.querySelector('#cloak_select').value == 'none') {
                     this.set('cloak', document.querySelector('#cloak_select').value);
 
                     document.title = 'Polaris';
-                    document.querySelector('link[rel="shortcut icon"]').href = '/favicon.ico';
+                    document.querySelector('link[rel=\'shortcut icon\']').href = '/favicon.ico';
                     document.querySelector('#custom_cloak').classList.add('hidden');
                 } else {
                     if (cloaks[document.querySelector('#cloak_select').value]) {
                         document.title = cloaks[document.querySelector('#cloak_select').value].title;
-                        document.querySelector('link[rel="shortcut icon"]').href = cloaks[document.querySelector('#cloak_select').value].icon;
+                        document.querySelector('link[rel=\'shortcut icon\']').href = cloaks[document.querySelector('#cloak_select').value].icon;
                         this.set('cloak', document.querySelector('#cloak_select').value);
                     } else new PolarisError(`The cloak ${document.querySelector('#cloak_select').value} does not exist`);
 
@@ -127,7 +127,7 @@ class Settings {
             window.history.pushState({}, '', '#settings');
         }
 
-        document.querySelectorAll('[data-attr="sidebar_trigger"]').forEach(el => {
+        document.querySelectorAll('[data-attr=\'sidebar_trigger\']').forEach(el => {
             el.addEventListener('click', (e) => {
                 if (document.querySelector('.sidebar').classList.contains('active')) {
                     document.querySelector('.sidebar').classList.remove('active');
