@@ -10,7 +10,7 @@ let loadWorker = async (worker) => {
     await navigator.serviceWorker.register(`/${worker || chosenProxy}-sw.js`, {
         scope: `/service/`,
     });
-};t
+};
 
 (async () => {
     await loadWorker();
