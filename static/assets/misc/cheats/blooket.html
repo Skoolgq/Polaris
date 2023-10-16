@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="/assets/css/main.css">
+
+        <title>404 Error | Polaris</title>
+    </head>
+
+    <body>
+        <div class="content box">
+            <h1 style="font-size: 50px;">Blooket</h1>
+            <p>To install the Blooket hacks, drag this button to your bookmark bar and click it when you're on blooket:</p>
+            <button><a href="javascript:alert('null')" id="cheatsBtn">
+                <btn class="recent">Blooket Hack</btn>
+            </a>
+            </button>
+            <script>
+              fetch("https://raw.githubusercontent.com/05Konz/Blooket-Cheats/main/cheats/gui.min.js", {
+                method: "GET"
+              }).then((data) => data.text()).then((data) => {
+                let cheats = encodeURIComponent(data.split('*/ ')[1]);
+                document.querySelector('#cheatsBtn').href = 'javascript:' + cheats;
+              }).catch((err) => {
+                console.error("Error fetching Blooket Cheats:", err);
+              });
+            </script>
+        </div>
+
+        <script src="/assets/js/main.js" type="module"></script>
+    </body>
+
+</html>
