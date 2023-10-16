@@ -1,5 +1,10 @@
 [
     {
+        "name": "Discord",
+        "image": "/assets/img/discord.png",
+        "source": "/service/hvtrs8%2F-dksaopd%2Ccmm-lmgkn"
+    },
+    {
         "name": "Tiktok",
         "image": "/assets/img/tiktok.png",
         "source": "/service/hvtrs8%2F-wuw%2Ctkkvoi.aoo%2Fgn-"
@@ -8,11 +13,6 @@
         "name": "Twitch",
         "image": "/assets/img/twitch.png",
         "source": "/service/hvtrs8%2F-wuw%2Ctuivcj.vv-"
-    },
-    {
-        "name": "Twitter",
-        "image": "/assets/img/twitter.png",
-        "source": "/service/hvtrs8%2F-tuivtgr%2Ccmm-"
     },
     {
         "name": "Youtube",
