@@ -288,6 +288,14 @@ input:checked+.slider:before {
     padding-bottom: 3vh;
 }
 
+.popular-games {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-bottom: 3vh;
+}
+
 .game {
     min-width: 20vh;
     min-height: 20vh;

@@ -128,12 +128,13 @@
     "name": "Drive Mad",
     "source": "//raw.githack.com/3kh0/3kh0-assets/main/drive-mad/index.html",
     "image": "/assets/img/dmd.jpg",
-    "desc": ""
+    "popular": "yes"
   },
   {
     "name": "Friday Night Funkin'",
     "source": "/assets/misc/fridaynightfunkin/index.html",
-    "image": "/assets/img/fnf.png"
+    "image": "/assets/img/fnf.png",
+    "popular": "yes"
   },
   {
     "name": "Fruit Ninja",
@@ -164,7 +165,8 @@
   {
     "name": "Minecraft",
     "source": "https://raw.githack.com/Skoolgq/eagler/main/index.html",
-    "image": "/assets/img/mc.jpeg"
+    "image": "/assets/img/mc.jpeg",
+    "popular": "yes"
   },
   {
     "name": "Missiles",
@@ -174,7 +176,8 @@
   {
     "name": "Monkey Mart",
     "source": "/cdn/monkey-mart/index.html",
-    "image": "https://play-lh.googleusercontent.com/Mq2MGUBjTRHMmx1NLlgQF3fKZQ5Yvtvy2Hg0nD5eDhVDHvyBDxcZEj830uUzGxlbg94=w240-h480-rw"
+    "image": "https://play-lh.googleusercontent.com/Mq2MGUBjTRHMmx1NLlgQF3fKZQ5Yvtvy2Hg0nD5eDhVDHvyBDxcZEj830uUzGxlbg94=w240-h480-rw",
+    "popular": "yes"
   },
   {
     "name": "Moto X3M",
@@ -214,7 +217,8 @@
   {
     "name": "Slope",
     "source": "/cdn/slope/index.html",
-    "image": "/cdn/slope/slope4.jpeg"
+    "image": "/cdn/slope/slope4.jpeg",
+    "popular": "yes"
   },
   {
     "name": "Soccer Random",

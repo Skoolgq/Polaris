@@ -39,13 +39,22 @@ function filterGames() {
 
 function renderGames(gamesToRender) {
     const gamesContainer = document.querySelector('.games');
+    const popularGamesContainer = document.querySelector('.popular-games');
     gamesContainer.innerHTML = ''; // clear previous games
+    popularGamesContainer.innerHTML = ''; // clear previous popular games
 
     gamesToRender.forEach(game => {
         const el = document.createElement('div');
         el.classList = 'game';
         el.innerHTML = `<img loading='lazy' src='${game.image}'><h3>${game.name}</h3>`;
         gamesContainer.appendChild(el);
+
+        if (game.popular === 'yes') {
+            const popularEl = document.createElement('div');
+            popularEl.classList = 'game';
+            popularEl.innerHTML = `<img loading='lazy' src='${game.image}'><h3>${game.name}</h3>`;
+            popularGamesContainer.appendChild(popularEl);
+        }
 
         el.addEventListener('click', async () => {
             if (!workerLoaded) await loadWorker();
