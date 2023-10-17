@@ -54,6 +54,19 @@ function renderGames(gamesToRender) {
             popularEl.classList = 'game';
             popularEl.innerHTML = `<img loading='lazy' src='${game.image}'><h3>${game.name}</h3>`;
             popularGamesContainer.appendChild(popularEl);
+
+            popularEl.addEventListener('click', async () => {
+                if (!workerLoaded) await loadWorker();
+                localStorage.setItem('frameData', JSON.stringify({
+                    type: 'game',
+                    game
+                }));
+                location.href = '/view';
+            });
+
+            popularEl.addEventListener('mouseenter', gameMouseEnter);
+            popularEl.addEventListener('mousemove', gameMouseMove);
+            popularEl.addEventListener('mouseleave', gameMouseLeave);
         }
 
         el.addEventListener('click', async () => {
