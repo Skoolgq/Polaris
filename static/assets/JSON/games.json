@@ -125,6 +125,12 @@
     "image": "/cdn/doodle-jump/doodle.png"
   },
   {
+    "name": "Drive Mad",
+    "source": "//raw.githack.com/3kh0/3kh0-assets/main/drive-mad/index.html",
+    "image": "/assets/img/dmd.jpg",
+    "desc": ""
+  },
+  {
     "name": "Friday Night Funkin'",
     "source": "/assets/misc/fridaynightfunkin/index.html",
     "image": "/assets/img/fnf.png"
