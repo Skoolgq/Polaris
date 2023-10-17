@@ -253,6 +253,12 @@
     "image": "/cdn/tiny-fishing/thumb.png"
   },
   {
+    "name": "Tunnel Rush",
+    "source": "//ela.pages.dev/cdn/tunnelrush",
+    "image": "//ela.pages.dev/cdn/tunnelrush/tunnel-rush.png",
+    "desc": ""
+  },
+  {
     "name": "Vex 3",
     "source": "https://html5.gamedistribution.com/762c932b4db74c6da0c1d101b2da8be6/?gd_sdk_referrer_url=https://gamedistribution.com/games/vex-3",
     "image": "https://is1-ssl.mzstatic.com/image/thumb/Purple128/v4/87/06/4e/87064e7a-c9fd-7135-6ba3-f321f013e01e/mzl.kqcjsyop.png/512x512bb.jpg"
