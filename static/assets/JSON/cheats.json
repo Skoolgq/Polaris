@@ -1,5 +1,10 @@
 [
     {
+        "name": "Autoclicker",
+        "source": "/assets/misc/cheats/autoclicker.html",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Cursor_icon_with_shadow.png"
+    },
+    {
         "name": "Prodigy",
         "source": "/assets/misc/cheats/prodigy.html",
         "image": "https://webcdn.prodigygame.com/common/images/socialshare.png"
