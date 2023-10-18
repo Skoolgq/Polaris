@@ -1,5 +1,5 @@
 let workerLoaded = false;
-let chosenProxy = 'dynamic'; // 'uv' or 'dynamic';
+let chosenProxy = 'uv'; // dynamic is broken so dont change this
 
 let loadWorker = async (worker) => {
     let allWorkers = await navigator.serviceWorker.getRegistrations();
