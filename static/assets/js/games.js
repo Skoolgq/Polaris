@@ -57,12 +57,20 @@ function renderGames(gamesToRender) {
 
             popularEl.addEventListener('click', async () => {
                 if (!workerLoaded) await loadWorker();
-                localStorage.setItem('frameData', JSON.stringify({
-                    type: 'game',
-                    game
-                }));
-                location.href = '/view';
-            });
+                const frameData = {
+                  type: 'game',
+                  game
+                };
+                if (game.openinnewtab === 'yes') {
+                    const x = window.open('about:blank', '_blank');
+                    const index = game.source;
+                    x.document.write(`<iframe src="${index}" style="position:fixed; top:0; left:0; bottom:0; right:0; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;"></iframe>`);
+                    console.log('Open game in new tab:', frameData);
+                } else {
+                  localStorage.setItem('frameData', JSON.stringify(frameData));
+                  location.href = '/view';
+                }
+              });
 
             popularEl.addEventListener('mouseenter', gameMouseEnter);
             popularEl.addEventListener('mousemove', gameMouseMove);
@@ -71,12 +79,20 @@ function renderGames(gamesToRender) {
 
         el.addEventListener('click', async () => {
             if (!workerLoaded) await loadWorker();
-            localStorage.setItem('frameData', JSON.stringify({
-                type: 'game',
-                game
-            }));
-            location.href = '/view';
-        });
+            const frameData = {
+              type: 'game',
+              game
+            };
+            if (game.openinnewtab === 'yes') {
+                const x = window.open('about:blank', '_blank');
+                const index = game.source;
+                x.document.write(`<iframe src="${index}" style="position:fixed; top:0; left:0; bottom:0; right:0; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;"></iframe>`);
+                console.log('Open game in new tab:', frameData);
+            } else {
+              localStorage.setItem('frameData', JSON.stringify(frameData));
+              location.href = '/view';
+            }
+          });
 
         el.addEventListener('mouseenter', gameMouseEnter);
         el.addEventListener('mousemove', gameMouseMove);

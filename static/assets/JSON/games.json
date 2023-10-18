@@ -166,7 +166,8 @@
     "name": "Minecraft",
     "source": "https://raw.githack.com/Skoolgq/eagler/main/index.html",
     "image": "/assets/img/mc.jpeg",
-    "popular": "yes"
+    "popular": "yes",
+    "openinnewtab": "yes"
   },
   {
     "name": "Missiles",
