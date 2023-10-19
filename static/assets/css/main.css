@@ -86,7 +86,7 @@ p{
 
 hr {
   border: 0;
-  height: 1px;
+  height: 0.1vh;
   background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0));
 }
 
@@ -187,7 +187,7 @@ button {
 .blue{
   color: #2d81ff;
   display: inline-block;
-  text-shadow: 0px 0px 15px rgb(45, 129, 255);
+  text-shadow: 0vh 0vh 1.5vh rgb(45, 129, 255);
 }
 
 .chromebook-btn-div {
@@ -556,7 +556,7 @@ input:checked+.slider:before {
 }
 
 .featuredimg {
-  width: calc(100% - 20px); /* 100% width minus 20px for the gap */
+  width: calc(100% - 2vh);
   cursor: pointer;
   border-radius: 2vh;
   border-color: rgba(0, 0, 0, 0);
