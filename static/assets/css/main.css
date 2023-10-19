@@ -187,6 +187,7 @@ button {
 .blue{
   color: #2d81ff;
   display: inline-block;
+  text-shadow: 0px 0px 15px rgb(45, 129, 255);
 }
 
 .chromebook-btn-div {
