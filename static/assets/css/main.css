@@ -77,8 +77,22 @@ a {
 
 h1 {
     text-align: center;
+    font-size: 8vh;
 }
 
+p{
+  font-size: 4vh;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0));
+}
+
+.small{
+  font-size: 3vh;
+}
 
 .settings-input {
     text-align: center;
@@ -152,21 +166,27 @@ button {
 }
 
 .mainpage-text {
-    box-shadow: 0.5vh 0.5vh 1vh 0vh var(--shadow-color);
-    background-color: var(--background-color);
-    width: 30vh;
-    height: 22vh;
-    color: var(--text);
-    text-align: center;
-    border-radius: 2vh;
-    justify-content: center;
-    padding: 0.5vh;
-    margin: 0 auto;
-    margin-top: 3vh;
-    position: relative;
-    opacity: 0.9;
-    padding: 2vh;
-    line-height: 2vh;
+  box-shadow: 0.5vh 0.5vh 1vh 0vh var(--shadow-color);
+  background-color: var(--background-color);
+  width: 75vh;
+  height: 52.3vh;
+  color: var(--text);
+  text-align: center;
+  border-radius: 2vh;
+  justify-content: center;
+  padding: 0.5vh;
+  right: 20vh; /* Position it 20px from the right side */
+  top: 30.5vh;
+  margin-top: 3vh;
+  position: absolute; /* Use absolute positioning */
+  opacity: 0.9;
+  padding: 2vh;
+  line-height: 2vh;
+}
+
+.blue{
+  color: #2d81ff;
+  display: inline-block;
 }
 
 .chromebook-btn-div {
@@ -522,27 +542,26 @@ input:checked+.slider:before {
 }
 
 .featuredcontainer {
-    background-color: var(--background-color);
-    box-shadow: 0.5vh 0.5vh 1vh 0vh var(--shadow-color);
-    width: 40vh;
-    margin: auto;
-    padding-top: 1vh;
-    padding-bottom: 2vh;
-    padding-left: 1.5vh;
-    padding-right: 1.5vh;
-    border-radius: 2vh;
-    color: var(--text);
+  background-color: var(--background-color);
+  box-shadow: 0.5vh 0.5vh 1vh 0vh var(--shadow-color);
+  width: 80vh;
+  margin: 8vh 0 0 20vh; /* 20px away from the left and top */
+  padding-top: 1vh;
+  padding-bottom: 2vh;
+  padding-left: 1.5vh;
+  padding-right: 1.5vh;
+  border-radius: 2vh;
+  color: var(--text);
 }
 
 .featuredimg {
-    width: 75%;
-    height: 100%;
-    transition: all 0.4s ease;
-    cursor: pointer;
-    border-radius: 2vh;
-    border-color: rgba( 0, 0, 0, 0);
-    transition: border-color 0.4s linear;
+  width: calc(100% - 20px); /* 100% width minus 20px for the gap */
+  cursor: pointer;
+  border-radius: 2vh;
+  border-color: rgba(0, 0, 0, 0);
+  transition: border-color 0.4s linear;
 }
+
 
 .featuredimg:hover {
     border-color: rgba(255, 255, 255, 1);

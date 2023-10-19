@@ -49,7 +49,7 @@ if (location.pathname === '/') {
             }));
             location.href = '/view';
         });
-        document.querySelector('.featuredimg').src = game.image;
+        document.querySelector('.featuredimg').src = "/assets/img/wide/subwaysurfers.webp";
     }).catch(e => new PolarisError('Failed to load featured game.'));
 }
 
