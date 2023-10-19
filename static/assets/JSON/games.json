@@ -131,6 +131,12 @@
     "popular": "yes"
   },
   {
+    "name": "Fortnite",
+    "source": "/assets/misc/fortnite/index.html",
+    "image": "https://static.wikia.nocookie.net/logopedia/images/d/db/Fortnite_S1.svg/revision/latest/scale-to-width-down/250?cb=20210330161743",
+    "popular": "yes"
+  },
+  {
     "name": "Friday Night Funkin'",
     "source": "/assets/misc/fridaynightfunkin/index.html",
     "image": "/assets/img/fnf.png",

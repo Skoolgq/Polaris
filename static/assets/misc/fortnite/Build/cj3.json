@@ -1,0 +1,9 @@
+{
+"TOTAL_MEMORY": 268435456,
+"dataUrl": "cj3.data.unityweb",
+"asmCodeUrl": "cj3.asm.code.unityweb",
+"asmMemoryUrl": "cj3.asm.memory.unityweb",
+"asmFrameworkUrl": "cj3.asm.framework.unityweb",
+"splashScreenStyle": "Light",
+"backgroundColor": "#80858B"
+}
