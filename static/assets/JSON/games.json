@@ -11,6 +11,12 @@
     "image": "/assets/img/tmtd.png"
   },
   {
+    "name": "1v1.LoL",
+    "source": "/raw.githack.com/3kh0/3kh0-assets/main/1v1lol/index.html",
+    "image": "/assets/img/1v1lol.png",
+    "popular": "yes"
+  },
+  {
     "name": "2048",
     "source": "/cdn/2048/index.html",
     "image": "/assets/img/2048.png"
@@ -156,6 +162,12 @@
     "name": "Getaway Shootout",
     "source": "/cdn/getaway-shootout/index.html",
     "image": "/cdn/getaway-shootout/img/index.jpg"
+  },
+  {
+    "name": "Happy Wheels",
+    "source": "https://games-online.io/game/HappyWheels",
+    "image": "/assets/img/happywheels.jpeg",
+    "popular": "yes"
   },
   {
     "name": "Janissary Battles",
