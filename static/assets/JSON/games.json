@@ -159,6 +159,11 @@
     "image": "/cdn/fruit-ninja/FruitNinjaTeaser.jpg"
   },
   {
+    "name": "Geometry Dash",
+    "source": "/assets/misc/geometrydash/index.html",
+    "image": "https://upload.wikimedia.org/wikipedia/en/3/35/Geometry_Dash_Logo.PNG"
+  },
+  {
     "name": "Getaway Shootout",
     "source": "/cdn/getaway-shootout/index.html",
     "image": "/cdn/getaway-shootout/img/index.jpg"
