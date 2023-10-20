@@ -1,5 +1,11 @@
 [
   {
+    "name": "Add a Game",
+    "source": "https://forms.gle/9knPLmyAua5Z3wZv5",
+    "image": "/assets/img/addgame.png",
+    "openinnewtab": "yes"
+  },
+  {
     "name": "10 Minutes Till dawn",
     "source": "/cdn/10-minutes-till-dawn/index.html",
     "image": "/assets/img/tmtd.png"
@@ -222,6 +228,12 @@
     "image": "https://play-lh.googleusercontent.com/v7KwGdPjJGjJjRXn46sck4DwDBdKSeRzGN44CjiXUtKV0jjOi51Bt4wcXud0m-SkXg"
   },
   {
+    "name": "Retro Bowl",
+    "source": "//raw.githack.com/3kh0/3kh0-assets/main/retro-bowl/index.html",
+    "image": "/assets/img/retrobowl.png",
+    "popular": "yes"
+  },
+  {
     "name": "Run 3",
     "source": "/cdn/run-3/Run%203.html",
     "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSs5Ei5kIaoCcE5x-QAJ4c4EzL68mBRk6RGQuo8_n-rXw&s"
@@ -229,8 +241,7 @@
   {
     "name": "Slope",
     "source": "/cdn/slope/index.html",
-    "image": "/cdn/slope/slope4.jpeg",
-    "popular": "yes"
+    "image": "/cdn/slope/slope4.jpeg"
   },
   {
     "name": "Soccer Random",
