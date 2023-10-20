@@ -22,6 +22,13 @@ const load = () => {
             document.querySelector('#gameicon').src = frameData.cheat.image;
             document.querySelector('#gametitle').textContent = frameData.cheat.name;
         } else document.querySelector('#gametitle').textContent = 'Failed to load cheat.';
+    }
+    else if (frameData.type === 'proxy') {
+        if (frameData.source) {
+            iframe.src = frameData.source;
+            document.querySelector('#gameicon').src = "https://cdn3.iconfinder.com/data/icons/feather-5/24/search-512.png";
+            document.querySelector('#gametitle').textContent = "Proxy";
+        } else document.querySelector('#gametitle').textContent = 'Failed to load proxy.';
     } else location.href = '/';
 
     document.querySelector('#fullscreen').addEventListener('click', () => {

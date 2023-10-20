@@ -27,7 +27,12 @@ const load = () => {
             ((!query.value.startsWith('http://') && !query.value.startsWith('https://')) ? 'https://' + query.value : query.value) :
             'https://www.google.com/search?q=' + encodeURIComponent(query.value);
         
-        location.href = `/service/${xor.encode(url)}`;
+            const frameData = {
+                type: 'proxy',
+                source: `/service/${xor.encode(url)}`
+              };
+        localStorage.setItem('frameData', JSON.stringify(frameData));
+        location.href = '/view';
     });
 }
 
