@@ -178,7 +178,7 @@ button {
   justify-content: center;
   padding: 0.5vh;
   right: 20vh; /* Position it 20px from the right side */
-  top: 30vh;
+  top: 30.8vh;
   position: absolute; /* Use absolute positioning */
   opacity: 0.9;
   padding: 2vh;
@@ -547,7 +547,7 @@ input:checked+.slider:before {
   background-color: var(--background-color);
   box-shadow: 0.5vh 0.5vh 1vh 0vh var(--shadow-color);
   width: 80vh;
-  margin: 4vh 0 0 10vh; /* 20px away from the left and top */
+  margin: 0vh 0 0 20vh; /* 20px away from the left and top */
   padding-top: 1vh;
   padding-bottom: 2vh;
   padding-left: 1.5vh;
