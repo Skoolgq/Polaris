@@ -39,7 +39,7 @@ if (window.self === window.top) {
 
 if (location.pathname === '/') {
     fetch('/assets/JSON/games.json').then(res => res.json()).then(games => {
-        const randomID = 46; // :3
+        const randomID = 22; // :3
         const game = games[randomID];
 
         document.querySelector('.featuredimg').addEventListener('click', () => {
@@ -49,7 +49,7 @@ if (location.pathname === '/') {
             }));
             location.href = '/view';
         });
-        document.querySelector('.featuredimg').src = "/assets/img/wide/subwaysurfers.webp";
+        document.querySelector('.featuredimg').src = "/assets/img/wide/crossyroad.webp";
     }).catch(e => new PolarisError('Failed to load featured game.'));
 }
 

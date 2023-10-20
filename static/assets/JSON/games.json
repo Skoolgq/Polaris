@@ -133,8 +133,7 @@
   {
     "name": "'Fortnite'",
     "source": "/assets/misc/fortnite/index.html",
-    "image": "https://static.wikia.nocookie.net/logopedia/images/d/db/Fortnite_S1.svg/revision/latest/scale-to-width-down/250?cb=20210330161743",
-    "popular": "yes"
+    "image": "https://static.wikia.nocookie.net/logopedia/images/d/db/Fortnite_S1.svg/revision/latest/scale-to-width-down/250?cb=20210330161743"
   },
   {
     "name": "Friday Night Funkin'",
@@ -151,6 +150,12 @@
     "name": "Getaway Shootout",
     "source": "/cdn/getaway-shootout/index.html",
     "image": "/cdn/getaway-shootout/img/index.jpg"
+  },
+  {
+    "name": "Janissary Battles",
+    "source": "https://html5.gamedistribution.com/8b55f4f729be4e70b6155f27d2e04690/?gd_sdk_referrer_url=https://gamedistribution.com/games/janissary-battles",
+    "image": "https://play-lh.googleusercontent.com/7GLdw2yQpWg6iRddcjeHrXbkNyrVJ6usaVIR45LBwnsPXPmbFdBBkYLu88rFa8AKFaUF",
+    "popular":"yes"
   },
   {
     "name": "Jetpack Joyride",
