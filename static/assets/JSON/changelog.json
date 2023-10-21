@@ -1,0 +1,10 @@
+[
+	{
+		date: '10/20/2023',
+		simpleDescription: 'Added games, other small updates'
+	},
+	{
+		date: '10/19/2023',
+		simpleDescription: 'Homepage now has a changelog!'
+	}
+]

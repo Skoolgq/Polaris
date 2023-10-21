@@ -15,13 +15,9 @@ const bareServer = createBareServer('/bare/');
 const port = process.env.PORT || process.argv[2] || 8080;
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
-let navbar = fs.readFileSync('./templates/navbar.html', 'utf-8');
+const  navbar = fs.readFileSync('./templates/navbar.html', 'utf-8');
 
-fs.readdirSync('./pages').forEach(file => {
-    let fileData = fs.readFileSync('./pages/' + file, 'utf-8');
-    fileData = fileData.replace('<body>', '<body> ' + navbar);
-    app.get(`/${file.split('.')[0] === 'index' ? '' : file.split('.')[0]}`, (req, res) => res.status(200).send(fileData));
-});
+fs.readdirSync('./pages').forEach(file => app.get(`/${file.split('.')[0] === 'index' ? '' : file.split('.')[0]}`, (req, res) => res.status(200).send(fs.readFileSync('./pages/' + file, 'utf-8').replace('<body>', '<body> ' + navbar))));
 
 app.use(express.static(path.join(__dirname, '/static')));
 
@@ -39,15 +35,13 @@ app.get('/cdn/*', cors({
             'content-type': mime.getType(reqTarget)
         });
 
-        if (mime.getType(reqTarget) === 'text/html') data = data + '<script src=\'/assets/js/cdn_inject.js\' preload=\'true\'></script>';
+        if (mime.getType(reqTarget) === 'text/html') data = '<script src=\'/assets/js/cdn_inject.js\' async></script>' + data;
 
         res.end(data);
     } else next();
 });
 
-let notFoundFile = fs.readFileSync('./pages/404.html', 'utf-8');
-notFoundFile = notFoundFile.replace('<body>', '<body> ' + navbar);
-app.use((req, res, next) => res.status(404).send(notFoundFile));
+app.use((req, res) => res.status(404).send(fs.readFileSync('./pages/404.html', 'utf-8').replace('<body>', '<body> ' + navbar)));
 
 server.on('request', (req, res) => {
     if (bareServer.shouldRoute(req)) bareServer.routeRequest(req, res);
@@ -59,10 +53,4 @@ server.on('upgrade', (req, socket, head) => {
     else socket.end();
 });
 
-server.on('listening', () => {
-    console.log(`Polaris started! http://localhost:${port}`);
-});
-
-server.listen({
-    port
-});
+server.listen(() => console.log(`Polaris is running on port ${port} using node.js ${process.version}`));

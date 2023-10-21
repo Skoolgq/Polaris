@@ -1,11 +1,11 @@
 import PolarisError from './error.js';
 
 const tiltEffectSettings = {
-    max: 8, // max tilt rotation (degrees (deg))
-    perspective: 1000, // transform perspective, the lower the more extreme the tilt gets (pixels (px))
-    scale: 1.05, // transform scale - 2 = 200%, 1.5 = 150%, etc..
-    speed: 800, // speed (transition-duration) of the enter/exit transition (milliseconds (ms))
-    easing: 'cubic-bezier(.03,.98,.52,.99)' // easing (transition-timing-function) of the enter/exit transition
+    max: 8,
+    perspective: 1000,
+    scale: 1.05,
+    speed: 800,
+    easing: 'cubic-bezier(.03,.98,.52,.99)'
 };
 
 const load = () => {

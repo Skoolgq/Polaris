@@ -1,4 +1,4 @@
-// THIS FILE IS CRITICAL, DO NOT TOUCH UNLESS YOU KNOW WHAT YOU'RE DOING
+// Don't touch
 import { load } from './settings.js';
 import Games from './games.js';
 import Apps from './apps.js';
@@ -39,7 +39,7 @@ if (window.self === window.top) {
 
 if (location.pathname === '/') {
     fetch('/assets/JSON/games.json').then(res => res.json()).then(games => {
-        const randomID = 22; // :3
+        const randomID = 22;
         const game = games[randomID];
 
         document.querySelector('.featuredimg').addEventListener('click', () => {
@@ -47,10 +47,23 @@ if (location.pathname === '/') {
                 type: 'game',
                 game
             }));
+			
             location.href = '/view';
         });
-        document.querySelector('.featuredimg').src = "/assets/img/wide/crossyroad.webp";
+        document.querySelector('.featuredimg').src = '/assets/img/wide/crossyroad.webp';
     }).catch(e => new PolarisError('Failed to load featured game.'));
+	
+	fetch('/assets/JSON/changelog.json').then(res => res.json()).then(changelog => changelog.forEach(change => {
+		const date = document.createElement('p');
+		date.textContent = change.date;
+		date.classList = 'small';
+		document.querySelector('#changelog').appendChild(date);
+		
+		const description = document.createElement('p');
+		description.textContent = change.simpleDescription;
+		description.classList = 'small';
+		document.querySelector('#changelog').appendChild(description);
+	}));
 }
 
 
