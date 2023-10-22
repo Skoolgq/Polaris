@@ -16,10 +16,11 @@ const port = process.env.PORT || process.argv[2] || 8080;
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
 let navbar = fs.readFileSync('./templates/navbar.html', 'utf-8');
+let meta = fs.readFileSync('./templates/meta.html', 'utf-8');
 
 fs.readdirSync('./pages').forEach(file => {
     let fileData = fs.readFileSync('./pages/' + file, 'utf-8');
-    fileData = fileData.replace('<body>', '<body> ' + navbar);
+    fileData = fileData.replace('<body>', '<body> ' + navbar).replace('</head>', meta + '</head>');
     app.get(`/${file.split('.')[0] === 'index' ? '' : file.split('.')[0]}`, (req, res) => res.status(200).send(fileData));
 });
 
@@ -46,7 +47,7 @@ app.get('/cdn/*', cors({
 });
 
 let notFoundFile = fs.readFileSync('./pages/404.html', 'utf-8');
-notFoundFile = notFoundFile.replace('<body>', '<body> ' + navbar);
+notFoundFile = notFoundFile.replace('<body>', '<body> ' + navbar).replace('</head>', meta + '</head>');
 app.use((req, res, next) => res.status(404).send(notFoundFile));
 
 server.on('request', (req, res) => {
