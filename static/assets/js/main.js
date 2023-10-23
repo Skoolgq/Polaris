@@ -39,7 +39,7 @@ if (window.self === window.top) {
 
 if (location.pathname === '/') {
     fetch('/assets/JSON/games.json').then(res => res.json()).then(games => {
-        const randomID = 22;
+        const randomID = 72;
         const game = games[randomID];
 
         document.querySelector('.featuredimg').addEventListener('click', () => {
@@ -50,7 +50,7 @@ if (location.pathname === '/') {
 			
             location.href = '/view';
         });
-        document.querySelector('.featuredimg').src = '/assets/img/wide/crossyroad.webp';
+        document.querySelector('.featuredimg').src = '/assets/img/wide/tinyfishing.png';
     }).catch(e => new PolarisError('Failed to load featured game.'));
 	
 	fetch('/assets/JSON/changelog.json').then(res => res.json()).then(changelog => changelog.forEach(change => {
