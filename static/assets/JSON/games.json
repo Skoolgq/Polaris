@@ -252,6 +252,12 @@
     "desc": ""
   },
   {
+    "name": "Master Archer",
+    "source": "https://playcanv.as/p/JERg21J8",
+    "image": "/assets/img/masterarcher.jpg",
+    "desc": ""
+  },
+  {
     "name": "Mindustry",
     "source": "/cdn/mindustry/index.html",
     "image": "/cdn/mindustry/splash.png"
