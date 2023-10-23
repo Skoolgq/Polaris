@@ -67,6 +67,5 @@ if (location.pathname === '/') {
 	}));
 }
 
-
 const Polaris = { Settings, Games, Apps, Frame, PolarisError };
 export default Polaris;

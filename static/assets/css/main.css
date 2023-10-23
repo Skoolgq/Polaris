@@ -90,6 +90,11 @@ hr {
   background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0));
 }
 
+
+.welcome{
+  padding-bottom: 0px;
+}
+
 .small{
   font-size: 3vh;
 }
@@ -581,14 +586,7 @@ input:checked+.slider:before {
 .featuredtopbar {
     padding-bottom: 2vh;
 }
-.quotebox {
-    margin: auto;
-    margin-top: 14vh;
-    color: var(--text);
-}
-.homequote{
-    line-height: 1;
-}
+
 .snow {
   position: absolute;
   width: 10px;
