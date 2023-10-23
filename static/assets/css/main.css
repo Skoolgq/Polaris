@@ -171,7 +171,7 @@ button {
   box-shadow: 0.5vh 0.5vh 1vh 0vh var(--shadow-color);
   background-color: var(--background-color);
   width: 75vh;
-  height: 52.3vh;
+  height: 49vh;
   color: var(--text);
   text-align: center;
   border-radius: 2vh;
@@ -182,6 +182,16 @@ button {
   opacity: 0.9;
   padding: 2vh;
   line-height: 2vh;
+}
+
+.mainpage-text > h1{
+  padding: 2vh;
+  margin: 0px;
+}
+
+.mainpage-text > p{
+  padding: 3vh;
+  margin: 0px;
 }
 
 .blue{
@@ -547,7 +557,7 @@ input:checked+.slider:before {
   box-shadow: 0.5vh 0.5vh 1vh 0vh var(--shadow-color);
   width: 80vh;
   margin: 0vh 0 0 20vh; /* 20px away from the left and top */
-  padding-top: 1vh;
+  padding-top: 2vh;
   padding-bottom: 2vh;
   padding-left: 1.5vh;
   padding-right: 1.5vh;
@@ -569,7 +579,7 @@ input:checked+.slider:before {
 }
 
 .featuredtopbar {
-    font-size: 2.5vh;
+    padding-bottom: 2vh;
 }
 .quotebox {
     margin: auto;

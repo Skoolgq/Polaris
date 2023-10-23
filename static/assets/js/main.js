@@ -59,7 +59,8 @@ if (location.pathname === '/') {
 		date.classList = 'small';
 		document.querySelector('#changelog').appendChild(date);
 		
-		const description = document.createElement('p');
+		const descwrap = document.createElement('p');
+        const description = document.createElement('i');
 		description.textContent = change.simpleDescription;
 		description.classList = 'small';
 		document.querySelector('#changelog').appendChild(description);
