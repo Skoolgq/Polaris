@@ -306,6 +306,12 @@
     "image": "/cdn/offline-paradise/assets/icon.jpeg"
   },
   {
+    "name": "osu!",
+    "source": "//skoolgq.github.io/skool-osu",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Osu%21_Logo_2016.svg/2048px-Osu%21_Logo_2016.svg.png",
+    "desc": ""
+  },
+  {
     "name": "OvO",
     "source": "/cdn/ovo/index.html",
     "image": "https://play-lh.googleusercontent.com/v7KwGdPjJGjJjRXn46sck4DwDBdKSeRzGN44CjiXUtKV0jjOi51Bt4wcXud0m-SkXg"
