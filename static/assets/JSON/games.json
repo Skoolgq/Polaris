@@ -317,6 +317,12 @@
     "image": "https://play-lh.googleusercontent.com/v7KwGdPjJGjJjRXn46sck4DwDBdKSeRzGN44CjiXUtKV0jjOi51Bt4wcXud0m-SkXg"
   },
   {
+    "name": "Papas Pizzeria",
+    "source": "//raw.githack.com/3kh0/3kh0-assets/main/papaspizzaria/index.html",
+    "image": "//raw.githack.com/3kh0/3kh0-assets/main/main/papaspizzaria/papaspizzaria.jpg",
+    "desc": ""
+  },
+  {
     "name": "Retro Bowl",
     "source": "//raw.githack.com/3kh0/3kh0-assets/main/retro-bowl/index.html",
     "image": "/assets/img/retrobowl.png",
