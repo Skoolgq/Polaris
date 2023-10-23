@@ -172,6 +172,12 @@
     "desc": ""
   },
   {
+    "name": "Flappy Bird",
+    "source": "//raw.githack.com/3kh0/3kh0-assets/main/flappybird/index.html",
+    "image": "/assets/img/fp.png",
+    "desc": ""
+  },
+  {
     "name": "Friday Night Funkin'",
     "source": "/assets/misc/fridaynightfunkin/index.html",
     "image": "/assets/img/fnf.png",
