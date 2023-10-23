@@ -127,6 +127,12 @@
     "image": "/cdn/crossy-road/icon.png"
   },
   {
+    "name": "Cut the Rope",
+    "source": "//raw.githack.com/3kh0/3kh0-assets/main/ctr/index.html'",
+    "image": "/img/ctr.png",
+    "desc": ""
+  },
+  {
     "name": "Dante",
     "source": "/cdn/dante/index.html",
     "image": "/cdn/dante/splash.png"
@@ -178,7 +184,7 @@
     "name": "Janissary Battles",
     "source": "https://html5.gamedistribution.com/8b55f4f729be4e70b6155f27d2e04690/?gd_sdk_referrer_url=https://gamedistribution.com/games/janissary-battles",
     "image": "https://play-lh.googleusercontent.com/7GLdw2yQpWg6iRddcjeHrXbkNyrVJ6usaVIR45LBwnsPXPmbFdBBkYLu88rFa8AKFaUF",
-    "popular":"yes"
+    "popular": "yes"
   },
   {
     "name": "Jetpack Joyride",
