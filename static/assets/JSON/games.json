@@ -199,6 +199,12 @@
     "image": "/cdn/getaway-shootout/img/index.jpg"
   },
   {
+    "name": "Hacker Tetris",
+    "source": "//raw.githack.com/3kh0/3kh0-assets/main/twitch-tetris/index.html",
+    "image": "/assets/img/hackertetris.png",
+    "desc": ""
+  },
+  {
     "name": "Happy Wheels",
     "source": "https://games-online.io/game/HappyWheels",
     "image": "/assets/img/happywheels.jpeg",
