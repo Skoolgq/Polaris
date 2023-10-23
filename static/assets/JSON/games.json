@@ -144,6 +144,12 @@
     "desc": ""
   },
   {
+    "name": "DogeMiner",
+    "source": "//raw.githack.com/3kh0/3kh0-assets/main/DogeMiner/index.html",
+    "image": "/assets/img/dogeminer.png",
+    "desc": ""
+  },
+  {
     "name": "Doodle Jump",
     "source": "/cdn/doodle-jump/index.html",
     "image": "/cdn/doodle-jump/doodle.png"
