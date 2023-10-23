@@ -166,6 +166,12 @@
     "image": "//upload.wikimedia.org/wikipedia/commons/7/7c/Fortnite_F_lettermark_logo.png"
   },
   {
+    "name": "Fireboy and Watergirl",
+    "source": "https://html5.gamedistribution.com/a55c9cc9c21e4fc683c8c6857f3d0c75/?gd_sdk_referrer_url=https://gamedistribution.com/games/fireboy-and-watergirl-1-forest-temple",
+    "image": "https://img.gamedistribution.com/a55c9cc9c21e4fc683c8c6857f3d0c75-512x512.jpeg",
+    "desc": ""
+  },
+  {
     "name": "Friday Night Funkin'",
     "source": "/assets/misc/fridaynightfunkin/index.html",
     "image": "/assets/img/fnf.png",
