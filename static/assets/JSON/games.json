@@ -138,6 +138,12 @@
     "image": "/cdn/dante/splash.png"
   },
   {
+    "name": "Defly.io",
+    "source": "/service/hvtrs8%2F-dgfny%2Cim%2F",
+    "image": "https://cdn.glitch.global/82c5292a-89b3-4a53-84e2-abbc0fa27724/defly_io.webp?v=1679319580067",
+    "desc": ""
+  },
+  {
     "name": "Doodle Jump",
     "source": "/cdn/doodle-jump/index.html",
     "image": "/cdn/doodle-jump/doodle.png"
