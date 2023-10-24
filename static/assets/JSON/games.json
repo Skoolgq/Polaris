@@ -1,5 +1,11 @@
 [
   {
+    "name": "Achievement Unlocked",
+    "source": "//raw.githack.com/3kh0/3kh0-assets/main/achievementunlocked/index.html",
+    "image": "//raw.githack.com/3kh0/3kh0-assets/main/achievementunlocked/achievementunlocked.png",
+    "desc": ""
+  },
+  {
     "name": "Add a Game",
     "source": "https://forms.gle/9knPLmyAua5Z3wZv5",
     "image": "/assets/img/addgame.png",
