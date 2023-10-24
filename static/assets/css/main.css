@@ -175,15 +175,12 @@ button {
 .mainpage-text {
   box-shadow: 0.5vh 0.5vh 1vh 0vh var(--shadow-color);
   background-color: var(--background-color);
+  margin-right: 10vh;
   width: 75vh;
   height: 49vh;
   color: var(--text);
   text-align: center;
   border-radius: 2vh;
-  justify-content: center;
-  right: 20vh; /* Position it 20px from the right side */
-  top: 30.8vh;
-  position: absolute; /* Use absolute positioning */
   opacity: 0.9;
   padding: 2vh;
   line-height: 2vh;
@@ -561,7 +558,7 @@ input:checked+.slider:before {
   background-color: var(--background-color);
   box-shadow: 0.5vh 0.5vh 1vh 0vh var(--shadow-color);
   width: 80vh;
-  margin: 0vh 0 0 20vh; /* 20px away from the left and top */
+  margin-left: 10vh;
   padding-top: 2vh;
   padding-bottom: 2vh;
   padding-left: 1.5vh;
