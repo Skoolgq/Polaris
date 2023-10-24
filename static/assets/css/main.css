@@ -175,7 +175,7 @@ button {
 .mainpage-text {
   box-shadow: 0.5vh 0.5vh 1vh 0vh var(--shadow-color);
   background-color: var(--background-color);
-  margin-right: 10vh;
+  margin-right: 15vh;
   width: 75vh;
   height: 52vh;
   color: var(--text);
@@ -559,7 +559,7 @@ input:checked+.slider:before {
   box-shadow: 0.5vh 0.5vh 1vh 0vh var(--shadow-color);
   width: 80vh;
   height: 52vh;
-  margin-left: 10vh;
+  margin-left: 15vh;
   padding-top: 2vh;
   padding-bottom: 2vh;
   padding-left: 2vh;

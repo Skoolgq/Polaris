@@ -15,11 +15,6 @@
         "image": "https://edpuzzle.imgix.net/edpuzzle-logos/vertical-logo.png"
     },
     {
-        "name": "PowerSchool",
-        "source": "/assets/misc/cheats/powerschool.html",
-        "image": "/assets/img/powerschool.png"
-    },
-    {
         "name": "Prodigy",
         "source": "/assets/misc/cheats/prodigy.html",
         "image": "https://webcdn.prodigygame.com/common/images/socialshare.png"
