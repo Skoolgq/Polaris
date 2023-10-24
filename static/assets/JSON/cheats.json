@@ -5,11 +5,6 @@
         "image": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Cursor_icon_with_shadow.png"
     },
     {
-        "name": "Prodigy",
-        "source": "/assets/misc/cheats/prodigy.html",
-        "image": "https://webcdn.prodigygame.com/common/images/socialshare.png"
-    },
-    {
         "name": "Blooket",
         "source": "/assets/misc/cheats/blooket.html",
         "image": "https://media.discordapp.net/attachments/1118495479802630174/1158062820097802331/latest.png?ex=651ae18c&is=6519900c&hm=544b7a8eb56236327b7bcabfce4b688428d59a63c8e07bcb2aab3ff81c916286&="
@@ -18,6 +13,16 @@
         "name": "EdPuzzle",
         "source": "/service/hvtrs8%2F-efpwzxlg.js%2Cva%2F",
         "image": "https://edpuzzle.imgix.net/edpuzzle-logos/vertical-logo.png"
+    },
+    {
+        "name": "PowerSchool",
+        "source": "/assets/misc/cheats/powerschool.html",
+        "image": "/assets/img/powerschool.png"
+    },
+    {
+        "name": "Prodigy",
+        "source": "/assets/misc/cheats/prodigy.html",
+        "image": "https://webcdn.prodigygame.com/common/images/socialshare.png"
     },
     {
         "name": "Quizizz",
