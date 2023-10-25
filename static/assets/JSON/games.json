@@ -186,8 +186,7 @@
   {
     "name": "Friday Night Funkin'",
     "source": "/assets/misc/fridaynightfunkin/index.html",
-    "image": "/assets/img/fnf.png",
-    "popular": "yes"
+    "image": "/assets/img/fnf.png"
   },
   {
     "name": "Fruit Ninja",
@@ -350,7 +349,7 @@
     "name": "ROBLOX (Be patient)",
     "source": "/service/hvtrs8%2F-nmweg%2Cnn%2Frlcy-rmbnoz-aoppmrctkol%2F7369-rmbnoz",
     "image": "/assets/img/roblox.png",
-    "desc": ""
+    "popular": "yes"
   },
   {
     "name": "Robostorm",
