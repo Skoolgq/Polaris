@@ -1,29 +1,23 @@
 {
-  "name": "polaris",
-  "version": "1.0.0",
-  "description": "The future of school gaming",
-  "main": "index.js",
-  "type": "module",
-  "scripts": {
-    "start": "node index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/polarisdevs/Polaris.git"
-  },
-  "keywords": [
-    "games",
-    "unblocked",
-    "proxy"
-  ],
-  "author": "Polaris Developments",
-  "license": "GNU-3.0-or-later",
-  "homepage": "https://github.com/polarisdevs/Polaris#readme",
-  "dependencies": {
-    "@tomphttp/bare-server-node": "*",
-    "cors": "*",
-    "easyviolet": "github:Russell2259/Easyviolet",
-    "express": "*",
-    "mime": "*"
-  }
+    "name": "polaris",
+    "version": "1.0.0",
+    "description": "The future of school gaming.",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "dev": "nodemon index.js",
+        "start": "node index.js"
+    },
+    "author": "Polaris Developments",
+    "license": "GNU-3.0-or-later",
+    "dependencies": {
+        "@tomphttp/bare-server-node": "*",
+        "cors": "*",
+        "easyviolet": "github:Russell2259/Easyviolet",
+        "express": "*",
+        "mime": "*"
+    },
+    "devDependencies": {
+        "nodemon": "^3.0.1"
+    }
 }
