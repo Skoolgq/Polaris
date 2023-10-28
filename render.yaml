@@ -3,6 +3,7 @@ services:
     name: space
     region: oregon
     plan: free
+    runtime: node
     buildCommand: npm i
     startCommand: node index.js
     envVars:
