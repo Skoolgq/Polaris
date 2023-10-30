@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: space
+    region: oregon
+    plan: free
+    runtime: node
+    buildCommand: npm i
+    startCommand: node index.js
+    envVars:
+      - key: NODE_VERSION
+        value: 20.0.0
