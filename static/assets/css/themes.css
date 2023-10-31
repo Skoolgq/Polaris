@@ -1,3 +1,18 @@
+body[data-theme='halloween'] {
+    --background-color: #233147;
+    --text: #fff;
+    --sidebar-bg: #161f2eef;
+    --button-bg: #1c1c1c69;
+    --shadow-color: #4242424b;
+    --switch-color: #42424259;
+    --switch-active: #2196F3;
+    --scrollbar-color: #ffffff59;
+    --solid: #1b2735;
+    --hover: #757575;
+    background: radial-gradient(circle, rgba(58, 61, 96, 1) 0%, rgba(45, 40, 51, 1) 100%);
+    background-repeat: no-repeat;
+}
+
 body[data-theme='dark'] {
     --background-color: #233147;
     --text: #fff;
