@@ -10,6 +10,11 @@
         "image": "https://edpuzzle.imgix.net/edpuzzle-logos/vertical-logo.png"
     },
     {
+        "name": "Wordle",
+        "source": "/assets/misc/cheats/wordle.html",
+        "image": "/assets/img/wordle.png"
+    },
+    {
         "name": "Prodigy",
         "source": "/assets/misc/cheats/prodigy.html",
         "image": "https://webcdn.prodigygame.com/common/images/socialshare.png"
