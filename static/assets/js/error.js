@@ -1,5 +1,7 @@
 class PolarisError {
     constructor(e) {
+        console.log(e);
+        
         let notificationContainer = document.querySelector('.notifications');
 
         if (!notificationContainer) {
@@ -10,11 +12,8 @@ class PolarisError {
 
         const error = document.createElement('div');
         error.classList = 'notification error';
-        if (e.message) {
-            error.innerHTML = `<span>An error occurred: ${e.message.toString()}</span>`;
-        } else {
-            error.innerHTML = `<span>An error occurred: ${e.toString()}</span>`;
-        }
+        if (e.message) error.innerHTML = `<span>An error occurred: ${e.message.toString()}</span>`;
+        else error.innerHTML = `<span>An error occurred: ${e.toString()}</span>`;
         notificationContainer.appendChild(error);
 
         error.onclick = () => {
