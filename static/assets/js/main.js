@@ -39,8 +39,8 @@ if (window.self === window.top) {
 
 if (location.pathname === '/') {
     fetch('/assets/JSON/games.json').then(res => res.json()).then(games => {
-        const randomID = 75;
-        const game = games[randomID];
+        const gameName = 'Tiny Fishing';
+        const game = games.filter(g => g.name === gameName)[0];
 
         document.querySelector('.featuredimg').addEventListener('click', () => {
             localStorage.setItem('frameData', JSON.stringify({
