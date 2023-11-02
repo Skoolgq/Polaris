@@ -403,6 +403,12 @@
     "image": "/cdn/subway-surfers/img/FirstAvatar.png"
   },
   {
+    "name": "TEST",
+    "source": "testing the security of admin panel",
+    "image": "its ass :sob:",
+    "desc": ""
+  },
+  {
     "name": "The Final Earth",
     "source": "/cdn/the-final-earth/index.html",
     "image": "/cdn/the-final-earth/images.png"
