@@ -1,11 +1,5 @@
 [
   {
-    "name": "a",
-    "source": "a",
-    "image": "a",
-    "desc": ""
-  },
-  {
     "name": "Request a Game",
     "source": "https://forms.gle/9knPLmyAua5Z3wZv5",
     "image": "/assets/img/question.png",
@@ -332,6 +326,11 @@
     "source": "//raw.githack.com/3kh0/3kh0-assets/main/papaspizzaria/index.html",
     "image": "/assets/img/pizzeria.jpeg",
     "desc": ""
+  },
+  {
+    "name": "Penalty Kicks",
+    "source": "/service/hvtrs8%2F-wuw%2Cmctjpna%7Bgpownf.aoo%2Frelant%7B-iiakq%2Fknfez.jtol",
+    "image": "/assets/img/penaltykicks.png"
   },
   {
     "name": "Pizza Tower",
