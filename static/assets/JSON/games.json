@@ -12,6 +12,12 @@
     "desc": ""
   },
   {
+    "name": "Idle Breakout",
+    "source": "//raw.githack.com/3kh0/3kh0-assets/main/idle-breakout/index.html",
+    "image": "//raw.githack.com/3kh0/3kh0-assets/main/idle-breakout/img/thumbnail.png",
+    "desc": ""
+  },
+  {
     "name": "Request a Game",
     "source": "https://forms.gle/9knPLmyAua5Z3wZv5",
     "image": "/assets/img/question.png",
