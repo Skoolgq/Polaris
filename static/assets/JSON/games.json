@@ -1,23 +1,5 @@
 [
   {
-    "name": "'Hill Climb Racing'",
-    "source": "//raw.githack.com/3kh0/3kh0-assets/main/hill-climb-racing/index.html",
-    "image": "//raw.githack.com/3kh0/3kh0-assets/main/hill-climb-racing/splash.jpeg",
-    "desc": ""
-  },
-  {
-    "name": "Chrome Dino",
-    "source": "//raw.githack.com/3kh0/3kh0-assets/main/chrome-dino/index.html",
-    "image": "//raw.githack.com/3kh0/3kh0-assets/main/chrome-dino/favicon.ico",
-    "desc": ""
-  },
-  {
-    "name": "Idle Breakout",
-    "source": "//raw.githack.com/3kh0/3kh0-assets/main/idle-breakout/index.html",
-    "image": "//raw.githack.com/3kh0/3kh0-assets/main/idle-breakout/img/thumbnail.png",
-    "desc": ""
-  },
-  {
     "name": "Request a Game",
     "source": "https://forms.gle/9knPLmyAua5Z3wZv5",
     "image": "/assets/img/question.png",
@@ -141,6 +123,12 @@
     "image": "/assets/img/bounceback.jpg"
   },
   {
+    "name": "Chrome Dino",
+    "source": "//raw.githack.com/3kh0/3kh0-assets/main/chrome-dino/index.html",
+    "image": "//raw.githack.com/3kh0/3kh0-assets/main/chrome-dino/favicon.ico",
+    "desc": ""
+  },
+  {
     "name": "Circlo",
     "source": "/cdn/circlo/index.html",
     "image": "/cdn/circlo/img/circlo.png"
@@ -232,6 +220,18 @@
     "source": "https://games-online.io/game/HappyWheels",
     "image": "/assets/img/happywheels.jpeg",
     "popular": "yes"
+  },
+  {
+    "name": "'Hill Climb Racing'",
+    "source": "//raw.githack.com/3kh0/3kh0-assets/main/hill-climb-racing/index.html",
+    "image": "//raw.githack.com/3kh0/3kh0-assets/main/hill-climb-racing/splash.jpeg",
+    "desc": ""
+  },
+  {
+    "name": "Idle Breakout",
+    "source": "//raw.githack.com/3kh0/3kh0-assets/main/idle-breakout/index.html",
+    "image": "//raw.githack.com/3kh0/3kh0-assets/main/idle-breakout/img/thumbnail.png",
+    "desc": ""
   },
   {
     "name": "Janissary Battles",
@@ -397,6 +397,12 @@
     "name": "Run 3",
     "source": "/cdn/run-3/Run%203.html",
     "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSs5Ei5kIaoCcE5x-QAJ4c4EzL68mBRk6RGQuo8_n-rXw&s"
+  },
+  {
+    "name": "Shell Shockers",
+    "source": "https://shellshockers.life",
+    "image": "https://lh3.googleusercontent.com/xHogkpJGUj73xUBz0ZGTZtCCRUvL6WOzmALcYCVk9cVnyQyCapU82h1oALz7QlbJQdg",
+    "popular": "yes"
   },
   {
     "name": "Slope",
