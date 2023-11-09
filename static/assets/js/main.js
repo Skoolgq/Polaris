@@ -66,25 +66,6 @@ if (location.pathname === '/') {
 		document.querySelector('#changelog').appendChild(description);
 	}));
 
-function aboutblank() {
-    const tab = window.open('about:blank', '_blank');
-    const iframe = tab.document.createElement('iframe');
-    const stl = iframe.style;
-    stl.border = stl.outline = 'none';
-    stl.width = '100vw';
-    stl.height = '100vh';
-    stl.position = 'fixed';
-    stl.left = stl.right = stl.top = stl.bottom = '0';
-    iframe.src = self.location;
-    tab.document.body.appendChild(iframe);
-    window.parent.window.location.replace(localStorage.getItem("panic_url") || 'https://google.com/')
-}
-
-if (window.self !== window.self) document.querySelector("#launchab").style.display = "none"
-document.getElementById("aboutblankbtn").addEventListener("click", function() {
-    aboutblank();
-});
-
 var items = ['the start', 'What are you doing here?', '"School"', 'I dont get paid enough','What Up Son?','help','i like bagle','3.14159265359','Who thought this was a good idea?','Stage 4','i have a concerning lump on my back','Bean was here','Your Mother','Pacer Test','Why did he leave','by the way...','Kilroy was here','Kilroy is here','look behind you','West Virginia','theres a reason','Country road','Thats a wrap','Pretty','No','Yes','leave me','What square?','uhhh','Plutocracy','Practically Free*','capitalize this','Place Holder','Try me','fine','Why are we doing this again?','half eaten saltine crackers are underated','Javascript > Java','L + Ratio','Cope','I Love Refrigerators','That Happened.','Pedicure','(insert message here)','terminal','💀💀💀','finnish','who writes these?','reference','I am going to peel the skin off your face (:','bye','no','the fact is','run','uh what','hello world','Positively awful','tax fraud','comatose state','Not me','my second job is a discord mod','kids bop','Is it just me or','Hello people','74% Incomplete','wake up','Monster Energy','ew','The amount of pain I am in right now is unimaginable','chicken','men','What?','Your opinion is invalid','gay pride','Im going','4skin','/0','Who said that?','No Fair.','Famous... Enough','Parent Approved!','Teacher Approved!','Treason','Just do it already!','You\'re Fired','Not worth it','was there a reason?','the egg came first','patriotism','Family Friendly','Do you ever feel like a plastic bag Drifting through the windWanting to start again? Do you ever feel, feel so paper thin Like a house of cards One blow from caving in?','Why?','discord is in the first o','Shane Dawson likes cats','who stole this','unblock linux','darn you','gushers','yummy','charles loves you','mekhi loves anime', 'pls dont type smurf :)'];
 
   function getRandomFact() {
