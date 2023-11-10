@@ -4,7 +4,7 @@
   <p>the next generation site for school gaming.</p>
 
   ![Discord](https://img.shields.io/discord/950407933408198717?label=Discord&style=for-the-badge)
-  ![Commit activity](https://img.shields.io/github/commit-activity/w/Skoolgq/v2?style=for-the-badge)
+  ![Commit activity](https://img.shields.io/github/commit-activity/w/SkoolGQ/Polaris?style=for-the-badge)
   
   <br>
   <h2>Quick Web Deployment</h2>
