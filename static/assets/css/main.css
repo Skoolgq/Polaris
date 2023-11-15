@@ -600,3 +600,6 @@ input:checked+.slider:before {
 .featuredtopbar {
     padding-bottom: 2vh;
 }
+.gamesectionheader{
+    text-align: left;
+}
