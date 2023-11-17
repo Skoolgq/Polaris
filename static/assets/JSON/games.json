@@ -420,6 +420,11 @@
     "image": "/cdn/slope/slope4.jpeg"
   },
   {
+    "name": "Snow Rider 3D",
+    "source": "//raw.githack.com/3kh0/3kh0-assets/main/snowrider3d/index.html",
+    "image": "/cdn/slope/slope4.jpeg"
+  },
+  {
     "name": "Soccer Random",
     "source": "https://html5.gamedistribution.com/308d826f20034d7b972f25258c8d0a44/?gd_sdk_referrer_url=https://gamedistribution.com/games/soccer-random",
     "image": "https://img.gamedistribution.com/308d826f20034d7b972f25258c8d0a44-512x512.jpeg"
