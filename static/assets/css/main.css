@@ -589,13 +589,14 @@ input:checked+.slider:before {
     cursor: pointer;
     border-radius: 2vh;
     border-color: rgba(0, 0, 0, 0);
-    transition: border-color 0.4s linear;
+    transition: all 0.4s linear;
 }
 
 
 .featuredimg:hover {
     border-color: rgba(255, 255, 255, 1);
-    border-width: 0.2vh;
+    border-width: 2vh;
+    transition: all 0.4s linear;
 }
 
 .featuredtopbar {
