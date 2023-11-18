@@ -595,6 +595,7 @@ input:checked+.slider:before {
 
 .featuredimg:hover {
     border-color: rgba(255, 255, 255, 1);
+    border-width: 0.2vh;
 }
 
 .featuredtopbar {
