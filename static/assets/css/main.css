@@ -588,15 +588,14 @@ input:checked+.slider:before {
     width: calc(100% - 2vh);
     cursor: pointer;
     border-radius: 2vh;
-    border-color: rgba(0, 0, 0, 0);
-    transition: all 0.4s linear;
+    border-color: rgba( 0, 0, 0, 0);
+    transition: border-color 0.4s linear;
+    border-width: 0.2vh;
 }
 
 
 .featuredimg:hover {
     border-color: rgba(255, 255, 255, 1);
-    border-width: 2vh;
-    transition: all 0.4s linear;
 }
 
 .featuredtopbar {
