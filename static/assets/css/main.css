@@ -587,15 +587,17 @@ input:checked+.slider:before {
 .featuredimg {
     width: calc(100% - 2vh);
     cursor: pointer;
+    border: solid;
+    border-width: 0.5vh;
     border-radius: 2vh;
-    border-color: rgba( 0, 0, 0, 0);
-    transition: border-color 0.4s linear;
-    border-width: 0.2vh;
+    border-color: rgba(0, 0, 0, 0);
+    transition: border 0.4s linear;
 }
 
 
 .featuredimg:hover {
     border-color: rgba(255, 255, 255, 1);
+    transition: border 0.4s linear;
 }
 
 .featuredtopbar {
