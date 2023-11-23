@@ -116,6 +116,7 @@ hr {
 
 .proxycontainer {
     background-color: var(--background-color);
+    box-shadow: 0.5vh 0.5vh 1vh 0vh var(--shadow-color);
     width: 60vw;
     height: 30vh;
     margin: auto;
