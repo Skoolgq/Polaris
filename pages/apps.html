@@ -19,25 +19,26 @@
         <div class="content">
             <h1>Apps</h1>
             <br>
-<div id="1"></div>
+            <div class="apps"></div>
+        </div>
 
-<script>
-window['nitroAds'].createAd('1', {
-  "format": "video-nc",
+        <script src="/assets/js/main.js" type="module"></script>
+	    <span data-ccpa-link="1"></span>
+	    <script>
+window['nitroAds'].createAd('anchorad', {
+  "refreshTime": 30,
+  "format": "anchor",
+  "anchor": "bottom",
+  "anchorPersistClose": false,
   "report": {
     "enabled": true,
     "icon": true,
     "wording": "Report Ad",
     "position": "top-right"
   },
-  "video": {}
+  "mediaQuery": "(min-width: 320px) and (max-width: 767px)"
 });
 </script>
-            <div class="apps"></div>
-        </div>
-
-        <script src="/assets/js/main.js" type="module"></script>
-	    <span data-ccpa-link="1"></span>
     </body>
 
 </html>
