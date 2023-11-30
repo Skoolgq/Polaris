@@ -18,13 +18,13 @@ const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 let navbar = fs.readFileSync('./templates/navbar.html', 'utf-8');
 let meta = fs.readFileSync('./templates/meta.html', 'utf-8');
 
-fs.readdirSync('./pages').forEach(file => {
+/*fs.readdirSync('./pages').forEach(file => {
     let fileData = fs.readFileSync('./pages/' + file, 'utf-8');
     fileData = fileData.replace('<body>', '<body> ' + navbar).replace('</head>', meta + '</head>');
     app.get(`/${file.split('.')[0] === 'index' ? '' : file.split('.')[0]}`, (req, res) => res.status(200).send(fileData));
-});
+});*/
 
-app.use(express.static(path.join(__dirname, '/static')));
+app.use(express.static(path.join(__dirname, '/static'), { extensions: ['html'] }));
 
 app.get('/cdn/*', cors({
     origin: false
@@ -46,9 +46,9 @@ app.get('/cdn/*', cors({
     } else next();
 });
 
-let notFoundFile = fs.readFileSync('./pages/404.html', 'utf-8');
+/*let notFoundFile = fs.readFileSync('./pages/404.html', 'utf-8');
 notFoundFile = notFoundFile.replace('<body>', '<body> ' + navbar).replace('</head>', meta + '</head>');
-app.use((req, res, next) => res.status(404).send(notFoundFile));
+app.use((req, res, next) => res.status(404).send(notFoundFile));*/
 
 server.on('request', (req, res) => {
     if (bareServer.shouldRoute(req)) bareServer.routeRequest(req, res);

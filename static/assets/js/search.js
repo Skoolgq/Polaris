@@ -1,7 +1,7 @@
 import { workerLoaded, loadWorker } from './wpm.js';
 
 const load = () => {
-    let xor = {
+    const xor = {
         encode: (str, key = 2) => {
             if (!str) return str;
             return encodeURIComponent(str.split('').map((e, i) => i % key ? String.fromCharCode(e.charCodeAt(0) ^ key) : e).join(''));
@@ -11,8 +11,6 @@ const load = () => {
             return decodeURIComponent(str).split('').map((e, i) => i % key ? String.fromCharCode(e.charCodeAt(0) ^ key) : e).join('');
         }
     };
-
-    window.xor = xor;
 
     const form = document.querySelector('#wpf');
     const query = document.querySelector('#query');
