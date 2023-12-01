@@ -15,8 +15,8 @@ const bareServer = createBareServer('/bare/');
 const port = process.env.PORT || process.argv[2] || 8080;
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
-let navbar = fs.readFileSync('./templates/navbar.html', 'utf-8');
-let meta = fs.readFileSync('./templates/meta.html', 'utf-8');
+let navbar = fs.readFileSync(path.join(__dirname, './templates/navbar.html'), 'utf-8');
+let meta = fs.readFileSync(path.join(__dirname, './templates/meta.html'), 'utf-8');
 
 fs.readdirSync('./pages').forEach(file => {
     let fileData = fs.readFileSync('./pages/' + file, 'utf-8');
