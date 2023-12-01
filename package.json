@@ -5,8 +5,7 @@
     "main": "index.js",
     "type": "module",
     "scripts": {
-        "dev": "nodemon index.js -e js,css,html,jpeg,png,json",
-        "start": "node index.js"
+        "start": "npm i && node server"
     },
     "author": "Polaris Developments",
     "license": "GNU-3.0-or-later",

@@ -2,30 +2,27 @@ import PolarisError from './error.js';
 import { workerLoaded, loadWorker } from './wpm.js';
 
 const tiltEffectSettings = {
-    max: 8, // max tilt rotation (degrees (deg))
-    perspective: 1000, // transform perspective, the lower the more extreme the tilt gets (pixels (px))
-    scale: 1.05, // transform scale - 2 = 200%, 1.5 = 150%, etc..
-    speed: 800, // speed (transition-duration) of the enter/exit transition (milliseconds (ms))
-    easing: 'cubic-bezier(.03,.98,.52,.99)' // easing (transition-timing-function) of the enter/exit transition
+    max: 8,
+    perspective: 1000,
+    scale: 1.05,
+    speed: 800,
+    easing: 'cubic-bezier(.03,.98,.52,.99)'
 };
 
-let games = []; // store all games
-let filteredGames = []; // store filtered games
+let games = [];
+let filteredGames = [];
 
 const load = () => {
     fetch('/assets/JSON/games.json').then(res => res.json()).then(data => {
             games = data;
-            filteredGames = games; // initialize filtered games with all games
+            filteredGames = games;
 
-            renderGames(filteredGames); // render games initially
+            renderGames(filteredGames);
 
-            // Add event listener to search input
             const searchInput = document.getElementById('searchInput');
             searchInput.addEventListener('input', filterGames);
         })
-        .catch(e => {
-            new PolarisError('Failed to load games');
-        });
+        .catch(e => new PolarisError('Failed to load games'));
 };
 
 function filterGames() {
@@ -34,14 +31,14 @@ function filterGames() {
 
     filteredGames = games.filter(game => game.name.toLowerCase().includes(searchTerm));
 
-    renderGames(filteredGames); // render filtered games
+    renderGames(filteredGames);
 }
 
 function renderGames(gamesToRender) {
     const gamesContainer = document.querySelector('.games');
     const popularGamesContainer = document.querySelector('.popular-games');
-    gamesContainer.innerHTML = ''; // clear previous games
-    popularGamesContainer.innerHTML = ''; // clear previous popular games
+    gamesContainer.innerHTML = '';
+    popularGamesContainer.innerHTML = '';
 
     gamesToRender.forEach(game => {
         const el = document.createElement('div');
@@ -61,6 +58,7 @@ function renderGames(gamesToRender) {
                   type: 'game',
                   game
                 };
+
                 if (game.openinnewtab === 'yes') {
                     window.open(game.source, '_blank');
                     console.log('Open game in new tab:', frameData);

@@ -1,8 +1,22 @@
 .navbar {
-    position: sticky;
+    box-shadow: 0vh 0.75vh 1.5vh 0vh var(--shadow-color);
+    position: fixed;
+    width: 95%;
+    background-color: var(--background-color);
+    top: 0;
+    margin-left: 5vh;
+    margin-right: 5vh;
+    margin-top: 2.5vh;
+    color: rgb(255, 255, 255);
+    z-index: 100;
     display: flex;
-    justify-content: space-between;
-    margin: 1.5vh;
+    border-radius: 4vh;
+    padding: 2vh;
+}
+
+.navbar>.title {
+    margin: 1vh;
+    margin-bottom: 0px;
 }
 
 .navbar>.title>img {
@@ -25,12 +39,13 @@
     margin-left: 3vh;
 }
 
-.navbar>.end {
-    display: flex;
-    justify-content: space-between;
+.navbar>.right {
+    position: absolute;
+    right: 0;
+    margin: 2vh;
 }
 
-.navbar>.end>a {
+.navbar>.right>a {
     border-style: solid;
     border-width: 0.5vh;
     margin: 0.3rem;
@@ -42,6 +57,6 @@
     transition: border-color 0.4s linear;
 }
 
-.navbar>.end>a:hover {
+.navbar>.right>a:hover {
     border-color: rgba(255, 255, 255, 1);
 }

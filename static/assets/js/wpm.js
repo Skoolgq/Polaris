@@ -7,8 +7,8 @@ let loadWorker = async (worker) => {
         if (!worker.active?.scriptURL?.includes(chosenProxy)) worker.unregister();
     });
 
-    await navigator.serviceWorker.register(`/${worker || chosenProxy}-sw.js`, {
-        scope: `/service/`,
+    await navigator.serviceWorker.register(`/${worker || chosenProxy}/sw.js`, {
+        scope: `/uv/service/`,
     });
 };
 

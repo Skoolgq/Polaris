@@ -17,18 +17,17 @@ const load = () => {
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
-        
-        if (typeof navigator.serviceWorker === 'undefined') new PolarisError('Failed to load Prxxy');
+
+        if (typeof navigator.serviceWorker === 'undefined') new PolarisError('Failed to load Proxy');
         if (!workerLoaded) await loadWorker();
-    
-        const url = /^(http(s)?:\/\/)?([\w-]+\.)+[\w]{2,}(\/.*)?$/.test(query.value) ?
-            ((!query.value.startsWith('http://') && !query.value.startsWith('https://')) ? 'https://' + query.value : query.value) :
-            'https://www.google.com/search?q=' + encodeURIComponent(query.value);
-        
-            const frameData = {
-                type: 'proxy',
-                source: `/service/${xor.encode(url)}`
-              };
+
+        const url = /^(http(s)?:\/\/)?([\w-]+\.)+[\w]{2,}(\/.*)?$/.test(query.value) ? ((!query.value.startsWith('http://') && !query.value.startsWith('https://')) ? 'https://' + query.value : query.value) : 'https://www.google.com/search?q=' + encodeURIComponent(query.value);
+
+        const frameData = {
+            type: 'proxy',
+            source: `/uv/service/${xor.encode(url)}`
+        };
+
         localStorage.setItem('frameData', JSON.stringify(frameData));
         location.href = '/view';
     });

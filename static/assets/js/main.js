@@ -1,11 +1,10 @@
-// Don't touch
+import PolarisError from './error.js';
 import { load } from './settings.js';
-import Games from './games.js';
-import Apps from './apps.js';
 import Search from './search.js';
 import Cheats from './cheats.js';
+import Games from './games.js';
 import Frame from './frame.js';
-import PolarisError from './error.js';
+import Apps from './apps.js';
 
 const Settings = {
     load: load
@@ -42,7 +41,7 @@ if (location.pathname === '/') {
         const gameName = 'Tiny Fishing';
         const game = games.filter(g => g.name === gameName)[0];
 
-        document.querySelector('.featuredimg').addEventListener('click', () => {
+        document.querySelector('.featured').addEventListener('click', () => {
             localStorage.setItem('frameData', JSON.stringify({
                 type: 'game',
                 game
@@ -50,7 +49,7 @@ if (location.pathname === '/') {
 
             location.href = '/view';
         });
-        document.querySelector('.featuredimg').src = '/assets/img/wide/tinyfishing.png';
+        document.querySelector('.featured').src = '/assets/img/wide/tinyfishing.png';
     }).catch(e => new PolarisError('Failed to load featured game.'));
 
     fetch('/assets/JSON/changelog.json').then(res => res.json()).then(changelog => changelog.forEach(change => {

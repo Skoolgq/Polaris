@@ -3,10 +3,12 @@ import express from 'express';
 import mime from 'mime';
 import cors from 'cors';
 
-import url from 'node:url';
-import fs from 'node:fs';
+import { pathToFile } from './utils.js';
+
 import path from 'node:path';
 import http from 'node:http';
+import url from 'node:url';
+import fs from 'node:fs';
 
 const app = express();
 const server = http.createServer();
@@ -24,7 +26,7 @@ let meta = fs.readFileSync('./templates/meta.html', 'utf-8');
     app.get(`/${file.split('.')[0] === 'index' ? '' : file.split('.')[0]}`, (req, res) => res.status(200).send(fileData));
 });*/
 
-app.use(express.static(path.join(__dirname, '/static'), { extensions: ['html'] }));
+//app.use(express.static(path.join(__dirname, '../static'), { extensions: ['html'] }));
 
 app.get('/cdn/*', cors({
     origin: false
@@ -46,6 +48,37 @@ app.get('/cdn/*', cors({
     } else next();
 });
 
+app.use((req, res, next) => {
+    const {
+        exists,
+        path: filePath
+    } = pathToFile(req.path, path.join(__dirname, '../static'));
+
+    console.log(req.path);
+
+    res.setHeader('Service-Worker-Allowed', 'true');
+
+    if (exists) {
+        res.setHeader('content-type', mime.getType(filePath));
+
+        if (mime.getType(filePath) === 'text/html') {
+            const html = fs.readFileSync(filePath).toString().split('<body>');
+
+            html[0] += fs.readFileSync('./templates/navbar.html').toString()
+
+            res.setHeader('content-type', 'text/html');
+            res.end(html.join('<body>'));
+        } else res.sendFile(filePath);
+    } else {
+        const html = fs.readFileSync(path.join(__dirname, '../pages/404.html')).toString().split('<body>');
+
+        html[0] += fs.readFileSync('./templates/navbar.html').toString()
+
+        res.setHeader('content-type', 'text/html');
+        res.end(html.join('<body>'));
+    }
+});
+
 /*let notFoundFile = fs.readFileSync('./pages/404.html', 'utf-8');
 notFoundFile = notFoundFile.replace('<body>', '<body> ' + navbar).replace('</head>', meta + '</head>');
 app.use((req, res, next) => res.status(404).send(notFoundFile));*/
@@ -60,12 +93,4 @@ server.on('upgrade', (req, socket, head) => {
     else socket.end();
 });
 
-server.on('listening', () => {
-    console.log(`Polaris started! http://localhost:${port}`);
-});
-
-server.listen({
-    port
-});
-
-export default app;
+server.listen(port, () => console.log(`Polaris started! http://localhost:${port}`));
