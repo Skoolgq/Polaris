@@ -19,7 +19,7 @@ let navbar = fs.readFileSync(path.join(__dirname, './templates/navbar.html'), 'u
 let meta = fs.readFileSync(path.join(__dirname, './templates/meta.html'), 'utf-8');
 
 fs.readdirSync('./pages').forEach(file => {
-    let fileData = fs.readFileSync('./pages/' + file, 'utf-8');
+    let fileData = fs.readFileSync(path.join(__dirname, './pages/', file), 'utf-8');
     fileData = fileData.replace('<body>', '<body> ' + navbar).replace('</head>', meta + '</head>');
     app.get(`/${file.split('.')[0] === 'index' ? '' : file.split('.')[0]}`, (req, res) => res.status(200).send(fileData));
 });
@@ -46,7 +46,7 @@ app.get('/cdn/*', cors({
     } else next();
 });
 
-let notFoundFile = fs.readFileSync('./pages/404.html', 'utf-8');
+let notFoundFile = fs.readFileSync(path.join(__dirname, './pages/404.html'), 'utf-8');
 notFoundFile = notFoundFile.replace('<body>', '<body> ' + navbar).replace('</head>', meta + '</head>');
 app.use((req, res, next) => res.status(404).send(notFoundFile));
 
