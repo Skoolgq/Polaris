@@ -1,5 +1,6 @@
 body[data-theme='dark'] {
     --background-color: rgba(0, 0, 0, 0.8);
+    --background-darker: rgba(0, 0, 0, 0.9);
     --text: #fff;
     --sidebar-bg: #161f2eef;
     --button-bg: #1c1c1c69;
@@ -15,6 +16,7 @@ body[data-theme='dark'] {
 
 body[data-theme='light'] {
     --background-color: #fff;
+    --background-darker: var(--background-color);
     --text: #000;
     --hover: #757575;
     --sidebar-bg: #ffffffee;
@@ -32,6 +34,7 @@ body[data-theme='light'] {
 
 body[data-theme='flamingo'] {
     --background-color: rgba(0, 0, 0, 0.8);
+    --background-darker: rgba(0, 0, 0, 0.9);
     --text: #fff;
     --sidebar-bg: #e75166ee;
     --button-bg: #00000059;
@@ -61,6 +64,7 @@ body[data-theme='flamingo'] {
 
 body[data-theme='frost'] {
     --background-color: rgba(0, 0, 0, 0.8);
+    --background-darker: rgba(0, 0, 0, 0.9);
     --text: #fff;
     --sidebar-bg: #293a6bee;
     --button-bg: #42424259;
@@ -90,6 +94,7 @@ body[data-theme='frost'] {
 
 body[data-theme='crimson'] {
     --background-color: rgba(0, 0, 0, 0.8);
+    --background-darker: rgba(0, 0, 0, 0.9);
     --text: #fff;
     --sidebar-bg: #a74c4cee;
     --button-bg: #00000059;
@@ -119,6 +124,7 @@ body[data-theme='crimson'] {
 
 body[data-theme='inferno'] {
     --background-color: rgba(0, 0, 0, 0.8);
+    --background-darker: rgba(0, 0, 0, 0.9);
     --text: #fff;
     --sidebar-bg: #871a13;
     --button-bg: #00000059;
@@ -148,6 +154,7 @@ body[data-theme='inferno'] {
 
 body[data-theme='indigo'] {
     --background-color: rgba(0, 0, 0, 0.8);
+    --background-darker: rgba(0, 0, 0, 0.9);
     --text: #fff;
     --sidebar-bg: #9247fc;
     --button-bg: #482579;
@@ -157,7 +164,7 @@ body[data-theme='indigo'] {
     --scrollbar-color: #ffffff59;
     --solid: #9b6aeb;
     --hover: #b07df0;
-    background: linear-gradient(90deg, #42305e 0%, #0f084e 85%);
+    background: linear-gradient(90deg, #51305e 0%, #0f084e 85%);
     animation: indigo-gradient 12s ease infinite;
 
     @keyframes indigo-gradient {
@@ -177,6 +184,7 @@ body[data-theme='indigo'] {
 
 body[data-theme='violet'] {
     --background-color: #000000;
+    --background-darker: rgba(0, 0, 0, 0.9);
     --text: #fff;
     --sidebar-bg: #000000;
     --button-bg: #000000;
@@ -207,6 +215,7 @@ body[data-theme='violet'] {
 @media screen and (prefers-color-scheme: light) {
     body[data-theme='system default'] {
         --background-color: #fff;
+        --background-darker: var(--background-color)
         --text: #000;
         --sidebar-bg: #ffffffee;
         --button-bg: #ffffff59;
@@ -224,6 +233,7 @@ body[data-theme='violet'] {
 @media screen and (prefers-color-scheme: dark) {
     body[data-theme='system default'] {
         --background-color: rgba(0, 0, 0, 0.8);
+        --background-darker: rgba(0, 0, 0, 0.9);
         --text: #fff;
         --sidebar-bg: #161f2eef;
         --button-bg: #42424259;

@@ -9,15 +9,16 @@
     font-family: 'Lato';
     user-select: none;
     scroll-behavior: smooth;
+    transition: 0.5s;
 }
 
-html,
 body {
-    margin: 0vh;
+    margin: 0px;
     background: var(--background-color);
     background-attachment: fixed;
     color: var(--text);
     text-align: center;
+    padding-top: 20vh;
 }
 
 html {
@@ -68,6 +69,12 @@ body::-webkit-scrollbar-corner {
     justify-content: space-between;
 }
 
+.row.mainpage {
+    position: absolute;
+    top: 10vh;
+    bottom: 50px;
+}
+
 .hidden {
     display: none;
 }
@@ -79,6 +86,10 @@ i {
 a {
     color: var(--text);
     text-decoration: none;
+}
+
+a.link {
+    color: #2d81ff;
 }
 
 h1.title {
@@ -583,6 +594,8 @@ input:checked+.slider:before {
     min-width: 40vw;
     margin: 50px;
     overflow: hidden;
+    margin-bottom: 0px;
+    margin-right: 25px;
 }
 
 h1.nomargin {
@@ -590,9 +603,9 @@ h1.nomargin {
 }
 
 .container.right {
-    margin-right: 15vw;
+    margin-right: 50px;
     margin-left: 0;
-    margin: 50px;
+    margin-left: 25px;
 }
 
 img.featured {

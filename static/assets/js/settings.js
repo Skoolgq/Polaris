@@ -96,7 +96,7 @@ class Settings {
                 document.querySelector('#panic_key').value = e.key;
                 this.set('panic_key', document.querySelector('#panic_key').value);
             } else {
-                if (e.key == this.get('panic_key')) {
+                if (e.key === this.get('panic_key')) {
                     if (this.get('panic_url')) window.location.href = this.get('panic_url');
                     else new PolarisError('A panic key was used but no url was found.');
                 }

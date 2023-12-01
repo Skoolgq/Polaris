@@ -1,6 +1,7 @@
 .sidebar {
   position: fixed;
-  top: 15vh;
+  margin-top: calc(10vh + 50px);
+  top: 0;
   right: -60vh;
   width: 50vh;
   height: 75vh;
@@ -15,7 +16,7 @@
 }
 
 .sidebar.active {
-  right: 5vh;
+  right: calc(5vh + 25px);
   transition: all 0.5s ease;
 }
 
@@ -80,4 +81,3 @@
   min-width: 7vh;
   margin: 0.5vh;
 }
-

@@ -79,7 +79,14 @@ if (location.pathname === '/') {
             blue[i].innerHTML = getRandomFact();
         }
     });
-
 }
-const Polaris = { Settings, Games, Apps, Frame, PolarisError };
-export default Polaris;
+
+if (window.scrollY !== 0) document.querySelector('.navbar').classList.add('scrolling');
+else document.querySelector('.navbar').classList.remove('scrolling');
+
+window.onscroll = () => {
+    if (window.scrollY !== 0) document.querySelector('.navbar').classList.add('scrolling');
+    else document.querySelector('.navbar').classList.remove('scrolling');
+}
+
+export default { Settings, Games, Apps, Frame, PolarisError };

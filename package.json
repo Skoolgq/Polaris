@@ -14,7 +14,10 @@
         "cors": "*",
         "easyviolet": "github:Russell2259/Easyviolet",
         "express": "*",
-        "mime": "*"
+        "html-minifier": "^4.0.0",
+        "jsdom": "^23.0.1",
+        "mime": "*",
+        "uglify-js": "^3.17.4"
     },
     "devDependencies": {
         "nodemon": "^3.0.1"

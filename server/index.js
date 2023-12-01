@@ -1,4 +1,7 @@
 import { createBareServer } from '@tomphttp/bare-server-node';
+import { minify } from 'html-minifier';
+import { JSDOM } from 'jsdom';
+import UglifyJS from 'uglify-js';
 import express from 'express';
 import mime from 'mime';
 import cors from 'cors';
@@ -54,8 +57,6 @@ app.use((req, res, next) => {
         path: filePath
     } = pathToFile(req.path, path.join(__dirname, '../static'));
 
-    console.log(req.path);
-
     res.setHeader('Service-Worker-Allowed', 'true');
 
     if (exists) {
@@ -64,24 +65,45 @@ app.use((req, res, next) => {
         if (mime.getType(filePath) === 'text/html') {
             const html = fs.readFileSync(filePath).toString().split('<body>');
 
-            html[0] += fs.readFileSync('./templates/navbar.html').toString()
+            html[0] += fs.readFileSync('./templates/navbar.html').toString();
+
+            const dom = new JSDOM(html.join('<body>'));
+
+            dom.window.document.documentElement.querySelectorAll('script').forEach(script => {
+                if (script) {
+
+                }
+            });
 
             res.setHeader('content-type', 'text/html');
-            res.end(html.join('<body>'));
-        } else res.sendFile(filePath);
+            res.end(minify(dom.serialize(), {
+                minifyJS: true,
+                minifyCSS: true,
+                minifyURLs: true,
+                removeScriptTypeAttributes: true,
+                useShortDoctype: true,
+                collapseWhitespace: true,
+                removeComments: true
+            }));
+        } else if (mime.getType(filePath) === 'text/javascript') res.end(UglifyJS.minify(fs.readFileSync(filePath).toString()).code);
+        else res.sendFile(filePath);
     } else {
         const html = fs.readFileSync(path.join(__dirname, '../pages/404.html')).toString().split('<body>');
 
         html[0] += fs.readFileSync('./templates/navbar.html').toString()
 
         res.setHeader('content-type', 'text/html');
-        res.end(html.join('<body>'));
+        res.end(minify(html.join('<body>'), {
+            minifyJS: true,
+            minifyCSS: true,
+            minifyURLs: true,
+            removeScriptTypeAttributes: true,
+            useShortDoctype: true,
+            collapseWhitespace: true,
+            removeComments: true
+        }));
     }
 });
-
-/*let notFoundFile = fs.readFileSync('./pages/404.html', 'utf-8');
-notFoundFile = notFoundFile.replace('<body>', '<body> ' + navbar).replace('</head>', meta + '</head>');
-app.use((req, res, next) => res.status(404).send(notFoundFile));*/
 
 server.on('request', (req, res) => {
     if (bareServer.shouldRoute(req)) bareServer.routeRequest(req, res);
