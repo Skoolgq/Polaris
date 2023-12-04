@@ -10,6 +10,7 @@ import path from 'node:path';
 import url from 'node:url';
 import fs from 'node:fs';
 
+const mode = (process.argv[2] === 'prod' || process.argv[2] === 'dev' ? process.argv[2] : (process.argv[3] === 'prod' || process.argv[3] === 'dev' ? process.argv[3] : (config.mode === 'prod' || config.mode === 'dev' ? config.mode : 'prod')));
 const __dirname = url.fileURLToPath(new URL('../', import.meta.url));
 
 const html = (data) => {
@@ -21,11 +22,21 @@ const html = (data) => {
                 if (data.split('\n')[0].trim().endsWith('-->')) return data.split('\n')[0].trim().replace('-->', '');
                 else return undefined;
             })
-            .filter(data => fs.existsSync(path.join(__dirname, '../templates', data + '.html')))
+            .map(data => {
+                if (data) {
+                    if (data.startsWith('{{') && data.split(':')[data.split(':').length - 2].endsWith('}}')) {
+                        if (config.allowDangerousTemplateInsert) {
+                            if (Boolean(eval(String(data.split(':')[data.split(':').length - 2]).slice(2, -2)))) return data;
+                            else return undefined;
+                        } else return undefined;
+                    } else return data;
+                } else return undefined;
+            })
+            .filter(data => fs.existsSync(path.join(__dirname, '../templates', (data ? (data.startsWith('{{') && data.split(':')[data.split(':').length - 2].endsWith('}}') ? data.split(':')[data.split(':').length - 1] : data) : undefined) + '.html')))
             .map(data => {
                 return {
                     name: data,
-                    file: fs.readFileSync(path.join(__dirname, '../templates', data + '.html'))
+                    file: fs.readFileSync(path.join(__dirname, '../templates', (data ? (data.startsWith('{{') && data.split(':')[data.split(':').length - 2].endsWith('}}') ? data.split(':')[data.split(':').length - 1] : data) : undefined) + '.html'))
                 };
             });
 

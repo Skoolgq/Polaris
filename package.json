@@ -5,7 +5,9 @@
     "main": "index.js",
     "type": "module",
     "scripts": {
-        "start": "npm i && node server"
+        "start": "node server",
+        "prod": "node server prod",
+        "dev": "node server dev"
     },
     "author": "Polaris Developments",
     "license": "GNU-3.0-or-later",

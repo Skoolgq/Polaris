@@ -1,5 +1,5 @@
 import PolarisError from '/assets/js/error.js';
-import { workerLoaded, loadWorker } from '/assets/js/wpm.js';
+import { loadWorker } from '/assets/js/wpm.js';
 
 const tiltEffectSettings = {
     max: 8,
@@ -53,17 +53,16 @@ function renderGames(gamesToRender) {
             popularGamesContainer.appendChild(popularEl);
 
             popularEl.addEventListener('click', async () => {
-                if (!workerLoaded) await loadWorker();
-                const frameData = {
-                  type: 'game',
-                  game
-                };
+                await loadWorker('uv');
 
                 if (game.openinnewtab === 'yes') {
-                    window.open(game.source, '_blank');
+                    window.open(game.source);
                     console.log('Open game in new tab:', frameData);
                 } else {
-                  localStorage.setItem('frameData', JSON.stringify(frameData));
+                  localStorage.setItem('frameData', JSON.stringify({
+                    type: 'game',
+                    game
+                  }));
                   location.href = '/view';
                 }
               });

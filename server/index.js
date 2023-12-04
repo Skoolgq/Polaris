@@ -14,7 +14,8 @@ import fs from 'node:fs';
 const app = express();
 const server = http.createServer();
 const bareServer = createBareServer('/bare/');
-const port = process.env.PORT || process.argv[2] || 8080;
+const mode = (process.argv[2] === 'prod' || process.argv[2] === 'dev' ? process.argv[2] : (process.argv[3] === 'prod' || process.argv[3] === 'dev' ? process.argv[3] : (config.mode === 'prod' || config.mode === 'dev' ? config.mode : 'prod')));
+const port = (process.argv[2] !== 'prod' && process.argv[2] !== 'dev' && Boolean(Number(process.argv[2]))) ? process.argv[2] : (Boolean(Number(process.argv[3])) ? process.argv[3] : (Boolean(Number(config.port)) ? config.port : (mode === 'prod' ? 80 : 8080 ) ));
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
 app.get('/cdn/*', cors({
@@ -97,4 +98,4 @@ server.on('upgrade', (req, socket, head) => {
     else socket.end();
 });
 
-server.listen(port, () => console.log(`Polaris started! http://localhost:${port}`));
+server.listen(port, () => console.log(`Polaris listening\n\nPort: ${server.address().port}\nMode: ${mode}\nNode.js: ${process.version}\n`));
