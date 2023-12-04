@@ -43,6 +43,12 @@ function renderGames(gamesToRender) {
     gamesContainer.innerHTML = ''; // clear previous games
     popularGamesContainer.innerHTML = ''; // clear previous popular games
 
+    function openGameInNewTab(game) {
+    const x = window.open('about:blank', '_blank');
+    const index = game.source;
+    x.document.write(`<iframe src="${index}" style="position:fixed; top:0; left:0; bottom:0; right:0; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;"></iframe>`);
+}
+
     gamesToRender.forEach(game => {
         const el = document.createElement('div');
         el.classList = 'game';
@@ -64,9 +70,12 @@ function renderGames(gamesToRender) {
                 if (game.openinnewtab === 'yes') {
                     window.open(game.source, '_blank');
                     console.log('Open game in new tab:', frameData);
+                } else if (game.openinaboutblank === 'yes') {
+                    openGameInNewTab(game);
+                    console.log('Open game in about:blank:', frameData);
                 } else {
-                  localStorage.setItem('frameData', JSON.stringify(frameData));
-                  location.href = '/view';
+                    localStorage.setItem('frameData', JSON.stringify(frameData));
+                    location.href = '/view';
                 }
               });
 
@@ -82,12 +91,15 @@ function renderGames(gamesToRender) {
               game
             };
             if (game.openinnewtab === 'yes') {
-                window.open(game.source, '_blank');
-                console.log('Open game in new tab:', frameData);
-            } else {
-              localStorage.setItem('frameData', JSON.stringify(frameData));
-              location.href = '/view';
-            }
+                    window.open(game.source, '_blank');
+                    console.log('Open game in new tab:', frameData);
+                } else if (game.openinaboutblank === 'yes') {
+                    openGameInNewTab(game);
+                    console.log('Open game in about:blank:', frameData);
+                } else {
+                    localStorage.setItem('frameData', JSON.stringify(frameData));
+                    location.href = '/view';
+                }
           });
 
         el.addEventListener('mouseenter', gameMouseEnter);
