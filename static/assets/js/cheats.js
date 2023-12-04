@@ -1,4 +1,4 @@
-import PolarisError from './error.js';
+import PolarisError from '/assets/js/error.js';
 
 const tiltEffectSettings = {
     max: 8,
@@ -31,9 +31,7 @@ const load = () => {
     }).catch(e => new PolarisError('Failed to load cheats.'));
 };
 
-function gameMouseEnter(event) {
-    setTransition(event);
-}
+const gameMouseEnter = setTransition;
 
 function gameMouseMove(event) {
     const game = event.currentTarget;
@@ -45,13 +43,10 @@ function gameMouseMove(event) {
     const mouseY = event.clientY - centerY;
     const rotateXUncapped = (+1) * tiltEffectSettings.max * mouseY / (gameHeight / 2);
     const rotateYUncapped = (-1) * tiltEffectSettings.max * mouseX / (gameWidth / 2);
-    const rotateX = rotateXUncapped < -tiltEffectSettings.max ? -tiltEffectSettings.max :
-        (rotateXUncapped > tiltEffectSettings.max ? tiltEffectSettings.max : rotateXUncapped);
-    const rotateY = rotateYUncapped < -tiltEffectSettings.max ? -tiltEffectSettings.max :
-        (rotateYUncapped > tiltEffectSettings.max ? tiltEffectSettings.max : rotateYUncapped);
+    const rotateX = rotateXUncapped < -tiltEffectSettings.max ? -tiltEffectSettings.max : (rotateXUncapped > tiltEffectSettings.max ? tiltEffectSettings.max : rotateXUncapped);
+    const rotateY = rotateYUncapped < -tiltEffectSettings.max ? -tiltEffectSettings.max : (rotateYUncapped > tiltEffectSettings.max ? tiltEffectSettings.max : rotateYUncapped);
 
-    game.style.transform = `perspective(${tiltEffectSettings.perspective}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) 
-                          scale3d(${tiltEffectSettings.scale}, ${tiltEffectSettings.scale}, ${tiltEffectSettings.scale})`;
+    game.style.transform = `perspective(${tiltEffectSettings.perspective}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(${tiltEffectSettings.scale}, ${tiltEffectSettings.scale}, ${tiltEffectSettings.scale})`;
 }
 
 function gameMouseLeave(event) {
@@ -63,9 +58,7 @@ function setTransition(event) {
     const game = event.currentTarget;
     clearTimeout(game.transitionTimeoutId);
     game.style.transition = `transform ${tiltEffectSettings.speed}ms ${tiltEffectSettings.easing}`;
-    game.transitionTimeoutId = setTimeout(() => {
-        game.style.transition = '';
-    }, tiltEffectSettings.speed);
+    game.transitionTimeoutId = setTimeout(() => game.style.transition = '', tiltEffectSettings.speed);
 }
 
 export default {

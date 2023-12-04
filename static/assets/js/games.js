@@ -1,5 +1,5 @@
-import PolarisError from './error.js';
-import { workerLoaded, loadWorker } from './wpm.js';
+import PolarisError from '/assets/js/error.js';
+import { workerLoaded, loadWorker } from '/assets/js/wpm.js';
 
 const tiltEffectSettings = {
     max: 8,

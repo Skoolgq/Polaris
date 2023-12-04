@@ -1,10 +1,10 @@
-import PolarisError from './error.js';
-import { load } from './settings.js';
-import Search from './search.js';
-import Cheats from './cheats.js';
-import Games from './games.js';
-import Frame from './frame.js';
-import Apps from './apps.js';
+import PolarisError from '/assets/js/error.js';
+import { load } from '/assets/js/settings.js';
+import Search from '/assets/js/search.js';
+import Cheats from '/assets/js/cheats.js';
+import Games from '/assets/js/games.js';
+import Frame from '/assets/js/frame.js';
+import Apps from '/assets/js/apps.js';
 
 const Settings = {
     load: load

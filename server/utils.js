@@ -1,3 +1,6 @@
+import * as rewriter from './utils/rewriter.js';
+import TokenManager from './utils/token.js';
+
 import path from 'node:path';
 import fs from 'node:fs';
 
@@ -18,6 +21,14 @@ const pathToFile = (url = '', folderPath) => {
     };
 };
 
+export default {
+    pathToFile,
+    TokenManager,
+    rewriter
+};
+
 export {
-    pathToFile
+    pathToFile,
+    TokenManager,
+    rewriter
 };

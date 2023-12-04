@@ -1,7 +1,7 @@
 {
     "name": "polaris",
     "version": "1.0.0",
-    "description": "The future of school gaming.",
+    "description": "The future of school gaming",
     "main": "index.js",
     "type": "module",
     "scripts": {
@@ -15,9 +15,10 @@
         "easyviolet": "github:Russell2259/Easyviolet",
         "express": "*",
         "html-minifier": "^4.0.0",
+        "javascript-obfuscator": "^4.1.0",
         "jsdom": "^23.0.1",
         "mime": "*",
-        "uglify-js": "^3.17.4"
+        "uuid": "^9.0.1"
     },
     "devDependencies": {
         "nodemon": "^3.0.1"

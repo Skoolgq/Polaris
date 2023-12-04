@@ -1,12 +1,10 @@
 import { createBareServer } from '@tomphttp/bare-server-node';
-import { minify } from 'html-minifier';
-import { JSDOM } from 'jsdom';
-import UglifyJS from 'uglify-js';
 import express from 'express';
 import mime from 'mime';
 import cors from 'cors';
 
-import { pathToFile } from './utils.js';
+import { pathToFile, TokenManager, rewriter } from './utils.js';
+import config from '../config.js';
 
 import path from 'node:path';
 import http from 'node:http';
@@ -16,20 +14,8 @@ import fs from 'node:fs';
 const app = express();
 const server = http.createServer();
 const bareServer = createBareServer('/bare/');
-
 const port = process.env.PORT || process.argv[2] || 8080;
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
-
-let navbar = fs.readFileSync('./templates/navbar.html', 'utf-8');
-let meta = fs.readFileSync('./templates/meta.html', 'utf-8');
-
-/*fs.readdirSync('./pages').forEach(file => {
-    let fileData = fs.readFileSync('./pages/' + file, 'utf-8');
-    fileData = fileData.replace('<body>', '<body> ' + navbar).replace('</head>', meta + '</head>');
-    app.get(`/${file.split('.')[0] === 'index' ? '' : file.split('.')[0]}`, (req, res) => res.status(200).send(fileData));
-});*/
-
-//app.use(express.static(path.join(__dirname, '../static'), { extensions: ['html'] }));
 
 app.get('/cdn/*', cors({
     origin: false
@@ -51,57 +37,53 @@ app.get('/cdn/*', cors({
     } else next();
 });
 
-app.use((req, res, next) => {
+app.get('/asset', (req, res, next) => {
+    if (req.query.asset) {
+        const {
+            exists,
+            path: filePath
+        } = pathToFile(req.query.asset, path.join(__dirname, '../static/assets'));
+
+        if (exists) {
+            if (filePath.startsWith(path.join(__dirname, '../static/assets'))) res.setHeader('content-type', mime.getType(filePath)).end(fs.readFileSync(filePath));
+            else next();
+        } else next();
+    } else next();
+});
+
+app.get('/asset/:token', async (req, res, next) => {
+    if (req.params.token && !req.query.asset) {
+        if (TokenManager.exists(req.params.token)) {
+            const token = TokenManager.get(req.params.token);
+
+            if (TokenManager.get(req.params.token).type === 'asset') {
+                TokenManager.delete(req.params.token);
+
+                res.setHeader('content-type', token.data.type);
+                res.end(await rewriter.auto(fs.readFileSync(token.data.asset), token.data.type));
+            } else next();
+        } else next();
+    }
+});
+
+app.get('/uv/*', (req, res) => res.setHeader('Service-Worker-Allowed', 'true'));
+
+app.use(async (req, res, next) => {
     const {
         exists,
         path: filePath
     } = pathToFile(req.path, path.join(__dirname, '../static'));
 
-    res.setHeader('Service-Worker-Allowed', 'true');
-
     if (exists) {
         res.setHeader('content-type', mime.getType(filePath));
 
-        if (mime.getType(filePath) === 'text/html') {
-            const html = fs.readFileSync(filePath).toString().split('<body>');
-
-            html[0] += fs.readFileSync('./templates/navbar.html').toString();
-
-            const dom = new JSDOM(html.join('<body>'));
-
-            dom.window.document.documentElement.querySelectorAll('script').forEach(script => {
-                if (script) {
-
-                }
-            });
-
-            res.setHeader('content-type', 'text/html');
-            res.end(minify(dom.serialize(), {
-                minifyJS: true,
-                minifyCSS: true,
-                minifyURLs: true,
-                removeScriptTypeAttributes: true,
-                useShortDoctype: true,
-                collapseWhitespace: true,
-                removeComments: true
-            }));
-        } else if (mime.getType(filePath) === 'text/javascript') res.end(UglifyJS.minify(fs.readFileSync(filePath).toString()).code);
+        if (mime.getType(filePath) === 'text/html') res.end(await rewriter.html(fs.readFileSync(filePath)));
+        else if (mime.getType(filePath) === 'text/javascript') res.end(await rewriter.javascript(fs.readFileSync(filePath)));
+        else if (mime.getType(filePath) === 'text/css') res.end(await rewriter.css(fs.readFileSync(filePath)));
         else res.sendFile(filePath);
     } else {
-        const html = fs.readFileSync(path.join(__dirname, '../pages/404.html')).toString().split('<body>');
-
-        html[0] += fs.readFileSync('./templates/navbar.html').toString()
-
         res.setHeader('content-type', 'text/html');
-        res.end(minify(html.join('<body>'), {
-            minifyJS: true,
-            minifyCSS: true,
-            minifyURLs: true,
-            removeScriptTypeAttributes: true,
-            useShortDoctype: true,
-            collapseWhitespace: true,
-            removeComments: true
-        }));
+        res.status(404).end(await rewriter.html(fs.readFileSync(path.join(__dirname, '../pages/404.html'))));
     }
 });
 

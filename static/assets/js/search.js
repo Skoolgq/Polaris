@@ -1,4 +1,4 @@
-import { workerLoaded, loadWorker } from './wpm.js';
+import { workerLoaded, loadWorker } from '/assets/js/wpm.js';
 
 const load = () => {
     const xor = {

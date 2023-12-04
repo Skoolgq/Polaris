@@ -1,11 +1,11 @@
 .sidebar {
   position: fixed;
-  margin-top: calc(10vh + 50px);
+  margin-top: calc(calc(9vh + 2.5em) + 100px);
+  bottom: 50px;
   top: 0;
   right: -60vh;
   width: 50vh;
-  height: 75vh;
-  background: var(--sidebar-bg);
+  background-color: var(--background-darker);
   border-radius: 2vh;
   box-shadow: 0vh 0.75vh 1.5vh 0vh var(--shadow-color);
   text-align: center;
@@ -16,7 +16,7 @@
 }
 
 .sidebar.active {
-  right: calc(5vh + 25px);
+  right: 50px;
   transition: all 0.5s ease;
 }
 
@@ -33,6 +33,7 @@
   top: 87vh;
   opacity: 0;
   z-index: 9999999999999999999;
+  display: none;
 }
 
 .sidebar>.scroll.active {

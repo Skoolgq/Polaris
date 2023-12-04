@@ -1,3 +1,9 @@
+@media (max-width:960px) {
+    .navbar>.right {
+        display: none;
+    }
+}
+
 .navbar {
     box-shadow: 0vh 0.75vh 1.5vh 0vh var(--shadow-color);
     position: fixed;
@@ -59,11 +65,15 @@
     padding: 0.8rem;
     cursor: pointer;
     font-size: 2.7vh;
-    border-radius: 2vh;
-    border-color: rgba( 0, 0, 0, 0);
+    border-radius: 1.5vh;
+    border-color: rgba(0, 0, 0, 0);
     transition: border-color 0.4s linear;
 }
 
 .navbar>.right>a:hover {
+    border-color: rgba(255, 255, 255, 1);
+}
+
+.navbar>.right>a.active {
     border-color: rgba(255, 255, 255, 1);
 }

@@ -44,8 +44,8 @@ body[data-theme='flamingo'] {
     --scrollbar-color: rgba(0, 0, 0, 0.8);
     --solid: #FB5E4C;
     --hover: #ed58b4;
-    background: linear-gradient(122deg, rgba(255, 41, 191, 1) 0%, rgba(215, 67, 46, 1) 85%);
-    animation: flamingo-gradient 12s ease infinite;
+    background: linear-gradient(304deg, rgb(255, 136, 0), rgb(245, 7, 226)) 0% 0% / 120% 120%;
+    animation: 12s ease 0s infinite normal none running flamingo-gradient;
 
     @keyframes flamingo-gradient {
         0% {
