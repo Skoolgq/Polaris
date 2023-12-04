@@ -39,7 +39,7 @@ if (window.self === window.top) {
 
 if (location.pathname === '/') {
     fetch('/assets/JSON/games.json').then(res => res.json()).then(games => {
-        const gameName = 'Tiny Fishing';
+        const gameName = 'GunSpin';
         const game = games.filter(g => g.name === gameName)[0];
 
         document.querySelector('.featuredimg').addEventListener('click', () => {
@@ -50,7 +50,7 @@ if (location.pathname === '/') {
 			
             location.href = '/view';
         });
-        document.querySelector('.featuredimg').src = '/assets/img/wide/tinyfishing.png';
+        document.querySelector('.featuredimg').src = 'https://play-lh.googleusercontent.com/MUwWlyZkJJ-_WkLwS-TwQtlyN6mJ9xH-egF3D588XVAWtPzG8_0MxRsj25VKnHYw724=w526-h296-rw';
     }).catch(e => new PolarisError('Failed to load featured game.'));
 	
 	fetch('/assets/JSON/changelog.json').then(res => res.json()).then(changelog => changelog.forEach(change => {
