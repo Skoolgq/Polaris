@@ -221,6 +221,12 @@
     "image": "/cdn/getaway-shootout/img/index.jpg"
   },
   {
+    "name": "GunSpin",
+    "source": "/service/hvtrs8%2F-u%60g167.eivhwb%2Cim%2Feulsril%2Frlcy%2Chvmn",
+    "image": "https://play-lh.googleusercontent.com/fLqvWSVq5rENEvu32xl0hf96wwSHVwQm-_9xc6KZg9Vgv9PbAtf1CyBYW7i1mlAXoSA",
+    "desc": ""
+  },
+  {
     "name": "Hacker Tetris",
     "source": "//raw.githack.com/3kh0/3kh0-assets/main/twitch-tetris/index.html",
     "image": "/assets/img/hackertetris.png",
