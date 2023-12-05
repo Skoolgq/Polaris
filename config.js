@@ -3,5 +3,5 @@ export default {
     mode: 'dev',
     minify: true,
     assetScrambling: true,
-    allowDangerousTemplateInsert: false
+    allowDangerousTemplateInsert: true
 };

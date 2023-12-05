@@ -17,7 +17,6 @@ body {
     background: var(--background-color);
     background-attachment: fixed;
     color: var(--text);
-    text-align: center;
     padding-top: 20vh;
     background-repeat: no-repeat;
 }
@@ -462,52 +461,6 @@ input:checked+.slider:before {
     margin-top: 5vh;
 }
 
-.frame {
-    margin: auto;
-    display: block;
-    border-top: 3vh solid;
-    border-left: 3vh solid;
-    border-right: 3vh solid;
-    border-radius: 4vh 4vh 0vh 0vh;
-    background: #fff;
-    height: 70vh;
-    width: 75vw;
-    outline: none;
-    border-color: rgba(0, 0, 0);
-}
-
-.gamebar img {
-    width: 3.5vh;
-    height: 3.5vh;
-    margin: 1vh;
-    border-radius: 0.5vh;
-}
-
-.gamebar p {
-    font-weight: 900;
-    font-size: 2vh;
-    margin: auto 0;
-}
-
-.gamebar i {
-    font-size: 3vh;
-    margin: auto 0;
-    margin-left: auto;
-    cursor: pointer;
-}
-
-.gamebar {
-    width: 75vw;
-    margin: 0 auto;
-    border-left: 3vh solid black;
-    border-right: 3vh solid black;
-    display: flex;
-    border-radius: 0vh 0vh 4vh 4vh;
-    color: #ffffff;
-    border-color: rgba(0, 0, 0);
-    background: rgba(0, 0, 0);
-}
-
 .container {
     background-color: var(--background-color);
     box-shadow: 0vh 0.75vh 1.5vh 0vh var(--shadow-color);
@@ -519,6 +472,7 @@ input:checked+.slider:before {
     overflow: hidden;
     margin-left: 50px;
     margin-right: 25px;
+    text-align: center;
 }
 
 .container.centered {

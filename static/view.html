@@ -7,31 +7,25 @@
     <!--el:analytics-->
 
     <link rel="stylesheet" href="/assets/css/main.css">
-    
+    <link rel="stylesheet" href="/assets/css/view.css">
+
     <title>View | Polaris</title>
 </head>
 
 <body>
-    <!--el:navbar-->
+    <!--//el:sidebar-->
+    
+    <div class="gamebar">
+        <a href="/">
+            <img src="/assets/img/logo.png" class="logo">
+        </a>
 
-    <div>
-        <div style="overflow: hidden; z-index: 1000000;">
-            <iframe class="frame" overflow: auto; frameborder="no"
-                sandbox="allow-scripts allow-forms allow-pointer-lock allow-same-origin"></iframe>
-        </div>
-
-        <div class="gamebar">
-
-            <img src="https://via.placeholder.com/20x20?text=img" id="gameicon" />
-            <p id="gametitle">Loading...</p>
-
-            <i class="fa-solid fa-expand" id="fullscreen"></i>
-        </div>
+        <h1 class="title">Game</h1>
     </div>
 
-    <br>
-
     <script src="/assets/js/main.js" type="module"></script>
+
+    <!--el:{{mode === 'dev'}}:development-->
 </body>
 
 </html>

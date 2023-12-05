@@ -50,7 +50,7 @@ const html = (data) => {
             for (let i = 0; i < dom.window.document.documentElement.querySelectorAll('script').length; i++) {
                 const script = dom.window.document.documentElement.querySelectorAll('script')[i];
 
-                if (script.src.startsWith('/') && !script.src.startsWith('//')) script.setAttribute('src', `/asset/${TokenManager.generate('asset', 20000, {
+                if (script.src.startsWith('/') && !script.src.startsWith('//') && fs.existsSync(path.join(__dirname, '../static', script.src))) script.setAttribute('src', `/asset/${TokenManager.generate('asset', 20000, {
                     asset: path.join(__dirname, '../static', script.src),
                     type: 'application/javascript'
                 }).token}`);
@@ -59,7 +59,7 @@ const html = (data) => {
             for (let i = 0; i < dom.window.document.documentElement.querySelectorAll('link[rel="stylesheet"]').length; i++) {
                 const css = dom.window.document.documentElement.querySelectorAll('link[rel="stylesheet"]')[i];
 
-                if (css.href.startsWith('/') && !css.href.startsWith('//')) css.setAttribute('href', `/asset/${TokenManager.generate('asset', 20000, {
+                if (css.href.startsWith('/') && !css.href.startsWith('//') && fs.existsSync(path.join(__dirname, '../static', css.href))) css.setAttribute('href', `/asset/${TokenManager.generate('asset', 20000, {
                     asset: path.join(__dirname, '../static', css.href),
                     type: 'text/css'
                 }).token}`);
@@ -68,7 +68,7 @@ const html = (data) => {
             for (let i = 0; i < dom.window.document.documentElement.querySelectorAll('img').length; i++) {
                 const img = dom.window.document.documentElement.querySelectorAll('img')[i];
 
-                if (img.src.startsWith('/') && !img.src.startsWith('//')) img.setAttribute('src', `/asset/${TokenManager.generate('asset', 20000, {
+                if (img.src.startsWith('/') && !img.src.startsWith('//') && fs.existsSync(path.join(__dirname, '../static', img.src))) img.setAttribute('src', `/asset/${TokenManager.generate('asset', 20000, {
                     asset: path.join(__dirname, '../static', img.src),
                     type: mime.getType(path.join(__dirname, '../static', img.src))
                 }).token}`);
@@ -96,7 +96,8 @@ const javascript = (data) => {
             .map(data => data.split(';')[0]
                 .replaceAll('\'', '')
                 .replaceAll('`', '')
-                .replaceAll('"', ''));
+                .replaceAll('"', ''))
+            .filter(data => fs.existsSync(path.join(__dirname, '../templates', data + '.javascript')));
 
 
         let javascript = String(data);
@@ -150,7 +151,8 @@ const css = (data) => {
                         else return false;
                     }
                 } else return false;
-            });
+            })
+            .filter(data => fs.existsSync(path.join(__dirname, '../templates', data + mime.getExtension(data))));
 
         let css = String(data);
 
