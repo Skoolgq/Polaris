@@ -38,7 +38,7 @@ body[data-theme='flamingo'] {
     --text: #fff;
     --sidebar-bg: #e75166ee;
     --button-bg: #00000059;
-    --shadow-color: #F949724b;
+    --shadow-color: #000;
     --switch-color: #959595;
     --switch-active: #FB5E4C;
     --scrollbar-color: rgba(0, 0, 0, 0.8);
@@ -98,7 +98,7 @@ body[data-theme='crimson'] {
     --text: #fff;
     --sidebar-bg: #a74c4cee;
     --button-bg: #00000059;
-    --shadow-color: #940C284b;
+    --shadow-color: #000;
     --switch-color: #42424259;
     --switch-active: #B90F32;
     --scrollbar-color: #ffffff59;

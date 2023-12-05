@@ -40,9 +40,7 @@ const html = (data) => {
                 };
             });
 
-        templates.forEach(template => {
-            html = html.replace(`<!--el:${template.name}-->`, template.file.toString());
-        });
+        templates.forEach(template => html = html.replace(`<!--el:${template.name}-->`, template.file.toString()));
 
         const dom = new JSDOM(html);
 
