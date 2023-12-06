@@ -15,7 +15,7 @@
 }
 
 .gamebar .logo {
-    width: 8vh;
+    width: 6vh;
     border-radius: 1.5vh;
     display: inline-flex;
 }
@@ -25,22 +25,5 @@
     text-align: center;
     font-size: 40px;
     width: calc(100% - 20px);
-    margin-top: calc(calc(calc(8vh - 10px) - 40px) / 2);
-}
-
-.gamebar .menu {
-    cursor: pointer;
-    position: absolute;
-    right: 10px;
-    border-radius: 1.5vh;
-    padding: 1vh;
-}
-
-.gamebar .menu:hover {
-    background: var(--solid);
-}
-
-.gamebar .menu i {
-    color: var(--text);
-    font-size: 5vh;
+    margin-top: calc(calc(calc(6vh - 10px) - 40px) / 2);
 }

@@ -13,11 +13,9 @@ import fs from 'node:fs';
 const mode = (process.argv[2] === 'prod' || process.argv[2] === 'dev' ? process.argv[2] : (process.argv[3] === 'prod' || process.argv[3] === 'dev' ? process.argv[3] : (config.mode === 'prod' || config.mode === 'dev' ? config.mode : 'prod')));
 const __dirname = url.fileURLToPath(new URL('../', import.meta.url));
 
-const html = (data) => {
-    return new Promise((resolve, reject) => {
-        var html = String(data);
-
-        const templates = html.split('<!--el:')
+const templateParser = (data) => {
+    return new Promise(async (resolve, reject) => {
+        resolve(String(data).split('<!--el:')
             .map(data => {
                 if (data.split('\n')[0].trim().endsWith('-->')) return data.split('\n')[0].trim().replace('-->', '');
                 else return undefined;
@@ -36,13 +34,21 @@ const html = (data) => {
             .map(data => {
                 return {
                     name: data,
-                    file: fs.readFileSync(path.join(__dirname, '../templates', (data ? (data.startsWith('{{') && data.split(':')[data.split(':').length - 2].endsWith('}}') ? data.split(':')[data.split(':').length - 1] : data) : undefined) + '.html'))
+                    file: fs.readFileSync(path.join(__dirname, '../templates', (data ? (data.startsWith('{{') && data.split(':')[data.split(':').length - 2].endsWith('}}') ? data.split(':')[data.split(':').length - 1] : data) : undefined) + '.html').toString())
                 };
-            });
+            }));
+    });
+};
 
-        templates.forEach(template => html = html.replace(`<!--el:${template.name}-->`, template.file.toString()));
+const html = (data) => {
+    return new Promise(async (resolve, reject) => {
+        var htmlData = String(data);
 
-        const dom = new JSDOM(html);
+        const templates = await templateParser(data);
+
+        templates.forEach(template => htmlData = htmlData.replace(`<!--el:${template.name}-->`, template.file));
+
+        const dom = new JSDOM(htmlData);
 
         if (config.assetScrambling) {
             for (let i = 0; i < dom.window.document.documentElement.querySelectorAll('script').length; i++) {
@@ -100,13 +106,11 @@ const javascript = (data) => {
 
         let javascript = String(data);
 
-        if (config.assetScrambling) {
-            for (let i = 0; i < imports.length; i++) {
-                javascript = javascript.replace(imports[i], '/asset/' + TokenManager.generate('asset', 20000, {
-                    asset: path.join(__dirname, '../static', imports[i]),
-                    type: 'text/javascript'
-                }).token);
-            }
+        if (config.assetScrambling) for (let i = 0; i < imports.length; i++) {
+            javascript = javascript.replace(imports[i], '/asset/' + TokenManager.generate('asset', 20000, {
+                asset: path.join(__dirname, '../static', imports[i]),
+                type: 'text/javascript'
+            }).token);
         }
 
         if (config.minify) resolve(JavaScriptObfuscator.obfuscate(javascript,
@@ -154,13 +158,11 @@ const css = (data) => {
 
         let css = String(data);
 
-        if (config.assetScrambling) {
-            for (let i = 0; i < imports.length; i++) {
-                css = css.replace(imports[i], '/asset/' + TokenManager.generate('asset', 20000, {
-                    asset: path.join(__dirname, '../static', imports[i]),
-                    type: mime.getType(path.join(__dirname, '../static', imports[i]))
-                }).token);
-            }
+        if (config.assetScrambling) for (let i = 0; i < imports.length; i++) {
+            css = css.replace(imports[i], '/asset/' + TokenManager.generate('asset', 20000, {
+                asset: path.join(__dirname, '../static', imports[i]),
+                type: mime.getType(path.join(__dirname, '../static', imports[i]))
+            }).token);
         }
 
         if (config.minify) resolve(css.replace(/(\r\n|\n|\r)/gm, '').replaceAll('    ', ' '));
