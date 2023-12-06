@@ -50,7 +50,7 @@ if (location.pathname === '/') {
 			
             location.href = '/view';
         });
-        document.querySelector('.featuredimg').src = 'https://play-lh.googleusercontent.com/MUwWlyZkJJ-_WkLwS-TwQtlyN6mJ9xH-egF3D588XVAWtPzG8_0MxRsj25VKnHYw724=w526-h296-rw';
+        document.querySelector('.featuredimg').src = '/assets/img/wide/tinyfishing.png';
     }).catch(e => new PolarisError('Failed to load featured game.'));
 	
 	fetch('/assets/JSON/changelog.json').then(res => res.json()).then(changelog => changelog.forEach(change => {
