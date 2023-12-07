@@ -33,11 +33,8 @@ class Theme {
   constructor() {
     this.theme = get('theme');
 
-    if (this.theme) {
-      this.set(this.theme);
-    } else {
-      this.set('system default');
-    }
+    if (this.theme) this.set(this.theme);
+    else this.set('system-default');
   }
 
   set = (theme, save) => {
@@ -47,10 +44,11 @@ class Theme {
   }
 }
 
-/*let audioPlayed = false;
+let audioPlayed = false;
 let smurfString = '';
+let currentTheme = new Theme().theme;
 
-function playSmurfAudio() {
+const playSmurfAudio = () => {
   if (!audioPlayed) {
     const audio = new Audio('/assets/misc/smurf.mp3');
     audio.play();
@@ -58,16 +56,39 @@ function playSmurfAudio() {
 
     const imageElement = document.createElement('img');
     imageElement.src = '/assets/img/smurf.jpg';
+    imageElement.style = `
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    z-index: 2147483647;
+    transition: 0.5s;`;
     document.body.appendChild(imageElement);
 
-    setTimeout(() => {
-      audio.onended = () => {
-        document.body.setAttribute('data-theme', 'dark');
-        document.body.removeChild(imageElement);
+    const overlay = document.createElement('div');
+    overlay.style = `
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #000;
+    z-index: 2147483646;`;
+    document.body.appendChild(overlay);
 
-        audioPlayed = false;
-      };
-    }, 7000);
+    setTimeout(() => {
+      for (let i = 0; i < 360 * 3; i++) setTimeout(() => imageElement.style.filter = `hue-rotate(${i > 360 ? i - 360 * Math.trunc(i / 360) : i}deg)`, 5 * i);
+      for (let i = 0; i < 10; i++) setTimeout(() => imageElement.style.height = `${i % 2 ? 'auto' : '120%'}`, i * 525);
+    }, 7500);
+
+    audio.onended = () => {
+      document.body.setAttribute('data-theme', currentTheme);
+      imageElement.remove();
+      overlay.remove();
+
+      audioPlayed = false;
+    };
   }
 }
 
@@ -81,6 +102,6 @@ window.addEventListener('keydown', (event) => {
       smurfString = '';
     }
   } else smurfString = '';
-});*/
+});
 
 export default new Theme();
