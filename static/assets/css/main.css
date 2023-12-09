@@ -517,8 +517,20 @@ img.featured:hover {
     transition: border 0.5s linear;
 }
 
-/*
-.gamesectionheader{
-    text-align: left;
-    left: 10vh;
-}*/
+@keyframes beat {
+    0%,
+    50%,
+    100% {
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%) scale(1.15, 1.15) rotate(-5deg);
+        transform: translate(-50%, -50%) scale(1.15, 1.15) rotate(-5deg);
+    }
+    30%,
+    80% {
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%) scale(1, 1) rotate(5deg);
+        transform: translate(-50%, -50%) scale(1, 1) rotate(5deg);
+    }
+}

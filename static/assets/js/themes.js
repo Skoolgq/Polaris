@@ -54,41 +54,43 @@ const playSmurfAudio = () => {
     audio.play();
     audioPlayed = true;
 
-    const imageElement = document.createElement('img');
-    imageElement.src = '/assets/img/smurf.jpg';
-    imageElement.style = `
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    z-index: 2147483647;
-    transition: 0.5s;`;
-    document.body.appendChild(imageElement);
+    audio.onplay = () => {
+      const imageElement = document.createElement('img');
+      imageElement.src = '/assets/img/smurf.jpg';
+      imageElement.style = `
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      z-index: 2147483647;
+      transition: 0.5s;`;
+      document.body.appendChild(imageElement);
 
-    const overlay = document.createElement('div');
-    overlay.style = `
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: #000;
-    z-index: 2147483646;`;
-    document.body.appendChild(overlay);
+      const overlay = document.createElement('div');
+      overlay.style = `
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #000;
+      z-index: 2147483646;`;
+      document.body.appendChild(overlay);
 
-    setTimeout(() => {
-      for (let i = 0; i < 360 * 3; i++) setTimeout(() => imageElement.style.filter = `hue-rotate(${i > 360 ? i - 360 * Math.trunc(i / 360) : i}deg)`, 5 * i);
-      for (let i = 0; i < 10; i++) setTimeout(() => imageElement.style.height = `${i % 2 ? 'auto' : '120%'}`, i * 525);
-    }, 7500);
+      setTimeout(() => {
+        for (let i = 0; i < 360 * 3; i++) setTimeout(() => imageElement.style.filter = `hue-rotate(${i > 360 ? i - 360 * Math.trunc(i / 360) : i}deg)`, 5 * i);
+        imageElement.style.animation = '.8s ease 0s infinite beat';
+      }, 7500);
 
-    audio.onended = () => {
-      document.body.setAttribute('data-theme', currentTheme);
-      imageElement.remove();
-      overlay.remove();
+      audio.onended = () => {
+        document.body.setAttribute('data-theme', currentTheme);
+        imageElement.remove();
+        overlay.remove();
 
-      audioPlayed = false;
-    };
+        audioPlayed = false;
+      }
+    }
   }
 }
 
