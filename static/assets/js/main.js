@@ -1,3 +1,4 @@
+import loadEasterEggs from '/assets/js/eastereggs.js';
 import PolarisError from '/assets/js/error.js';
 import { load } from '/assets/js/settings.js';
 import Search from '/assets/js/search.js';
@@ -9,6 +10,8 @@ import Apps from '/assets/js/apps.js';
 const Settings = {
     load: load
 };
+
+loadEasterEggs();
 
 onbeforeunload = (e) => {
     if (localStorage.getItem('prevent_close') === 'true') {

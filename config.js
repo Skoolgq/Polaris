@@ -1,7 +1,7 @@
 export default {
     port: 8080,
     mode: 'dev',
-    minify: true,
-    assetScrambling: true,
+    minify: false,
+    assetScrambling: false,
     allowDangerousTemplateInsert: true
 };
