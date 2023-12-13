@@ -18,7 +18,6 @@
 
 const utils = {
     easterEggActive: false,
-    keybindString: '',
     /**
      * @param {string} string 
      * @param {easterEgg['run']} script 
@@ -42,7 +41,9 @@ const utils = {
                         });
 
                         utils.easterEggActive = false;
-                    } catch (e) { }
+                    } catch (e) {
+                        utils.easterEggActive = false;
+                    }
 
                     keybindString = '';
                 }
@@ -63,7 +64,7 @@ const easterEggs = [];
 easterEggs.push({
     type: 'keybind',
     phrase: 'smurf',
-    run: (binding, variables) => {
+    run: () => {
         return new Promise((resolve, reject) => {
             const audio = new Audio('/assets/misc/smurf.mp3');
             audio.play();
@@ -71,8 +72,7 @@ easterEggs.push({
             audio.onplay = () => {
                 const imageElement = document.createElement('img');
                 imageElement.src = '/assets/img/smurf.jpg';
-                imageElement.style = `
-                position: fixed;
+                imageElement.style = `position: fixed;
                 top: 50%;
                 left: 50%;
                 -ms-transform: translate(-50%, -50%);
@@ -82,19 +82,23 @@ easterEggs.push({
                 document.body.appendChild(imageElement);
 
                 const overlay = document.createElement('div');
-                overlay.style = `
-                position: fixed;
+                overlay.style = `position: fixed;
                 top: 0;
                 bottom: 0;
                 left: 0;
                 right: 0;
-                background: #000;
+                background: black;
                 z-index: 2147483646;`;
                 document.body.appendChild(overlay);
+
+                var flashInterval;
 
                 setTimeout(() => {
                     for (let i = 0; i < 360 * 3; i++) setTimeout(() => imageElement.style.filter = `hue-rotate(${i > 360 ? i - 360 * Math.trunc(i / 360) : i}deg)`, 20 * i);
                     imageElement.style.animation = '1.06s ease 0s infinite beat';
+
+                    overlay.style.background = 'white';
+                    flashInterval = setInterval(() => overlay.style.background = overlay.style.background === 'black' ? 'white' : 'black', 460);
                 }, 7330);
 
                 audio.onended = () => {
@@ -110,112 +114,189 @@ easterEggs.push({
 
 easterEggs.push({
     type: 'keybind',
-    phrase: 'polaris',
+    phrase: 'ham',
     run: () => {
-        document.querySelector('.navbar img').style.animation = 'shake 0.5s';
-        setTimeout(() => document.querySelector('.navbar img').style.animation = '', 500);
+        return new Promise((resolve, reject) => {
+            const audio = new Audio('/assets/misc/ringtone.mp3');
+            audio.loop = true;
+            audio.play();
+
+            audio.onplay = () => {
+                const overlay = document.createElement('div');
+                overlay.style = `position: fixed;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: #000;
+                z-index: 2147483645;`;
+                document.body.appendChild(overlay);
+
+                const menu = document.createElement('div');
+                menu.style = `position: fixed;
+                z-index: 2147483646;
+                top: 0;
+                bottom: 0;
+                left: 50%;
+                -ms-transform: translate(-50%);
+                transform: translate(-50%);
+                width: 35%;
+                background: rgba(255, 255, 255, 0.1);`;
+                document.body.appendChild(menu);
+
+                const caller = document.createElement('div');
+                caller.innerHTML = `<img src="/assets/img/hamster.jpg" style="position: fixed;
+                width: 37vh;
+                height: 37vh;
+                object-fit: cover;
+                border-radius: 100%;
+                top: 10%;
+                left: 50%;
+                -ms-transform: translate(-50%);
+                transform: translate(-50%);"/>
+                
+                <span style="position: fixed;
+                display: block;
+                top: calc(37vh + 15%);
+                font-size: 5.5vh;
+                left: 50%;
+                -ms-transform: translate(-50%);
+                transform: translate(-50%);">Hamster</span>`;
+                menu.appendChild(caller);
+
+                const call = document.createElement('div');
+                call.innerHTML = `<img src="/assets/img/hamster.gif" style="position: fixed;
+                top: 50%;
+                left: 50%;
+                height: 100%;
+                object-fit: cover;
+                width: 100%;
+                -ms-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);" />`;
+
+                const buttons = document.createElement('div');
+                buttons.style = `position: fixed;
+                z-index: 2147483647;
+                bottom: 10%;
+                left: 50%;
+                -ms-transform: translate(-50%);
+                transform: translate(-50%);
+                width: auto;
+                height: auto;
+                display: flex;`;
+                menu.appendChild(buttons);
+
+                const answer = document.createElement('span');
+                answer.style = `width: 5vw;
+                height: 5vw;
+                display: block;
+                background: green;
+                display: flex;
+                border-radius: 100%;
+                cursor: pointer;
+                margin-right: 6vh;`;
+                answer.innerHTML = `<i class="fa-solid fa-phone" style="font-size: 3vh;
+                margin: auto;
+                position: relative;"></i>`;
+                buttons.appendChild(answer);
+
+                const hangUp = document.createElement('span');
+                hangUp.style = `width: 5vw;
+                height: 5vw;
+                display: block;
+                background: red;
+                display: flex;
+                border-radius: 100%;
+                cursor: pointer;`;
+                hangUp.innerHTML = `<i class="fa-solid fa-phone-hangup" style="font-size: 3vh;
+                margin: auto;
+                position: relative;"></i>`;
+                buttons.appendChild(hangUp);
+
+                answer.addEventListener('click', () => {
+                    answer.remove();
+                    audio.pause();
+                    audio.remove();
+                    caller.remove();
+                    menu.appendChild(call);
+                });
+
+                hangUp.addEventListener('click', () => {
+                    resolve();
+                    audio.pause();
+                    audio.remove();
+                    menu.remove();
+                    overlay.remove();
+                });
+            }
+        });
     }
 });
 
 easterEggs.push({
     type: 'keybind',
-    phrase: 'ham',
+    phrase: 'polaris',
     run: () => {
-        const overlay = document.createElement('div');
-        overlay.style = `
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: #000;
-        z-index: 2147483645;`;
-        document.body.appendChild(overlay);
+        return new Promise((resolve, reject) => {
+            document.querySelector('.navbar img').style.animation = 'shake 0.5s';
 
-        const menu = document.createElement('div');
-        menu.style = `
-        position: fixed;
-        z-index: 2147483646;
-        top: 0;
-        bottom: 0;
-        left: 50%;
-        -ms-transform: translate(-50%);
-        transform: translate(-50%);
-        width: 35%;
-        background: rgba(255, 255, 255, 0.1);`;
-        document.body.appendChild(menu);
-
-        const caller = document.createElement('div');
-        caller.innerHTML = `<img src="/assets/img/hamster.jpg" style="position: fixed;
-        width: 37vh;
-        height: 37vh;
-        object-fit: cover;
-        border-radius: 100%;
-        top: 10%;
-        left: 50%;
-        -ms-transform: translate(-50%);
-        transform: translate(-50%);"/>
-        
-        <span style="position: fixed;
-        display: block;
-        top: calc(37vh + 15%);
-        font-size: 5.5vh;
-        left: 50%;
-        -ms-transform: translate(-50%);
-        transform: translate(-50%);">Hamster</span>`;
-        menu.appendChild(caller);
-
-        const call = document.createElement('div');
-        call.style = ``;
-        call.innerHTML = ``;
-
-        const buttons = document.createElement('div');
-        buttons.style = `
-        position: fixed;
-        bottom: 10%;
-        left: 50%;
-        -ms-transform: translate(-50%);
-        transform: translate(-50%);
-        width: auto;
-        height: auto;
-        display: flex;`;
-        buttons.innerHTML = `
-        <span style="
-        width: 5vw;
-        height: 5vw;
-        display: block;
-        background: green;
-        display: flex;
-        border-radius: 100%;
-        cursor: pointer;
-        margin-right: 6vh;">
-            <i class="fa-solid fa-phone" style="font-size: 3vh;
-            margin: auto;
-            position: relative;"></i>
-        </span>
-
-        <span style="
-        width: 5vw;
-        height: 5vw;
-        display: block;
-        background: red;
-        display: flex;
-        border-radius: 100%;
-        cursor: pointer;">
-            <i class="fa-solid fa-phone-hangup" style="font-size: 3vh;
-            margin: auto;
-            position: relative;"></i>
-        </span>`;
-        menu.appendChild(buttons);
-
-        buttons.querySelectorAll('span')[0].addEventListener('click', () => {
-            caller.remove();
-            menu.appendChild(call);
+            setTimeout(() => {
+                document.querySelector('.navbar img').style.animation = '';
+                resolve();
+            }, 500);
         });
+    }
+});
 
-        buttons.querySelectorAll('span')[1].addEventListener('click', () => {
-            menu.remove();
-            overlay.remove();
+easterEggs.push({
+    type: 'keybind',
+    phrase: 'bruh',
+    run: () => {
+        return new Promise((resolve, reject) => {
+            const audio = new Audio('/assets/misc/bruh.mp3');
+            audio.play();
+
+            const trollFace = document.createElement('img');
+            trollFace.src = '/assets/img/trollface.png';
+            trollFace.style = `position: fixed;
+            z-index: 2147483647;
+            top: 50%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            height: 0px;`;
+
+            var sizeInterval;
+
+            audio.onplay = () => {
+                document.body.appendChild(trollFace);
+
+                var counter = 1;
+
+                sizeInterval = setInterval(() => {
+                    trollFace.style.height = `${(100 - counter) * counter}px`;
+
+                    counter += 1;
+                }, 10);
+            };
+
+            audio.onended = () => {
+                clearInterval(sizeInterval);
+                trollFace.remove();
+                resolve();
+            };
+        });
+    }
+});
+
+easterEggs.push({
+    type: 'keybind',
+    phrase: 'rick',
+    run: () => {
+        return new Promise((resolve, reject) => {
+            const logo = document.querySelector('img[src="/assets/img/logo.png"]');
+
+            logo.src = '/assets/img/rick.png';
         });
     }
 });
