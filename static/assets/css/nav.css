@@ -28,7 +28,6 @@
 
 .navbar>.title {
     margin: 1vh;
-    margin-bottom: 0px;
 }
 
 .navbar>.title>img {
@@ -39,16 +38,16 @@
 .navbar>.title>span {
     font-family: 'Lato-Black';
     font-size: 3vh;
-    margin-left: 1.3vh;
-    position: relative;
-    top: -2.8vh;
+    left: 11vh;
+    position: absolute;
+    text-align: left;
 }
 
 .navbar>.title>span>span {
-    display: block;
+    display: flex;
     position: relative;
     font-size: 1.2vh;
-    margin-left: 3vh;
+    width: auto;
 }
 
 .navbar>.right {

@@ -294,9 +294,56 @@ easterEggs.push({
     phrase: 'rick',
     run: () => {
         return new Promise((resolve, reject) => {
-            const logo = document.querySelector('img[src="/assets/img/logo.png"]');
-
+            const navbarTitle = document.querySelector('.title');
+            const title = navbarTitle.querySelector('span');
+            title.innerHTML = 'Rick <span style="">(spam click the logo)</span>';
+            const logo = navbarTitle.querySelector('img');
             logo.src = '/assets/img/rick.png';
+
+            var audioPlaying = false;
+            var clickTime = 0;
+            var clicks = 0;
+
+            const rick = document.createElement('img');
+            rick.src = '/assets/img/rick.png';
+            rick.style = `position: fixed;
+            bottom: -60px;
+            right: -60px;
+            height: 500px;
+            display: block;
+            z-index: -99;
+            transform: rotate(-30deg);`;
+            document.body.appendChild(rick);
+
+            const rickClick = navbarTitle.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                if ((Date.now() - clickTime) < 500) clicks += 1;
+                else clicks = 0;
+
+                if (clicks > 2 && !audioPlaying) {
+                    clicks = 0;
+                    clickTime = 0;
+
+                    const audio = new Audio('/assets/misc/rickroll.mp3');
+                    audio.play();
+
+                    audio.onplay = () => {
+                        audioPlaying = true;
+                    };
+
+                    audio.onended = () => {
+                        audioPlaying = false;
+                        title.innerHTML = 'Polaris <span>by Skool</span>';
+                        logo.src = '/assets/img/logo.png';
+
+                        navbarTitle.removeEventListener('click', rickClick);
+                        rick.remove();
+                        audio.remove();
+                        resolve();
+                    };
+                } else clickTime = Date.now();
+            });
         });
     }
 });
