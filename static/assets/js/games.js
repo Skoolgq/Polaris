@@ -1,28 +1,31 @@
-import PolarisError from '/assets/js/error.js';
-import { loadWorker } from '/assets/js/wpm.js';
+import PolarisError from './error.js';
+import { workerLoaded, loadWorker } from './wpm.js';
 
 const tiltEffectSettings = {
-    max: 8,
-    perspective: 1000,
-    scale: 1.05,
-    speed: 800,
-    easing: 'cubic-bezier(.03,.98,.52,.99)'
+    max: 8, // max tilt rotation (degrees (deg))
+    perspective: 1000, // transform perspective, the lower the more extreme the tilt gets (pixels (px))
+    scale: 1.05, // transform scale - 2 = 200%, 1.5 = 150%, etc..
+    speed: 800, // speed (transition-duration) of the enter/exit transition (milliseconds (ms))
+    easing: 'cubic-bezier(.03,.98,.52,.99)' // easing (transition-timing-function) of the enter/exit transition
 };
 
-let games = [];
-let filteredGames = [];
+let games = []; // store all games
+let filteredGames = []; // store filtered games
 
 const load = () => {
     fetch('/assets/JSON/games.json').then(res => res.json()).then(data => {
             games = data;
-            filteredGames = games;
+            filteredGames = games; // initialize filtered games with all games
 
-            renderGames(filteredGames);
+            renderGames(filteredGames); // render games initially
 
+            // Add event listener to search input
             const searchInput = document.getElementById('searchInput');
             searchInput.addEventListener('input', filterGames);
         })
-        .catch(e => new PolarisError('Failed to load games'));
+        .catch(e => {
+            new PolarisError('Failed to load games');
+        });
 };
 
 function filterGames() {
@@ -31,14 +34,20 @@ function filterGames() {
 
     filteredGames = games.filter(game => game.name.toLowerCase().includes(searchTerm));
 
-    renderGames(filteredGames);
+    renderGames(filteredGames); // render filtered games
 }
 
 function renderGames(gamesToRender) {
     const gamesContainer = document.querySelector('.games');
     const popularGamesContainer = document.querySelector('.popular-games');
-    gamesContainer.innerHTML = '';
-    popularGamesContainer.innerHTML = '';
+    gamesContainer.innerHTML = ''; // clear previous games
+    popularGamesContainer.innerHTML = ''; // clear previous popular games
+
+    function openGameInNewTab(game) {
+    const x = window.open('about:blank', '_blank');
+    const index = game.source;
+    x.document.write(`<iframe src="${index}" style="position:fixed; top:0; left:0; bottom:0; right:0; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;"></iframe>`);
+}
 
     gamesToRender.forEach(game => {
         const el = document.createElement('div');
@@ -53,17 +62,20 @@ function renderGames(gamesToRender) {
             popularGamesContainer.appendChild(popularEl);
 
             popularEl.addEventListener('click', async () => {
-                await loadWorker('uv');
-
+                if (!workerLoaded) await loadWorker();
+                const frameData = {
+                  type: 'game',
+                  game
+                };
                 if (game.openinnewtab === 'yes') {
-                    window.open(game.source);
+                    window.open(game.source, '_blank');
                     console.log('Open game in new tab:', frameData);
+                } else if (game.openinaboutblank === 'yes') {
+                    openGameInNewTab(game);
+                    console.log('Open game in about:blank:', frameData);
                 } else {
-                  localStorage.setItem('frameData', JSON.stringify({
-                    type: 'game',
-                    game
-                  }));
-                  location.href = '/view';
+                    localStorage.setItem('frameData', JSON.stringify(frameData));
+                    location.href = '/view';
                 }
               });
 
@@ -79,12 +91,15 @@ function renderGames(gamesToRender) {
               game
             };
             if (game.openinnewtab === 'yes') {
-                window.open(game.source, '_blank');
-                console.log('Open game in new tab:', frameData);
-            } else {
-              localStorage.setItem('frameData', JSON.stringify(frameData));
-              location.href = '/view';
-            }
+                    window.open(game.source, '_blank');
+                    console.log('Open game in new tab:', frameData);
+                } else if (game.openinaboutblank === 'yes') {
+                    openGameInNewTab(game);
+                    console.log('Open game in about:blank:', frameData);
+                } else {
+                    localStorage.setItem('frameData', JSON.stringify(frameData));
+                    location.href = '/view';
+                }
           });
 
         el.addEventListener('mouseenter', gameMouseEnter);
