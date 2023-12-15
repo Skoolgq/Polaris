@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!--el:meta-->
+  <!--el:adtop-->
+  <!--el:analytics-->
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  <title>Games | Polaris</title>
+</head>
+
+<body>
+  <!--el:navbar-->
+  <!--el:sidebar-->
+
+  <div class="content">
+    <h1 style="font-size: 6vh;">Games</h1>
+
+    <h1 style="font-size: 4vh;" class="gamesectionheader">Popular</h1>
+
+    <div class="popular-games">
+    </div>
+
+    <h1 style="font-size: 4vh;" class="gamesectionheader">All Games</h1>
+
+    <input type="text" id="searchInput" class="settings-input" placeholder="Search Games...">
+
+    <br>
+
+    <div style="padding-bottom: 2vh;">
+    </div>
+
+    <br>
+
+    <div class="games">
+    </div>
+
+    <div style="margin-top: 5vh;">
+    </div>
+
+    <script src="/assets/js/main.js" type="module"></script>
+
+    <!--el:{{mode === 'dev'}}:development-->
+
+    <script>
+      window['nitroAds'].createAd('anchorad', {
+        "refreshTime": 30,
+        "format": "anchor",
+        "anchor": "bottom",
+        "anchorPersistClose": false,
+        "report": {
+          "enabled": true,
+          "icon": true,
+          "wording": "Report Ad",
+          "position": "top-right"
+        },
+        "mediaQuery": "(min-width: 1025px)"
+      });
+    </script>
+</body>
+
+</html>

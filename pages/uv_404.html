@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Loading...</title>
+</head>
+
+<body>
+    <script src="/uv/uv.bundle.js"></script>
+    <script src="/uv/uv.config.js"></script>
+
+    <script>
+        navigator.serviceWorker.register('/assets/ultraviolet/sw.js', {
+            scope: __uv$config.prefix
+        }).then(e => location.reload()).catch(e => { });
+    </script>
+</body>
+
+</html>

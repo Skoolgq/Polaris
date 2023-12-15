@@ -1,5 +1,5 @@
-import Theme from './themes.js';
-import PolarisError from './error.js';
+import PolarisError from '/assets/js/error.js';
+import Theme from '/assets/js/themes.js';
 
 const isScrollable = (element) => element.scrollWidth > element.clientWidth || element.scrollHeight > element.clientHeight;
 
@@ -96,7 +96,7 @@ class Settings {
                 document.querySelector('#panic_key').value = e.key;
                 this.set('panic_key', document.querySelector('#panic_key').value);
             } else {
-                if (e.key == this.get('panic_key')) {
+                if (e.key === this.get('panic_key')) {
                     if (this.get('panic_url')) window.location.href = this.get('panic_url');
                     else new PolarisError('A panic key was used but no url was found.');
                 }

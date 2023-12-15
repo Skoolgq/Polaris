@@ -5,7 +5,7 @@ services:
     plan: free
     runtime: node
     buildCommand: npm i
-    startCommand: node index.js
+    startCommand: npm start
     envVars:
       - key: NODE_VERSION
         value: 20.0.0

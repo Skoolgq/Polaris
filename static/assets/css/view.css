@@ -1,0 +1,29 @@
+@import url('/assets/css/themes.css');
+
+.gamebar {
+    background: var(--background-darker);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 25px;
+    margin-left: 20vw;
+    margin-right: 20vw;
+    border-radius: 2vh;
+    padding: 10px;
+    display: flex;
+}
+
+.gamebar .logo {
+    width: 6vh;
+    border-radius: 1.5vh;
+    display: inline-flex;
+}
+
+.gamebar .title {
+    position: absolute;
+    text-align: center;
+    font-size: 40px;
+    width: calc(100% - 20px);
+    margin-top: calc(calc(calc(6vh - 10px) - 40px) / 2);
+}

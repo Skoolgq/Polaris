@@ -1,35 +1,22 @@
-body[data-theme='halloween'] {
-    --background-color: #233147;
-    --text: #fff;
-    --sidebar-bg: #161f2eef;
-    --button-bg: #1c1c1c69;
-    --shadow-color: #4242424b;
-    --switch-color: #42424259;
-    --switch-active: #2196F3;
-    --scrollbar-color: #ffffff59;
-    --solid: #1b2735;
-    --hover: #757575;
-    background: radial-gradient(circle, rgba(58, 61, 96, 1) 0%, rgba(45, 40, 51, 1) 100%);
-    background-repeat: no-repeat;
-}
-
 body[data-theme='dark'] {
-    --background-color: #233147;
+    --background-color: rgba(0, 0, 0, 0.8);
+    --background-darker: rgba(0, 0, 0, 0.9);
     --text: #fff;
     --sidebar-bg: #161f2eef;
     --button-bg: #1c1c1c69;
-    --shadow-color: #4242424b;
+    --shadow-color: #000;
     --switch-color: #42424259;
     --switch-active: #2196F3;
     --scrollbar-color: #ffffff59;
     --solid: #1b2735;
     --hover: #757575;
-    background: radial-gradient(circle, rgba(58, 61, 96, 1) 0%, rgba(45, 40, 51, 1) 100%);
+    background: radial-gradient(at center bottom, rgb(27, 39, 53) 0%, rgb(9, 10, 15) 100%);;
     background-repeat: no-repeat;
 }
 
 body[data-theme='light'] {
     --background-color: #fff;
+    --background-darker: var(--background-color);
     --text: #000;
     --hover: #757575;
     --sidebar-bg: #ffffffee;
@@ -46,18 +33,19 @@ body[data-theme='light'] {
 }
 
 body[data-theme='flamingo'] {
-    --background-color: #e75166;
+    --background-color: rgba(0, 0, 0, 0.8);
+    --background-darker: rgba(0, 0, 0, 0.9);
     --text: #fff;
     --sidebar-bg: #e75166ee;
     --button-bg: #00000059;
-    --shadow-color: #F949724b;
+    --shadow-color: #000;
     --switch-color: #959595;
     --switch-active: #FB5E4C;
-    --scrollbar-color: #ffffff59;
+    --scrollbar-color: rgba(0, 0, 0, 0.8);
     --solid: #FB5E4C;
     --hover: #ed58b4;
-    background: linear-gradient(122deg, rgba(255, 41, 191, 1) 0%, rgba(215, 67, 46, 1) 85%);
-    animation: flamingo-gradient 12s ease infinite;
+    background: linear-gradient(304deg, rgb(255, 136, 0), rgb(245, 7, 226)) 0% 0% / 120% 120%;
+    animation: 12s ease 0s infinite normal none running flamingo-gradient;
 
     @keyframes flamingo-gradient {
         0% {
@@ -75,18 +63,19 @@ body[data-theme='flamingo'] {
 }
 
 body[data-theme='frost'] {
-    --background-color: #293a6bee;
+    --background-color: rgba(0, 0, 0, 0.8);
+    --background-darker: rgba(0, 0, 0, 0.9);
     --text: #fff;
     --sidebar-bg: #293a6bee;
     --button-bg: #42424259;
-    --shadow-color: #0561814b;
+    --shadow-color: #000;
     --switch-color: #42424259;
     --switch-active: #056181;
     --scrollbar-color: #ffffff59;
     --solid: #056181;
     --hover: #6491fa;
-    background: linear-gradient(90deg, #6491fa 0%, rgba(49, 49, 129) 84%);
-    animation: frost-gradient 12s ease infinite;
+    background: linear-gradient(304deg, rgb(0, 0, 0), rgb(8, 193, 255)) 0% 0% / 120% 120%;
+    animation: 12s ease 0s infinite normal none running frost-gradient;
 
     @keyframes frost-gradient {
         0% {
@@ -104,11 +93,12 @@ body[data-theme='frost'] {
 }
 
 body[data-theme='crimson'] {
-    --background-color: #a74c4cee;
+    --background-color: rgba(0, 0, 0, 0.8);
+    --background-darker: rgba(0, 0, 0, 0.9);
     --text: #fff;
     --sidebar-bg: #a74c4cee;
     --button-bg: #00000059;
-    --shadow-color: #940C284b;
+    --shadow-color: #000;
     --switch-color: #42424259;
     --switch-active: #B90F32;
     --scrollbar-color: #ffffff59;
@@ -133,7 +123,8 @@ body[data-theme='crimson'] {
 }
 
 body[data-theme='inferno'] {
-    --background-color: #871a13;
+    --background-color: rgba(0, 0, 0, 0.8);
+    --background-darker: rgba(0, 0, 0, 0.9);
     --text: #fff;
     --sidebar-bg: #871a13;
     --button-bg: #00000059;
@@ -162,17 +153,18 @@ body[data-theme='inferno'] {
 }
 
 body[data-theme='indigo'] {
-    --background-color: #9247fc;
+    --background-color: rgba(0, 0, 0, 0.8);
+    --background-darker: rgba(0, 0, 0, 0.9);
     --text: #fff;
     --sidebar-bg: #9247fc;
-    --button-bg: #9449fc;
-    --shadow-color: #4e1f8f;
+    --button-bg: #482579;
+    --shadow-color: #2A1B55;
     --switch-color: #9759e3;
     --switch-active: #bf97f0;
     --scrollbar-color: #ffffff59;
     --solid: #9b6aeb;
     --hover: #b07df0;
-    background: linear-gradient(90deg, rgba(98, 3, 252, 1) 0%, rgba(155, 106, 235, 1) 85%);
+    background: linear-gradient(90deg, #51305e 0%, #0f084e 85%);
     animation: indigo-gradient 12s ease infinite;
 
     @keyframes indigo-gradient {
@@ -192,6 +184,7 @@ body[data-theme='indigo'] {
 
 body[data-theme='violet'] {
     --background-color: #000000;
+    --background-darker: rgba(0, 0, 0, 0.9);
     --text: #fff;
     --sidebar-bg: #000000;
     --button-bg: #000000;
@@ -219,16 +212,10 @@ body[data-theme='violet'] {
     }
 }
 
-
-
-
-
-
-
-
 @media screen and (prefers-color-scheme: light) {
     body[data-theme='system default'] {
         --background-color: #fff;
+        --background-darker: var(--background-color)
         --text: #000;
         --sidebar-bg: #ffffffee;
         --button-bg: #ffffff59;
@@ -245,17 +232,18 @@ body[data-theme='violet'] {
 
 @media screen and (prefers-color-scheme: dark) {
     body[data-theme='system default'] {
-        --background-color: #233147;
+        --background-color: rgba(0, 0, 0, 0.8);
+        --background-darker: rgba(0, 0, 0, 0.9);
         --text: #fff;
         --sidebar-bg: #161f2eef;
         --button-bg: #42424259;
-        --shadow-color: #4242424b;
+        --shadow-color: #000;
         --switch-color: #42424259;
         --switch-active: #2196F3;
         --scrollbar-color: #ffffff59;
         --solid: #1b2735;
         --hover: #757575;
-        background: radial-gradient(circle, rgba(58, 61, 96, 1) 0%, rgba(45, 40, 51, 1) 100%);
+        background: radial-gradient(at center bottom, rgb(27, 39, 53) 0%, rgb(9, 10, 15) 100%);;
         background-repeat: no-repeat;
     }
 }

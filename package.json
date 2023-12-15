@@ -1,12 +1,13 @@
 {
     "name": "polaris",
     "version": "1.0.0",
-    "description": "The future of school gaming.",
+    "description": "The future of school gaming",
     "main": "index.js",
     "type": "module",
     "scripts": {
-        "dev": "nodemon index.js -e js,css,html,jpeg,png,json",
-        "start": "node index.js"
+        "start": "node server",
+        "prod": "node server prod",
+        "dev": "node server dev"
     },
     "author": "Polaris Developments",
     "license": "GNU-3.0-or-later",
@@ -15,7 +16,11 @@
         "cors": "*",
         "easyviolet": "github:Russell2259/Easyviolet",
         "express": "*",
-        "mime": "*"
+        "html-minifier": "^4.0.0",
+        "javascript-obfuscator": "^4.1.0",
+        "jsdom": "^23.0.1",
+        "mime": "*",
+        "uuid": "^9.0.1"
     },
     "devDependencies": {
         "nodemon": "^3.0.1"

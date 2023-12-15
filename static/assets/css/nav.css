@@ -1,8 +1,33 @@
+@media (max-width:960px) {
+    .navbar>.right {
+        display: none;
+    }
+}
+
 .navbar {
-    position: sticky;
+    box-shadow: 0vh 0.75vh 1.5vh 0vh var(--shadow-color);
+    position: fixed;
+    width: calc(calc(100% - 100px) - calc(1.5em * 2));
+    background-color: var(--background-color);
+    top: 0;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 50px;
+    color: rgb(255, 255, 255);
+    z-index: 100;
     display: flex;
-    justify-content: space-between;
-    margin: 1.5vh;
+    border-radius: 2vh;
+    padding: 1.5em;
+    padding-bottom: 1em;
+    text-align: center;
+}
+
+.navbar.scrolling {
+    background-color: var(--background-darker);
+}
+
+.navbar>.title {
+    margin: 1vh;
 }
 
 .navbar>.title>img {
@@ -13,35 +38,42 @@
 .navbar>.title>span {
     font-family: 'Lato-Black';
     font-size: 3vh;
-    margin-left: 1.3vh;
-    position: relative;
-    top: -2.8vh;
+    left: 11vh;
+    position: absolute;
+    text-align: left;
 }
 
 .navbar>.title>span>span {
-    display: block;
+    display: flex;
     position: relative;
     font-size: 1.2vh;
-    margin-left: 3vh;
+    width: auto;
 }
 
-.navbar>.end {
-    display: flex;
-    justify-content: space-between;
+.navbar>.right {
+    position: absolute;
+    right: 0;
+    margin: 2vh;
+    margin-top: 2.5vh;
+    margin-right: 3vh;
 }
 
-.navbar>.end>a {
+.navbar>.right>a {
     border-style: solid;
     border-width: 0.5vh;
     margin: 0.3rem;
     padding: 0.8rem;
     cursor: pointer;
     font-size: 2.7vh;
-    border-radius: 2vh;
-    border-color: rgba( 0, 0, 0, 0);
+    border-radius: 1.5vh;
+    border-color: rgba(0, 0, 0, 0);
     transition: border-color 0.4s linear;
 }
 
-.navbar>.end>a:hover {
+.navbar>.right>a:hover {
+    border-color: rgba(255, 255, 255, 1);
+}
+
+.navbar>.right>a.active {
     border-color: rgba(255, 255, 255, 1);
 }
