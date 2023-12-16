@@ -4,7 +4,7 @@ import { JSDOM } from 'jsdom';
 import mime from 'mime';
 
 import { TokenManager } from '../utils.js';
-import config from '../../config.js';
+import config from '../../polaris.config.js';
 
 import path from 'node:path';
 import url from 'node:url';

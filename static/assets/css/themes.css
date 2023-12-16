@@ -213,7 +213,7 @@ body[data-theme='violet'] {
 }
 
 @media screen and (prefers-color-scheme: light) {
-    body[data-theme='system default'] {
+    body[data-theme='system-default'] {
         --background-color: #fff;
         --background-darker: var(--background-color)
         --text: #000;
@@ -231,7 +231,7 @@ body[data-theme='violet'] {
 }
 
 @media screen and (prefers-color-scheme: dark) {
-    body[data-theme='system default'] {
+    body[data-theme='system-default'] {
         --background-color: rgba(0, 0, 0, 0.8);
         --background-darker: rgba(0, 0, 0, 0.9);
         --text: #fff;

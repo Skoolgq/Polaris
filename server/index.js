@@ -4,7 +4,7 @@ import mime from 'mime';
 import cors from 'cors';
 
 import { pathToFile, TokenManager, rewriter } from './utils.js';
-import config from '../config.js';
+import config from '../polaris.config.js';
 
 import path from 'node:path';
 import http from 'node:http';
@@ -101,4 +101,4 @@ server.on('upgrade', (req, socket, head) => {
     else socket.end();
 });
 
-server.listen(port, () => console.log(`Polaris listening\n\nPort: ${server.address().port}\nMode: ${mode}\nNode.js: ${process.version}\n`));
+server.listen(port, () => console.log(`Polaris listening\n\nPort: ${server.address().port}\nMode: ${mode}\nNode.js: ${process.version}`));
