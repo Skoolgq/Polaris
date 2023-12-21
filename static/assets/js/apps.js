@@ -1,5 +1,5 @@
-import PolarisError from '/assets/js/error.js';
-import { loadWorker } from '/assets/js/wpm.js';
+import { loadProxyWorker } from './utils.js';
+import PolarisError from './error.js';
 
 const tiltEffectSettings = {
     max: 8,
@@ -18,7 +18,8 @@ const load = () => {
             document.querySelector('.apps').appendChild(el);
 
             el.addEventListener('click', async () => {
-                await loadWorker('uv');
+                await loadProxyWorker('uv');
+
                 localStorage.setItem('frameData', JSON.stringify({
                     type: 'app',
                     app

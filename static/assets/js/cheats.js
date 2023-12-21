@@ -1,4 +1,4 @@
-import PolarisError from '/assets/js/error.js';
+import PolarisError from './error.js';
 
 const tiltEffectSettings = {
     max: 8,

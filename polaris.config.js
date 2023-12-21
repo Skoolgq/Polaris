@@ -1,4 +1,4 @@
-import configTemplate  from './polaris.config.template.js';
+import configTemplate from './polaris.config.template.js';
 
 /**
  * @type {configTemplate}
@@ -6,7 +6,7 @@ import configTemplate  from './polaris.config.template.js';
 export default {
     port: 8080,
     mode: 'dev',
-    minify: true,
+    minify: false,
     assetScrambling: true,
     allowDangerousTemplateInsert: true
 };

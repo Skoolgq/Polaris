@@ -161,7 +161,7 @@ easterEggs.push({
                 font-size: 5.5vh;
                 left: 50%;
                 -ms-transform: translate(-50%);
-                transform: translate(-50%);">Hamster</span>`;
+                transform: translate(-50%);">Hamter</span>`;
                 menu.appendChild(caller);
 
                 const call = document.createElement('div');

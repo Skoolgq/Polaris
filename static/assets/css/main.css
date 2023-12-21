@@ -1,9 +1,10 @@
 @import url('https://site-assets.fontawesome.com/releases/v6.2.0/css/all.css');
-@import url('/assets/css/fonts.css');
-@import url('/assets/css/themes.css');
-@import url('/assets/css/nav.css');
-@import url('/assets/css/sidebar.css');
-@import url('/assets/css/dropdown.css');
+@import url('./fonts.css');
+@import url('./themes.css');
+@import url('./nav.css');
+@import url('./sidebar.css');
+@import url('./dropdown.css');
+@import url('./footer.css');
 
 * {
     font-family: 'Lato';
@@ -19,6 +20,10 @@ body {
     color: var(--text);
     padding-top: 20vh;
     background-repeat: no-repeat;
+}
+
+.centered {
+    text-align: center;
 }
 
 html {
@@ -515,6 +520,11 @@ img.featured {
 img.featured:hover {
     border-color: rgba(255, 255, 255, 1);
     transition: border 0.5s linear;
+}
+
+.content {
+    margin-left: 100px;
+    margin-right: 100px;
 }
 
 @keyframes beat {

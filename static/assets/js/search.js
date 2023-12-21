@@ -1,5 +1,5 @@
-import PolarisError from '/assets/js/error.js';
-import { loadWorker } from '/assets/js/wpm.js';
+import PolarisError from './error.js';
+import { loadProxyWorker } from './utils.js';
 
 const load = () => {
     const xor = {
@@ -20,7 +20,7 @@ const load = () => {
         e.preventDefault();
 
         if (typeof navigator.serviceWorker === 'undefined') new PolarisError('Failed to load Proxy');
-        await loadWorker('uv');
+        await loadProxyWorker('uv');
 
         const url = /^(http(s)?:\/\/)?([\w-]+\.)+[\w]{2,}(\/.*)?$/.test(query.value) ? ((!query.value.startsWith('http://') && !query.value.startsWith('https://')) ? 'https://' + query.value : query.value) : 'https://www.google.com/search?q=' + encodeURIComponent(query.value);
 
@@ -28,6 +28,7 @@ const load = () => {
             type: 'proxy',
             source: `/uv/service/${xor.encode(url)}`
         }));
+
         location.href = '/view';
     });
 }

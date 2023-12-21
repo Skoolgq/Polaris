@@ -1,47 +1,34 @@
-const set = (name, value) => {
-  if (!localStorage.getItem('settings')) {
-    localStorage.setItem('settings', JSON.stringify({}));
-  } else {
-    try {
-      JSON.parse(localStorage.getItem('settings'));
-    } catch (e) {
-      localStorage.setItem('settings', JSON.stringify({}));
-    }
-  }
+import { storage } from './utils.js';
 
-  const settings = JSON.parse(localStorage.getItem('settings'));
-  settings[name] = value;
-  localStorage.setItem('settings', JSON.stringify(settings));
-};
-
-const get = (name) => {
-  if (!localStorage.getItem('settings')) {
-    localStorage.setItem('settings', JSON.stringify({}));
-  } else {
-    try {
-      JSON.parse(localStorage.getItem('settings'));
-    } catch (e) {
-      localStorage.setItem('settings', JSON.stringify({}));
-    }
-  }
-
-  const settings = JSON.parse(localStorage.getItem('settings'));
-  return settings[name];
-}
+const settingsStorage = storage('settings');
 
 class Theme {
   constructor() {
-    this.theme = get('theme');
+    this.theme = settingsStorage.get('theme');
 
     if (this.theme) this.set(this.theme);
     else this.set('system-default');
   }
 
+  /**
+   * Set the theme of the page
+   * @param {string} theme The name of the theme
+   * @param {boolean} save Whether or not the theme should be saved
+   */
   set = (theme, save) => {
     document.body.setAttribute('data-theme', theme);
+    this.theme = theme;
 
-    if (save !== false) set('theme', theme);
-  }
+    if (save !== false) settingsStorage.set('theme', theme);
+  };
+
+  /**
+   * Get the current theme
+   * @returns {string}
+   */
+  get = () => {
+    return document.body.getAttribute('data-theme');
+  };
 }
 
 export default new Theme();

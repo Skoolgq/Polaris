@@ -1,6 +1,5 @@
 const load = () => {
     let frameData = JSON.parse(localStorage.getItem('frameData'));
-    if (!frameData) location.href = '/';
 
     const iframe = document.querySelector('.frame');
 
@@ -29,7 +28,7 @@ const load = () => {
             document.querySelector('#gameicon').src = "https://cdn3.iconfinder.com/data/icons/feather-5/24/search-512.png";
             document.querySelector('#gametitle').textContent = "Proxy";
         } else document.querySelector('#gametitle').textContent = 'Failed to load proxy.';
-    } else location.href = '/';
+    }
 
     document.querySelector('#fullscreen').addEventListener('click', () => {
         const iframe = document.querySelector('.frame');

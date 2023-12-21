@@ -92,43 +92,54 @@ const html = (data) => {
     });
 };
 
-const javascript = (data) => {
+const javascript = (data, filePath) => {
     return new Promise((resolve, reject) => {
         const imports = String(data).split('import ')
             .map(data => data.split('from ')[1])
             .filter(data => Boolean(data))
-            .map(data => data.split(';')[0]
+            .map(data => data.split('\n')[0]
                 .replaceAll('\'', '')
                 .replaceAll('`', '')
-                .replaceAll('"', ''))
-            .filter(data => fs.existsSync(path.join(__dirname, '../templates', data + '.javascript')));
-
+                .replaceAll('"', '')
+                .replaceAll(';', ''))
+            .map(data => {
+                if (data.startsWith('./')) return {
+                    originalFile: data,
+                    newFile: path.join(filePath.split('/').slice(0, -1).join('/'), data)
+                };
+                else if (data.startsWith('../')) return {
+                    originalFile: data,
+                    newFile: path.join(filePath.split('/').slice(0, -1).join('/'), data)
+                };
+                else return {
+                    originalFile: data,
+                    newFile: data
+                };
+            })
+            .filter(data => fs.existsSync(path.join(__dirname, '../static', data.newFile)));
 
         let javascript = String(data);
 
-        if (config.assetScrambling) for (let i = 0; i < imports.length; i++) {
-            javascript = javascript.replace(imports[i], '/asset/' + TokenManager.generate('asset', 20000, {
-                asset: path.join(__dirname, '../static', imports[i]),
-                type: 'text/javascript'
-            }).token);
-        }
+        if (config.assetScrambling) for (let i = 0; i < imports.length; i++) javascript = javascript.replace(imports[i].originalFile, '/asset/' + TokenManager.generate('asset', 20000, {
+            asset: path.join(__dirname, '../static', imports[i].newFile),
+            type: 'text/javascript'
+        }).token);
 
-        if (config.minify) resolve(JavaScriptObfuscator.obfuscate(javascript,
-            {
-                compact: true,
-                controlFlowFlattening: true,
-                controlFlowFlatteningThreshold: 1,
-                numbersToExpressions: true,
-                simplify: true,
-                stringArrayShuffle: true,
-                splitStrings: true,
-                stringArrayThreshold: 1
-            }).getObfuscatedCode());
+        if (config.minify) resolve(JavaScriptObfuscator.obfuscate(javascript, {
+            compact: true,
+            controlFlowFlattening: true,
+            controlFlowFlatteningThreshold: 1,
+            numbersToExpressions: true,
+            simplify: true,
+            stringArrayShuffle: true,
+            splitStrings: true,
+            stringArrayThreshold: 1
+        }).getObfuscatedCode());
         else resolve(javascript);
     });
 };
 
-const css = (data) => {
+const css = (data, filePath) => {
     return new Promise((resolve, reject) => {
         const imports = String(data).split('url(')
             .map(data => {
@@ -143,37 +154,48 @@ const css = (data) => {
                 else return undefined;
             })
             .filter(data => {
-                if (data) {
-                    try {
-                        new URL(data);
+                if (data) try {
+                    new URL(data);
 
-                        return false;
-                    } catch (e) {
-                        if (data.startsWith('/')) return true;
-                        else return false;
-                    }
+                    return false;
+                } catch (e) {
+                    return true;
                 } else return false;
             })
-            .filter(data => fs.existsSync(path.join(__dirname, '../templates', data + mime.getExtension(data))));
+            .map(data => {
+               // console.log(path.join(filePath.split('/').slice(0, -1).join('/')));
+
+                if (data.startsWith('./')) return {
+                    originalFile: data,
+                    newFile: path.join(filePath.split('/').slice(0, -1).join('/'), data)
+                };
+                else if (data.startsWith('../')) return {
+                    originalFile: data,
+                    newFile: path.join(filePath.split('/').slice(0, -1).join('/'), data)
+                };
+                else return {
+                    originalFile: data,
+                    newFile: data
+                };
+            })
+            .filter(data => fs.existsSync(path.join(__dirname, '../static', data.newFile)));
 
         let css = String(data);
 
-        if (config.assetScrambling) for (let i = 0; i < imports.length; i++) {
-            css = css.replace(imports[i], '/asset/' + TokenManager.generate('asset', 20000, {
-                asset: path.join(__dirname, '../static', imports[i]),
-                type: mime.getType(path.join(__dirname, '../static', imports[i]))
-            }).token);
-        }
-
+        if (config.assetScrambling) for (let i = 0; i < imports.length; i++) css = css.replace(imports[i].originalFile, '/asset/' + TokenManager.generate('asset', 20000, {
+            asset: path.join(__dirname, '../static', imports[i].newFile),
+            type: mime.getType(path.join(__dirname, '../static', imports[i].newFile))
+        }).token);
+        
         if (config.minify) resolve(css.replace(/(\r\n|\n|\r)/gm, '').replaceAll('    ', ' '));
         else resolve(css);
     });
 };
 
-const auto = async (data, type) => {
+const auto = async (data, type, filePath) => {
     if (type === 'text/html') return await html(data);
-    else if (type === 'text/javascript' || type === 'application/javascript') return await javascript(data);
-    else if (type === 'text/css') return await css(data);
+    else if (type === 'text/javascript' || type === 'application/javascript') return await javascript(data, filePath);
+    else if (type === 'text/css') return await css(data, filePath);
     else return data;
 };
 

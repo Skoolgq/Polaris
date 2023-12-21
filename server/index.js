@@ -15,7 +15,7 @@ const app = express();
 const server = http.createServer();
 const bareServer = createBareServer('/bare/');
 const mode = (process.argv[2] === 'prod' || process.argv[2] === 'dev' ? process.argv[2] : (process.argv[3] === 'prod' || process.argv[3] === 'dev' ? process.argv[3] : (config.mode === 'prod' || config.mode === 'dev' ? config.mode : 'prod')));
-const port = (process.argv[2] !== 'prod' && process.argv[2] !== 'dev' && Boolean(Number(process.argv[2]))) ? process.argv[2] : (Boolean(Number(process.argv[3])) ? process.argv[3] : (Boolean(Number(config.port)) ? config.port : (mode === 'prod' ? 80 : 8080 ) ));
+const port = (process.argv[2] !== 'prod' && process.argv[2] !== 'dev' && Boolean(Number(process.argv[2]))) ? process.argv[2] : (Boolean(Number(process.argv[3])) ? process.argv[3] : (Boolean(Number(config.port)) ? config.port : (mode === 'prod' ? 80 : 8080)));
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
 app.get('/cdn/*', cors({
@@ -61,7 +61,7 @@ app.get('/asset/:token', async (req, res, next) => {
                 TokenManager.delete(req.params.token);
 
                 res.setHeader('content-type', token.data.type);
-                res.end(await rewriter.auto(fs.readFileSync(token.data.asset), token.data.type));
+                res.end(await rewriter.auto(fs.readFileSync(token.data.asset), token.data.type, token.data.asset.replace(path.join(__dirname, '../static'), '')));
             } else next();
         } else next();
     }
@@ -73,21 +73,27 @@ app.get('/uv/service*', async (req, res) => {
 });
 
 app.use(async (req, res, next) => {
-    const {
-        exists,
-        path: filePath
-    } = pathToFile(req.path, path.join(__dirname, '../static'));
+    if (req.path === '/index') res.redirect('/');
+    else {
+        const {
+            exists,
+            path: filePath
+        } = pathToFile(req.path, path.join(__dirname, '../static'));
 
-    if (exists) {
-        res.setHeader('content-type', mime.getType(filePath));
+        if (exists) {
+            if (req.path.endsWith('.html')) res.redirect(req.path.slice(0, -5));
+            else {
+                res.setHeader('content-type', mime.getType(filePath));
 
-        if (mime.getType(filePath) === 'text/html') res.end(await rewriter.html(fs.readFileSync(filePath)));
-        else if (mime.getType(filePath) === 'text/javascript') res.end(await rewriter.javascript(fs.readFileSync(filePath)));
-        else if (mime.getType(filePath) === 'text/css') res.end(await rewriter.css(fs.readFileSync(filePath)));
-        else res.sendFile(filePath);
-    } else {
-        res.setHeader('content-type', 'text/html');
-        res.status(404).end(await rewriter.html(fs.readFileSync(path.join(__dirname, '../pages/404.html'))));
+                if (mime.getType(filePath) === 'text/html') res.end(await rewriter.html(fs.readFileSync(filePath), req.path));
+                else if (mime.getType(filePath) === 'text/javascript') res.end(await rewriter.javascript(fs.readFileSync(filePath), req.path));
+                else if (mime.getType(filePath) === 'text/css') res.end(await rewriter.css(fs.readFileSync(filePath), req.path));
+                else res.sendFile(filePath);
+            }
+        } else {
+            res.setHeader('content-type', 'text/html');
+            res.status(404).end(await rewriter.html(fs.readFileSync(path.join(__dirname, '../pages/404.html'))));
+        }
     }
 });
 

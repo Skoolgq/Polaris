@@ -1,5 +1,5 @@
-import PolarisError from '/assets/js/error.js';
-import Theme from '/assets/js/themes.js';
+import PolarisError from './error.js';
+import Theme from './themes.js';
 
 const isScrollable = (element) => element.scrollWidth > element.clientWidth || element.scrollHeight > element.clientHeight;
 
@@ -205,4 +205,4 @@ const load = () => {
     new Settings();
 };
 
-export { load, Settings };
+export default { load, Settings };
