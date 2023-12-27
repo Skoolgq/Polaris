@@ -20,6 +20,8 @@
     padding: 1.5em;
     padding-bottom: 1em;
     text-align: center;
+    backdrop-filter: blur(7.1px);
+    -webkit-backdrop-filter: blur(7.1px);
 }
 
 .navbar.scrolling {
