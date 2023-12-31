@@ -25,32 +25,26 @@
 
     <h1 style="font-size: 4vh;" class="gamesectionheader">All Games</h1>
 
-    <input type="text" id="searchInput" class="settings-input" placeholder="Search Games...">
+    <input type="text" id="searchInput" placeholder="Search Games...">
+    <!--el:ad_horizontal-->
+    <!--el:ad_horizontal-->
+    
+    <br>
+    <br>
 
     <div class="games">
     </div>
 
-    <!--el:footer-->
+    <div class="searchErr hidden">
+      <h1>¯\(°_o)/¯</h1>
+      <br>
+      <p>Oops, we couldn't find the game you were looking for.</p>
+  </div>
 
     <script src="/assets/js/main.js" type="module"></script>
 
     <!--el:{{mode === 'dev'}}:development-->
 
-    <script>
-      window['nitroAds'].createAd('anchorad', {
-        "refreshTime": 30,
-        "format": "anchor",
-        "anchor": "bottom",
-        "anchorPersistClose": false,
-        "report": {
-          "enabled": true,
-          "icon": true,
-          "wording": "Report Ad",
-          "position": "top-right"
-        },
-        "mediaQuery": "(min-width: 1025px)"
-      });
-    </script>
 </body>
 
 </html>

@@ -46,7 +46,7 @@ const html = (data) => {
 
         const templates = await templateParser(data);
 
-        templates.forEach(template => htmlData = htmlData.replace(`<!--el:${template.name}-->`, template.file));
+        for (let i = 0; i < templates.length; i++) htmlData = htmlData.replace(`<!--el:${templates[i].name}-->`, templates[i].file)
 
         const dom = new JSDOM(htmlData);
 
@@ -79,6 +79,22 @@ const html = (data) => {
             }
         }
 
+        for (let i = 0; i < dom.window.document.documentElement.querySelectorAll('a').length; i++) {
+            const link = dom.window.document.documentElement.querySelectorAll('a')[i];
+
+            if (URL.canParse(link.href)) {
+                if (new URL(link.href).protocol === 'https:') link.href = `/view?load=${Buffer.from(JSON.stringify({
+                    target: link.href,
+                    redirect: true,
+                    trusted: true
+                })).toString('base64')}`;
+                else if (new URL(link.href).protocol === 'http:') link.href = `/view?load=${Buffer.from(JSON.stringify({
+                    target: link.href,
+                    redirect: true
+                })).toString('base64')}`;
+            }
+        }
+
         if (config.minify) resolve(minifyHTML(dom.serialize(), {
             minifyJS: true,
             minifyCSS: true,
@@ -94,6 +110,8 @@ const html = (data) => {
 
 const javascript = (data, filePath) => {
     return new Promise((resolve, reject) => {
+        filePath = filePath.replaceAll('\\', '/');
+
         const imports = String(data).split('import ')
             .map(data => data.split('from ')[1])
             .filter(data => Boolean(data))
@@ -104,16 +122,16 @@ const javascript = (data, filePath) => {
                 .replaceAll(';', ''))
             .map(data => {
                 if (data.startsWith('./')) return {
-                    originalFile: data,
-                    newFile: path.join(filePath.split('/').slice(0, -1).join('/'), data)
+                    originalFile: data.replaceAll('\r', ''),
+                    newFile: path.join(filePath.split('/').slice(0, -1).join('/'), data).replaceAll('\r', '')
                 };
                 else if (data.startsWith('../')) return {
-                    originalFile: data,
-                    newFile: path.join(filePath.split('/').slice(0, -1).join('/'), data)
+                    originalFile: data.replaceAll('\r', ''),
+                    newFile: path.join(filePath.split('/').slice(0, -1).join('/'), data).replaceAll('\r', '')
                 };
                 else return {
-                    originalFile: data,
-                    newFile: data
+                    originalFile: data.replaceAll('\r', ''),
+                    newFile: data.replaceAll('\r', '')
                 };
             })
             .filter(data => fs.existsSync(path.join(__dirname, '../static', data.newFile)));
@@ -141,6 +159,8 @@ const javascript = (data, filePath) => {
 
 const css = (data, filePath) => {
     return new Promise((resolve, reject) => {
+        filePath = filePath.replaceAll('\\', '/');
+
         const imports = String(data).split('url(')
             .map(data => {
                 if (data.split('\n')[0].split(' ')[0].replace(';', '').trim().endsWith(')')) return data.split('\n')[0]
@@ -151,7 +171,7 @@ const css = (data, filePath) => {
                     .replaceAll('\'', '')
                     .replaceAll('`', '')
                     .replaceAll('"', '');
-                else return undefined;
+                else return null;
             })
             .filter(data => {
                 if (data) try {
@@ -163,8 +183,6 @@ const css = (data, filePath) => {
                 } else return false;
             })
             .map(data => {
-               // console.log(path.join(filePath.split('/').slice(0, -1).join('/')));
-
                 if (data.startsWith('./')) return {
                     originalFile: data,
                     newFile: path.join(filePath.split('/').slice(0, -1).join('/'), data)
@@ -186,7 +204,7 @@ const css = (data, filePath) => {
             asset: path.join(__dirname, '../static', imports[i].newFile),
             type: mime.getType(path.join(__dirname, '../static', imports[i].newFile))
         }).token);
-        
+
         if (config.minify) resolve(css.replace(/(\r\n|\n|\r)/gm, '').replaceAll('    ', ' '));
         else resolve(css);
     });

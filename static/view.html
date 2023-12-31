@@ -12,17 +12,30 @@
     <title>View | Polaris</title>
 </head>
 
-<body>
-    <!--//el:sidebar-->
-    
+<body class="hidden">
+    <iframe frameborder="0"></iframe>
+
     <div class="gamebar">
         <a href="/">
             <img src="/assets/img/logo.png" class="logo">
         </a>
 
-        <h1 class="title">Game</h1>
+        <h1 class="title">Loading...</h1>
+
+        <div class="right">
+            <span class="item" id="return">
+                <i class="fa-solid fa-chevron-left"></i>
+            </span>
+
+            <span class="item" id="fullscreen">
+                <i class="fa-regular fa-expand"></i>
+            </span>
+        </div>
     </div>
 
+    <div class="hitbox"></div>
+
+    <script src="/assets/js/view.js" type="module"></script>
     <script src="/assets/js/main.js" type="module"></script>
 
     <!--el:{{mode === 'dev'}}:development-->

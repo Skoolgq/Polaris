@@ -1,7 +1,7 @@
 {
     "name": "polaris",
     "version": "1.0.0",
-    "description": "The future of school gaming",
+    "description": "The professional unblocked games site.",
     "main": "index.js",
     "type": "module",
     "scripts": {
@@ -9,7 +9,7 @@
         "prod": "node server prod",
         "dev": "node server dev"
     },
-    "author": "Polaris Developments",
+    "author": "Polaris Development Group",
     "license": "GNU-3.0-or-later",
     "dependencies": {
         "@tomphttp/bare-server-node": "*",
@@ -21,8 +21,5 @@
         "jsdom": "^23.0.1",
         "mime": "*",
         "uuid": "^9.0.1"
-    },
-    "devDependencies": {
-        "nodemon": "^3.0.1"
     }
 }

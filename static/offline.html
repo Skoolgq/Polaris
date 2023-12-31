@@ -1,0 +1,50 @@
+<!--WIP-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--el:meta-->
+    <!--el:adtop-->
+    <!--el:analytics-->
+
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <title>Offline | Polaris</title>
+</head>
+
+<body>
+    <!--el:sidebar-->
+
+    <div class="container centered">
+        <h1 style="font-size: 50px;">Offline</h1>
+
+        <p>Looks you're offline. Connect to the internet to access polaris.</p>
+    </div>
+
+    <script>
+        try { document.body.dataset.theme = JSON.parse(localStorage.getItem('settings')).theme || 'system-default'; }
+        catch {
+            document.body.dataset.theme = 'system-default';
+            sessionStorage.setItem('settings', JSON.stringify({
+                theme: 'system-default'
+            }));
+        }
+
+        sessionStorage.setItem('wasoffline', !window.navigator.onLine);
+
+        if (sessionStorage.getItem('wasoffline') === 'true') {
+            sessionStorage.setItem('wasoffline', false);
+
+            window.location.replace('/');
+        } else (async () => {
+            document.documentElement.innerHTML = await (await fetch('/404')).text();
+        })();
+
+        window.addEventListener('online', () => window.location.replace('/'));
+    </script>
+
+    <!--el:{{mode === 'dev'}}:development-->
+</body>
+
+</html>

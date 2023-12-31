@@ -2,26 +2,31 @@
     {
         "name": "Discord",
         "image": "/assets/img/discord.png",
-        "source": "/service/hvtrs8%2F-dksaopd%2Ccmm-lmgkn"
+        "target": "https://discord.com/app",
+        "proxy": true
     },
     {
         "name": "Emulator",
-        "image": "https://cdn-icons-png.flaticon.com/512/9889/9889883.png",
-        "source": "/service/hvtrs8%2F-dgmm.gmwlctmrhs%2Copg-"
+        "image": "https://emulatorjs.org/media/logo-light.png",
+        "target": "https://demo.emulatorjs.org/",
+        "proxy": true
     },
     {
         "name": "Tiktok",
         "image": "/assets/img/tiktok.png",
-        "source": "/service/hvtrs8%2F-wuw%2Ctkkvoi.aoo%2Fgn-"
+        "target": "https://www.tiktok.com/en/",
+        "proxy": true
     },
     {
         "name": "Twitch",
         "image": "/assets/img/twitch.png",
-        "source": "/service/hvtrs8%2F-wuw%2Ctuivcj.vv-"
+        "target": "https://www.twitch.tv/",
+        "proxy": true
     },
     {
         "name": "Youtube",
         "image": "/assets/img/youtube.png",
-        "source": "/service/hvtrs8%2F-wuw%2Cymuvu%60e%2Ccmm-"
+        "target": "https://youtube.com",
+        "proxy": true
     }
 ]

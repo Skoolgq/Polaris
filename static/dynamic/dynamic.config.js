@@ -1,5 +1,3 @@
-// See documentation for more information 
-
 self.__dynamic$config = {
   prefix: '/service/',
   encoding: 'xor',

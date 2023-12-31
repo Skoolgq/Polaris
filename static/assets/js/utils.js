@@ -12,13 +12,13 @@ const storage = (containerName) => {
         get: (name) => {
             if (!localStorage.getItem(containerName)) localStorage.setItem(containerName, JSON.stringify({}));
             else {
-              try {
-                JSON.parse(localStorage.getItem(containerName));
-              } catch (e) {
-                localStorage.setItem(containerName, JSON.stringify({}));
-              }
+                try {
+                    JSON.parse(localStorage.getItem(containerName));
+                } catch (e) {
+                    localStorage.setItem(containerName, JSON.stringify({}));
+                }
             }
-          
+
             const container = JSON.parse(localStorage.getItem(containerName));
             return container[name];
         },
@@ -54,6 +54,35 @@ const loadProxyWorker = async (proxy) => await navigator.serviceWorker.register(
 });
 
 /**
+Broken
+
+ * Get the current encoding method
+ * @param {'uv' | 'dynamic'} proxy 
+ * @returns {Promise.<string>}
+const getEncodingMethod = (proxy) => {
+    return new Promise(async (resolve, reject) => {
+        const config = await(await fetch(`/${proxy}/${proxy}.config.js`)).text();
+
+        const Ultraviolet = {
+            codec: {
+                xor: {},
+                base64: {},
+                plain: {}
+            }
+        };
+
+        eval(config);
+
+        const encodingConfig = String(self[`_${proxy}$config`][proxy === 'uv' ? 'encodeUrl' : (proxy === 'dynamic' ? 'encoding' : '')]);
+        
+        if (proxy === 'uv') resolve(encodingConfig.replace('Ultraviolet.codec.', '').replace('.encode', ''));
+        else if (proxy === 'dynamic') resolve(encodingConfig);
+    });
+}*/
+
+/**
+ * WIP
+ * 
  * Load the page javascript
  */
 const loadPageScript = () => {
@@ -62,11 +91,51 @@ const loadPageScript = () => {
     }
 };
 
+const encoder = {
+    b64: {
+        encode: (data) => btoa(data),
+        decode: (data) => atob(data)
+    },
+    xor: {
+        encode: (data, key = 2) => encodeURIComponent(data.split('').map((e, i) => i % key ? String.fromCharCode(e.charCodeAt(0) ^ key) : e).join('')),
+        decode: (data, key = 2) => decodeURIComponent(data).split('').map((e, i) => i % key ? String.fromCharCode(e.charCodeAt(0) ^ key) : e).join('')
+    }
+};
+
+/**
+ * Redirect to an external url
+ * @param {string} target 
+ * @param {{ trusted: boolean }} options 
+ */
+const redirect = (target, options) => location.href = `/view?load=${btoa(JSON.stringify({
+    target,
+    redirect: true,
+    trusted: options.trusted
+}))}`;
+
+/**
+ * Load a url into the view page
+ * @param {{ target: string, title: string, return: string, proxied: boolean }} options 
+ */
+const createViewPage = (options) => location.href = `/view?load=${btoa(JSON.stringify({
+    return: options.return || location.href,
+    proxied: options.proxied,
+    target: options.target,
+    title: options.title
+}))}`;
+
 export default {
     storage,
-    loadProxyWorker
+    loadProxyWorker,
+    encoder,
+    redirect,
+    createViewPage
 };
+
 export {
     storage,
-    loadProxyWorker
+    loadProxyWorker,
+    encoder,
+    redirect,
+    createViewPage
 };
