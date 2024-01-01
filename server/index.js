@@ -81,8 +81,8 @@ app.get('/asset/:token', async (req, res, next) => {
 app.get('/uv/service/*', async (req, res) => res.end(await rewriter.html(fs.readFileSync(path.join(__dirname, '../pages/uv_404.html')))));
 
 app.use(async (req, res, next) => {
-    //if (req.path === '/index') res.redirect('/');
-    //else {
+    if (req.path === '/index') res.redirect('/');
+    else {
         const {
             exists,
             path: filePath
@@ -102,7 +102,7 @@ app.use(async (req, res, next) => {
             res.setHeader('content-type', 'text/html');
             res.status(404).end(await rewriter.html(fs.readFileSync(path.join(__dirname, '../pages/404.html'))));
         }
-    //}
+    }
 });
 
 server.on('request', (req, res) => {

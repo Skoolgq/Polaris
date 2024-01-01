@@ -5,8 +5,10 @@ import configTemplate from './polaris.config.template.js';
  */
 export default {
     port: 8080,
-    mode: 'dev',
+    mode: 'prod',
+    //Messes up uv
     minify: false,
+    //Beta
     assetScrambling: false,
     allowDangerousTemplateInsert: true
 };
