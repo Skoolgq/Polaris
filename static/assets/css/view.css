@@ -1,0 +1,87 @@
+@import url('/assets/css/themes.css');
+
+.gamebar {
+    background: var(--background-darker);
+    z-index: 9;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 40px;
+    margin-left: 20vw;
+    margin-right: 20vw;
+    border-radius: 2vh;
+    padding: 10px;
+    display: flex;
+    box-shadow: 0vh 0.75vh 1.5vh 0vh var(--shadow-color);
+    backdrop-filter: blur(7.1px);
+    -webkit-backdrop-filter: blur(7.1px);
+}
+
+.gamebar.collapsed {
+    margin-bottom: calc(-6vh + calc(-40px / 2));
+    padding-top: 20px;
+}
+
+.gamebar .logo {
+    width: 6vh;
+    border-radius: 1.5vh;
+    display: inline-flex;
+}
+
+.gamebar .title {
+    position: absolute;
+    text-align: center;
+    font-size: 40px;
+    width: calc(100% - 20px);
+    margin-top: calc(calc(calc(6vh - 10px) - 40px) / 2);
+}
+
+.gamebar .right {
+    position: absolute;
+    margin-top: calc(calc(calc(6vh - 10px) - 40px) / 2);
+    right: 10px;
+}
+
+.gamebar .item {
+    background: var(--shadow-color);
+    cursor: pointer;
+    box-shadow: 0vh 0.75vh 1.5vh 0vh var(--shadow-color);
+    font-size: 35px;
+    border-radius: 1vh;
+    padding: 5px;
+}
+
+.gamebar .item:not(:last-of-type) {
+    margin-right: 10px;
+}
+
+.hitbox {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-left: 20vw;
+    margin-right: 20vw;
+    border-top-right-radius: 2vh;
+    border-top-left-radius: 2vh;
+    height: calc(6vh + 40px);
+}
+
+.hitbox.active {
+    display: block;
+}
+
+iframe {
+    position: absolute;
+    width: calc(100vw - 50px);
+    height: calc(100vh - 50px);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    border-radius: 2.5vh;
+    box-shadow: 0vh 0.75vh 1.5vh 0vh var(--shadow-color);
+}
