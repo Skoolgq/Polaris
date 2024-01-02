@@ -6,7 +6,7 @@ class Theme {
   constructor() {
     this.theme = settingsStorage.get('theme');
     
-    if (theme === 'system default') this.set('system-default');
+    if (this.theme === 'system default') this.set('system-default');
     
     if (this.theme) this.set(this.theme);
     else this.set('indigo');
