@@ -5,7 +5,9 @@ const settingsStorage = storage('settings');
 class Theme {
   constructor() {
     this.theme = settingsStorage.get('theme');
-
+    
+    if (theme === 'system default') this.set('system-default');
+    
     if (this.theme) this.set(this.theme);
     else this.set('indigo');
   }
@@ -18,7 +20,7 @@ class Theme {
   set = (theme, save) => {
     document.body.setAttribute('data-theme', theme);
     this.theme = theme;
-
+  
     if (save !== false) settingsStorage.set('theme', theme);
   };
 
