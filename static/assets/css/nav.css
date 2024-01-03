@@ -28,8 +28,8 @@
 .navbar.scrolling {
     background-color: rgba(21, 22, 39, 0.6);
     color: black;
-    backdrop-filter: blur(7.1px);
-    -webkit-backdrop-filter: blur(7.1px);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 .navbar>.title {
