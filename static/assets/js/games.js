@@ -3,7 +3,7 @@ import PolarisError from './error.js';
 import effects from './effects.js';
 
 const load = () => {
-    fetch('/assets/JSON/games.json')
+    fetch('/api/games')
         .then(res => res.json())
         .then(games => {
             const searchBar = document.querySelector('#searchInput');
@@ -31,7 +31,38 @@ const load = () => {
                 }
             });
 
-            games.forEach(game => {
+            games.popular.forEach(game => {
+                const popularEl = document.createElement('div');
+                popularEl.classList = 'game';
+                popularEl.innerHTML = `<img loading='lazy' src='${game.image}'><h3>${game.name}</h3>`;
+                document.querySelector('.popular-games').appendChild(popularEl);
+
+                popularEl.addEventListener('click', async () => {
+                    document.body.style.opacity = '0.7';
+
+                    setTimeout(() => {
+                        if (isValidURL(game.target)) createViewPage({
+                            target: game.target,
+                            title: game.name,
+                            proxied: true
+                        });
+                        else createViewPage({
+                            target: game.target,
+                            title: game.name
+                        });
+                    }, 500);
+                });
+
+                effects.hoverTilt({
+                    max: 8,
+                    perspective: 1000,
+                    scale: 1.05,
+                    speed: 800,
+                    easing: 'cubic-bezier(.03,.98,.52,.99)'
+                }, popularEl);
+            });
+
+            games.all.forEach(game => {
                 const el = document.createElement('div');
                 el.classList = 'game';
                 el.innerHTML = `<img loading="lazy" src="${game.image}"><h3>${game.name}</h3>`;
@@ -44,37 +75,6 @@ const load = () => {
                     speed: 800,
                     easing: 'cubic-bezier(.03,.98,.52,.99)'
                 }, el);
-
-                if (game.popular) {
-                    const popularEl = document.createElement('div');
-                    popularEl.classList = 'game';
-                    popularEl.innerHTML = `<img loading='lazy' src='${game.image}'><h3>${game.name}</h3>`;
-                    document.querySelector('.popular-games').appendChild(popularEl);
-
-                    popularEl.addEventListener('click', async () => {
-                        document.body.style.opacity = '0.7';
-
-                        setTimeout(() => {
-                            if (isValidURL(game.target)) createViewPage({
-                                target: game.target,
-                                title: game.name,
-                                proxied: true
-                            });
-                            else createViewPage({
-                                target: game.target,
-                                title: game.name
-                            });
-                        }, 500);
-                    });
-
-                    effects.hoverTilt({
-                        max: 8,
-                        perspective: 1000,
-                        scale: 1.05,
-                        speed: 800,
-                        easing: 'cubic-bezier(.03,.98,.52,.99)'
-                    }, popularEl);
-                }
 
                 el.addEventListener('click', async () => {
                     document.body.style.opacity = '0.7';

@@ -2,7 +2,7 @@ import { createViewPage, isValidURL } from './utils.js';
 import PolarisError from './error.js';
 import effects from './effects.js';
 
-const load = () => fetch('/assets/JSON/cheats.json')
+const load = () => fetch('/api/cheats')
     .then(res => res.json())
     .then(cheats => cheats.forEach(cheat => {
         const el = document.createElement('div');

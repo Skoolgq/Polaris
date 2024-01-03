@@ -10,7 +10,8 @@ body[data-theme='dark'] {
     --scrollbar-color: #ffffff59;
     --solid: #1b2735;
     --hover: #757575;
-    background: radial-gradient(at center bottom, rgb(27, 39, 53) 0%, rgb(9, 10, 15) 100%);;
+    background: radial-gradient(at center bottom, rgb(27, 39, 53) 0%, rgb(9, 10, 15) 100%);
+    ;
     background-repeat: no-repeat;
 }
 
@@ -214,6 +215,26 @@ body[data-theme='violet'] {
 
 @media screen and (prefers-color-scheme: light) {
     body[data-theme='light'] {
+        --background-color: #fff;
+        --background-darker: var(--background-color);
+        --text: #000;
+        --hover: #757575;
+        --sidebar-bg: #ffffffee;
+        --button-bg: #ecececee;
+        --shadow-color: #c9c9c9;
+        --switch-color: #111111b0;
+        --switch-active: #2196F3;
+        --scrollbar-color: #4242424b;
+        --solid: #ffffffee;
+        --hover: #757575;
+
+        background: radial-gradient(ellipse at bottom, #b1b1b1 0%, #f6f5f0 100%);
+        background-repeat: no-repeat;
+    }
+}
+
+@media screen and (prefers-color-scheme: dark) {
+    body[data-theme='system-default'] {
         --background-color: rgba(0, 0, 0, 0.8);
         --background-darker: rgba(0, 0, 0, 0.9);
         --text: #fff;
@@ -225,25 +246,8 @@ body[data-theme='violet'] {
         --scrollbar-color: #ffffff59;
         --solid: #1b2735;
         --hover: #757575;
-        background: radial-gradient(at center bottom, rgb(27, 39, 53) 0%, rgb(9, 10, 15) 100%);;
-        background-repeat: no-repeat;
-    }
-}
-
-@media screen and (prefers-color-scheme: dark) {
-    body[data-theme='system-default'] {
-        --background-color: rgba(0, 0, 0, 0.8);
-        --background-darker: rgba(0, 0, 0, 0.9);
-        --text: #fff;
-        --sidebar-bg: #161f2eef;
-        --button-bg: #42424259;
-        --shadow-color: #000;
-        --switch-color: #42424259;
-        --switch-active: #2196F3;
-        --scrollbar-color: #ffffff59;
-        --solid: #1b2735;
-        --hover: #757575;
-        background: radial-gradient(at center bottom, rgb(27, 39, 53) 0%, rgb(9, 10, 15) 100%);;
+        background: radial-gradient(at center bottom, rgb(27, 39, 53) 0%, rgb(9, 10, 15) 100%);
+        ;
         background-repeat: no-repeat;
     }
 }

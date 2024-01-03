@@ -312,7 +312,7 @@
   },
   {
     "name": "Minecraft",
-    "target": "https://raw.githack.com/Skoolgq/eagler/main/index.html",
+    "target": "/cdn/3kh0/minecraft-15/index.html",
     "image": "/assets/img/mc.jpeg",
     "popular": true
   },

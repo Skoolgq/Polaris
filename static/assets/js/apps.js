@@ -2,7 +2,7 @@ import { createViewPage, isValidURL } from './utils.js';
 import PolarisError from './error.js';
 import effects from './effects.js';
 
-const load = () => fetch('/assets/JSON/apps.json').then(res => res.json()).then(apps => {
+const load = () => fetch('/api/apps').then(res => res.json()).then(apps => {
     apps.forEach(app => {
         const el = document.createElement('div');
         el.classList = 'app';
