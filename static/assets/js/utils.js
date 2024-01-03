@@ -133,6 +133,7 @@ const isValidURL = (url) => /^(http(s)?:\/\/)?([\w-]+\.)+[\w]{2,}(\/.*)?$/.test(
 
 const getVH = (value) => (value * Math.max(document.documentElement.clientHeight, window.innerHeight || 0)) / 100;
 const getVW = (value) => (value * Math.max(document.documentElement.clientWidth, window.innerWidth || 0)) / 100;
+const isScrollable = (element) => element.scrollWidth > element.clientWidth || element.scrollHeight > element.clientHeight;
 
 export default {
     storage,
@@ -142,7 +143,8 @@ export default {
     createViewPage,
     isValidURL,
     getVH,
-    getVW
+    getVW,
+    isScrollable
 };
 
 export {
@@ -153,5 +155,6 @@ export {
     createViewPage,
     isValidURL,
     getVH,
-    getVW
+    getVW,
+    isScrollable
 };

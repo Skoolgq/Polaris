@@ -1,80 +1,87 @@
+import { isScrollable, storage } from './utils.js';
 import PolarisError from './error.js';
 import Theme from './themes.js';
 
-const isScrollable = (element) => element.scrollWidth > element.clientWidth || element.scrollHeight > element.clientHeight;
+const settingsStorage = storage('settings');
 
 class Settings {
     constructor() {
-        if (this.get('panic_key')) document.querySelector('#panic_key').value = this.get('panic_key');
-        if (this.get('panic_url')) document.querySelector('#panic_url').value = this.get('panic_url');
+        if (settingsStorage.get('panic_key')) document.querySelector('#panic_key').value = settingsStorage.get('panic_key');
+        if (settingsStorage.get('panic_url')) document.querySelector('#panic_url').value = settingsStorage.get('panic_url');
 
-        if (this.get('cloak')) {
-            document.querySelector('#cloak_select').value = this.get('cloak');
+        if (settingsStorage.get('cloak')) {
+            document.querySelector('#cloak_select').value = settingsStorage.get('cloak');
 
-            if (this.get('cloak') == 'custom') {
+            if (settingsStorage.get('cloak') == 'custom') {
                 document.querySelector('#custom_cloak').classList.remove('hidden');
 
                 document.querySelector('#title').addEventListener('input', () => {
                     if (document.querySelector('#title').value) {
-                        this.set('cloak_title', document.querySelector('#title').value);
+                        settingsStorage.set('cloak_title', document.querySelector('#title').value);
+                        document.querySelector('title').dataset.value = document.title;
                         document.title = document.querySelector('#title').value;
-                    } else document.title = 'Polaris';
+                    } else document.title = document.querySelector('title').dataset.value;
                 });
 
                 document.querySelector('#domain').addEventListener('input', () => {
                     if (document.querySelector('#domain').value) {
-                        this.set('cloak_website', document.querySelector('#domain').value);
-                        document.querySelector('link[rel=\'shortcut icon\']').href = 'https://www.google.com/s2/favicons?domain=' + document.querySelector('#domain').value;
+                        settingsStorage.set('cloak_website', document.querySelector('#domain').value);
+                        document.querySelector('link[rel=\'shortcut icon\']').href = '/api/favicon?domain=' + document.querySelector('#domain').value;
                     } else document.querySelector('link[rel=\'shortcut icon\']').href = '/favicon.ico';
                 });
 
-                if (this.get('cloak_title')) {
-                    document.querySelector('#title').value = this.get('cloak_title');
-                    document.title = this.get('cloak_title');
+                if (settingsStorage.get('cloak_title')) {
+                    document.querySelector('#title').value = settingsStorage.get('cloak_title');
+                    document.querySelector('title').dataset.value = document.title;
+                    document.title = settingsStorage.get('cloak_title');
                 }
 
-                if (this.get('cloak_website')) {
-                    document.querySelector('#domain').value = this.get('cloak_website');
-                    document.querySelector('link[rel=\'shortcut icon\']').href = 'https://www.google.com/s2/favicons?domain=' + this.get('cloak_website');
+                if (settingsStorage.get('cloak_website')) {
+                    document.querySelector('#domain').value = settingsStorage.get('cloak_website');
+                    document.querySelector('link[rel=\'shortcut icon\']').href = '/api/favicon?domain=' + settingsStorage.get('cloak_website');
                 }
-            } else fetch('/assets/JSON/cloaks.json').then(res => res.json()).then(cloaks => {
-                if (cloaks[this.get('cloak')]) {
-                    document.title = cloaks[this.get('cloak')].title;
-                    document.querySelector('link[rel=\'shortcut icon\']').href = cloaks[this.get('cloak')].icon;
-                } else if (this.get('cloak') !== 'none') new PolarisError(`The cloak ${this.get('cloak')} does not exist`);
-            });
+            } else fetch('/assets/JSON/cloaks.json')
+                .then(res => res.json())
+                .then(cloaks => {
+                    if (cloaks[settingsStorage.get('cloak')]) {
+                        document.title = cloaks[settingsStorage.get('cloak')].title;
+                        document.querySelector('link[rel=\'shortcut icon\']').href = cloaks[settingsStorage.get('cloak')].icon;
+                    } else if (settingsStorage.get('cloak') !== 'none') new PolarisError(`The cloak ${settingsStorage.get('cloak')} does not exist`);
+                });
         }
 
         fetch('/assets/JSON/cloaks.json').then(res => res.json()).then(cloaks => {
             document.querySelector('#cloak_select').addEventListener('change', () => {
                 if (document.querySelector('#cloak_select').value == 'custom') {
-                    this.set('cloak', document.querySelector('#cloak_select').value);
+                    settingsStorage.set('cloak', document.querySelector('#cloak_select').value);
                     document.querySelector('#custom_cloak').classList.remove('hidden');
 
                     document.querySelector('#title').addEventListener('input', () => {
                         if (document.querySelector('#title').value) {
-                            this.set('cloak_title', document.querySelector('#title').value);
+                            settingsStorage.set('cloak_title', document.querySelector('#title').value);
+                            document.querySelector('title').dataset.value = document.title;
                             document.title = document.querySelector('#title').value;
-                        } else document.title = 'Polaris';
+                        } else document.title = document.querySelector('title').dataset.value;
                     });
 
                     document.querySelector('#domain').addEventListener('input', () => {
                         if (document.querySelector('#domain').value) {
-                            this.set('cloak_website', document.querySelector('#domain').value);
-                            document.querySelector('link[rel=\'shortcut icon\']').href = 'https://www.google.com/s2/favicons?domain=' + document.querySelector('#domain').value;
+                            settingsStorage.set('cloak_website', document.querySelector('#domain').value);
+                            document.querySelector('link[rel=\'shortcut icon\']').href = '/api/favicon?domain=' + document.querySelector('#domain').value;
                         } else document.querySelector('link[rel=\'shortcut icon\']').href = '/favicon.ico';
                     });
                 } else if (document.querySelector('#cloak_select').value == 'none') {
-                    this.set('cloak', document.querySelector('#cloak_select').value);
+                    settingsStorage.set('cloak', document.querySelector('#cloak_select').value);
 
-                    document.title = 'Polaris';
+                    document.title = document.querySelector('title').dataset.value;
                     document.querySelector('link[rel=\'shortcut icon\']').href = '/favicon.ico';
                     document.querySelector('#custom_cloak').classList.add('hidden');
                 } else {
                     if (cloaks[document.querySelector('#cloak_select').value]) {
+                        document.querySelector('title').dataset.value = document.title;
                         document.title = cloaks[document.querySelector('#cloak_select').value].title;
                         document.querySelector('link[rel=\'shortcut icon\']').href = cloaks[document.querySelector('#cloak_select').value].icon;
-                        this.set('cloak', document.querySelector('#cloak_select').value);
+                        settingsStorage.set('cloak', document.querySelector('#cloak_select').value);
                     } else new PolarisError(`The cloak ${document.querySelector('#cloak_select').value} does not exist`);
 
                     document.querySelector('#custom_cloak').classList.add('hidden');
@@ -83,21 +90,21 @@ class Settings {
         });
 
         document.querySelector('#reset_panic').addEventListener('click', (e) => {
-            this.set('panic_key', '');
+            settingsStorage.set('panic_key', '');
             document.querySelector('#panic_key').value = 'No Key Selected';
         });
 
         document.querySelector('#panic_url').addEventListener('input', (e) => {
-            this.set('panic_url', document.querySelector('#panic_url').value);
+            settingsStorage.set('panic_url', document.querySelector('#panic_url').value);
         });
 
         window.onkeydown = (e) => {
             if (document.querySelector('#panic_key') == document.activeElement) {
                 document.querySelector('#panic_key').value = e.key;
-                this.set('panic_key', document.querySelector('#panic_key').value);
+                settingsStorage.set('panic_key', document.querySelector('#panic_key').value);
             } else {
-                if (e.key === this.get('panic_key')) {
-                    if (this.get('panic_url')) window.location.href = this.get('panic_url');
+                if (e.key === settingsStorage.get('panic_key')) {
+                    if (settingsStorage.get('panic_url')) window.location.href = settingsStorage.get('panic_url');
                     else new PolarisError('A panic key was used but no url was found.');
                 }
             }
@@ -155,50 +162,6 @@ class Settings {
             else document.querySelector('.scroll').classList.add('active');
         });
     };
-
-    set = (name, value) => {
-        if (!localStorage.getItem('settings')) localStorage.setItem('settings', JSON.stringify({}));
-        else {
-            try {
-                JSON.parse(localStorage.getItem('settings'));
-            } catch (e) {
-                localStorage.setItem('settings', JSON.stringify({}));
-            }
-        }
-
-        const settings = JSON.parse(localStorage.getItem('settings'));
-        settings[name] = value;
-        localStorage.setItem('settings', JSON.stringify(settings));
-    };
-
-    get = (name) => {
-        if (!localStorage.getItem('settings')) localStorage.setItem('settings', JSON.stringify({}));
-        else {
-            try {
-                JSON.parse(localStorage.getItem('settings'));
-            } catch (e) {
-                localStorage.setItem('settings', JSON.stringify({}));
-            }
-        }
-
-        const settings = JSON.parse(localStorage.getItem('settings'));
-        return settings[name];
-    }
-
-    remove = (name) => {
-        if (!localStorage.getItem('settings')) localStorage.setItem('settings', JSON.stringify({}));
-        else {
-            try {
-                JSON.parse(localStorage.getItem('settings'));
-            } catch (e) {
-                localStorage.setItem('settings', JSON.stringify({}));
-            }
-        }
-
-        const settings = JSON.parse(localStorage.getItem('settings'));
-        delete settings[name];
-        localStorage.setItem('settings', JSON.stringify(settings));
-    }
 }
 
 const load = () => {

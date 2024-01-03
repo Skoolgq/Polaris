@@ -23,6 +23,14 @@ const swPaths = [
     '/assets/js/offline.js'
 ];
 
+app.get('/api/favicon', async (req, res) => {
+    const request = await fetch(`https://www.google.com/s2/favicons?domain=${req.query.domain}`);
+    const imageBuffer = Buffer.from(await request.arrayBuffer());
+
+    res.setHeader('content-type', request.headers.get('content-type'));
+    res.end(imageBuffer);
+});
+
 app.get('/api/games', (req, res) => {
     /**
      * @type {Array.<{name: string, target: string, image: string, popular: boolean}>}
@@ -304,4 +312,4 @@ server.on('upgrade', (req, socket, head) => {
     else socket.end();
 });
 
-server.listen(port, () => console.log(`Polaris running\n\nPort: ${server.address().port}\nMode: ${mode}\nNode.js: ${process.version}`));
+server.listen(port, () => console.log(`Polaris running\n\nPort: ${server.address().port}\nMode: ${mode === 'dev' ? 'development' : 'production'}\nNode.js: ${process.version}`));
