@@ -16,31 +16,31 @@ if (params.get('load')) {
             if (parsedData.proxied) {
                 await loadProxyWorker('uv');
 
-                document.querySelector('#frame').src = '/uv/service/' + encoder['xor'].encode(parsedData.target);
-            } else document.querySelector('#frame').src = parsedData.target;
+                document.querySelector('#loadframe').src = '/uv/service/' + encoder['xor'].encode(parsedData.target);
+            } else document.querySelector('#loadframe').src = parsedData.target;
 
-            document.querySelector('#frame').addEventListener('load', () => {
+            document.querySelector('#loadframe').addEventListener('load', () => {
                 document.querySelector('.title').textContent = parsedData.title;
 
-                document.querySelector('#frame').style.transition = 'none';
-                document.querySelector('#frame').style.background = '#fff';
-                document.querySelector('#frame').contentWindow.addEventListener('mouseover', () => {
+                document.querySelector('#loadframe').style.transition = 'none';
+                document.querySelector('#loadframe').style.background = '#fff';
+                document.querySelector('#loadframe').addEventListener('mouseover', () => {
                     document.querySelector('.gamebar').classList.add('collapsed');
                     document.querySelector('.hitbox').classList.remove('active');
                 });
-                document.querySelector('#frame').contentWindow.addEventListener('mouseout', () => {
+                document.querySelector('#loadframe').addEventListener('mouseout', () => {
                     document.querySelector('.gamebar').classList.remove('collapsed');
                     document.querySelector('.hitbox').classList.add('active');
                 });
 
-                if (document.querySelector('#frame').matches(':hover')) setTimeout(() => {
+                if (document.querySelector('#loadframe').matches(':hover')) setTimeout(() => {
                     document.querySelector('.gamebar').classList.remove('collapsed');
                     document.querySelector('.hitbox').classList.add('active');
                 }, 1000);
             });
 
             document.querySelector('#fullscreen').addEventListener('click', () => {
-                const frame = document.querySelector('#frame');
+                const frame = document.querySelector('#loadframe');
 
                 if (frame.requestFullscreen) frame.requestFullscreen();
                 else if (frame.webkitRequestFullscreen) frame.webkitRequestFullscreen();
@@ -49,8 +49,8 @@ if (params.get('load')) {
             });
 
             window.addEventListener('fullscreenchange', () => {
-                if (document.fullscreenElement) document.querySelector('#frame').style.borderRadius = '0px';
-                else document.querySelector('#frame').style.borderRadius = '';
+                if (document.fullscreenElement) document.querySelector('#loadframe').style.borderRadius = '0px';
+                else document.querySelector('#loadframe').style.borderRadius = '';
             });
 
             document.querySelector('#return').addEventListener('click', () => {
