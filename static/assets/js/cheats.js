@@ -1,4 +1,4 @@
-import { createViewPage } from './utils.js';
+import { createViewPage, isValidURL } from './utils.js';
 import PolarisError from './error.js';
 import effects from './effects.js';
 
@@ -22,7 +22,7 @@ const load = () => fetch('/assets/JSON/cheats.json')
             document.body.style.opacity = '0.7';
 
             setTimeout(() => {
-                if (URL.canParse(cheat.target)) createViewPage({
+                if (isValidURL(cheat.target)) createViewPage({
                     target: cheat.target,
                     title: cheat.name,
                     proxied: true

@@ -124,12 +124,25 @@ const createViewPage = (options) => location.href = `/view?load=${btoa(JSON.stri
     title: options.title
 }))}`;
 
+/**
+ * Check if a url is valid
+ * @param {string} url 
+ * @returns {boolean}
+ */
+const isValidURL = (url) => /^(http(s)?:\/\/)?([\w-]+\.)+[\w]{2,}(\/.*)?$/.test(url);
+
+const getVH = (value) => (value * Math.max(document.documentElement.clientHeight, window.innerHeight || 0)) / 100;
+const getVW = (value) => (value * Math.max(document.documentElement.clientWidth, window.innerWidth || 0)) / 100;
+
 export default {
     storage,
     loadProxyWorker,
     encoder,
     redirect,
-    createViewPage
+    createViewPage,
+    isValidURL,
+    getVH,
+    getVW
 };
 
 export {
@@ -137,5 +150,8 @@ export {
     loadProxyWorker,
     encoder,
     redirect,
-    createViewPage
+    createViewPage,
+    isValidURL,
+    getVH,
+    getVW
 };

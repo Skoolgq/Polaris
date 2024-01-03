@@ -1,5 +1,5 @@
 import loadEasterEggs from './eastereggs.js';
-import { createViewPage } from './utils.js';
+import { createViewPage, isValidURL, getVH } from './utils.js';
 import PolarisError from './error.js';
 import Settings from './settings.js';
 import Search from './search.js';
@@ -55,7 +55,7 @@ if (location.pathname === '/') {
             const game = games.filter(g => g.name === gameName)[0];
 
             document.querySelector('.featured').addEventListener('click', () => {
-                if (URL.canParse(game.target)) createViewPage({
+                if (isValidURL(game.target)) createViewPage({
                     target: game.target,
                     title: game.name,
                     proxied: true
@@ -71,19 +71,36 @@ if (location.pathname === '/') {
 
     fetch('/assets/JSON/changelog.json')
         .then(res => res.json())
-        .then(changelog => changelog
-            .filter((data, i) => !(i >= 3))
-            .forEach(change => {
-                const date = document.createElement('p');
-                date.textContent = change.date;
-                date.classList = 'small';
-                document.querySelector('#changelog').appendChild(date);
+        .then(changelog => {
+            changelog
+                    .filter((data, i) => !(i >= 3))
+                    .forEach(change => {
+                        const log = document.createElement('div');
+                        document.querySelector('#changelog').appendChild(log);
 
-                const description = document.createElement('i');
-                description.textContent = change.simpleDescription;
-                description.classList = 'small';
-                document.querySelector('#changelog').appendChild(description);
-            }));
+                        const date = document.createElement('p');
+                        date.textContent = change.date;
+                        date.classList = 'small';
+                        log.appendChild(date);
+
+                        const description = document.createElement('i');
+                        description.textContent = change.simpleDescription;
+                        description.classList = 'small';
+                        log.appendChild(description);
+                    });
+
+            const updateChangelog = (amount = 3) => {
+                amount = amount - 1;
+
+                for (let i = 0; i < document.querySelector('#changelog').children.length; i++) {
+                    if (i > amount) document.querySelector('#changelog').children[i].classList.add('hidden');
+                    else document.querySelector('#changelog').children[i].classList.remove('hidden');
+                }
+            }
+
+            updateChangelog(!(getVH(100) - getVH(69) > document.querySelector('#changelog').clientHeight) ? 2 : 3);
+            window.onresize = () => updateChangelog(!(getVH(100) - getVH(69) > document.querySelector('#changelog').clientHeight) ? 2 : 3);
+        });
 }
 
 if (window.self === window.top && location.pathname !== '/view') {

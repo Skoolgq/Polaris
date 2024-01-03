@@ -1,4 +1,4 @@
-import { createViewPage } from './utils.js';
+import { createViewPage, isValidURL } from './utils.js';
 
 const load = () => {
     const form = document.querySelector('#wpf');
@@ -7,7 +7,7 @@ const load = () => {
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        const url = /^(http(s)?:\/\/)?([\w-]+\.)+[\w]{2,}(\/.*)?$/.test(query.value) ? ((!query.value.startsWith('http://') && !query.value.startsWith('https://')) ? 'https://' + query.value : query.value) : 'https://www.google.com/search?q=' + encodeURIComponent(query.value);
+        const url = isValidURL(query.value) ? ((!query.value.startsWith('http://') && !query.value.startsWith('https://')) ? 'https://' + query.value : query.value) : 'https://www.google.com/search?q=' + encodeURIComponent(query.value);
 
         document.body.style.opacity = '0.7';
 

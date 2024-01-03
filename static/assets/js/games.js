@@ -1,4 +1,4 @@
-import { createViewPage } from './utils.js';
+import { createViewPage, isValidURL } from './utils.js';
 import PolarisError from './error.js';
 import effects from './effects.js';
 
@@ -55,7 +55,7 @@ const load = () => {
                         document.body.style.opacity = '0.7';
 
                         setTimeout(() => {
-                            if (URL.canParse(game.target)) createViewPage({
+                            if (isValidURL(game.target)) createViewPage({
                                 target: game.target,
                                 title: game.name,
                                 proxied: true
@@ -80,7 +80,7 @@ const load = () => {
                     document.body.style.opacity = '0.7';
 
                     setTimeout(() => {
-                        if (URL.canParse(game.target)) createViewPage({
+                        if (isValidURL(game.target)) createViewPage({
                             target: game.target,
                             title: game.name,
                             proxied: true
