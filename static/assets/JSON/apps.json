@@ -2,31 +2,26 @@
     {
         "name": "Discord",
         "image": "/assets/img/discord.png",
-        "target": "https://discord.com/app",
-        "proxy": true
+        "target": "https://discord.com/app"
     },
     {
         "name": "Emulator",
         "image": "https://emulatorjs.org/media/logo-light.png",
-        "target": "https://demo.emulatorjs.org/",
-        "proxy": true
+        "target": "https://demo.emulatorjs.org/"
     },
     {
         "name": "Tiktok",
         "image": "/assets/img/tiktok.png",
-        "target": "https://www.tiktok.com/en/",
-        "proxy": true
+        "target": "https://www.tiktok.com/en/"
     },
     {
         "name": "Twitch",
         "image": "/assets/img/twitch.png",
-        "target": "https://www.twitch.tv/",
-        "proxy": true
+        "target": "https://www.twitch.tv/"
     },
     {
         "name": "Youtube",
         "image": "/assets/img/youtube.png",
-        "target": "https://youtube.com",
-        "proxy": true
+        "target": "https://youtube.com"
     }
 ]

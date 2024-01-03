@@ -308,6 +308,10 @@ input:checked+.slider:before {
     border-radius: 1.5vh;
 }
 
+.game.hidden {
+    display: none;
+}
+
 .game:hover {
     filter: brightness(95%);
     transform: translateY(-0.2vh);
@@ -341,6 +345,10 @@ input:checked+.slider:before {
     color: #fff;
     font-size: 1.8vh;
     z-index: 10;
+}
+
+.searchErr {
+    margin-bottom: 100px;
 }
 
 .cheats {

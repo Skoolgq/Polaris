@@ -1,3 +1,4 @@
+import { createViewPage } from './utils.js';
 import PolarisError from './error.js';
 import effects from './effects.js';
 
@@ -18,11 +19,15 @@ const load = () => fetch('/assets/JSON/cheats.json')
         }, el);
 
         el.addEventListener('click', () => {
-            localStorage.setItem('frameData', JSON.stringify({
-                type: 'cheat',
-                cheat
-            }));
-            location.href = '/view';
+            if (URL.canParse(cheat.target)) createViewPage({
+                target: cheat.target,
+                title: cheat.name,
+                proxied: true
+            });
+            else createViewPage({
+                target: cheat.target,
+                title: cheat.name
+            });
         });
     })).catch(e => new PolarisError('Failed to load cheats.'));
 

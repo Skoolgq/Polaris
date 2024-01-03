@@ -6,7 +6,7 @@
   },
   {
     "name": "1v1.LoL",
-    "target": "https://codeberg.org/3kh0/3kh0-assets/raw/branch/main/1v1lol/index.html",
+    "target": "/cdn/3kh0/1v1lol/index.html",
     "image": "/assets/img/1v1lol.png",
     "popular": true
   },
@@ -22,12 +22,12 @@
   },
   {
     "name": "Achievement Unlocked",
-    "target": "https://codeberg.org/3kh0/3kh0-assets/raw/branch/main/achievementunlocked/index.html",
-    "image": "https://codeberg.org/3kh0/3kh0-assets/raw/branch/main/achievementunlocked/achievementunlocked.png"
+    "target": "/cdn/3kh0/achievementunlocked/index.html",
+    "image": "/cdn/3kh0/achievementunlocked/achievementunlocked.png"
   },
   {
     "name": "Adventure Capitalist",
-    "target": "/service/hvtrs8%2F-tjal128%3B.eivhwb%2Cim%2Fcdteltwrg-aarivaniqt-",
+    "target": "https://than1089.github.io/adventure-capitalist/",
     "image": "/assets/img/adventurecapitalist.png"
   },
   {
@@ -52,7 +52,7 @@
   },
   {
     "name": "Ashbelt",
-    "target": "/service/hvtrs8%2F-untkmctgmgn%2Cgktju%60.ko-gcmgs-aqh%60ent-ildgx%2Chvmn",
+    "target": "https://ultimatemen.github.io/games/ashbelt/index.html",
     "image": "https://f4.bcbits.com/img/a4238131019_10.jpg"
   },
   {
@@ -72,12 +72,12 @@
   },
   {
     "name": "Backrooms",
-    "target": "https://codeberg.org/3kh0/3kh0-assets/raw/branch/main/backrooms/index.html",
+    "target": "/cdn/3kh0/backrooms/index.html",
     "image": "/assets/img/backrooms.jpg"
   },
   {
     "name": "Basket Bros",
-    "target": "https:https://codeberg.org/3kh0/3kh0-assets/raw/branch/main/basketbros-io/index.html",
+    "target": "https:/cdn/3kh0/basketbros-io/index.html",
     "image": "/assets/img/basketbros.jpg"
   },
   {
@@ -112,7 +112,7 @@
   },
   {
     "name": "Bloons TD 2",
-    "target": "https://codeberg.org/3kh0/3kh0-assets/raw/branch/main/bloonstd2/index.html",
+    "target": "/cdn/3kh0/bloonstd2/index.html",
     "image": "/assets/img/btd2.png"
   },
   {
@@ -122,7 +122,7 @@
   },
   {
     "name": "Bob The Robber 2",
-    "target": "https://codeberg.org/3kh0/3kh0-assets/raw/branch/main/bobtherobber2/index.html",
+    "target": "/cdn/3kh0/bobtherobber2/index.html",
     "image": "/assets/img/btr2.jpeg"
   },
   {
@@ -132,17 +132,17 @@
   },
   {
     "name": "BuildNow.GG",
-    "target": "/service/hvtrs8%2F-gcmgs%2Ccpaxyeaoeq.aoo%2Fgn%5DUQ%2F%60uklfnmw%2Fge%2Fknfez.jtol",
+    "target": "https://games.crazygames.com/en_US/buildnow-gg/index.html",
     "image": "https://play-lh.googleusercontent.com/MdtXwEOt43tY6GV3-IHAwhdmoW-jY4B1rqvA0m1Yj89Bj4et8FfWGL3cCt_lkDvWbWk=w240-h480-rw"
   },
   {
     "name": "Candy Jump",
-    "target": "/service/hvtrs8%2F-ccnfyhuop%2Cgcmgs037.aoo%2F",
+    "target": "https://candyjump.games235.com/",
     "image": "https://www.coolmathgames.com/sites/default/files/styles/pwa_512x512/public/game_m_thumbnail/candy-jump-game-icon.png"
   },
   {
     "name": "Chrome Dino",
-    "target": "https://codeberg.org/3kh0/3kh0-assets/raw/branch/main/chrome-dino/index.html",
+    "target": "/cdn/3kh0/chrome-dino/index.html",
     "image": "https://img.poki.com/cdn-cgi/image/quality=78,width=600,height=600,fit=cover,f=auto/9afd3b92ab41ffca7f368a8fcbd6d39a75894efe0edbc14cf1f067cf625e6678.png"
   },
   {
@@ -152,7 +152,7 @@
   },
   {
     "name": "Cluster Truck",
-    "target": "/service/hvtrs8%2F-wuw%2Cslaie%2Fgcmgs%2Cim%2Fnoaangcmgs-cnuqtgr%2Frwsj%2F",
+    "target": "https://www.snake-games.io/localgames/cluster-rush/",
     "image": "https://image.api.playstation.com/cdn/UP0097/CUSA06481_00/36sNa79pxV859fFg3CU7zFhQ34ThNx8z.png"
   },
   {
@@ -162,12 +162,12 @@
   },
   {
     "name": "Cubeform",
-    "target": "/service/hvtrs8%2F-wuw%2Cmctjpna%7Bgpownf.aoo%2Fau%60edopm-ildgx%2Chvmn",
+    "target": "https://www.mathplayground.com/cubeform/index.html",
     "image": "https://www.coolmathgames.com/sites/default/files/styles/pwa_512x512/public/game_m_thumbnail/cubeform-game-icon.png?itok=RHIZMSy5"
   },
   {
     "name": "Cut the Rope",
-    "target": "https://codeberg.org/3kh0/3kh0-assets/raw/branch/main/ctr/index.html'",
+    "target": "/cdn/3kh0/ctr/index.html'",
     "image": "/assets/img/ctr.png"
   },
   {
@@ -177,12 +177,12 @@
   },
   {
     "name": "Defly.io",
-    "target": "/service/hvtrs8%2F-dgfny%2Cim%2F",
+    "target": "https://defly.io/",
     "image": "https://cdn.glitch.global/82c5292a-89b3-4a53-84e2-abbc0fa27724/defly_io.webp?v=1679319580067"
   },
   {
     "name": "DogeMiner",
-    "target": "https://codeberg.org/3kh0/3kh0-assets/raw/branch/main/DogeMiner/index.html",
+    "target": "/cdn/3kh0/DogeMiner/index.html",
     "image": "/assets/img/dogeminer.png"
   },
   {
@@ -197,17 +197,17 @@
   },
   {
     "name": "Drift Boss",
-    "target": "/service/hvtrs8%2F-wuw%2Cmctjpna%7Bgpownf.aoo%2Ffrkfv-%60oqs%2Fv1%2Fknfez.jtol",
+    "target": "https://www.mathplayground.com/drift-boss-v3/index.html",
     "image": "/assets/img/driftboss.png"
   },
   {
     "name": "Drift Hunters (have patience)",
-    "target": "/service/hvtrs8%2F-wgbeloavh%2Cgktju%60.ko-dpidt%2Fhwnveps-",
+    "target": "https://webglmath.github.io/drift-hunters/",
     "image": "https://play-lh.googleusercontent.com/smo8Ln-PRREDGq_QjA-Nws7ZNJQhvQfUB2oA8XV0GW12uq6hqdhvwXCB2rdl6zjekcow=w240-h480-rw"
   },
   {
     "name": "Drive Mad",
-    "target": "https://codeberg.org/3kh0/3kh0-assets/raw/branch/main/drive-mad/index.html",
+    "target": "/cdn/3kh0/drive-mad/index.html",
     "image": "/assets/img/dmd.jpg"
   },
   {
@@ -222,7 +222,7 @@
   },
   {
     "name": "Flappy Bird",
-    "target": "https://codeberg.org/3kh0/3kh0-assets/raw/branch/main/flappybird/index.html",
+    "target": "/cdn/3kh0/flappybird/index.html",
     "image": "/assets/img/fp.png"
   },
   {
@@ -247,12 +247,12 @@
   },
   {
     "name": "GunSpin",
-    "target": "/service/hvtrs8%2F-u%60g167.eivhwb%2Cim%2Feulsril%2Frlcy%2Chvmn",
+    "target": "https://ubg365.github.io/gunspin/play.html",
     "image": "https://play-lh.googleusercontent.com/fLqvWSVq5rENEvu32xl0hf96wwSHVwQm-_9xc6KZg9Vgv9PbAtf1CyBYW7i1mlAXoSA"
   },
   {
     "name": "Hacker Tetris",
-    "target": "https://codeberg.org/3kh0/3kh0-assets/raw/branch/main/twitch-tetris/index.html",
+    "target": "/cdn/3kh0/twitch-tetris/index.html",
     "image": "/assets/img/hackertetris.png"
   },
   {
@@ -262,8 +262,8 @@
   },
   {
     "name": "Idle Breakout",
-    "target": "https://codeberg.org/3kh0/3kh0-assets/raw/branch/main/idle-breakout/index.html",
-    "image": "https://codeberg.org/3kh0/3kh0-assets/raw/branch/main/idle-breakout/img/thumbnail.png"
+    "target": "/cdn/3kh0/idle-breakout/index.html",
+    "image": "/cdn/3kh0/idle-breakout/img/thumbnail.png"
   },
   {
     "name": "Janissary Battles",
@@ -276,23 +276,23 @@
     "image": "/cdn/jetpack-joyride/splash.jpg"
   },
   {
-    "name": "Kirka",
-    "target": "/service/hvtrs8%2F-kkria%2Cim%2F",
+    "name": "Kirka.io",
+    "target": "https://kirka.io/",
     "image": "https://cdn.glitch.global/40d8a6f7-c124-43fe-8544-1617c1dcc948/download%20(1).jpeg?v=1680006191209"
   },
   {
     "name": "Learn To Fly",
-    "target": "https://codeberg.org/3kh0/3kh0-assets/raw/branch/main/learntofly/index.html",
+    "target": "/cdn/3kh0/learntofly/index.html",
     "image": "/assets/img/learntofly.png"
   },
   {
     "name": "Learn To Fly 2",
-    "target": "https://codeberg.org/3kh0/3kh0-assets/raw/branch/main/learntofly2/index.html",
+    "target": "/cdn/3kh0/learntofly2/index.html",
     "image": "/assets/img/ltf2.jpg"
   },
   {
     "name": "Let's Surf",
-    "target": "https://codeberg.org/3kh0/3kh0-assets/raw/branch/main/edge-surf/index.html",
+    "target": "/cdn/3kh0/edge-surf/index.html",
     "image": "/assets/img/ltsf.png"
   },
   {
@@ -329,7 +329,7 @@
   },
   {
     "name": "Monster Truck Stunts",
-    "target": "/service/hvtrs8%2F-fklgs%2Ctuorlcygreaoeq.mre%2Fdineq%2Feaoeq%2Fmtjep%2FOolsvep_Vrwci_Ropt%5DSvult-ildgx%2Chvmn",
+    "target": "https://files.twoplayergames.org/files/games/other/Monster_Truck_Port_Stunt/index.html",
     "image": "https://images.twoplayergames.org/files/games/other/Monster_Truck_Port_Stunt/MonsterTruckPortStunt_180x135.jpg?auto=format&w=100"
   },
   {
@@ -369,12 +369,12 @@
   },
   {
     "name": "Papas Pizzeria",
-    "target": "https://codeberg.org/3kh0/3kh0-assets/raw/branch/main/papaspizzaria/index.html",
+    "target": "/cdn/3kh0/papaspizzaria/index.html",
     "image": "/assets/img/pizzeria.jpeg"
   },
   {
     "name": "Penalty Kicks",
-    "target": "/service/hvtrs8%2F-wuw%2Cmctjpna%7Bgpownf.aoo%2Frelant%7B-iiakq%2Fknfez.jtol",
+    "target": "https://www.mathplayground.com/penalty-kicks/index.html",
     "image": "/assets/img/penaltykicks.png"
   },
   {
@@ -389,19 +389,18 @@
   },
   {
     "name": "Retro Bowl",
-    "target": "https://codeberg.org/3kh0/3kh0-assets/raw/branch/main/retro-bowl/index.html",
+    "target": "/cdn/3kh0/retro-bowl/index.html",
     "image": "/assets/img/retrobowl.jpeg",
     "popular": true
   },
   {
     "name": "Rise Higher",
-    "target": "/service/hvtrs8%2F-wuw%2Cmctjpna%7Bgpownf.aoo%2Fpiqe%2Fhkgjep%2Fknfez.jtol",
+    "target": "https://www.mathplayground.com/rise-higher/index.html",
     "image": "/assets/img/risehigher.jpg"
   },
   {
     "name": "Roblox",
-    "target": "/service/hvtrs8%2F-nmw%2Cge%2Frlcy-rmbnoz-aoppmrctkol%2F7369-rmbnoz",
-    "comment": "/service/hvtrs8%2F-aab%2Cswpgrvulnglpuqh%2Ccmm-dgmm",
+    "target": "https://now.gg/play/roblox-corporation/5349/roblox",
     "image": "/assets/img/roblox.png",
     "popular": true
   },
@@ -412,7 +411,7 @@
   },
   {
     "name": "Rocket League 2D",
-    "target": "/service/hvtrs8%2F-v4p%3Bd%3Bt6.qsn.jwadl.lev%2Fjtol-3127314-ildgx%2Chvmn",
+    "target": "https://v6p9d9t4.ssl.hwcdn.net/html/3325334/index.html",
     "image": "https://img.itch.zone/aW1hZ2UvMTcwNjIyLzgyMDkwMS5wbmc=/original/j3UIZb.png"
   },
   {
@@ -447,7 +446,7 @@
   },
   {
     "name": "Stumble Guys",
-    "target": "/service/hvtrs8%2F-nmweg%2Cnn%2Frlcy-kktia%2Fgcmgs-7%3B9%3B%2Fqtwm%60lg-eu%7Bs",
+    "target": "https://nowgg.nl/play/kitka-games/7999/stumble-guys",
     "image": "https://play-lh.googleusercontent.com/Oci7f4WR0JShbn-n5hnwubbXaMssleb2b1Dv7AMOzFFcgstIdC9kg-E3LHx3em8RCaLf",
     "popular":true
   },
@@ -458,7 +457,7 @@
   },
   {
     "name": "Super Mario 64",
-    "target": "/service/hvtrs8%2F-untkmctgmgn%2Cgktju%60.ko-gcmgs-swpgro66%2Fknfez.jtol",
+    "target": "https://ultimatemen.github.io/games/superm64/index.html",
     "image": "https://nintendocore.org/cdn/shop/products/Super-Mario-64-1.png"
   },
   {

@@ -38,24 +38,13 @@ class PolarisError {
             }, 500);
         }, 8000);
 
-        if (e.stack) {
-            console.log('An error occurred:\n\n' + e.stack);
-        } else {
-            console.log('An error occurred:\n\n' + e);
-        }
+        if (e.stack) console.log('An error occurred:\n\n' + e.stack);
+        else console.log('An error occurred:\n\n' + e);
     }
 }
 
-window.onerror = (a, b, c, d, e) => {
-    new PolarisError(e);
-}
-
-window.console.error = (e) => {
-    new PolarisError(e);
-}
-
-window.onmessageerror = (e) => {
-    new PolarisError(e);
-}
+window.onerror = (...e) => new PolarisError(e);
+window.console.error = (...e) => new PolarisError(e);
+window.onmessageerror = (...e) => new PolarisError(e);
 
 export default PolarisError;

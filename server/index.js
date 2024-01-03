@@ -23,6 +23,26 @@ const swPaths = [
     '/assets/js/offline.js'
 ];
 
+app.get('/cdn/3kh0/*', cors({
+    origin: false
+}), async (req, res, next) => {
+    let reqTarget = `https://codeberg.org/3kh0/3kh0-assets/raw/branch/main/${req.path.replace('/cdn/3kh0/', '')}`;
+
+    const asset = await fetch(reqTarget);
+    if (asset.status == 200) {
+        var data = Buffer.from(await asset.arrayBuffer());
+
+        const noRewrite = ['.unityweb'];
+        if (!noRewrite.includes(mime.getExtension(reqTarget))) res.writeHead(200, {
+            'content-type': mime.getType(reqTarget)
+        });
+
+        if (mime.getType(reqTarget) === 'text/html') data = data + '<script src=\'/assets/js/cdn.inject.js\' preload=\'true\'></script>';
+
+        res.end(data);
+    } else next();
+});
+
 app.get('/cdn/*', cors({
     origin: false
 }), async (req, res, next) => {
@@ -37,7 +57,7 @@ app.get('/cdn/*', cors({
             'content-type': mime.getType(reqTarget)
         });
 
-        if (mime.getType(reqTarget) === 'text/html') data = data + '<script src=\'/assets/js/cdn_inject.js\' preload=\'true\'></script>';
+        if (mime.getType(reqTarget) === 'text/html') data = data + '<script src=\'/assets/js/cdn.inject.js\' preload=\'true\'></script>';
 
         res.end(data);
     } else next();

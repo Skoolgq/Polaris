@@ -6,14 +6,16 @@ const load = () => {
     fetch('/assets/JSON/games.json')
         .then(res => res.json())
         .then(games => {
-            const searchBar = document.getElementById('searchInput');
+            const searchBar = document.querySelector('#searchInput');
 
             searchBar.addEventListener('input', () => {
+                console.log(searchBar.value);
+
                 if (searchBar.value) {
                     var result = false;
 
                     document.querySelectorAll('.games>.game').forEach(game => {
-                        if (game.title.toLowerCase().includes(searchBar.value.toLowerCase())) {
+                        if (game.querySelector('h3').textContent.toLowerCase().includes(searchBar.value.toLowerCase())) {
                             result = true;
 
                             game.classList.remove('hidden');
