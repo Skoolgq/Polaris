@@ -53,7 +53,11 @@ if (params.get('load')) {
                 else document.querySelector('iframe').style.borderRadius = '';
             });
 
-            document.querySelector('#return').addEventListener('click', () => location.href = parsedData.return);
+            document.querySelector('#return').addEventListener('click', () => {
+                document.body.style.opacity = '0.7';
+                
+                setTimeout(() => window.location.href = parsedData.return, 500);
+            });
         } else if (parsedData.target && parsedData.redirect === true) {
             window.history.replaceState({}, '', '/redirect');
 

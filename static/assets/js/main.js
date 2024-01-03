@@ -10,6 +10,8 @@ import Apps from './apps.js';
 loadEasterEggs();
 
 onbeforeunload = (e) => {
+    document.body.style.opacity = '0.7';
+
     if (localStorage.getItem('prevent_close') === 'true') {
         e.preventDefault();
         return e;
@@ -19,6 +21,17 @@ onbeforeunload = (e) => {
 /*await navigator.serviceWorker.register('/assets/js/offline.js', {
     scope: '/'
 });*/
+
+window.addEventListener('DOMContentLoaded', () => setTimeout(() => document.body.style.opacity = 1, 1000));
+
+document.querySelectorAll('a').forEach(hyperlink => hyperlink.addEventListener('click', (e) => {
+    if (hyperlink.href && !hyperlink.target && new URL(hyperlink.href).pathname !== location.pathname) {
+        e.preventDefault();
+        document.body.style.opacity = '0.7';
+
+        setTimeout(() => window.location.href = hyperlink.href, 500);
+    }
+}));
 
 window.onhashchange = () => {
     if (location.hash === '#settings') document.querySelector('.sidebar').classList.add('active');
@@ -58,18 +71,19 @@ if (location.pathname === '/') {
 
     fetch('/assets/JSON/changelog.json')
         .then(res => res.json())
-        .then(changelog => changelog.forEach(change => {
-            const date = document.createElement('p');
-            date.textContent = change.date;
-            date.classList = 'small';
-            document.querySelector('#changelog').appendChild(date);
+        .then(changelog => changelog
+            .filter((data, i) => !(i >= 3))
+            .forEach(change => {
+                const date = document.createElement('p');
+                date.textContent = change.date;
+                date.classList = 'small';
+                document.querySelector('#changelog').appendChild(date);
 
-            const descwrap = document.createElement('p');
-            const description = document.createElement('i');
-            description.textContent = change.simpleDescription;
-            description.classList = 'small';
-            document.querySelector('#changelog').appendChild(description);
-        }));
+                const description = document.createElement('i');
+                description.textContent = change.simpleDescription;
+                description.classList = 'small';
+                document.querySelector('#changelog').appendChild(description);
+            }));
 }
 
 if (window.self === window.top && location.pathname !== '/view') {

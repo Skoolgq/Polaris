@@ -18,15 +18,19 @@ const load = () => fetch('/assets/JSON/apps.json').then(res => res.json()).then(
         }, el);
 
         el.addEventListener('click', async () => {
-            if (URL.canParse(app.target)) createViewPage({
-                target: app.target,
-                title: app.name,
-                proxied: true
-            });
-            else createViewPage({
-                target: app.target,
-                title: app.name
-            });
+            document.body.style.opacity = '0.7';
+
+            setTimeout(() => {
+                if (URL.canParse(app.target)) createViewPage({
+                    target: app.target,
+                    title: app.name,
+                    proxied: true
+                });
+                else createViewPage({
+                    target: app.target,
+                    title: app.name
+                });
+            }, 500);
         });
     });
 }).catch(e => new PolarisError('Failed to load Apps'));

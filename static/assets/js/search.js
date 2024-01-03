@@ -9,11 +9,13 @@ const load = () => {
 
         const url = /^(http(s)?:\/\/)?([\w-]+\.)+[\w]{2,}(\/.*)?$/.test(query.value) ? ((!query.value.startsWith('http://') && !query.value.startsWith('https://')) ? 'https://' + query.value : query.value) : 'https://www.google.com/search?q=' + encodeURIComponent(query.value);
 
-        createViewPage({
+        document.body.style.opacity = '0.7';
+
+        setTimeout(() => createViewPage({
             target: url,
             proxied: true,
             title: 'Search Results'
-        });
+        }), 500);
     });
 }
 

@@ -20,6 +20,7 @@ body {
     color: var(--text);
     padding-top: 20vh;
     background-repeat: no-repeat;
+    opacity: 0.7;
 }
 
 .centered {

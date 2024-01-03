@@ -19,15 +19,19 @@ const load = () => fetch('/assets/JSON/cheats.json')
         }, el);
 
         el.addEventListener('click', () => {
-            if (URL.canParse(cheat.target)) createViewPage({
-                target: cheat.target,
-                title: cheat.name,
-                proxied: true
-            });
-            else createViewPage({
-                target: cheat.target,
-                title: cheat.name
-            });
+            document.body.style.opacity = '0.7';
+
+            setTimeout(() => {
+                if (URL.canParse(cheat.target)) createViewPage({
+                    target: cheat.target,
+                    title: cheat.name,
+                    proxied: true
+                });
+                else createViewPage({
+                    target: cheat.target,
+                    title: cheat.name
+                });
+            }, 500);
         });
     })).catch(e => new PolarisError('Failed to load cheats.'));
 

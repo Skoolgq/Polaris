@@ -52,15 +52,19 @@ const load = () => {
                     document.querySelector('.popular-games').appendChild(popularEl);
 
                     popularEl.addEventListener('click', async () => {
-                        if (URL.canParse(game.target)) createViewPage({
-                            target: game.target,
-                            title: game.name,
-                            proxied: true
-                        });
-                        else createViewPage({
-                            target: game.target,
-                            title: game.name
-                        });
+                        document.body.style.opacity = '0.7';
+
+                        setTimeout(() => {
+                            if (URL.canParse(game.target)) createViewPage({
+                                target: game.target,
+                                title: game.name,
+                                proxied: true
+                            });
+                            else createViewPage({
+                                target: game.target,
+                                title: game.name
+                            });
+                        }, 500);
                     });
 
                     effects.hoverTilt({
@@ -73,15 +77,19 @@ const load = () => {
                 }
 
                 el.addEventListener('click', async () => {
-                    if (URL.canParse(game.target)) createViewPage({
-                        target: game.target,
-                        title: game.name,
-                        proxied: true
-                    });
-                    else createViewPage({
-                        target: game.target,
-                        title: game.name
-                    });
+                    document.body.style.opacity = '0.7';
+
+                    setTimeout(() => {
+                        if (URL.canParse(game.target)) createViewPage({
+                            target: game.target,
+                            title: game.name,
+                            proxied: true
+                        });
+                        else createViewPage({
+                            target: game.target,
+                            title: game.name
+                        });
+                    }, 500);
                 });
             });
         })
