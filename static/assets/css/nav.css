@@ -6,6 +6,7 @@
 
 .navbar {
     box-shadow: 0vh 0.75vh 1.5vh 0vh var(--shadow-color);
+    border: 3px solid rgb(96, 88, 146);
     position: fixed;
     width: calc(calc(100% - 100px) - calc(1.5em * 2));
     background-color: var(--background-color);
@@ -25,7 +26,10 @@
 }
 
 .navbar.scrolling {
-    background-color: var(--background-darker);
+    background-color: rgba(21, 22, 39, 0.6);
+    color: black;
+    backdrop-filter: blur(7.1px);
+    -webkit-backdrop-filter: blur(7.1px);
 }
 
 .navbar>.title {
