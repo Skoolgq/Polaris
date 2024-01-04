@@ -1,7 +1,6 @@
 body[data-theme='dark'] {
-    --background-color: rgba(14, 15, 26, 0.9);
+    --background-color: rgba(0, 0, 0, 0.8);
     --background-darker: rgba(0, 0, 0, 0.9);
-    --background-blur: rgba(21, 22, 39, 0.7);
     --text: #fff;
     --sidebar-bg: #161f2eef;
     --button-bg: #1c1c1c69;
@@ -17,9 +16,8 @@ body[data-theme='dark'] {
 }
 
 body[data-theme='light'] {
-    --background-color: #ffffffda;
+    --background-color: #fff;
     --background-darker: var(--background-color);
-    --background-blur: rgba(235, 235, 235, 0.7);
     --text: #000;
     --hover: #757575;
     --sidebar-bg: #ffffffee;
@@ -40,7 +38,7 @@ body[data-theme='flamingo'] {
     --background-darker: rgba(0, 0, 0, 0.9);
     --text: #fff;
     --sidebar-bg: #e75166ee;
-    --button-bg: #000000e6;
+    --button-bg: #00000059;
     --shadow-color: #000;
     --switch-color: #959595;
     --switch-active: #FB5E4C;
@@ -216,8 +214,8 @@ body[data-theme='violet'] {
 }
 
 @media screen and (prefers-color-scheme: light) {
-    body[data-theme='system-default'] {
-        --background-color: #ffffffda;
+    body[data-theme='light'] {
+        --background-color: #fff;
         --background-darker: var(--background-color);
         --text: #000;
         --hover: #757575;

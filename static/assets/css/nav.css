@@ -25,7 +25,7 @@
 }
 
 .navbar.scrolling {
-    background-color: var(--background-blur);
+    background-color: var(--background-darker);
     color: black;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
