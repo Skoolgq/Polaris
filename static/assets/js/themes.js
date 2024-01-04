@@ -6,10 +6,12 @@ class Theme {
   constructor() {
     this.theme = settingsStorage.get('theme');
     
-    if (this.theme === 'system default') this.set('system-default');
-    
-    if (this.theme) this.set(this.theme);
-    else this.set('system-default');
+    // Check if the stored theme is 'system default' or false
+    if (this.theme === 'system default' || !this.theme) {
+      this.set('dark', false); // Set the theme to 'Dark' without saving
+    } else {
+      this.set(this.theme);
+    }
   }
 
   /**
