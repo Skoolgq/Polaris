@@ -17,7 +17,11 @@ body[data-theme='dark'] {
 }
 
 body[data-theme='light'] {
+<<<<<<< Updated upstream
     --background-color: rgba(235, 235, 235, 0.9);
+=======
+    --background-color: #ffffffda;
+>>>>>>> Stashed changes
     --background-darker: var(--background-color);
     --background-blur: rgba(235, 235, 235, 0.7);
     --text: #000;
@@ -40,7 +44,7 @@ body[data-theme='flamingo'] {
     --background-darker: rgba(0, 0, 0, 0.9);
     --text: #fff;
     --sidebar-bg: #e75166ee;
-    --button-bg: #00000059;
+    --button-bg: #000000e6;
     --shadow-color: #000;
     --switch-color: #959595;
     --switch-active: #FB5E4C;
@@ -217,7 +221,7 @@ body[data-theme='violet'] {
 
 @media screen and (prefers-color-scheme: light) {
     body[data-theme='light'] {
-        --background-color: #fff;
+        --background-color: #ffffffda;
         --background-darker: var(--background-color);
         --text: #000;
         --hover: #757575;
