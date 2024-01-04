@@ -1,6 +1,7 @@
 body[data-theme='dark'] {
-    --background-color: rgba(0, 0, 0, 0.8);
+    --background-color: rgba(14, 15, 26, 0.9);
     --background-darker: rgba(0, 0, 0, 0.9);
+    --background-blur: rgba(21, 22, 39, 0.7);
     --text: #fff;
     --sidebar-bg: #161f2eef;
     --button-bg: #1c1c1c69;
@@ -16,8 +17,9 @@ body[data-theme='dark'] {
 }
 
 body[data-theme='light'] {
-    --background-color: #fff;
+    --background-color: rgba(235, 235, 235, 0.9);
     --background-darker: var(--background-color);
+    --background-blur: rgba(235, 235, 235, 0.7);
     --text: #000;
     --hover: #757575;
     --sidebar-bg: #ffffffee;
