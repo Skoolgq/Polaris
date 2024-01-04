@@ -8,7 +8,7 @@ class Theme {
     
     // Check if the stored theme is 'system default' or 'system-default' or false
     if (this.theme === 'system default' || this.theme === 'system-default' || !this.theme) {
-      this.set('dark', false); // Set the theme to 'Dark' without saving
+      this.set('dark', true); // Set the theme to 'Dark' without saving
     } else {
       this.set(this.theme);
     }
