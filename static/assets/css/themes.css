@@ -17,11 +17,7 @@ body[data-theme='dark'] {
 }
 
 body[data-theme='light'] {
-<<<<<<< Updated upstream
-    --background-color: rgba(235, 235, 235, 0.9);
-=======
     --background-color: #ffffffda;
->>>>>>> Stashed changes
     --background-darker: var(--background-color);
     --background-blur: rgba(235, 235, 235, 0.7);
     --text: #000;
@@ -220,7 +216,7 @@ body[data-theme='violet'] {
 }
 
 @media screen and (prefers-color-scheme: light) {
-    body[data-theme='light'] {
+    body[data-theme='system-default'] {
         --background-color: #ffffffda;
         --background-darker: var(--background-color);
         --text: #000;
