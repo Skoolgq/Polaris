@@ -275,7 +275,8 @@ app.get('/asset/:token', async (req, res, next) => {
     }
 });
 
-app.get('/uv/service/*', async (req, res) => res.end(await rewriter.html(fs.readFileSync(path.join(__dirname, '../pages/uv_404.html')))));
+app.get('/uv/service/*', async (req, res) => res.end(await rewriter.html(fs.readFileSync(path.join(__dirname, '../pages/proxy_404.html')))));
+app.get('/dynamic/service/*', async (req, res) => res.end(await rewriter.html(fs.readFileSync(path.join(__dirname, '../pages/proxy_404.html')))));
 
 app.use(async (req, res, next) => {
     if (req.path === '/index') res.redirect('/');

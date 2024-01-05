@@ -10,8 +10,8 @@ body[data-theme='dark'] {
     --scrollbar-color: #ffffff59;
     --solid: #1b2735;
     --hover: #757575;
+
     background: radial-gradient(at center bottom, rgb(27, 39, 53) 0%, rgb(9, 10, 15) 100%);
-    ;
     background-repeat: no-repeat;
 }
 
@@ -247,7 +247,6 @@ body[data-theme='violet'] {
         --solid: #1b2735;
         --hover: #757575;
         background: radial-gradient(at center bottom, rgb(27, 39, 53) 0%, rgb(9, 10, 15) 100%);
-        ;
         background-repeat: no-repeat;
     }
 }

@@ -50,6 +50,10 @@ class Settings {
                 });
         }
 
+        document.querySelector('#proxy_select').addEventListener('change', () => settingsStorage.set('proxy', document.querySelector('#proxy_select').value));
+
+        if (settingsStorage.get('proxy')) document.querySelector('#proxy_select').value = settingsStorage.get('proxy');
+
         fetch('/assets/JSON/cloaks.json').then(res => res.json()).then(cloaks => {
             document.querySelector('#cloak_select').addEventListener('change', () => {
                 if (document.querySelector('#cloak_select').value == 'custom') {

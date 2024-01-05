@@ -1,16 +1,16 @@
 self.__dynamic$config = {
-  prefix: '/service/',
+  prefix: '/dynamic/service/',
   encoding: 'xor',
   mode: 'production', 
   logLevel: 0, 
   bare: {
     version: 2, 
-    path: '/bare/',
+    path: '/bare/'
   },
   tab: {
     title: 'Service',
     icon: null,
-    ua: null,
+    ua: null
   },
   assets: {
     prefix: '/dynamic/',
@@ -19,7 +19,7 @@ self.__dynamic$config = {
       client: 'dynamic.client.js',
       worker: 'dynamic.worker.js',
       config: 'dynamic.config.js',
-      inject: null,
+      inject: null
     }
   },
   block: [
