@@ -1,6 +1,7 @@
-import { loadProxyWorker, encoder } from './utils.js';
+import { loadProxyWorker, encoder, storage } from './utils.js';
 
 const params = new URLSearchParams(location.search);
+const settingsStorage = storage('settings');
 
 window.history.replaceState({}, '', location.pathname);
 
@@ -14,9 +15,9 @@ if (params.get('load')) {
             sessionStorage.setItem('loaddata', JSON.stringify(parsedData));
 
             if (parsedData.proxied) {
-                await loadProxyWorker('uv');
+                await loadProxyWorker(settingsStorage.get('proxy') || 'uv');
 
-                document.querySelector('#loadframe').src = '/uv/service/' + encoder['xor'].encode(parsedData.target);
+                document.querySelector('#loadframe').src = `/${settingsStorage.get('proxy') || 'uv'}/service/${encoder['xor'].encode(parsedData.target)}`;
             } else document.querySelector('#loadframe').src = parsedData.target;
 
             document.querySelector('#loadframe').addEventListener('load', () => {

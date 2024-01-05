@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="/assets/css/main.css">
 
-    <title>404 Error | Polaris</title>
+    <title>Loading... | Polaris</title>
 </head>
 
 <body>
@@ -20,11 +20,10 @@
         </p>
     </div>
 
-    <script src="/uv/uv.bundle.js"></script>
-    <script src="/uv/uv.config.js"></script>
-
     <script type="module">
-        import { loadProxyWorker } from '/assets/js/utils.js';
+        import { loadProxyWorker, storage } from '/assets/js/utils.js';
+
+        const settingsStorage = storage('settings');
 
         try { document.body.dataset.theme = JSON.parse(localStorage.getItem('settings')).theme || 'system-default'; }
         catch {
@@ -34,12 +33,16 @@
             }));
         }
 
-        loadProxyWorker('uv')
+        if (location.pathname.slice(1).startsWith(settingsStorage.get('proxy') || 'uv')) loadProxyWorker(settingsStorage.get('proxy') || 'uv')
             .then(e => location.reload())
             .catch(e => {
                 document.querySelector('h1').textContent = 'Error';
                 document.querySelector('p').textContent = 'Failed to load proxy';
             });
+        else {
+            document.documentElement.innerHTML = await (await fetch('/404')).text();
+            await import('/assets/js/main.js');
+        }
     </script>
 
     <!--el:{{mode === 'dev'}}:development-->
