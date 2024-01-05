@@ -88,6 +88,10 @@ body::-webkit-scrollbar-corner {
 
 #searchInput {
     margin-bottom: 20px;
+    width: 40vh;
+    height: 7vh;
+    border-radius: 2vh;
+    font-size: 3vh;
 }
 
 i {

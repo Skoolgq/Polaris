@@ -1,13 +1,43 @@
 [
     {
+        "name": "Chess.com",
+        "image": "https://play-lh.googleusercontent.com/a7R5nyeaX8lIEWdBOxjlvbyq9LcFwh3XMvNtBPEKR3LPGgdvgGrec4sJwn8tUaaSkw",
+        "target": "https://chess.com/"
+    },
+    {
+        "name": "Coolmath Games",
+        "image": "https://play-lh.googleusercontent.com/I3hW7sKSGtOKeTpmsBxka7Eyul5HXTZUD4H3EbJEWyW-4vDlpyEG5Jtu9D8JgR0__g",
+        "target": "https://coolmathgames.com/"
+    },
+    {
         "name": "Discord",
         "image": "/assets/img/discord.png",
         "target": "https://discord.com/app"
     },
     {
+        "name": "Messenger",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Facebook_Messenger_logo_2020.svg/2048px-Facebook_Messenger_logo_2020.svg.png",
+        "target": "https://messenger.com/"
+    },
+    {
         "name": "Emulator",
         "image": "https://emulatorjs.org/media/logo-light.png",
         "target": "https://demo.emulatorjs.org/"
+    },
+    {
+        "name": "Movies/TV",
+        "image": "https://i.pinimg.com/736x/ea/8d/11/ea8d11f1ffc6355b8a440106ce61d0f3.jpg",
+        "target": "https://movie-web-me.vercel.app/#/search/movie"
+    },
+    {
+        "name": "Paramount+",
+        "image": "https://play-lh.googleusercontent.com/oi4GE8ulxHp4Y2xVzKu_WAMrgE4Jj4Kbdd7hAWLeoZTsMtC5bYTd2xcYhlvMk69pTFY",
+        "target": "https://www.paramountplus.com/account/signin/"
+    },
+    {
+        "name": "Pinterest",
+        "image": "https://static-00.iconduck.com/assets.00/pinterest-icon-2048x2048-d7p0u7c5.png",
+        "target": "https://pinterest.com/"
     },
     {
         "name": "Tiktok",
