@@ -431,8 +431,9 @@
   },
   {
     "name": "Snow Rider 3D",
-    "target": "https://html5.gamedistribution.com/3b79a8537ebc414fb4f9672a9b8c68c8/",
-    "image": "https://img.gamepix.com/games/snow-rider-3d/cover/snow-rider-3d.png?width=600&height=340&fit=cover&quality=90"
+    "target": "https://23azostore.github.io/s8/snow-rider-3d/",
+    "image": "https://img.gamepix.com/games/snow-rider-3d/cover/snow-rider-3d.png?width=600&height=340&fit=cover&quality=90",
+    "popular": true
   },
   {
     "name": "Soccer Random",
