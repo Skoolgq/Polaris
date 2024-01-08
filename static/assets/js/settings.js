@@ -1,4 +1,5 @@
-import { isScrollable, storage } from './utils.js';
+import Dexie from 'https://unpkg.com/dexie@latest/dist/modern/dexie.mjs';
+import { isScrollable, storage, indexedDBExporter, EventEmitter } from './utils.js';
 import PolarisError from './error.js';
 import Theme from './themes.js';
 
@@ -53,6 +54,52 @@ class Settings {
         document.querySelector('#proxy_select').addEventListener('change', () => settingsStorage.set('proxy', document.querySelector('#proxy_select').value));
 
         if (settingsStorage.get('proxy')) document.querySelector('#proxy_select').value = settingsStorage.get('proxy');
+        if (navigator.userAgent.includes('Firefox')) document.querySelector('#export_error').innerHTML = 'Your browser does not fully support this feature. Some data may not export.<br><br>';
+
+        document.querySelector('#export').addEventListener('click', () => {
+            //Still in beta
+            if (false) {
+                const exportEvents = new EventEmitter();
+                var exportsFinished = 0;
+                const saveData = {
+                    indexedDB: [],
+                    cookies: [],
+                    localStorage: []
+                };
+
+                const exportData = () => {
+                    exportsFinished += 1;
+
+                    if (exportEvents === 3) {
+
+                    }
+                };
+
+                exportEvents.on('cookies', exportData);
+                exportEvents.on('indexedDB', exportData);
+                exportEvents.on('localStorage', exportData);
+
+                if (!navigator.userAgent.includes('Firefox')) indexedDB.databases()
+                    .then(dbs => {
+                        for (let i = 0; i < dbs.length; i++) {
+                            const db = new Dexie(dbInfo.name);
+
+                            db.open()
+                                .then(() => indexedDBExporter.exportToJsonString(db.backendDB())
+                                    .then((result) => {
+                                        try {
+                                            saveData.indexedDB.push({
+                                                name: dbInfo.name,
+                                                data: result
+                                            });
+                                        } catch { }
+
+                                        if (i + 1 === dbs.length) exportEvents.emit('indexedDB');
+                                    }));
+                        }
+                    });
+            }
+        });
 
         fetch('/assets/JSON/cloaks.json').then(res => res.json()).then(cloaks => {
             document.querySelector('#cloak_select').addEventListener('change', () => {
@@ -98,9 +145,7 @@ class Settings {
             document.querySelector('#panic_key').value = 'No Key Selected';
         });
 
-        document.querySelector('#panic_url').addEventListener('input', (e) => {
-            settingsStorage.set('panic_url', document.querySelector('#panic_url').value);
-        });
+        document.querySelector('#panic_url').addEventListener('input', (e) => settingsStorage.set('panic_url', document.querySelector('#panic_url').value));
 
         window.onkeydown = (e) => {
             if (document.querySelector('#panic_key') == document.activeElement) {
@@ -114,26 +159,20 @@ class Settings {
             }
         }
 
-        document.querySelector('#themes').querySelectorAll('button').forEach(el => {
-            el.onclick = () => Theme.set(el.innerText.toLocaleLowerCase());
-        });
+        document.querySelector('#themes').querySelectorAll('button').forEach(el => el.onclick = () => Theme.set(el.innerText.toLocaleLowerCase()));
 
         if (window.location.hash.slice(1)) {
             document.querySelector('.sidebar').style.transition = 'all 0s ease';
             document.querySelector('.sidebar').classList.add('active');
 
-            setInterval(() => {
-                document.querySelector('.sidebar').removeAttribute('style');
-            }, 1000);
+            setInterval(() => document.querySelector('.sidebar').removeAttribute('style'), 1000);
         }
 
         if (sessionStorage.getItem('settings-open') === 'true') {
             document.querySelector('.sidebar').style.transition = 'all 0s ease';
             document.querySelector('.sidebar').classList.add('active');
 
-            setInterval(() => {
-                document.querySelector('.sidebar').removeAttribute('style');
-            }, 1000);
+            setInterval(() => document.querySelector('.sidebar').removeAttribute('style'), 1000);
 
             window.history.pushState({}, '', '#settings');
         }
@@ -143,9 +182,7 @@ class Settings {
                 if (document.querySelector('.sidebar').classList.contains('active')) {
                     document.querySelector('.sidebar').classList.remove('active');
 
-                    setTimeout(() => {
-                        window.history.pushState({}, '', location.href.split('#')[0]);
-                    }, 50);
+                    setTimeout(() => window.history.pushState({}, '', location.href.split('#')[0]), 50);
 
                     sessionStorage.setItem('settings-open', false);
                 } else {
@@ -157,9 +194,7 @@ class Settings {
 
         if (isScrollable(document.querySelector('.sidebar'))) document.querySelector('.scroll').classList.add('active');
 
-        document.querySelector('.scroll').addEventListener('click', () => {
-            document.querySelector('.sidebar').scrollTop = document.querySelector('.sidebar').scrollHeight;
-        });
+        document.querySelector('.scroll').addEventListener('click', () => document.querySelector('.sidebar').scrollTop = document.querySelector('.sidebar').scrollHeight);
 
         document.querySelector('.sidebar').addEventListener('scroll', () => {
             if (document.querySelector('.sidebar').scrollTop + document.querySelector('.sidebar').clientHeight >= document.querySelector('.sidebar').scrollHeight - 1) document.querySelector('.scroll').classList.remove('active');
@@ -168,8 +203,6 @@ class Settings {
     };
 }
 
-const load = () => {
-    new Settings();
-};
+const load = () => new Settings();
 
 export default { load, Settings };

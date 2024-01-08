@@ -1,13 +1,11 @@
 // WIP
 
-const serverOnline = () => {
-    return new Promise(async (resolve, reject) => {
-        try {
-            await fetch('/');
-            resolve(true);
-        } catch { resolve(false); }
-    });
-}
+const serverOnline = () => new Promise(async (resolve, reject) => {
+    try {
+        await fetch('/');
+        resolve(true);
+    } catch { resolve(false); }
+});
 
 self.addEventListener('fetch', async (e) => {
     if (self.navigator.onLine) e.respondWith('offline');

@@ -1,3 +1,6 @@
+import indexedDBExporter from './utils/indexeddb.js';
+import EventEmitter from './utils/events.js';
+
 /**
  * The storage interface for polaris
  * @param {string} containerName 
@@ -130,7 +133,11 @@ const createViewPage = (options) => location.href = `/view?load=${btoa(JSON.stri
  * @returns {boolean}
  */
 const isValidURL = (url) => /^(http(s)?:\/\/)?([\w-]+\.)+[\w]{2,}(\/.*)?$/.test(url);
-
+/**
+ * Get the css vh value
+ * @param {*} value 
+ * @returns {number}
+ */
 const getVH = (value) => (value * Math.max(document.documentElement.clientHeight, window.innerHeight || 0)) / 100;
 const getVW = (value) => (value * Math.max(document.documentElement.clientWidth, window.innerWidth || 0)) / 100;
 const isScrollable = (element) => element.scrollWidth > element.clientWidth || element.scrollHeight > element.clientHeight;
@@ -144,7 +151,9 @@ export default {
     isValidURL,
     getVH,
     getVW,
-    isScrollable
+    isScrollable,
+    indexedDBExporter,
+    EventEmitter
 };
 
 export {
@@ -156,5 +165,7 @@ export {
     isValidURL,
     getVH,
     getVW,
-    isScrollable
+    isScrollable,
+    indexedDBExporter,
+    EventEmitter
 };

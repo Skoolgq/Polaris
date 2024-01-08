@@ -6,12 +6,8 @@ class Theme {
   constructor() {
     this.theme = settingsStorage.get('theme');
     
-    // Check if the stored theme is 'system default' or 'system-default' or false
-    if (this.theme === 'system default' || this.theme === 'system-default' || !this.theme) {
-      this.set('dark', true); // Set the theme to 'Dark' with saving
-    } else {
-      this.set(this.theme);
-    }
+    if (this.theme === 'system default' || this.theme === 'system-default' || !this.theme) this.set('dark', true);
+    else this.set(this.theme);
   }
 
   /**
@@ -30,9 +26,7 @@ class Theme {
    * Get the current theme
    * @returns {string}
    */
-  get = () => {
-    return document.body.getAttribute('data-theme');
-  };
-}
+  get = () => document.body.getAttribute('data-theme');
+ }
 
 export default new Theme();
