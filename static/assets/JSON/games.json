@@ -8,7 +8,6 @@
     "name": "1v1.LoL",
     "target": "/cdn/3kh0/1v1lol/index.html",
     "image": "/assets/img/1v1lol.png",
-    "popular": true
   },
   {
     "name": "2048",
@@ -392,6 +391,7 @@
     "name": "Retro Bowl",
     "target": "/cdn/3kh0/retro-bowl/index.html",
     "image": "/assets/img/retrobowl.jpeg",
+    "popular": true
   },
   {
     "name": "Rise Higher",
