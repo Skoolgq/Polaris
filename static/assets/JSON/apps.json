@@ -25,6 +25,11 @@
         "target": "https://demo.emulatorjs.org/"
     },
     {
+        "name": "GeoFS",
+        "image": "https://www.geo-fs.com/images/media/logo/icon.png",
+        "target": "https://www.geo-fs.com/"
+    },
+    {
         "name": "Movies/TV",
         "image": "https://i.pinimg.com/736x/ea/8d/11/ea8d11f1ffc6355b8a440106ce61d0f3.jpg",
         "target": "https://movie-web-me.vercel.app/#/search/movie"
