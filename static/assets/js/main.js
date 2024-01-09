@@ -51,7 +51,7 @@ if (location.pathname === '/') {
     fetch('/assets/JSON/games.json')
         .then(res => res.json())
         .then(games => {
-            const gameName = 'Tiny Fishing';
+            const gameName = 'Fortnite';
             const game = games.filter(g => g.name === gameName)[0];
 
             document.querySelector('.featured').addEventListener('click', () => {
@@ -66,7 +66,7 @@ if (location.pathname === '/') {
                 });
             });
 
-            document.querySelector('.featured').src = '/assets/img/wide/tinyfishing.png';
+            document.querySelector('.featured').src = '/assets/img/wide/fortnite.jpg';
         }).catch(e => new PolarisError('Failed to load featured game.'));
 
     const logHeight = () => {
