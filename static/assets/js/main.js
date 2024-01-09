@@ -69,25 +69,55 @@ if (location.pathname === '/') {
             document.querySelector('.featured').src = '/assets/img/wide/tinyfishing.png';
         }).catch(e => new PolarisError('Failed to load featured game.'));
 
+    const logHeight = () => {
+        const log = document.createElement('div');
+        document.querySelector('#changelog').appendChild(log);
+
+        const date = document.createElement('p');
+        date.textContent = 'a';
+        date.classList = 'small';
+        log.appendChild(date);
+
+        const description = document.createElement('i');
+        description.textContent = 'a';
+        description.classList = 'small';
+        log.appendChild(description);
+
+        const height = log.clientHeight;
+
+        log.remove();
+
+        return height;
+    };
+
+    const getAvalibleHeight = () => {
+        var total = 0;
+        
+        document.querySelectorAll('.container.right>*:not(#changelog)').forEach(el => total += Number((el.currentStyle || window.getComputedStyle(el)).marginTop.replace('px', '')) + Number((el.currentStyle || window.getComputedStyle(el)).marginTop.replace('px', '')) + el.clientHeight);
+
+        return (document.querySelector('.container.right').clientHeight - getVH(2)) - total;
+    }
+
     fetch('/assets/JSON/changelog.json')
         .then(res => res.json())
         .then(changelog => {
             changelog
-                    .filter((data, i) => !(i >= 3))
-                    .forEach(change => {
-                        const log = document.createElement('div');
-                        document.querySelector('#changelog').appendChild(log);
+                .filter((data, i) => !(i >= 3))
+                .forEach(change => {
+                    const log = document.createElement('div');
+                    document.querySelector('#changelog').appendChild(log);
 
-                        const date = document.createElement('p');
-                        date.textContent = change.date;
-                        date.classList = 'small';
-                        log.appendChild(date);
+                    const date = document.createElement('p');
+                    date.textContent = change.date;
+                    date.classList = 'small';
+                    log.appendChild(date);
 
-                        const description = document.createElement('i');
-                        description.textContent = change.simpleDescription;
-                        description.classList = 'small';
-                        log.appendChild(description);
-                    });
+                    const description = document.createElement('i');
+                    description.textContent = change.simpleDescription;
+                    description.classList = 'small';
+                    log.appendChild(description);
+
+                });
 
             const updateChangelog = (amount = 3) => {
                 amount = amount - 1;
@@ -98,8 +128,8 @@ if (location.pathname === '/') {
                 }
             }
 
-            updateChangelog(!(getVH(100) - getVH(69) > document.querySelector('#changelog').clientHeight) ? 2 : 3);
-            window.onresize = () => updateChangelog(!(getVH(100) - getVH(69) > document.querySelector('#changelog').clientHeight) ? 2 : 3);
+            updateChangelog(Math.floor(getAvalibleHeight() / logHeight()));
+            window.addEventListener('resize', () => updateChangelog(Math.floor(getAvalibleHeight() / logHeight())));
         });
 }
 
@@ -113,6 +143,4 @@ if (window.self === window.top && location.pathname !== '/view') window.onscroll
     else document.querySelector('.navbar').classList.remove('scrolling');
 }
 
-if (window.self !== window.top && document.querySelector('.navbar')) document.querySelector('.navbar').remove()
-
-//export default { Settings, Games, Apps, Frame, PolarisError };
+if (window.self !== window.top && document.querySelector('.navbar')) document.querySelector('.navbar').remove();

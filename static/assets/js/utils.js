@@ -1,5 +1,6 @@
 import indexedDBExporter from './utils/indexeddb.js';
 import EventEmitter from './utils/events.js';
+import cookie from './utils/cookie.js';
 
 /**
  * The storage interface for polaris
@@ -153,7 +154,8 @@ export default {
     getVW,
     isScrollable,
     indexedDBExporter,
-    EventEmitter
+    EventEmitter,
+    cookie
 };
 
 export {
@@ -167,5 +169,6 @@ export {
     getVW,
     isScrollable,
     indexedDBExporter,
-    EventEmitter
+    EventEmitter,
+    cookie
 };

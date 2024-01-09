@@ -1,5 +1,5 @@
 import Dexie from 'https://unpkg.com/dexie@latest/dist/modern/dexie.mjs';
-import { isScrollable, storage, indexedDBExporter, EventEmitter } from './utils.js';
+import { isScrollable, storage, indexedDBExporter, cookie, EventEmitter } from './utils.js';
 import PolarisError from './error.js';
 import Theme from './themes.js';
 
@@ -59,45 +59,116 @@ class Settings {
         document.querySelector('#export').addEventListener('click', () => {
             //Still in beta
             if (false) {
-                const exportEvents = new EventEmitter();
-                var exportsFinished = 0;
-                const saveData = {
-                    indexedDB: [],
-                    cookies: [],
-                    localStorage: []
-                };
+                const CryptoJSScript = document.createElement('script');
+                CryptoJSScript.src = 'https://unpkg.com/crypto-js@latest/crypto-js.js';
+                document.body.appendChild(CryptoJSScript);
 
-                const exportData = () => {
-                    exportsFinished += 1;
+                CryptoJSScript.addEventListener('load', () => {
+                    const exportEvents = new EventEmitter();
+                    var exportsFinished = 0;
+                    const saveData = {
+                        indexedDB: [],
+                        cookies: [],
+                        localStorage: []
+                    };
 
-                    if (exportEvents === 3) {
+                    const exportData = () => {
+                        exportsFinished += 1;
 
+                        if (exportsFinished === 3) {
+                            const blobURL = URL.createObjectURL(new Blob([CryptoJS.AES.encrypt(JSON.stringify(saveData), 'polaris')]));
+
+                            const download = document.createElement('a');
+                            download.href = blobURL;
+                            download.download = `${new Date().getMonth() + 1}-${new Date().getDate()}-${new Date().getFullYear()}.polarissave`;
+                            document.body.appendChild(download);
+
+                            download.click();
+                            download.remove();
+                            URL.revokeObjectURL(blobURL);
+                        };
+                    };
+
+                    exportEvents.on('cookies', exportData);
+                    exportEvents.on('indexedDB', exportData);
+                    exportEvents.on('localStorage', exportData);
+
+                    if (!navigator.userAgent.includes('Firefox')) indexedDB.databases()
+                        .then(dbs => {
+                            for (let i = 0; i < dbs.length; i++) {
+                                const dbInfo = dbs[i];
+
+                                const db = new Dexie(dbInfo.name);
+
+                                db.open()
+                                    .then(() => indexedDBExporter.exportToJsonString(db.backendDB())
+                                        .then((result) => {
+                                            try {
+                                                saveData.indexedDB.push({
+                                                    name: dbInfo.name,
+                                                    data: result
+                                                });
+                                            } catch { }
+
+                                            if (i + 1 === dbs.length) exportEvents.emit('indexedDB');
+                                        }));
+                            }
+                        });
+                    else exportEvents.emit('indexedDB');
+
+                    for (let i = 0; i < Object.keys(localStorage).length; i++) {
+                        saveData.localStorage.push({
+                            name: Object.keys(localStorage)[i],
+                            data: localStorage.getItem(Object.keys(localStorage)[i])
+                        });
+
+                        if (i + 1 === Object.keys(localStorage).length) exportEvents.emit('localStorage');
                     }
-                };
 
-                exportEvents.on('cookies', exportData);
-                exportEvents.on('indexedDB', exportData);
-                exportEvents.on('localStorage', exportData);
+                    for (let i = 0; i < Object.keys(cookie.all()).length; i++) {
+                        saveData.localStorage.push({
+                            name: Object.keys(cookie.all())[i],
+                            data: cookie.get(Object.keys(cookie.all())[i])
+                        });
 
-                if (!navigator.userAgent.includes('Firefox')) indexedDB.databases()
-                    .then(dbs => {
-                        for (let i = 0; i < dbs.length; i++) {
-                            const db = new Dexie(dbInfo.name);
+                        if (i + 1 === Object.keys(cookie.all()).length) exportEvents.emit('cookies');
+                    }
+                });
+            }
+        });
 
-                            db.open()
-                                .then(() => indexedDBExporter.exportToJsonString(db.backendDB())
-                                    .then((result) => {
-                                        try {
-                                            saveData.indexedDB.push({
-                                                name: dbInfo.name,
-                                                data: result
-                                            });
-                                        } catch { }
+        document.querySelector('#import').addEventListener('click', () => {
+            //Still in beta
+            if (false) {
+                const CryptoJSScript = document.createElement('script');
+                CryptoJSScript.src = 'https://unpkg.com/crypto-js@latest/crypto-js.js';
+                document.body.appendChild(CryptoJSScript);
 
-                                        if (i + 1 === dbs.length) exportEvents.emit('indexedDB');
-                                    }));
+                CryptoJSScript.addEventListener('load', () => {
+                    const uploadInput = document.createElement('input');
+                    uploadInput.type = 'file';
+                    uploadInput.hidden = '';
+                    document.body.appendChild(uploadInput);
+
+                    uploadInput.click();
+
+                    uploadInput.addEventListener('change', (e) => {
+                        const file = e.target.files[0];
+
+                        if (!file) {
+                            uploadInput.remove();
+                            return;
                         }
+
+                        const reader = new FileReader();
+
+                        reader.onload = (e) => {
+                            JSON.parse(CryptoJS.AES.decrypt(e.target.result, 'polaris').toString(CryptoJS.enc.Utf8));
+                        };
+
+                        reader.readAsText(file);
                     });
+                });
             }
         });
 

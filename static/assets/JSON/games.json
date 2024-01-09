@@ -7,7 +7,7 @@
   {
     "name": "1v1.LoL",
     "target": "/cdn/3kh0/1v1lol/index.html",
-    "image": "/assets/img/1v1lol.png",
+    "image": "/assets/img/1v1lol.png"
   },
   {
     "name": "2048",
@@ -212,7 +212,7 @@
   {
     "name": "Fortnite",
     "target": "https://now.gg/play/epic-games/7308/fortnite",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Fortnite_F_lettermark_logo.png"
+    "image": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Fortnite_F_lettermark_logo.png",
     "popular": true
   },
   {
