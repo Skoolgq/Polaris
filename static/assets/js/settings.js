@@ -57,8 +57,6 @@ class Settings {
         if (navigator.userAgent.includes('Firefox')) document.querySelector('#export_error').innerHTML = 'Your browser does not fully support this feature. Some data may not export.<br><br>';
 
         document.querySelector('#export').addEventListener('click', () => {
-            //Still in beta
-            //if (false) {
             const CryptoJSScript = document.createElement('script');
             CryptoJSScript.src = 'https://unpkg.com/crypto-js@latest/crypto-js.js';
             document.body.appendChild(CryptoJSScript);
@@ -136,12 +134,9 @@ class Settings {
                     if (i + 1 === Object.keys(cookie.all()).length) exportEvents.emit('cookies');
                 } else exportEvents.emit('cookies');
             });
-            //}
         });
 
         document.querySelector('#import').addEventListener('click', () => {
-            //Still in beta
-            //if (false) {
             const CryptoJSScript = document.createElement('script');
             CryptoJSScript.src = 'https://unpkg.com/crypto-js@latest/crypto-js.js';
             document.body.appendChild(CryptoJSScript);
@@ -216,7 +211,6 @@ class Settings {
                     reader.readAsText(file);
                 });
             });
-            //}
         });
 
         fetch('/assets/JSON/cloaks.json').then(res => res.json()).then(cloaks => {

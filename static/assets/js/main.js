@@ -48,11 +48,11 @@ if (window.self === window.top && location.pathname !== '/view') setTimeout(asyn
 }, 500);
 
 if (location.pathname === '/') {
-    fetch('/assets/JSON/games.json')
+    fetch('/api/games')
         .then(res => res.json())
         .then(games => {
             const gameName = 'Fortnite';
-            const game = games.filter(g => g.name === gameName)[0];
+            const game = games.all.filter(g => g.name === gameName)[0];
 
             document.querySelector('.featured').addEventListener('click', () => {
                 if (isValidURL(game.target)) createViewPage({
