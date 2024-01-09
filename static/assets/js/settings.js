@@ -56,6 +56,42 @@ class Settings {
         if (settingsStorage.get('proxy')) document.querySelector('#proxy_select').value = settingsStorage.get('proxy');
         if (navigator.userAgent.includes('Firefox')) document.querySelector('#export_error').innerHTML = 'Your browser does not fully support this feature. Some data may not export.<br><br>';
 
+        document.querySelector('#clear').addEventListener('click', () => {
+            const clearEvents = new EventEmitter();
+            var clearsFinished = 0;
+
+            const clearData = () => {
+                clearsFinished += 1;
+
+                location.reload();
+            }
+
+            clearEvents.on('cookies', clearData);
+            clearEvents.on('indexedDB', clearData);
+            clearEvents.on('localStorage', clearData);
+
+            if (!navigator.userAgent.includes('Firefox')) indexedDB.databases()
+                .then(dbs => {
+                    if (dbs.length !== 0) for (let i = 0; i < dbs.length; i++) {
+                        const dbInfo = dbs[i];
+                        const db = new Dexie(dbInfo.name);
+
+                        db.open()
+                            .then(() => indexedDBclearer.clearDatabase(db.backendDB())
+                                .then((result) => {
+                                    if (i + 1 === dbs.length) clearEvents.emit('indexedDB');
+                                }));
+                    } else clearEvents.emit('indexedDB');
+                });
+            else clearEvents.emit('indexedDB');
+
+            localStorage.clear();
+            clearEvents.emit('localStorage');
+            
+            document.cookie = '';
+            clearEvents.emit('cookies');
+        });
+
         document.querySelector('#export').addEventListener('click', () => {
             const CryptoJSScript = document.createElement('script');
             CryptoJSScript.src = 'https://unpkg.com/crypto-js@latest/crypto-js.js';
@@ -194,13 +230,13 @@ class Settings {
 
                             if (saveData.localStorage.length !== 0) for (let i = 0; i < saveData.localStorage.length; i++) {
                                 localStorage.setItem(saveData.localStorage[i].name, saveData.localStorage[i].data);
-            
+
                                 if (i + 1 === saveData.localStorage.length) importEvents.emit('localStorage');
                             } else importEvents.emit('localStorage');
 
                             if (saveData.cookies.length !== 0) for (let i = 0; i < saveData.cookies.length; i++) {
                                 cookie.set(saveData.cookies[i].name, saveData.cookies[i].data);
-            
+
                                 if (i + 1 === Object.keys(cookie.all()).length) importEvents.emit('cookies');
                             } else importEvents.emit('cookies');
                         } catch {

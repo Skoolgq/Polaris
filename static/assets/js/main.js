@@ -14,6 +14,7 @@ onbeforeunload = (e) => {
 
     if (localStorage.getItem('prevent_close') === 'true') {
         e.preventDefault();
+        
         return e;
     }
 }
