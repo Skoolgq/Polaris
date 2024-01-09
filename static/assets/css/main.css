@@ -299,6 +299,7 @@ input:checked+.slider:before {
 }
 
 .game {
+    background: #fff;
     min-width: 20vh;
     min-height: 20vh;
     display: block;
@@ -365,6 +366,7 @@ input:checked+.slider:before {
 }
 
 .cheat {
+    background: #fff;
     min-width: 20vh;
     min-height: 20vh;
     display: block;
@@ -423,6 +425,7 @@ input:checked+.slider:before {
 }
 
 .app {
+    background: #fff;
     min-width: 20vh;
     min-height: 20vh;
     display: block;

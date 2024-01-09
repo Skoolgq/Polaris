@@ -1,5 +1,9 @@
 [
 	{
+		"date": "1/9/2024",
+		"simpleDescription": "Added game saving. Located in the settings tab"
+	},
+	{
 		"date": "1/8/2024",
 		"simpleDescription": "Fixed games and added Fortnite"
 	},
