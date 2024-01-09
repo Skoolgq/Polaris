@@ -1,5 +1,10 @@
 [
     {
+        "name": "Spotify",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Spotify_logo_without_text.svg/168px-Spotify_logo_without_text.svg.png",
+        "target": "https://open.spotify.com/"
+    },
+    {
         "name": "Chess.com",
         "image": "https://play-lh.googleusercontent.com/a7R5nyeaX8lIEWdBOxjlvbyq9LcFwh3XMvNtBPEKR3LPGgdvgGrec4sJwn8tUaaSkw",
         "target": "https://chess.com/"
