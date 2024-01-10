@@ -63,12 +63,10 @@ class Settings {
             const clearData = () => {
                 clearsFinished += 1;
 
-                location.reload();
+                if (clearsFinished === 1) location.reload();
             }
 
-            clearEvents.on('cookies', clearData);
             clearEvents.on('indexedDB', clearData);
-            clearEvents.on('localStorage', clearData);
 
             if (!navigator.userAgent.includes('Firefox')) indexedDB.databases()
                 .then(dbs => {
@@ -86,10 +84,8 @@ class Settings {
             else clearEvents.emit('indexedDB');
 
             localStorage.clear();
-            clearEvents.emit('localStorage');
-            
+            sessionStorage.clear();
             document.cookie = '';
-            clearEvents.emit('cookies');
         });
 
         document.querySelector('#export').addEventListener('click', () => {

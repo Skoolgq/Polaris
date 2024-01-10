@@ -12,7 +12,7 @@
     {
         "name": "Wordle",
         "target": "/assets/misc/cheats/wordle.html",
-        "image": "/assets/img/wordle.png"
+        "image": "/cdn/images/wordle.png"
     },
     {
         "name": "Prodigy",

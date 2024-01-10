@@ -16,7 +16,7 @@
     },
     {
         "name": "Discord",
-        "image": "/assets/img/discord.png",
+        "image": "/cdn/images/discord.png",
         "target": "https://discord.com/app"
     },
     {
@@ -51,17 +51,17 @@
     },
     {
         "name": "Tiktok",
-        "image": "/assets/img/tiktok.png",
+        "image": "/cdn/images/tiktok.png",
         "target": "https://www.tiktok.com/en/"
     },
     {
         "name": "Twitch",
-        "image": "/assets/img/twitch.png",
+        "image": "/cdn/images/twitch.png",
         "target": "https://www.twitch.tv/"
     },
     {
         "name": "Youtube",
-        "image": "/assets/img/youtube.png",
+        "image": "/cdn/images/youtube.png",
         "target": "https://youtube.com"
     }
 ]

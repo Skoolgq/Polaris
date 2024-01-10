@@ -2,22 +2,22 @@
   {
     "name": "10 Minutes Till dawn",
     "target": "/cdn/10-minutes-till-dawn/index.html",
-    "image": "/assets/img/tmtd.png"
+    "image": "/cdn/images/tmtd.png"
   },
   {
     "name": "1v1.LoL",
     "target": "/cdn/3kh0/1v1lol/index.html",
-    "image": "/assets/img/1v1lol.png"
+    "image": "/cdn/images/1v1lol.png"
   },
   {
     "name": "2048",
     "target": "/cdn/2048/index.html",
-    "image": "/assets/img/2048.png"
+    "image": "/cdn/images/2048.png"
   },
   {
     "name": "99 Balls 3D",
     "target": "https://gamesnacks.com/games/99balls3d",
-    "image": "/assets/img/99balls.png"
+    "image": "/cdn/images/99balls.png"
   },
   {
     "name": "Achievement Unlocked",
@@ -27,7 +27,7 @@
   {
     "name": "Adventure Capitalist",
     "target": "https://than1089.github.io/adventure-capitalist/",
-    "image": "/assets/img/adventurecapitalist.png"
+    "image": "/cdn/images/adventurecapitalist.png"
   },
   {
     "name": "Alien Hominid",
@@ -42,7 +42,7 @@
   {
     "name": "Archery World Tour",
     "target": "https://gamesnacks.com/embed/games/archery",
-    "image": "/assets/img/awt.jpg"
+    "image": "/cdn/images/awt.jpg"
   },
   {
     "name": "Diep.io",
@@ -57,27 +57,27 @@
   {
     "name": "Asphalt Retro",
     "target": "https://html5.gamedistribution.com/2c122cee7ef04222a962449e32a34e98/?gd_sdk_referrer_url=https://gamedistribution.com/games/asphalt-retro",
-    "image": "/assets/img/asr.jpg"
+    "image": "/cdn/images/asr.jpg"
   },
   {
     "name": "Awesome Tanks 2",
     "target": "/cdn/awesometanks2/index.html",
-    "image": "/assets/img/awesometanks.jpg"
+    "image": "/cdn/images/awesometanks.jpg"
   },
   {
     "name": "Axis Football League",
     "target": "https://skool.gay/cdn/axisfootballleague/index.html",
-    "image": "/assets/img/afl.png"
+    "image": "/cdn/images/afl.png"
   },
   {
     "name": "Backrooms",
     "target": "/cdn/3kh0/backrooms/index.html",
-    "image": "/assets/img/backrooms.jpg"
+    "image": "/cdn/images/backrooms.jpg"
   },
   {
     "name": "Basket Bros",
     "target": "https:/cdn/3kh0/basketbros-io/index.html",
-    "image": "/assets/img/basketbros.jpg"
+    "image": "/cdn/images/basketbros.jpg"
   },
   {
     "name": "Basket Random",
@@ -107,27 +107,27 @@
   {
     "name": "Black Hole Square",
     "target": "/cdn/black-hole-square/index.html",
-    "image": "/assets/img/blackholesquare.png"
+    "image": "/cdn/images/blackholesquare.png"
   },
   {
     "name": "Bloons TD 2",
     "target": "/cdn/3kh0/bloonstd2/index.html",
-    "image": "/assets/img/btd2.png"
+    "image": "/cdn/images/btd2.png"
   },
   {
     "name": "Bloxorz",
     "target": "https://raw.githack.com/Skoolgq/flashgamedump/main/bloxorz.html",
-    "image": "/assets/img/bloxorz.png"
+    "image": "/cdn/images/bloxorz.png"
   },
   {
     "name": "Bob The Robber 2",
     "target": "/cdn/3kh0/bobtherobber2/index.html",
-    "image": "/assets/img/btr2.jpeg"
+    "image": "/cdn/images/btr2.jpeg"
   },
   {
     "name": "Bounce Back",
     "target": "https://skoolcdn.github.io/gfiles/gfiles/html5/bounceback",
-    "image": "/assets/img/bounceback.jpg"
+    "image": "/cdn/images/bounceback.jpg"
   },
   {
     "name": "BuildNow.GG",
@@ -167,7 +167,7 @@
   {
     "name": "Cut the Rope",
     "target": "/cdn/3kh0/ctr/index.html'",
-    "image": "/assets/img/ctr.png"
+    "image": "/cdn/images/ctr.png"
   },
   {
     "name": "Dante",
@@ -182,7 +182,7 @@
   {
     "name": "DogeMiner",
     "target": "/cdn/3kh0/DogeMiner/index.html",
-    "image": "/assets/img/dogeminer.png"
+    "image": "/cdn/images/dogeminer.png"
   },
   {
     "name": "Doodle Jump",
@@ -197,7 +197,7 @@
   {
     "name": "Drift Boss",
     "target": "https://www.mathplayground.com/drift-boss-v3/index.html",
-    "image": "/assets/img/driftboss.png"
+    "image": "/cdn/images/driftboss.png"
   },
   {
     "name": "Drift Hunters (have patience)",
@@ -207,7 +207,7 @@
   {
     "name": "Drive Mad",
     "target": "/cdn/3kh0/drive-mad/index.html",
-    "image": "/assets/img/dmd.jpg"
+    "image": "/cdn/images/dmd.jpg"
   },
   {
     "name": "Fortnite",
@@ -223,12 +223,12 @@
   {
     "name": "Flappy Bird",
     "target": "/cdn/3kh0/flappybird/index.html",
-    "image": "/assets/img/fp.png"
+    "image": "/cdn/images/fp.png"
   },
   {
     "name": "Friday Night Funkin'",
     "target": "/assets/misc/fridaynightfunkin/index.html",
-    "image": "/assets/img/fnf.png"
+    "image": "/cdn/images/fnf.png"
   },
   {
     "name": "Fruit Ninja",
@@ -253,12 +253,12 @@
   {
     "name": "Hacker Tetris",
     "target": "/cdn/3kh0/twitch-tetris/index.html",
-    "image": "/assets/img/hackertetris.png"
+    "image": "/cdn/images/hackertetris.png"
   },
   {
     "name": "Happy Wheels",
     "target": "https://games-online.io/game/HappyWheels",
-    "image": "/assets/img/happywheels.jpeg"
+    "image": "/cdn/images/happywheels.jpeg"
   },
   {
     "name": "Idle Breakout",
@@ -268,7 +268,7 @@
   {
     "name": "Janissary Battles",
     "target": "https://html5.gamedistribution.com/8b55f4f729be4e70b6155f27d2e04690/?gd_sdk_referrer_url=https://gamedistribution.com/games/janissary-battles",
-    "image": "/assets/img/janissary.png"
+    "image": "/cdn/images/janissary.png"
   },
   {
     "name": "Jetpack Joyride",
@@ -283,17 +283,17 @@
   {
     "name": "Learn To Fly",
     "target": "/cdn/3kh0/learntofly/index.html",
-    "image": "/assets/img/learntofly.png"
+    "image": "/cdn/images/learntofly.png"
   },
   {
     "name": "Learn To Fly 2",
     "target": "/cdn/3kh0/learntofly2/index.html",
-    "image": "/assets/img/ltf2.jpg"
+    "image": "/cdn/images/ltf2.jpg"
   },
   {
     "name": "Let's Surf",
     "target": "/cdn/3kh0/edge-surf/index.html",
-    "image": "/assets/img/ltsf.png"
+    "image": "/cdn/images/ltsf.png"
   },
   {
     "name": "Line Rider",
@@ -303,7 +303,7 @@
   {
     "name": "Master Archer",
     "target": "https://playcanv.as/p/JERg21J8",
-    "image": "/assets/img/masterarcher.jpg"
+    "image": "/cdn/images/masterarcher.jpg"
   },
   {
     "name": "Mindustry",
@@ -313,7 +313,7 @@
   {
     "name": "Minecraft",
     "target": "/cdn/3kh0/minecraft-15/index.html",
-    "image": "/assets/img/mc.jpeg",
+    "image": "/cdn/images/mc.jpeg",
     "popular": true
   },
   {
@@ -360,7 +360,7 @@
   {
     "name": "osu!",
     "target": "https://skoolgq.github.io/skool-osu",
-    "image": "/assets/img/osu.png"
+    "image": "/cdn/images/osu.png"
   },
   {
     "name": "OvO",
@@ -370,12 +370,12 @@
   {
     "name": "Papas Pizzeria",
     "target": "/cdn/3kh0/papaspizzaria/index.html",
-    "image": "/assets/img/pizzeria.jpeg"
+    "image": "/cdn/images/pizzeria.jpeg"
   },
   {
     "name": "Penalty Kicks",
     "target": "https://www.mathplayground.com/penalty-kicks/index.html",
-    "image": "/assets/img/penaltykicks.png"
+    "image": "/cdn/images/penaltykicks.png"
   },
   {
     "name": "Pizza Tower",
@@ -390,24 +390,24 @@
   {
     "name": "Retro Bowl",
     "target": "/cdn/3kh0/retro-bowl/index.html",
-    "image": "/assets/img/retrobowl.jpeg",
+    "image": "/cdn/images/retrobowl.jpeg",
     "popular": true
   },
   {
     "name": "Rise Higher",
     "target": "https://www.mathplayground.com/rise-higher/index.html",
-    "image": "/assets/img/risehigher.jpg"
+    "image": "/cdn/images/risehigher.jpg"
   },
   {
     "name": "Roblox",
     "target": "https://now.gg/play/roblox-corporation/5349/roblox",
-    "image": "/assets/img/roblox.png",
+    "image": "/cdn/images/roblox.png",
     "popular": true
   },
   {
     "name": "Robostorm",
     "target": "https://robostorm.io",
-    "image": "/assets/img/robostorm.jpg"
+    "image": "/cdn/images/robostorm.jpg"
   },
   {
     "name": "Rocket League 2D",
@@ -504,7 +504,7 @@
   {
     "name": "Vex 6",
     "target": "https://html5.gamedistribution.com/4925e12574364121a48c61c35f649c36/?gd_sdk_referrer_url=https://gamedistribution.com/games/vex-6",
-    "image": "/assets/img/vex-6.png"
+    "image": "/cdn/images/vex-6.png"
   },
   {
     "name": "Vex 7",
