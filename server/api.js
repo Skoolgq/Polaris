@@ -1,16 +1,27 @@
+import childProcess from 'node:child_process';
 import path from 'node:path';
 import url from 'node:url';
 import fs from 'node:fs';
 
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
+const packageFile = JSON.parse(fs.readFileSync(path.join(__dirname, '../package.json')));
+const commits = await (await fetch(`https://api.github.com/repos/Skoolgq/Polaris/commits`)).json();
 
 /**
  * @param {import('express').Express} app 
  */
 const routes = (app) => {
-    /*app.get('/api/changelog', async (req, res) => {
-
-    });*/
+    app.get('/api/changelog', async (req, res) => {
+        res.json({
+            version: packageFile.version || 'unknown',
+            commit: {
+                sha: childProcess.execSync('git rev-parse HEAD').toString().trim() || 'Uuknown',
+                message: childProcess.execSync('git rev-list --format=%s --max-count=1 HEAD').toString().split('\n')[1].replace('changelog ', '') || 'unknown'
+            },
+            upToDate: (commits[0].sha === childProcess.execSync('git rev-parse HEAD').toString().trim()) || false,
+            changelog: JSON.parse(fs.readFileSync(path.join(__dirname, '../static/assets/JSON/changelog.json')))
+        });
+    });
 
     app.get('/api/favicon', async (req, res) => {
         try {

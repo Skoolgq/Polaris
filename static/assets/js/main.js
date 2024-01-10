@@ -48,6 +48,14 @@ if (window.self === window.top && location.pathname !== '/view') setTimeout(asyn
     if (location.pathname === '/cheats') Cheats.load();
 }, 500);
 
+fetch('/api/changelog')
+        .then(res => res.json())
+        .then(changelog => {
+            document.querySelector('#version').textContent = changelog.version !== 'unknown' ? 'v' + changelog.version : changelog.version;
+            document.querySelector('#version_sha').textContent = changelog.commit.sha.slice(0, 7);
+            document.querySelector('#up_to_date').textContent = changelog.upToDate ? 'yes' : 'no';
+        });
+
 if (location.pathname === '/') {
     fetch('/api/games')
         .then(res => res.json())
@@ -99,10 +107,10 @@ if (location.pathname === '/') {
         return (document.querySelector('.container.right').clientHeight - getVH(2)) - total;
     }
 
-    fetch('/assets/JSON/changelog.json')
+    fetch('/api/changelog')
         .then(res => res.json())
         .then(changelog => {
-            changelog
+            changelog.changelog
                 .filter((data, i) => !(i >= 3))
                 .forEach(change => {
                     const log = document.createElement('div');

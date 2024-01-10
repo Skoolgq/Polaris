@@ -7,6 +7,7 @@ import { pathToFile, TokenManager, rewriter } from './utils.js';
 import config from '../polaris.config.js';
 import api from './api.js';
 
+import childProcess from 'node:child_process';
 import path from 'node:path';
 import http from 'node:http';
 import url from 'node:url';
@@ -15,9 +16,10 @@ import fs from 'node:fs';
 const app = express();
 const server = http.createServer();
 const bareServer = createBareServer('/bare/');
+const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
+const packageFile = JSON.parse(fs.readFileSync(path.join(__dirname, '../package.json')));
 const mode = (process.argv[2] === 'prod' || process.argv[2] === 'dev' ? process.argv[2] : (process.argv[3] === 'prod' || process.argv[3] === 'dev' ? process.argv[3] : (config.mode === 'prod' || config.mode === 'dev' ? config.mode : 'prod')));
 const port = (process.argv[2] !== 'prod' && process.argv[2] !== 'dev' && Boolean(Number(process.argv[2]))) ? process.argv[2] : (Boolean(Number(process.argv[3])) ? process.argv[3] : (Boolean(Number(config.port)) ? config.port : (mode === 'prod' ? 80 : 8080)));
-const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
 const swPaths = [
     '/uv/sw.js',
@@ -139,4 +141,4 @@ server.on('upgrade', (req, socket, head) => {
     else socket.end();
 });
 
-server.listen(port, () => console.log(`Polaris running\n\nPort: ${server.address().port}\nMode: ${mode === 'dev' ? 'development' : 'production'}\nNode.js: ${process.version}`));
+server.listen(port, () => console.log(`Polaris running\n\nPort: ${server.address().port}\nVersion: ${packageFile.version || 'Unknown'} ${childProcess.execSync('git rev-parse HEAD').toString().trim().slice(0, 7) || 'Unknown'}\nMode: ${mode === 'dev' ? 'development' : 'production'}\nNode.js: ${process.version}`));
