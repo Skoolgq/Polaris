@@ -8,7 +8,9 @@ const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
  * @param {import('express').Express} app 
  */
 const routes = (app) => {
-    app.get('/api/changelog')
+    /*app.get('/api/changelog', async (req, res) => {
+
+    });*/
 
     app.get('/api/favicon', async (req, res) => {
         try {
