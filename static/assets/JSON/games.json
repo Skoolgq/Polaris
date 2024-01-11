@@ -155,6 +155,12 @@
     "image": "https://image.api.playstation.com/cdn/UP0097/CUSA06481_00/36sNa79pxV859fFg3CU7zFhQ34ThNx8z.png"
   },
   {
+    "name": "COD Mobile",
+    "target": "https://now.gg/play/activision-publishing-inc/7935/call-of-duty.html",
+    "image": "https://static.wikia.nocookie.net/callofduty/images/f/f4/App_Icon_CODM_Global.jpg/revision/latest?cb=20200507033012",
+    "popular": true
+  },
+  {
     "name": "Crossy Road",
     "target": "/cdn/crossy-road/index.html",
     "image": "/cdn/crossy-road/icon.png"
@@ -324,8 +330,7 @@
   {
     "name": "Monkey Mart",
     "target": "/cdn/monkey-mart/index.html",
-    "image": "https://play-lh.googleusercontent.com/Mq2MGUBjTRHMmx1NLlgQF3fKZQ5Yvtvy2Hg0nD5eDhVDHvyBDxcZEj830uUzGxlbg94=w240-h480-rw",
-    "popular": true
+    "image": "https://play-lh.googleusercontent.com/Mq2MGUBjTRHMmx1NLlgQF3fKZQ5Yvtvy2Hg0nD5eDhVDHvyBDxcZEj830uUzGxlbg94=w240-h480-rw"
   },
   {
     "name": "Monster Truck Stunts",
@@ -447,7 +452,7 @@
   },
   {
     "name": "Stumble Guys",
-    "target": "https://now.gg/apps/kitka-games/7999/stumble-guys.html",
+    "target": "https://now.gg/play/kitka-games/7999/stumble-guys.html",
     "image": "https://play-lh.googleusercontent.com/Oci7f4WR0JShbn-n5hnwubbXaMssleb2b1Dv7AMOzFFcgstIdC9kg-E3LHx3em8RCaLf",
     "popular":true
   },
