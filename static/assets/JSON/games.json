@@ -435,10 +435,15 @@
     "image": "/cdn/slope/slope4.jpeg"
   },
   {
+    "name": "Smash Karts",
+    "target": "//smartcart1.github.io/s/smash-karts/",
+    "image": "https://img.gamepix.com/games/smash-karts/icon/smash-karts.png",
+    "popular": true
+  },
+  {
     "name": "Snow Rider 3D",
     "target": "https://23azostore.github.io/s8/snow-rider-3d/",
-    "image": "https://img.gamepix.com/games/snow-rider-3d/cover/snow-rider-3d.png?width=600&height=340&fit=cover&quality=90",
-    "popular": true
+    "image": "https://img.gamepix.com/games/smash-karts/icon/smash-karts.png"
   },
   {
     "name": "Soccer Random",
