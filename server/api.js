@@ -17,7 +17,7 @@ const routes = (app) => {
             sha: childProcess.execSync('git rev-parse HEAD').toString().trim() || 'uknown',
             message: childProcess.execSync('git rev-list --format=%s --max-count=1 HEAD').toString().split('\n')[1].replace('changelog ', '') || 'unknown'
         },
-        upToDate: (commits[0].sha === childProcess.execSync('git rev-parse HEAD').toString().trim()) || false,
+        upToDate: (commits[0] ? ((commits[0].sha === childProcess.execSync('git rev-parse HEAD').toString().trim()) || false) : false),
         changelog: JSON.parse(fs.readFileSync(path.join(__dirname, '../static/assets/JSON/changelog.json')))
     }));
 

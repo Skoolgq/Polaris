@@ -1,6 +1,7 @@
 import indexedDBExporter from './utils/indexeddb.js';
 import EventEmitter from './utils/events.js';
 import cookie from './utils/cookie.js';
+import ctc from './utils/ctc.js';
 
 /**
  * The storage interface for polaris
@@ -48,6 +49,11 @@ const storage = (containerName) => {
         }
     };
 };
+
+/**
+ * @returns {string}
+ */
+const uuid = () => ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c => (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16));
 
 /**
  * Register a proxy service worker
@@ -155,7 +161,9 @@ export default {
     isScrollable,
     indexedDBExporter,
     EventEmitter,
-    cookie
+    cookie,
+    uuid,
+    ctc
 };
 
 export {
@@ -170,5 +178,7 @@ export {
     isScrollable,
     indexedDBExporter,
     EventEmitter,
-    cookie
+    cookie,
+    uuid,
+    ctc
 };
