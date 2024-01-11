@@ -11,17 +11,15 @@ const commits = await (await fetch(`https://api.github.com/repos/Skoolgq/Polaris
  * @param {import('express').Express} app 
  */
 const routes = (app) => {
-    app.get('/api/changelog', async (req, res) => {
-        res.json({
-            version: packageFile.version || 'unknown',
-            commit: {
-                sha: childProcess.execSync('git rev-parse HEAD').toString().trim() || 'Uuknown',
-                message: childProcess.execSync('git rev-list --format=%s --max-count=1 HEAD').toString().split('\n')[1].replace('changelog ', '') || 'unknown'
-            },
-            upToDate: (commits[0].sha === childProcess.execSync('git rev-parse HEAD').toString().trim()) || false,
-            changelog: JSON.parse(fs.readFileSync(path.join(__dirname, '../static/assets/JSON/changelog.json')))
-        });
-    });
+    app.get('/api/changelog', async (req, res) => res.json({
+        version: packageFile.version || 'unknown',
+        commit: {
+            sha: childProcess.execSync('git rev-parse HEAD').toString().trim() || 'uknown',
+            message: childProcess.execSync('git rev-list --format=%s --max-count=1 HEAD').toString().split('\n')[1].replace('changelog ', '') || 'unknown'
+        },
+        upToDate: (commits[0].sha === childProcess.execSync('git rev-parse HEAD').toString().trim()) || false,
+        changelog: JSON.parse(fs.readFileSync(path.join(__dirname, '../static/assets/JSON/changelog.json')))
+    }));
 
     app.get('/api/favicon', async (req, res) => {
         try {

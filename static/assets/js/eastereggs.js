@@ -115,25 +115,24 @@ easterEggs.push({
 easterEggs.push({
     type: 'keybind',
     phrase: 'ham',
-    run: () => {
-        return new Promise((resolve, reject) => {
-            const audio = new Audio('/assets/misc/ringtone.mp3');
-            audio.loop = true;
-            audio.play();
+    run: () => new Promise((resolve, reject) => {
+        const audio = new Audio('/assets/misc/ringtone.mp3');
+        audio.loop = true;
+        audio.play();
 
-            audio.onplay = () => {
-                const overlay = document.createElement('div');
-                overlay.style = `position: fixed;
+        audio.onplay = () => {
+            const overlay = document.createElement('div');
+            overlay.style = `position: fixed;
                 top: 0;
                 bottom: 0;
                 left: 0;
                 right: 0;
                 background: #000;
                 z-index: 2147483645;`;
-                document.body.appendChild(overlay);
+            document.body.appendChild(overlay);
 
-                const menu = document.createElement('div');
-                menu.style = `position: fixed;
+            const menu = document.createElement('div');
+            menu.style = `position: fixed;
                 z-index: 2147483646;
                 top: 0;
                 bottom: 0;
@@ -142,10 +141,10 @@ easterEggs.push({
                 transform: translate(-50%);
                 width: 35%;
                 background: rgba(255, 255, 255, 0.1);`;
-                document.body.appendChild(menu);
+            document.body.appendChild(menu);
 
-                const caller = document.createElement('div');
-                caller.innerHTML = `<img src="/assets/img/hamster.jpg" style="position: fixed;
+            const caller = document.createElement('div');
+            caller.innerHTML = `<img src="/assets/img/hamster.jpg" style="position: fixed;
                 width: 37vh;
                 height: 37vh;
                 object-fit: cover;
@@ -162,10 +161,10 @@ easterEggs.push({
                 left: 50%;
                 -ms-transform: translate(-50%);
                 transform: translate(-50%);">Hamter</span>`;
-                menu.appendChild(caller);
+            menu.appendChild(caller);
 
-                const call = document.createElement('div');
-                call.innerHTML = `<img src="/assets/img/hamster.gif" style="position: fixed;
+            const call = document.createElement('div');
+            call.innerHTML = `<img src="/assets/img/hamster.gif" style="position: fixed;
                 top: 50%;
                 left: 50%;
                 height: 100%;
@@ -174,8 +173,8 @@ easterEggs.push({
                 -ms-transform: translate(-50%, -50%);
                 transform: translate(-50%, -50%);" />`;
 
-                const buttons = document.createElement('div');
-                buttons.style = `position: fixed;
+            const buttons = document.createElement('div');
+            buttons.style = `position: fixed;
                 z-index: 2147483647;
                 bottom: 10%;
                 left: 50%;
@@ -184,10 +183,10 @@ easterEggs.push({
                 width: auto;
                 height: auto;
                 display: flex;`;
-                menu.appendChild(buttons);
+            menu.appendChild(buttons);
 
-                const answer = document.createElement('span');
-                answer.style = `width: 5vw;
+            const answer = document.createElement('span');
+            answer.style = `width: 5vw;
                 height: 5vw;
                 display: block;
                 background: green;
@@ -195,70 +194,66 @@ easterEggs.push({
                 border-radius: 100%;
                 cursor: pointer;
                 margin-right: 6vh;`;
-                answer.innerHTML = `<i class="fa-solid fa-phone" style="font-size: 3vh;
+            answer.innerHTML = `<i class="fa-solid fa-phone" style="font-size: 3vh;
                 margin: auto;
                 position: relative;"></i>`;
-                buttons.appendChild(answer);
+            buttons.appendChild(answer);
 
-                const hangUp = document.createElement('span');
-                hangUp.style = `width: 5vw;
+            const hangUp = document.createElement('span');
+            hangUp.style = `width: 5vw;
                 height: 5vw;
                 display: block;
                 background: red;
                 display: flex;
                 border-radius: 100%;
                 cursor: pointer;`;
-                hangUp.innerHTML = `<i class="fa-solid fa-phone-hangup" style="font-size: 3vh;
+            hangUp.innerHTML = `<i class="fa-solid fa-phone-hangup" style="font-size: 3vh;
                 margin: auto;
                 position: relative;"></i>`;
-                buttons.appendChild(hangUp);
+            buttons.appendChild(hangUp);
 
-                answer.addEventListener('click', () => {
-                    answer.remove();
-                    audio.pause();
-                    audio.remove();
-                    caller.remove();
-                    menu.appendChild(call);
-                });
+            answer.addEventListener('click', () => {
+                answer.remove();
+                audio.pause();
+                audio.remove();
+                caller.remove();
+                menu.appendChild(call);
+            });
 
-                hangUp.addEventListener('click', () => {
-                    resolve();
-                    audio.pause();
-                    audio.remove();
-                    menu.remove();
-                    overlay.remove();
-                });
-            }
-        });
-    }
+            hangUp.addEventListener('click', () => {
+                resolve();
+                audio.pause();
+                audio.remove();
+                menu.remove();
+                overlay.remove();
+            });
+        }
+    })
 });
 
 easterEggs.push({
     type: 'keybind',
     phrase: 'polaris',
-    run: () => {
-        return new Promise((resolve, reject) => {
-            document.querySelector('.navbar img').style.animation = 'shake 0.5s';
+    run: () => new Promise((resolve, reject) => {
+        document.querySelector('.navbar img').style.animation = 'shake 0.5s';
 
-            setTimeout(() => {
-                document.querySelector('.navbar img').style.animation = '';
-                resolve();
-            }, 500);
-        });
-    }
+        setTimeout(() => {
+            document.querySelector('.navbar img').style.animation = '';
+            resolve();
+        }, 500);
+    })
 });
 
 easterEggs.push({
     type: 'keybind',
     phrase: 'bruh',
-    run: () => {
-        return new Promise((resolve, reject) => {
-            const audio = new Audio('/assets/misc/bruh.mp3');
-            audio.play();
+    run: () => new Promise((resolve, reject) => {
+        const audio = new Audio('/assets/misc/bruh.mp3');
+        audio.play();
 
-            const trollFace = document.createElement('img');
-            trollFace.src = '/assets/img/trollface.png';
-            trollFace.style = `position: fixed;
+        const trollFace = document.createElement('img');
+        trollFace.src = '/assets/img/trollface.png';
+        trollFace.style = `position: fixed;
             z-index: 2147483647;
             top: 50%;
             left: 50%;
@@ -266,86 +261,124 @@ easterEggs.push({
             transform: translate(-50%, -50%);
             height: 0px;`;
 
-            var sizeInterval;
+        var sizeInterval;
 
-            audio.onplay = () => {
-                document.body.appendChild(trollFace);
+        audio.onplay = () => {
+            document.body.appendChild(trollFace);
 
-                var counter = 1;
+            var counter = 1;
 
-                sizeInterval = setInterval(() => {
-                    trollFace.style.height = `${(100 - counter) * counter}px`;
+            sizeInterval = setInterval(() => {
+                trollFace.style.height = `${(100 - counter) * counter}px`;
 
-                    counter += 1;
-                }, 10);
-            };
+                counter += 1;
+            }, 10);
+        };
 
-            audio.onended = () => {
-                clearInterval(sizeInterval);
-                trollFace.remove();
-                resolve();
-            };
-        });
-    }
+        audio.onended = () => {
+            clearInterval(sizeInterval);
+            trollFace.remove();
+            resolve();
+        };
+    })
 });
 
 easterEggs.push({
     type: 'keybind',
     phrase: 'rick',
-    run: () => {
-        return new Promise((resolve, reject) => {
-            const navbarTitle = document.querySelector('.title');
-            const title = navbarTitle.querySelector('span');
-            title.innerHTML = 'Rick <span style="">(spam click the logo)</span>';
-            const logo = navbarTitle.querySelector('img');
-            logo.src = '/assets/img/rick.png';
+    run: () => new Promise((resolve, reject) => {
+        const navbarTitle = document.querySelector('.title');
+        const title = navbarTitle.querySelector('span');
+        title.innerHTML = 'Rick <span style="">(spam click the logo)</span>';
+        const logo = navbarTitle.querySelector('img');
+        logo.src = '/assets/img/rick.png';
 
-            var audioPlaying = false;
-            var clickTime = 0;
-            var clicks = 0;
+        var audioPlaying = false;
+        var clickTime = 0;
+        var clicks = 0;
 
-            const rick = document.createElement('img');
-            rick.src = '/assets/img/rick.png';
-            rick.style = `position: fixed;
+        const rick = document.createElement('img');
+        rick.src = '/assets/img/rick.png';
+        rick.style = `position: fixed;
             bottom: -60px;
             right: -60px;
             height: 500px;
             display: block;
             z-index: -99;
             transform: rotate(-30deg);`;
-            document.body.appendChild(rick);
+        document.body.appendChild(rick);
 
-            const rickClick = navbarTitle.addEventListener('click', (e) => {
-                e.preventDefault();
+        const rickClick = navbarTitle.addEventListener('click', (e) => {
+            e.preventDefault();
 
-                if ((Date.now() - clickTime) < 500) clicks += 1;
-                else clicks = 0;
+            if ((Date.now() - clickTime) < 500) clicks += 1;
+            else clicks = 0;
 
-                if (clicks > 2 && !audioPlaying) {
-                    clicks = 0;
-                    clickTime = 0;
+            if (clicks > 2 && !audioPlaying) {
+                clicks = 0;
+                clickTime = 0;
 
-                    const audio = new Audio('/assets/misc/rickroll.mp3');
-                    audio.play();
+                const audio = new Audio('/assets/misc/rickroll.mp3');
+                audio.play();
 
-                    audio.onplay = () => {
-                        audioPlaying = true;
-                    };
+                audio.onplay = () => {
+                    audioPlaying = true;
+                };
 
-                    audio.onended = () => {
-                        audioPlaying = false;
-                        title.innerHTML = 'Polaris <span>by Skool</span>';
-                        logo.src = '/assets/img/logo.png';
+                audio.onended = () => {
+                    audioPlaying = false;
+                    title.innerHTML = 'Polaris <span>by Skool</span>';
+                    logo.src = '/assets/img/logo.png';
 
-                        navbarTitle.removeEventListener('click', rickClick);
-                        rick.remove();
-                        audio.remove();
-                        resolve();
-                    };
-                } else clickTime = Date.now();
-            });
+                    navbarTitle.removeEventListener('click', rickClick);
+                    rick.remove();
+                    audio.remove();
+                    resolve();
+                };
+            } else clickTime = Date.now();
         });
-    }
+    })
+});
+
+easterEggs.push({
+    type: 'keybind',
+    phrase: 'skelly',
+    run: () => new Promise((resolve, reject) => {
+        const imageElement = document.createElement('img');
+        imageElement.src = '/assets/img/skelly.gif';
+        imageElement.style = `position: fixed;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        z-index: 2147483647;
+        transition: 0.5s;`;
+
+        const overlay = document.createElement('div');
+        overlay.style = `position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: black;
+        z-index: 2147483646;`;
+        document.body.appendChild(overlay);
+
+        const audio = new Audio('/assets/misc/skelly.mp3');
+        audio.play();
+
+        audio.onplay = () => {
+            document.body.appendChild(imageElement);
+
+            setTimeout(() => {
+                audio.pause();
+                audio.remove();
+                imageElement.remove();
+                overlay.remove();
+                resolve();
+            }, 14000);
+        }
+    })
 });
 
 export default () => easterEggs.forEach(easterEgg => {
