@@ -312,6 +312,12 @@
     "image": "/cdn/images/masterarcher.jpg"
   },
   {
+    "name": "Melon Sandbox",
+    "target": "https://now.gg/play/playducky/7199/melon-sandbox.html",
+    "image": "https://play-lh.googleusercontent.com/6q7J7_wky8t9gMihsZsvmKAIvfJ1h1gen2SwakrzN7OGigFFN2_VUycZBaOTn2Qs6_E",
+    "popular": true
+  },
+  {
     "name": "Mindustry",
     "target": "/cdn/mindustry/index.html",
     "image": "/cdn/mindustry/splash.png"
@@ -437,8 +443,7 @@
   {
     "name": "Smash Karts",
     "target": "//smartcart1.github.io/s/smash-karts/",
-    "image": "https://img.gamepix.com/games/smash-karts/icon/smash-karts.png",
-    "popular": true
+    "image": "https://img.gamepix.com/games/smash-karts/icon/smash-karts.png"
   },
   {
     "name": "Snow Rider 3D",
