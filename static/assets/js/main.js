@@ -61,7 +61,7 @@ if (window.self === window.top && location.pathname !== '/view') setTimeout(asyn
     if (location.pathname === '/cheats') Cheats.load();
 }, 500);
 
-fetch('/api/changelog')
+if (location.pathname !== '/view') fetch('/api/changelog')
         .then(res => res.json())
         .then(changelog => {
             document.querySelector('#version').textContent = changelog.version !== 'unknown' ? 'v' + changelog.version : changelog.version;
