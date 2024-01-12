@@ -1,5 +1,5 @@
 import loadEasterEggs from './eastereggs.js';
-import { createViewPage, isValidURL, getVH } from './utils.js';
+import { createViewPage, isValidURL, getVH, CrossTabCommunication } from './utils.js';
 import PolarisError from './error.js';
 import Settings from './settings.js';
 import Search from './search.js';
@@ -8,6 +8,18 @@ import Games from './games.js';
 import Apps from './apps.js';
 
 loadEasterEggs();
+
+/*const ctcClient = new CrossTabCommunication();
+
+ctcClient.on('open', (connection) => {
+    connection.on('message', (message) => {
+        console.log(message);
+    });
+});
+
+setTimeout(() => {
+    ctcClient.brodcast('a');
+}, 1000);*/
 
 onbeforeunload = (e) => {
     document.body.style.opacity = '0.7';
@@ -26,7 +38,8 @@ onbeforeunload = (e) => {
 window.addEventListener('DOMContentLoaded', () => setTimeout(() => document.body.style.opacity = 1, 1000));
 
 document.querySelectorAll('a').forEach(hyperlink => hyperlink.addEventListener('click', (e) => {
-    if (hyperlink.href && !hyperlink.target && new URL(hyperlink.href).pathname !== location.pathname) {
+    if (hyperlink.dataset.action === 'no_redirect') e.preventDefault();
+    else if (hyperlink.href && !hyperlink.target && new URL(hyperlink.href).pathname !== location.pathname) {
         e.preventDefault();
         document.body.style.opacity = '0.7';
 

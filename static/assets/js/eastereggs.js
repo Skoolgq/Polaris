@@ -287,7 +287,7 @@ easterEggs.push({
     type: 'keybind',
     phrase: 'rick',
     run: () => new Promise((resolve, reject) => {
-        const navbarTitle = document.querySelector('.title');
+        const navbarTitle = document.querySelector('.navbar>a.title');
         const title = navbarTitle.querySelector('span');
         title.innerHTML = 'Rick <span style="">(spam click the logo)</span>';
         const logo = navbarTitle.querySelector('img');
@@ -307,6 +307,8 @@ easterEggs.push({
             z-index: -99;
             transform: rotate(-30deg);`;
         document.body.appendChild(rick);
+
+        navbarTitle.dataset.action = 'no_redirect';
 
         const rickClick = navbarTitle.addEventListener('click', (e) => {
             e.preventDefault();
@@ -330,6 +332,7 @@ easterEggs.push({
                     title.innerHTML = 'Polaris <span>by Skool</span>';
                     logo.src = '/assets/img/logo.png';
 
+                    navbarTitle.dataset.action = '';
                     navbarTitle.removeEventListener('click', rickClick);
                     rick.remove();
                     audio.remove();

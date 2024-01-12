@@ -1,7 +1,7 @@
 import indexedDBExporter from './utils/indexeddb.js';
+import CrossTabCommunication from './utils/ctc.js';
 import EventEmitter from './utils/events.js';
 import cookie from './utils/cookie.js';
-import ctc from './utils/ctc.js';
 
 /**
  * The storage interface for polaris
@@ -163,7 +163,7 @@ export default {
     EventEmitter,
     cookie,
     uuid,
-    ctc
+    CrossTabCommunication
 };
 
 export {
@@ -180,5 +180,5 @@ export {
     EventEmitter,
     cookie,
     uuid,
-    ctc
+    CrossTabCommunication
 };

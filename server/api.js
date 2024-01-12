@@ -6,20 +6,41 @@ import fs from 'node:fs';
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 const packageFile = JSON.parse(fs.readFileSync(path.join(__dirname, '../package.json')));
 const commits = await (await fetch(`https://api.github.com/repos/Skoolgq/Polaris/commits`)).json();
+var gitSupported = true;
 
 /**
  * @param {import('express').Express} app 
  */
 const routes = (app) => {
-    app.get('/api/changelog', async (req, res) => res.json({
-        version: packageFile.version || 'unknown',
-        commit: {
-            sha: childProcess.execSync('git rev-parse HEAD').toString().trim() || 'uknown',
-            message: childProcess.execSync('git rev-list --format=%s --max-count=1 HEAD').toString().split('\n')[1].replace('changelog ', '') || 'unknown'
-        },
-        upToDate: (commits[0] ? ((commits[0].sha === childProcess.execSync('git rev-parse HEAD').toString().trim()) || false) : false),
-        changelog: JSON.parse(fs.readFileSync(path.join(__dirname, '../static/assets/JSON/changelog.json')))
-    }));
+    app.get('/api/changelog', async (req, res) => {
+        const changelog = {
+            version: packageFile.version || 'unknown',
+            changelog: JSON.parse(fs.readFileSync(path.join(__dirname, '../static/assets/JSON/changelog.json')))
+        }
+
+        if (gitSupported) try {
+            changelog.commit = {
+                sha: childProcess.execSync('git rev-parse HEAD').toString().trim() || 'uknown',
+                message: childProcess.execSync('git rev-list --format=%s --max-count=1 HEAD').toString().split('\n')[1].replace('changelog ', '') || 'unknown'
+            };
+
+            changelog.upToDate = (commits[0] ? ((commits[0].sha === childProcess.execSync('git rev-parse HEAD').toString().trim()) || false) : false);
+        } catch {
+            gitSupported = false;
+
+            changelog.commit = {
+                sha: 'unknown',
+                message: 'unknown',
+                upToDate: false
+            };
+        } else changelog.commit = {
+            sha: 'unknown',
+            message: 'unknown',
+            upToDate: false
+        };
+
+        res.json(changelog);
+});
 
     app.get('/api/favicon', async (req, res) => {
         try {
