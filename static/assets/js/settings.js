@@ -1,6 +1,6 @@
 import Dexie from 'https://unpkg.com/dexie@latest/dist/modern/dexie.mjs';
-import { isScrollable, storage, indexedDBExporter, cookie, EventEmitter } from './utils.js';
-import PolarisError from './error.js';
+
+import { isScrollable, storage, indexedDBExporter, cookie, EventEmitter, PolarisError } from './utils.js';
 import Theme from './themes.js';
 
 const settingsStorage = storage('settings');

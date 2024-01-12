@@ -5,26 +5,27 @@ class CrossTabCommunication extends EventEmitter {
     constructor() {
         super();
 
-        this.registrationData = sessionStorage.getItem('ctc_registration') ? JSON.parse(sessionStorage.getItem('ctc_registration')) : {};
+        this.registrationData = localStorage.getItem('ctc_registration') ? JSON.parse(localStorage.getItem('ctc_registration')) : {};
+        this.openConnections = [];
         this.id = uuid();
 
         this.registrationData[this.id] = {
             location: location.href
         };
 
-        sessionStorage.setItem('ctc_registration', JSON.stringify(this.registrationData));
-        sessionStorage.setItem('ctc_' + this.id, 'open');
+        localStorage.setItem('ctc_registration', JSON.stringify(this.registrationData));
+        localStorage.setItem('ctc_' + this.id, 'open');
 
         window.addEventListener('beforeunload', (e) => {
-            this.registrationData = sessionStorage.getItem('ctc_registration') ? JSON.parse(sessionStorage.getItem('ctc_registration')) : {};
+            this.registrationData = localStorage.getItem('ctc_registration') ? JSON.parse(localStorage.getItem('ctc_registration')) : {};
 
-            if (!Object.keys(this.registrationData).length < 1) {
-                sessionStorage.setItem('ctc_registration', JSON.stringify(this.registrationData));
-                const storage = sessionStorage;
+            if (!Object.keys(this.registrationData).length < 0) {
+                localStorage.setItem('ctc_registration', JSON.stringify(this.registrationData));
+                const storage = localStorage;
 
-                sessionStorage.clear();
+                localStorage.clear();
 
-                for (let i = 0; i < Object.keys(storage).filter(data => !data.startsWith('ctc') && data === 'ctc_registration').length; i++) sessionStorage.setItem(Object.keys(storage)[i], storage[Object.keys(storage)[Object.keys(storage)[i]]]);
+                for (let i = 0; i < Object.keys(storage).filter(data => !data.startsWith('ctc') && data === 'ctc_registration').length; i++) localStorage.setItem(Object.keys(storage)[i], storage[Object.keys(storage)[Object.keys(storage)[i]]]);
             }
         });
 
@@ -44,7 +45,7 @@ class CrossTabCommunication extends EventEmitter {
      * @param {string} remoteID The remote client id
      * @returns {boolean}
      */
-    exists = (remoteID) => Object.keys(sessionStorage).includes('ctc_' + remoteID);
+    exists = (remoteID) => Object.keys(localStorage).includes('ctc_' + remoteID);
 
     /**
      * Check if a channel exists
@@ -52,7 +53,7 @@ class CrossTabCommunication extends EventEmitter {
      * @param {'public' | 'private'} type The type of channel
      * @returns {boolean}
      */
-    channelExists = (remoteID, type) => Boolean(sessionStorage.getItem(type === 'private' ? 'ctc_connection' + this.id + '>' + remoteID : 'ctc_' + remoteID))
+    channelExists = (remoteID, type) => Boolean(localStorage.getItem(type === 'private' ? 'ctc_connection' + this.id + '>' + remoteID : 'ctc_' + remoteID))
 
     /**
      * Listen for messages on a channel
@@ -63,15 +64,15 @@ class CrossTabCommunication extends EventEmitter {
     listen = (remoteID, type) => {
         if (this.channelExists(remoteID, type)) {
             const channel = type === 'private' ? 'ctc_connection' + this.id + '>' + remoteID : 'ctc_' + remoteID;
-            var prev = sessionStorage.getItem(channel);
+            var prev = localStorage.getItem(channel);
             const events = new EventEmitter();
 
             const listener = setInterval(() => {
-                if (sessionStorage.getItem(channel)) {
-                    if (prev !== sessionStorage.getItem(channel)) {
-                        prev = sessionStorage.getItem(channel);
+                if (localStorage.getItem(channel)) {
+                    if (prev !== localStorage.getItem(channel)) {
+                        prev = localStorage.getItem(channel);
 
-                        events.emit('message', sessionStorage.getItem(channel));
+                        events.emit('message', localStorage.getItem(channel));
                     }
                 } else {
                     clearInterval(listener);
@@ -86,7 +87,11 @@ class CrossTabCommunication extends EventEmitter {
                     events.emit('disconnect');
                 }
             };
-        } else throw new Error('Invalid channel');
+        } else {
+            console.log(remoteID, type);
+
+            throw new Error('Invalid channel');
+        }
     }
 
     /**
@@ -96,7 +101,8 @@ class CrossTabCommunication extends EventEmitter {
      */
     connect = (remoteID) => {
         if (this.exists(remoteID)) {
-            sessionStorage.setItem('ctc_' + remoteID, 'ctc:connection:' + this.id);
+            localStorage.setItem('ctc_' + remoteID, 'ctc:connection:' + this.id);
+            localStorage.setItem('ctc_connection' + this.id + '>' + remoteID, 'p[em');
 
             const channel = 'ctc_connection' + this.id + '>' + remoteID;
             const listener = this.listen(remoteID, 'private');
@@ -105,7 +111,7 @@ class CrossTabCommunication extends EventEmitter {
 
             listener.on('message', (message) => {
                 if (message === 'ctc:disconnect') {
-                    sessionStorage.setItem(channel, '');
+                    localStorage.setItem(channel, '');
                     events.emit('disconnect');
                     clearInterval(listener);
 
@@ -114,7 +120,7 @@ class CrossTabCommunication extends EventEmitter {
                     return;
                 }
 
-                events.emit('message', sessionStorage.getItem(channel));
+                events.emit('message', localStorage.getItem(channel));
             });
 
             listener.on('disconnect', () => {
@@ -126,13 +132,13 @@ class CrossTabCommunication extends EventEmitter {
             return {
                 ...events,
                 send: (data) => {
-                    if (connected) sessionStorage.setItem(channel, data);
+                    if (connected) localStorage.setItem(channel, data);
                     else throw new Error('Not connected to channel');
                 },
                 disconnect: () => {
                     if (connected) {
                         listener.disconnect();
-                        sessionStorage.setItem(channel, 'ctc:disconnect');
+                        localStorage.setItem(channel, 'ctc:disconnect');
                     } else throw new Error('Not connected to channel');
                 }
             };
@@ -153,7 +159,7 @@ class CrossTabCommunication extends EventEmitter {
 
             listener.on('message', (message) => {
                 if (message === 'ctc:disconnect') {
-                    sessionStorage.setItem(channel, '');
+                    localStorage.setItem(channel, '');
                     events.emit('disconnect');
                     clearInterval(listener);
 
@@ -162,7 +168,7 @@ class CrossTabCommunication extends EventEmitter {
                     return;
                 }
 
-                events.emit('message', sessionStorage.getItem(channel));
+                events.emit('message', localStorage.getItem(channel));
             });
 
             listener.on('disconnect', () => {
@@ -174,13 +180,13 @@ class CrossTabCommunication extends EventEmitter {
             return {
                 ...events,
                 send: (data) => {
-                    if (connected) sessionStorage.setItem(channel, data);
+                    if (connected) localStorage.setItem(channel, data);
                     else throw new Error('Not connected to channel');
                 },
                 disconnect: () => {
                     if (connected) {
                         listener.disconnect();
-                        sessionStorage.setItem(channel, 'ctc:disconnect');
+                        localStorage.setItem(channel, 'ctc:disconnect');
                     } else throw new Error('Not connected to channel');
                 },
                 /**
@@ -199,9 +205,11 @@ class CrossTabCommunication extends EventEmitter {
     }
 
     brodcast = (message) => {
-        this.registrationData = sessionStorage.getItem('ctc_registration') ? JSON.parse(sessionStorage.getItem('ctc_registration')) : {};
+        this.registrationData = localStorage.getItem('ctc_registration') ? JSON.parse(localStorage.getItem('ctc_registration')) : {};
 
-        Object.keys(this.registrationData).forEach(remoteClient => this.connect(remoteClient).send(message));
+        Object.keys(this.registrationData)
+            .filter(data => data !== this.id)
+            .forEach(remoteClient => this.connect(remoteClient).send(message));
     }
 }
 

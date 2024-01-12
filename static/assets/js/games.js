@@ -1,5 +1,4 @@
-import { createViewPage, isValidURL } from './utils.js';
-import PolarisError from './error.js';
+import { createViewPage, isValidURL, PolarisError } from './utils.js';
 import effects from './effects.js';
 
 const load = () => {

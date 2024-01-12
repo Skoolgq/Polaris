@@ -36,8 +36,8 @@
     },
     {
         "name": "Movies/TV",
-        "image": "https://i.pinimg.com/736x/ea/8d/11/ea8d11f1ffc6355b8a440106ce61d0f3.jpg",
-        "target": "//movie-web-me.vercel.app/#/search/movie"
+        "image": "https://avatars.githubusercontent.com/u/121455091",
+        "target": "https://movie-web.app/"
     },
     {
         "name": "Paramount+",

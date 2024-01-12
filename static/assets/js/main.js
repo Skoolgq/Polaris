@@ -1,6 +1,5 @@
+import { createViewPage, isValidURL, getVH, CrossTabCommunication, PolarisError } from './utils.js';
 import loadEasterEggs from './eastereggs.js';
-import { createViewPage, isValidURL, getVH, CrossTabCommunication } from './utils.js';
-import PolarisError from './error.js';
 import Settings from './settings.js';
 import Search from './search.js';
 import Cheats from './cheats.js';
@@ -17,8 +16,8 @@ ctcClient.on('open', (connection) => {
     });
 });
 
-setTimeout(() => {
-    ctcClient.brodcast('a');
+setInterval(() => {
+    ctcClient.brodcast('hello from ' + location.href);
 }, 1000);*/
 
 onbeforeunload = (e) => {

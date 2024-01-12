@@ -233,7 +233,7 @@
   },
   {
     "name": "Friday Night Funkin'",
-    "target": "/assets/misc/fridaynightfunkin/index.html",
+    "target": "/cdn/fridaynightfunkin/index.html",
     "image": "/cdn/images/fnf.png"
   },
   {
@@ -243,7 +243,7 @@
   },
   {
     "name": "Geometry Dash",
-    "target": "/assets/misc/geometrydash/index.html",
+    "target": "/cdn/geometrydash/index.html",
     "image": "https://upload.wikimedia.org/wikipedia/en/3/35/Geometry_Dash_Logo.PNG"
   },
   {

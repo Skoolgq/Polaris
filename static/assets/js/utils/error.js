@@ -1,7 +1,7 @@
 class PolarisError {
     constructor(e) {
         console.log(e);
-        
+
         let notificationContainer = document.querySelector('.notifications');
 
         if (!notificationContainer) {
@@ -48,3 +48,4 @@ window.console.error = (...e) => new PolarisError(e);
 window.onmessageerror = (...e) => new PolarisError(e);
 
 export default PolarisError;
+export { PolarisError };

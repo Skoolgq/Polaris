@@ -1,6 +1,7 @@
 import indexedDBExporter from './utils/indexeddb.js';
 import CrossTabCommunication from './utils/ctc.js';
 import EventEmitter from './utils/events.js';
+import PolarisError from './utils/error.js';
 import cookie from './utils/cookie.js';
 
 /**
@@ -163,7 +164,8 @@ export default {
     EventEmitter,
     cookie,
     uuid,
-    CrossTabCommunication
+    CrossTabCommunication,
+    PolarisError
 };
 
 export {
@@ -180,5 +182,6 @@ export {
     EventEmitter,
     cookie,
     uuid,
-    CrossTabCommunication
+    CrossTabCommunication,
+    PolarisError
 };
