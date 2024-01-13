@@ -6,7 +6,7 @@ class CrossTabCommunication extends EventEmitter {
         super();
 
         this.registrationData = localStorage.getItem('ctc_registration') ? JSON.parse(localStorage.getItem('ctc_registration')) : {};
-        this.openConnections = [];
+        this.openConnections = {};
         this.id = uuid();
 
         this.registrationData[this.id] = {
@@ -19,14 +19,9 @@ class CrossTabCommunication extends EventEmitter {
         window.addEventListener('beforeunload', (e) => {
             this.registrationData = localStorage.getItem('ctc_registration') ? JSON.parse(localStorage.getItem('ctc_registration')) : {};
 
-            if (!Object.keys(this.registrationData).length < 0) {
-                localStorage.setItem('ctc_registration', JSON.stringify(this.registrationData));
-                const storage = localStorage;
+            delete this.registrationData[this.id];
 
-                localStorage.clear();
-
-                for (let i = 0; i < Object.keys(storage).filter(data => !data.startsWith('ctc') && data === 'ctc_registration').length; i++) localStorage.setItem(Object.keys(storage)[i], storage[Object.keys(storage)[Object.keys(storage)[i]]]);
-            }
+            localStorage.setItem('ctc_registration', JSON.stringify(this.registrationData));
         });
 
         const listener = this.listen(this.id, 'public');
@@ -38,6 +33,32 @@ class CrossTabCommunication extends EventEmitter {
                 this.emit('open', connection);
             }
         });
+
+        Object.keys(localStorage).forEach(key => {
+            if (key.startsWith('ctc_')) {
+                this.registrationData = localStorage.getItem('ctc_registration') ? JSON.parse(localStorage.getItem('ctc_registration')) : {};
+
+                if (key.includes('>')) {
+                    if (!Object.keys(this.registrationData).includes(key.replace('ctc_', '').split('>')[0]) || Object.keys(this.registrationData).includes(key.replace('ctc_', '').split('>')[1])) {
+
+                    } else if (!Object.keys(this.registrationData).includes(key.replace('ctc_', '').split('>')[1])) {
+
+                    }
+                } else if (!Object.keys(this.registrationData).includes(key.replace('ctc_', ''))) {
+                    
+                }
+            }
+        });
+    }
+
+    deleteChannel = (remoteID, type) => {
+        if (this.channelExists(remoteID, type)) {
+            const storage = localStorage;
+
+            localStorage.clear();
+
+            for (let i = 0; i < Object.keys(storage).filter(data => data !== (type === 'private' ? 'ctc_connection' + this.id + '>' + remoteID : 'ctc_' + remoteID)).length; i++) localStorage.setItem(Object.keys(storage)[i], storage[Object.keys(storage)[Object.keys(storage)[i]]]);
+        } else throw new Error('Invalid channel');
     }
 
     /**
@@ -87,11 +108,7 @@ class CrossTabCommunication extends EventEmitter {
                     events.emit('disconnect');
                 }
             };
-        } else {
-            console.log(remoteID, type);
-
-            throw new Error('Invalid channel');
-        }
+        } else throw new Error('Invalid channel');
     }
 
     /**
@@ -102,27 +119,18 @@ class CrossTabCommunication extends EventEmitter {
     connect = (remoteID) => {
         if (this.exists(remoteID)) {
             localStorage.setItem('ctc_' + remoteID, 'ctc:connection:' + this.id);
-            localStorage.setItem('ctc_connection' + this.id + '>' + remoteID, 'p[em');
+            localStorage.setItem('ctc_connection' + this.id + '>' + remoteID, 'open');
 
             const channel = 'ctc_connection' + this.id + '>' + remoteID;
             const listener = this.listen(remoteID, 'private');
             const events = new EventEmitter();
             var connected = true;
 
-            listener.on('message', (message) => {
-                if (message === 'ctc:disconnect') {
-                    localStorage.setItem(channel, '');
-                    events.emit('disconnect');
-                    clearInterval(listener);
+            this.openConnections[remoteID] = {
+                type: 'private'
+            };
 
-                    connected = false;
-
-                    return;
-                }
-
-                events.emit('message', localStorage.getItem(channel));
-            });
-
+            listener.on('message', (message) => events.emit('message', localStorage.getItem(channel)));
             listener.on('disconnect', () => {
                 events.emit('disconnect');
 
@@ -138,7 +146,7 @@ class CrossTabCommunication extends EventEmitter {
                 disconnect: () => {
                     if (connected) {
                         listener.disconnect();
-                        localStorage.setItem(channel, 'ctc:disconnect');
+                        this.deleteChannel(remoteID, 'private');
                     } else throw new Error('Not connected to channel');
                 }
             };
@@ -157,20 +165,11 @@ class CrossTabCommunication extends EventEmitter {
             const events = new EventEmitter();
             var connected = true;
 
-            listener.on('message', (message) => {
-                if (message === 'ctc:disconnect') {
-                    localStorage.setItem(channel, '');
-                    events.emit('disconnect');
-                    clearInterval(listener);
+            this.openConnections[remoteID] = {
+                type: 'private'
+            };
 
-                    connected = false;
-
-                    return;
-                }
-
-                events.emit('message', localStorage.getItem(channel));
-            });
-
+            listener.on('message', (message) => events.emit('message', localStorage.getItem(channel)));
             listener.on('disconnect', () => {
                 events.emit('disconnect');
 
@@ -186,7 +185,7 @@ class CrossTabCommunication extends EventEmitter {
                 disconnect: () => {
                     if (connected) {
                         listener.disconnect();
-                        localStorage.setItem(channel, 'ctc:disconnect');
+                        this.deleteChannel(remoteID, 'private');
                     } else throw new Error('Not connected to channel');
                 },
                 /**

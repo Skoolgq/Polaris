@@ -1,4 +1,4 @@
-import PolarisError from './error.js';
+import { PolarisError } from './utils.js';
 
 fetch('/api/changelog')
     .then(res => res.json())

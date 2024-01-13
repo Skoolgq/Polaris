@@ -25,16 +25,18 @@ if (params.get('load')) {
 
                 document.querySelector('#loadframe').style.transition = 'none';
                 document.querySelector('#loadframe').style.background = '#fff';
+                
                 document.querySelector('#loadframe').addEventListener('mouseover', () => {
                     document.querySelector('.gamebar').classList.add('collapsed');
                     document.querySelector('.hitbox').classList.remove('active');
                 });
+
                 document.querySelector('#loadframe').addEventListener('mouseout', () => {
                     document.querySelector('.gamebar').classList.remove('collapsed');
                     document.querySelector('.hitbox').classList.add('active');
                 });
 
-                if (document.querySelector('#loadframe').matches(':hover')) setTimeout(() => {
+                setTimeout(() => {
                     document.querySelector('.gamebar').classList.remove('collapsed');
                     document.querySelector('.hitbox').classList.add('active');
                 }, 1000);
