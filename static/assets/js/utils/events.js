@@ -1,59 +1,40 @@
 class EventEmitter {
-    /**
-     * Event emitter for Polaris
-     */
     constructor() {
         this.listeners = {};
-    }
+    };
 
-    /**
-     * Add an event listener
-     * @param {string} eventName 
-     * @param {handler} fn 
-     * @returns {this}
-     */
-    addListener = (eventName, fn) => {
+    addListener = (eventName, handler) => {
         this.listeners[eventName] = this.listeners[eventName] || [];
-        this.listeners[eventName].push(fn);
+        this.listeners[eventName].push(handler);
 
         return this;
-    }
+    };
 
-    /**
-     * Add an event listener
-     * @param {string} eventName 
-     * @param {handler} fn 
-     * @returns {this}
-     */
-    on = (eventName, fn) => {
-        return this.addListener(eventName, fn);
-    }
+    on = (eventName, handler) => this.addListener(eventName, handler);
 
-    once = (eventName, fn) => {
+    once = (eventName, handler) => {
         this.listeners[eventName] = this.listeners[eventName] || [];
 
         const onceWrapper = () => {
-            fn();
+            handler();
 
             this.off(eventName, onceWrapper);
-        }
+        };
 
         this.listeners[eventName].push(onceWrapper);
 
         return this;
-    }
+    };
 
-    off = (eventName, fn) => {
-        return this.removeListener(eventName, fn);
-    }
+    off = (eventName, handler) => this.removeListener(eventName, handler);
 
-    removeListener = (eventName, fn) => {
+    removeListener = (eventName, handler) => {
         let lis = this.listeners[eventName];
 
         if (!lis) return this;
 
         for (let i = lis.length; i > 0; i--) {
-            if (lis[i] === fn) {
+            if (lis[i] === handler) {
                 lis.splice(i, 1);
 
                 break;
@@ -61,28 +42,26 @@ class EventEmitter {
         }
 
         return this;
-    }
+    };
 
     emit = (eventName, ...args) => {
-        let fns = this.listeners[eventName];
+        let handlers = this.listeners[eventName];
 
-        if (!fns) return false;
+        if (!handlers) return false;
 
-        fns.forEach((f) => f(...args));
+        handlers.forEach(handler => handler(...args));
 
         return true;
-    }
+    };
 
     listenerCount = (eventName) => {
-        let fns = this.listeners[eventName] || [];
+        let handlers = this.listeners[eventName] || [];
 
-        return fns.length;
-    }
+        return handlers.length;
+    };
 
-    rawListeners = (eventName) => {
-        return this.listeners[eventName];
-    }
-}
+    rawListeners = (eventName) => this.listeners[eventName];
+};
 
 export default EventEmitter;
 export { EventEmitter };

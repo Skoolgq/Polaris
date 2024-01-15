@@ -1,27 +1,86 @@
-import { uuid } from '../utils.js';
 import EventEmitter from './events.js';
+import { uuid } from '../utils.js';
 
 class CrossTabCommunication extends EventEmitter {
-    constructor() {
+    constructor(data) {
         super();
 
-        this.registrationData = localStorage.getItem('ctc_registration') ? JSON.parse(localStorage.getItem('ctc_registration')) : {};
-        this.openConnections = {};
-        this.id = uuid();
+        this.worker = {
+            ...new window.Worker('/assets/js/utils/ctc_worker.js', {
+                type: 'module'
+            }),
+            handlers: {},
+            handleRequest: (action, handler) => {
+                this.worker.handlers[action] = handler;
+            },
+            send: () => {
 
-        this.registrationData[this.id] = {
-            location: location.href
+            },
+            respond: (transactionID, data) => this.worker.postMessage({
+                action: 'response',
+                transactionID,
+                data
+            })
+        }
+
+        /**
+         * @type {{ sync: () => {}, keys: () => Array.<string>, get: (id: string) => { location: string }, register: (data: object) => string, unregister: (id: string) => {} }}
+         */
+        this.registrar = {
+            registrationData: localStorage.getItem('ctc_registration') ? JSON.parse(localStorage.getItem('ctc_registration')) : {},
+            sync: () => {
+                this.registrar.registrationData = {
+                    ...localStorage.getItem('ctc_registration') ? JSON.parse(localStorage.getItem('ctc_registration')) : {},
+                    ...this.registrar.registrationData
+                };
+
+                localStorage.setItem('ctc_registration', JSON.stringify(this.registrar.registrationData));
+            },
+            keys: () => Object.keys(this.registrationData.registrationData),
+            get: (id) => this.registrar.registrationData[id],
+            register: (data) => {
+                const id = uuid();
+
+                this.registrar.registrationData[id] = data;
+
+                this.registrar.sync();
+
+                return id;
+            },
+            unregister: (id) => {
+                delete this.registrar.registrationData[id];
+
+                this.registrar.sync();
+            }
         };
+        this.openConnections = {};
+        this.id = this.registrar.register({
+            location: location.href,
+            ...data || {}
+        });
 
-        localStorage.setItem('ctc_registration', JSON.stringify(this.registrationData));
+        this.worker.postMessage({
+            action: 'id',
+            data: this.id
+        });
+
+        this.worker.addEventListener('message', async ({ data: message }) => {
+            if (this.worker.handlers[message.action]) {
+                await this.worker.handlers[message.action]();
+            } else throw new Error('Cannot handle ' + message.action);
+        });
+
         localStorage.setItem('ctc_' + this.id, 'open');
 
         window.addEventListener('beforeunload', (e) => {
-            this.registrationData = localStorage.getItem('ctc_registration') ? JSON.parse(localStorage.getItem('ctc_registration')) : {};
+            delete this.registrar.registrationData[id];
 
-            delete this.registrationData[this.id];
+            this.registrar.registrationData = {
+                ...this.registrar.registrationData,
+                ...localStorage.getItem('ctc_registration') ? JSON.parse(localStorage.getItem('ctc_registration')) : {}
+            };
 
-            localStorage.setItem('ctc_registration', JSON.stringify(this.registrationData));
+            localStorage.setItem('ctc_registration', JSON.stringify(this.registrar.registrationData));
         });
 
         const listener = this.listen(this.id, 'public');
@@ -45,20 +104,27 @@ class CrossTabCommunication extends EventEmitter {
 
                     }
                 } else if (!Object.keys(this.registrationData).includes(key.replace('ctc_', ''))) {
-                    
+
                 }
             }
         });
     }
 
+    destroy = () => {
+        this.worker.terminate();
+    }
+
     deleteChannel = (remoteID, type) => {
         if (this.channelExists(remoteID, type)) {
-            const storage = localStorage;
-
-            localStorage.clear();
-
-            for (let i = 0; i < Object.keys(storage).filter(data => data !== (type === 'private' ? 'ctc_connection' + this.id + '>' + remoteID : 'ctc_' + remoteID)).length; i++) localStorage.setItem(Object.keys(storage)[i], storage[Object.keys(storage)[Object.keys(storage)[i]]]);
+            localStorage.removeItem(type === 'private' ? 'ctc_connection' + this.id + '>' + remoteID : 'ctc_' + remoteID);
         } else throw new Error('Invalid channel');
+    }
+
+    connection = (remoteID, type) => {
+        Object.keys(this.openConnections).forEach(key => {
+            const connection = this.openConnections[key];
+            //console.log(key, connection);
+        });
     }
 
     /**
@@ -130,8 +196,11 @@ class CrossTabCommunication extends EventEmitter {
                 type: 'private'
             };
 
-            listener.on('message', (message) => events.emit('message', localStorage.getItem(channel)));
+            this.connection(remoteID, 'private');
+
+            listener.on('message', (message) => events.emit('message', message.replace(message.split(':')[0] + ':', '', message.split(':')[0])));
             listener.on('disconnect', () => {
+                delete this.openConnections[remoteID];
                 events.emit('disconnect');
 
                 connected = false;
@@ -140,7 +209,7 @@ class CrossTabCommunication extends EventEmitter {
             return {
                 ...events,
                 send: (data) => {
-                    if (connected) localStorage.setItem(channel, data);
+                    if (connected) localStorage.setItem(channel, Number(new Date()) + ':' + data);
                     else throw new Error('Not connected to channel');
                 },
                 disconnect: () => {
@@ -169,8 +238,11 @@ class CrossTabCommunication extends EventEmitter {
                 type: 'private'
             };
 
-            listener.on('message', (message) => events.emit('message', localStorage.getItem(channel)));
+            this.connection(remoteID, 'private');
+
+            listener.on('message', (message) => events.emit('message', message.replace(message.split(':')[0] + ':', '', message.split(':')[0])));
             listener.on('disconnect', () => {
+                delete this.openConnections[remoteID];
                 events.emit('disconnect');
 
                 connected = false;
@@ -179,7 +251,7 @@ class CrossTabCommunication extends EventEmitter {
             return {
                 ...events,
                 send: (data) => {
-                    if (connected) localStorage.setItem(channel, data);
+                    if (connected) localStorage.setItem(channel, Number(new Date()) + ':' + data);
                     else throw new Error('Not connected to channel');
                 },
                 disconnect: () => {
@@ -212,5 +284,90 @@ class CrossTabCommunication extends EventEmitter {
     }
 }
 
+class Worker extends EventEmitter {
+    constructor() {
+        super();
+
+        this.on('message', (data) => {
+            if (data.action === 'response') this.emit('response', data.transactionID, data.data);
+        });
+
+        this.send('ready');
+    }
+
+    localStorage = {
+        /**
+         * Clear localstorage
+         */
+        clear: () => this.send({
+            action: 'localstorage_clear'
+        }),
+        /**
+         * Get a value from localstorage
+         * @param {string} key 
+         * @returns {Promise.<string>}
+         */
+        getItem: async (key) => await this.response(this.send('localstorage_get', {
+            key
+        })),
+        /**
+         * Set a value in localstorage
+         * @param {string} key 
+         * @param {string} value 
+         */
+        setItem: async (key, value) => this.send('localstorage_set', {
+            key,
+            value
+        }),
+        /**
+         * Remove a value from localstorage
+         * @param {string} key 
+         */
+        removeItem: async (key, value) => this.send('localstorage_remove', {
+            key
+        }),
+        /**
+         * Get the name of a localstorage item by it's numerical id
+         * @param {string} key 
+         * @returns {Promise.<string>}
+         */
+        key: async (key) => await this.response(this.send('localstorage_key', {
+            key
+        }))
+    };
+
+    /**
+     * Send data to the parent process
+     * @param {string} action The action
+     * @param {any} data The data to be sent
+     * @returns {string} The transaction id
+     */
+    send = (action, data) => {
+        const transactionID = uuid();
+
+        postMessage({
+            transactionID,
+            action,
+            data: data || {}
+        });
+
+        return transactionID;
+    }
+
+    /**
+     * Get a response
+     * @param {string} transactionID The transaction id
+     * @returns {any}
+     */
+    response = (transactionID) => new Promise((resolve, reject) => {
+        const listener = this.on('message', (data) => {
+            if (data.transactionID === transactionID) {
+                resolve(data.data);
+                this.off('message', listener);
+            }
+        });
+    });
+}
+
 export default CrossTabCommunication;
-export { CrossTabCommunication };
+export { CrossTabCommunication, Worker };

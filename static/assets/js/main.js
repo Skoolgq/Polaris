@@ -16,7 +16,7 @@ ctcClient.on('open', (connection) => {
     });
 });
 
-setInterval(() => {
+/*setInterval(() => {
     ctcClient.brodcast('hello from ' + location.href);
 }, 1000);*/
 
