@@ -1,11 +1,12 @@
 import { createViewPage, isValidURL, getVH, CrossTabCommunication, PolarisError } from './utils.js';
+import { loadSettings, loadSidebarInterface } from './settings.js';
 import loadEasterEggs from './eastereggs.js';
-import Settings from './settings.js';
 import Search from './search.js';
 import Cheats from './cheats.js';
 import Games from './games.js';
 import Apps from './apps.js';
 
+if (location.pathname !== '/view') loadSidebarInterface();
 loadEasterEggs();
 
 /*const ctcClient = new CrossTabCommunication();
@@ -25,7 +26,7 @@ onbeforeunload = (e) => {
 
     if (localStorage.getItem('prevent_close') === 'true') {
         e.preventDefault();
-        
+
         return e;
     }
 }
@@ -52,7 +53,7 @@ window.onhashchange = () => {
 };
 
 if (window.self === window.top && location.pathname !== '/view') setTimeout(async () => {
-    Settings.load();
+    loadSettings();
 
     if (location.pathname === '/games') Games.load();
     if (location.pathname === '/apps') Apps.load();
@@ -61,18 +62,23 @@ if (window.self === window.top && location.pathname !== '/view') setTimeout(asyn
 }, 500);
 
 if (location.pathname !== '/view') fetch('/api/changelog')
-        .then(res => res.json())
-        .then(changelog => {
-            document.querySelector('#version').textContent = changelog.version !== 'unknown' ? 'v' + changelog.version : changelog.version;
-            document.querySelector('#version_sha').textContent = changelog.commit.sha.slice(0, 7);
-            document.querySelector('#up_to_date').textContent = changelog.upToDate ? 'yes' : 'no';
-        });
+    .then(res => res.json())
+    .then(changelog => {
+        document.querySelector('#version').textContent = changelog.version !== 'unknown' ? 'v' + changelog.version : changelog.version;
+        document.querySelector('#version_sha').textContent = changelog.commit.sha.slice(0, 7);
+        document.querySelector('#up_to_date').textContent = changelog.upToDate ? 'yes' : 'no';
+        document.querySelector('#mode').textContent = changelog.mode;
+    });
+
+window.addEventListener('blur', (e) => {
+
+});
 
 if (location.pathname === '/') {
     fetch('/api/games')
         .then(res => res.json())
         .then(games => {
-            const gameName = 'Fortnite';
+            const gameName = 'Retro Bowl';
             const game = games.all.filter(g => g.name === gameName)[0];
 
             document.querySelector('.featured').addEventListener('click', () => {
@@ -87,7 +93,7 @@ if (location.pathname === '/') {
                 });
             });
 
-            document.querySelector('.featured').src = '/assets/img/wide/fortnite.jpg';
+            document.querySelector('.featured').src = '/assets/img/wide/retrobowl.png';
         }).catch(e => new PolarisError('Failed to load featured game.'));
 
     const logHeight = () => {
@@ -113,7 +119,7 @@ if (location.pathname === '/') {
 
     const getAvalibleHeight = () => {
         var total = 0;
-        
+
         document.querySelectorAll('.container.right>*:not(#changelog)').forEach(el => total += Number((el.currentStyle || window.getComputedStyle(el)).marginTop.replace('px', '')) + Number((el.currentStyle || window.getComputedStyle(el)).marginTop.replace('px', '')) + el.clientHeight);
 
         return (document.querySelector('.container.right').clientHeight - getVH(2)) - total;

@@ -7,6 +7,8 @@ const load = () => {
         .then(games => {
             const searchBar = document.querySelector('#searchInput');
 
+            searchBar.setAttribute('placeholder', `Search ${games.all.length} Games`);
+
             searchBar.addEventListener('input', () => {
                 console.log(searchBar.value);
 

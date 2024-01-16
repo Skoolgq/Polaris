@@ -6,6 +6,7 @@ fetch('/api/changelog')
         document.querySelector('#changelog_version').textContent = changelog.version !== 'unknown' ? 'v' + changelog.version : changelog.version;
         document.querySelector('#changelog_version_sha').textContent = changelog.commit.sha.slice(0, 7);
         document.querySelector('#changelog_up_to_date').textContent = changelog.upToDate ? 'yes' : 'no';
+        document.querySelector('#changelog_mode').textContent = changelog.mode;
 
         changelog.changelog
             .forEach(change => {

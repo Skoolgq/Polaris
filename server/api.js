@@ -1,3 +1,5 @@
+import config from '../polaris.config.js';
+
 import childProcess from 'node:child_process';
 import path from 'node:path';
 import url from 'node:url';
@@ -6,6 +8,7 @@ import fs from 'node:fs';
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 const packageFile = JSON.parse(fs.readFileSync(path.join(__dirname, '../package.json')));
 const commits = await (await fetch(`https://api.github.com/repos/Skoolgq/Polaris/commits`)).json();
+const mode = (process.argv[2] === 'prod' || process.argv[2] === 'dev' ? process.argv[2] : (process.argv[3] === 'prod' || process.argv[3] === 'dev' ? process.argv[3] : (config.mode === 'prod' || config.mode === 'dev' ? config.mode : 'prod')));
 var gitSupported = true;
 
 /**
@@ -38,6 +41,8 @@ const routes = (app) => {
             message: 'unknown',
             upToDate: false
         };
+
+        changelog.mode = mode === 'dev' ? 'development' : 'production';
 
         res.json(changelog);
 });

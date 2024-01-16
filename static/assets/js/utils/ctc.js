@@ -8,13 +8,16 @@ class CrossTabCommunication extends EventEmitter {
         this.openConnections = {};
         this.id = this.registrar.register({
             location: location.href,
-            ...data || {}
+            ...data
         });
 
-        //Worker stuff
-        this.worker.send('id', this.id);
+        // Worker stuff
         this.worker.worker.addEventListener('message', async ({ data: message }) => {
-            if (this.worker.handlers[message.action]) this.worker.respond(message.transactionID, await this.worker.handlers[message.action](message.data) || {});
+            if (this.worker.handlers[message.action]) this.worker.respond(message.transactionID, await this.worker.handlers[message.action](message.data));
+        
+            if (message.action === 'ready') await this.worker.response(this.worker.send('init', {
+                id: this.id
+            }));
         });
 
         this.worker.handleRequest('localstorage', (data) => localStorage[data.action](...data.params));
@@ -22,7 +25,7 @@ class CrossTabCommunication extends EventEmitter {
         localStorage.setItem('ctc_' + this.id, 'open');
 
         window.addEventListener('beforeunload', (e) => {
-            delete this.registrar.registrationData[id];
+            delete this.registrar.registrationData[this.id];
 
             this.registrar.registrationData = {
                 ...this.registrar.registrationData,
@@ -94,7 +97,7 @@ class CrossTabCommunication extends EventEmitter {
             postMessage({
                 transactionID,
                 action,
-                data: data || {}
+                data: data
             });
 
             return transactionID;
@@ -154,7 +157,7 @@ class CrossTabCommunication extends EventEmitter {
      * @param {'public' | 'private'} type The type of channel
      * @returns {boolean}
      */
-    channelExists = (remoteID, type) => Boolean(localStorage.getItem(type === 'private' ? 'ctc_connection' + this.id + '>' + remoteID : 'ctc_' + remoteID))
+    channelExists = (remoteID, type) => Boolean(localStorage.getItem(type === 'private' ? 'ctc_connection' + this.id + '>' + remoteID : 'ctc_' + remoteID));
 
     /**
      * Listen for messages on a channel
@@ -305,22 +308,26 @@ class Worker extends EventEmitter {
         this.handlers = {};
 
         this.on('message', async (message) => {
-            if (this.handlers[message.action]) this.respond(message.transactionID, await this.handlers[message.action](message.data) || {});
+            if (this.handlers[message.action]) this.respond(message.transactionID, await this.handlers[message.action](message.data));
         });
 
-        /*const listener = this.listen(this.id, 'public');
+        this.handleRequest('init', () => new Promise((resolve, reject) => {
+            /**
+             * @type {number}
+             */
+            this.id = message.id;
 
-        listener.on('message', (message) => {
-            if (message.startsWith('ctc:connection:')) {
-                const connection = this.interfaceConnection(message.replace('ctc:connection:', ''));
+            console.log(this.id);
 
-                this.emit('open', connection);
-            }
-        });*/
+            this.listen(this.id, 'public')
+                .then((listener) => listener.on('message', (message) => {
+                    if (message.startsWith('ctc:connection:')) {
+                        const connection = this.interfaceConnection(message.replace('ctc:connection:', ''));
 
-        this.handleRequest('destroy', (message) => {
-
-        });
+                        this.emit('open', connection);
+                    }
+                }));
+        }));
 
         this.send('ready');
     }
@@ -380,6 +387,51 @@ class Worker extends EventEmitter {
     };
 
     /**
+     * Check if a channel exists
+     * @param {string} remoteID The remote client id
+     * @param {'public' | 'private'} type The type of channel
+     * @returns {Promise.<boolean>}
+     */
+    channelExists = async (remoteID, type) => Boolean(await this.localStorage.getItem(type === 'private' ? 'ctc_connection' + this.id + '>' + remoteID : 'ctc_' + remoteID));
+
+    /**
+     * Listen for messages on a channel
+     * @param {string} remoteID The remote client id
+     * @param {'public' | 'private'} type The type of channel
+     * @returns {{ on: (event: 'message' | 'disconnect', callback: (...any) => any) => {}, once: (event: 'message' | 'disconnect', callback: (...any) => any) => {}, addEventListener: (event: 'message' | 'disconnect', callback: (...any) => any) => {}, disconnect: () => {} }}
+     */
+    listen = async (remoteID, type) => {
+        console.log(await this.localStorage.getItem(type === 'private' ? 'ctc_connection' + this.id + '>' + remoteID : 'ctc_' + remoteID));
+
+        if (await this.channelExists(remoteID, type)) {
+            const channel = type === 'private' ? 'ctc_connection' + this.id + '>' + remoteID : 'ctc_' + remoteID;
+            var prev = await this.localStorage.getItem(channel);
+            const events = new EventEmitter();
+
+            const listener = setInterval(async () => {
+                if (await this.localStorage.getItem(channel)) {
+                    if (prev !== await this.localStorage.getItem(channel)) {
+                        prev = await this.localStorage.getItem(channel);
+
+                        events.emit('message', await this.localStorage.getItem(channel));
+                    }
+                } else {
+                    clearInterval(listener);
+                    events.emit('disconnect');
+                }
+            }, 1);
+
+            return {
+                ...events,
+                disconnect: () => {
+                    clearInterval(listener);
+                    events.emit('disconnect');
+                }
+            };
+        } else throw new Error('Invalid channel');
+    }
+
+    /**
      * Send data to the parent process
      * @param {string} action The action
      * @param {any} data The data to be sent
@@ -391,7 +443,7 @@ class Worker extends EventEmitter {
         postMessage({
             transactionID,
             action,
-            data: data || {}
+            data: data
         });
 
         return transactionID;
@@ -403,9 +455,9 @@ class Worker extends EventEmitter {
      * @returns {any}
      */
     response = (transactionID) => new Promise((resolve, reject) => {
-        const listener = this.on('message', (data) => {
-            if (data.transactionID === transactionID && data.action === 'response') {
-                resolve(data.data);
+        const listener = this.on('message', (message) => {
+            if (message.transactionID === transactionID && message.action === 'response') {
+                resolve(message.data);
                 this.off('message', listener);
             }
         });
@@ -427,7 +479,7 @@ class Worker extends EventEmitter {
      * @param {string} action The request type
      * @param {(data: any) => {}} handler The handler
      */
-    handleRequest = (action, handler) => this.worker.handlers[action] = handler;
+    handleRequest = (action, handler) => this.handlers[action] = handler;
 }
 
 export default CrossTabCommunication;

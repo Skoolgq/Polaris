@@ -1,4 +1,7 @@
 import { loadProxyWorker, encoder, storage } from './utils.js';
+import { loadSettings } from './settings.js';
+
+loadSettings();
 
 const params = new URLSearchParams(location.search);
 const settingsStorage = storage('settings');
