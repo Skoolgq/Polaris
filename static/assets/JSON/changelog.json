@@ -1,5 +1,9 @@
 [
 	{
+		"date": "1/15/2024",
+		"simpleDescription": "Updated Privacy Policy + TOS"
+	},
+	{
 		"date": "1/12/2024",
 		"simpleDescription": "Patched proxy loading issue"
 	},
