@@ -5,70 +5,19 @@ class CrossTabCommunication extends EventEmitter {
     constructor(data) {
         super();
 
-        this.worker = {
-            ...new window.Worker('/assets/js/utils/ctc_worker.js', {
-                type: 'module'
-            }),
-            handlers: {},
-            handleRequest: (action, handler) => {
-                this.worker.handlers[action] = handler;
-            },
-            send: () => {
-
-            },
-            respond: (transactionID, data) => this.worker.postMessage({
-                action: 'response',
-                transactionID,
-                data
-            })
-        }
-
-        /**
-         * @type {{ sync: () => {}, keys: () => Array.<string>, get: (id: string) => { location: string }, register: (data: object) => string, unregister: (id: string) => {} }}
-         */
-        this.registrar = {
-            registrationData: localStorage.getItem('ctc_registration') ? JSON.parse(localStorage.getItem('ctc_registration')) : {},
-            sync: () => {
-                this.registrar.registrationData = {
-                    ...localStorage.getItem('ctc_registration') ? JSON.parse(localStorage.getItem('ctc_registration')) : {},
-                    ...this.registrar.registrationData
-                };
-
-                localStorage.setItem('ctc_registration', JSON.stringify(this.registrar.registrationData));
-            },
-            keys: () => Object.keys(this.registrationData.registrationData),
-            get: (id) => this.registrar.registrationData[id],
-            register: (data) => {
-                const id = uuid();
-
-                this.registrar.registrationData[id] = data;
-
-                this.registrar.sync();
-
-                return id;
-            },
-            unregister: (id) => {
-                delete this.registrar.registrationData[id];
-
-                this.registrar.sync();
-            }
-        };
         this.openConnections = {};
         this.id = this.registrar.register({
             location: location.href,
             ...data || {}
         });
 
-        this.worker.postMessage({
-            action: 'id',
-            data: this.id
+        //Worker stuff
+        this.worker.send('id', this.id);
+        this.worker.worker.addEventListener('message', async ({ data: message }) => {
+            if (this.worker.handlers[message.action]) this.worker.respond(message.transactionID, await this.worker.handlers[message.action](message.data) || {});
         });
 
-        this.worker.addEventListener('message', async ({ data: message }) => {
-            if (this.worker.handlers[message.action]) {
-                await this.worker.handlers[message.action]();
-            } else throw new Error('Cannot handle ' + message.action);
-        });
+        this.worker.handleRequest('localstorage', (data) => localStorage[data.action](...data.params));
 
         localStorage.setItem('ctc_' + this.id, 'open');
 
@@ -81,16 +30,6 @@ class CrossTabCommunication extends EventEmitter {
             };
 
             localStorage.setItem('ctc_registration', JSON.stringify(this.registrar.registrationData));
-        });
-
-        const listener = this.listen(this.id, 'public');
-
-        listener.on('message', (message) => {
-            if (message.startsWith('ctc:connection:')) {
-                const connection = this.interfaceConnection(message.replace('ctc:connection:', ''));
-
-                this.emit('open', connection);
-            }
         });
 
         Object.keys(localStorage).forEach(key => {
@@ -110,8 +49,83 @@ class CrossTabCommunication extends EventEmitter {
         });
     }
 
+    registrar = {
+        registrationData: localStorage.getItem('ctc_registration') ? JSON.parse(localStorage.getItem('ctc_registration')) : {},
+        sync: () => {
+            this.registrar.registrationData = {
+                ...localStorage.getItem('ctc_registration') ? JSON.parse(localStorage.getItem('ctc_registration')) : {},
+                ...this.registrar.registrationData
+            };
+
+            localStorage.setItem('ctc_registration', JSON.stringify(this.registrar.registrationData));
+        },
+        keys: () => Object.keys(this.registrationData.registrationData),
+        get: (id) => this.registrar.registrationData[id],
+        register: (data) => {
+            const id = uuid();
+
+            this.registrar.registrationData[id] = data;
+
+            this.registrar.sync();
+
+            return id;
+        },
+        unregister: (id) => {
+            delete this.registrar.registrationData[id];
+
+            this.registrar.sync();
+        }
+    };
+
+    worker = {
+        worker: new window.Worker('/assets/js/utils/ctc_worker.js', {
+            type: 'module'
+        }),
+        handlers: {},
+        /**
+         * Handle a request
+         * @param {string} action The request type
+         * @param {(data: any) => {}} handler The handler
+         */
+        handleRequest: (action, handler) => this.worker.handlers[action] = handler,
+        send: (action, data) => {
+            const transactionID = uuid();
+
+            postMessage({
+                transactionID,
+                action,
+                data: data || {}
+            });
+
+            return transactionID;
+        },
+        /**
+         * Get a response
+         * @param {string} transactionID The transaction id
+         * @returns {Promise.<any>}
+         */
+        response: (transactionID) => new Promise((resolve, reject) => {
+            const listener = this.worker.worker.addEventListener('message', (data) => {
+                if (data.transactionID === transactionID && data.action === 'response') {
+                    resolve(data.data);
+                    this.worker.worker.removeEventListener('message', listener);
+                }
+            });
+        }),
+        /**
+         * Respond to a request
+         * @param {string} transactionID The transaction id
+         * @param {any} data The data to be sent
+         */
+        respond: (transactionID, data) => this.worker.worker.postMessage({
+            action: 'response',
+            transactionID,
+            data
+        })
+    }
+
     destroy = () => {
-        this.worker.terminate();
+        this.worker.worker.terminate();
     }
 
     deleteChannel = (remoteID, type) => {
@@ -288,8 +302,24 @@ class Worker extends EventEmitter {
     constructor() {
         super();
 
-        this.on('message', (data) => {
-            if (data.action === 'response') this.emit('response', data.transactionID, data.data);
+        this.handlers = {};
+
+        this.on('message', async (message) => {
+            if (this.handlers[message.action]) this.respond(message.transactionID, await this.handlers[message.action](message.data) || {});
+        });
+
+        /*const listener = this.listen(this.id, 'public');
+
+        listener.on('message', (message) => {
+            if (message.startsWith('ctc:connection:')) {
+                const connection = this.interfaceConnection(message.replace('ctc:connection:', ''));
+
+                this.emit('open', connection);
+            }
+        });*/
+
+        this.handleRequest('destroy', (message) => {
+
         });
 
         this.send('ready');
@@ -299,40 +329,53 @@ class Worker extends EventEmitter {
         /**
          * Clear localstorage
          */
-        clear: () => this.send({
-            action: 'localstorage_clear'
+        clear: () => this.send('localstorage', {
+            action: 'clear',
+            params: []
         }),
         /**
          * Get a value from localstorage
          * @param {string} key 
          * @returns {Promise.<string>}
          */
-        getItem: async (key) => await this.response(this.send('localstorage_get', {
-            key
+        getItem: async (key) => await this.response(this.send('localstorage', {
+            action: 'getItem',
+            params: [
+                key
+            ]
         })),
         /**
          * Set a value in localstorage
          * @param {string} key 
          * @param {string} value 
          */
-        setItem: async (key, value) => this.send('localstorage_set', {
-            key,
-            value
+        setItem: async (key, value) => this.send('localstorage', {
+            action: 'setItem',
+            params: [
+                key,
+                value
+            ]
         }),
         /**
          * Remove a value from localstorage
          * @param {string} key 
          */
-        removeItem: async (key, value) => this.send('localstorage_remove', {
-            key
+        removeItem: async (key, value) => this.send('localstorage', {
+            action: 'removeItem',
+            params: [
+                key
+            ]
         }),
         /**
          * Get the name of a localstorage item by it's numerical id
          * @param {string} key 
          * @returns {Promise.<string>}
          */
-        key: async (key) => await this.response(this.send('localstorage_key', {
-            key
+        key: async (key) => await this.response(this.send('localstorage', {
+            action: 'key',
+            params: [
+                key
+            ]
         }))
     };
 
@@ -361,12 +404,30 @@ class Worker extends EventEmitter {
      */
     response = (transactionID) => new Promise((resolve, reject) => {
         const listener = this.on('message', (data) => {
-            if (data.transactionID === transactionID) {
+            if (data.transactionID === transactionID && data.action === 'response') {
                 resolve(data.data);
                 this.off('message', listener);
             }
         });
     });
+
+    /**
+     * Respond to a request
+     * @param {string} transactionID The transaction id
+     * @param {any} data The data to be sent
+     */
+    respond = (transactionID, data) => postMessage({
+        action: 'response',
+        transactionID,
+        data
+    });
+
+    /**
+     * Handle a request
+     * @param {string} action The request type
+     * @param {(data: any) => {}} handler The handler
+     */
+    handleRequest = (action, handler) => this.worker.handlers[action] = handler;
 }
 
 export default CrossTabCommunication;
