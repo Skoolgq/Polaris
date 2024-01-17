@@ -16,6 +16,8 @@
  * @property {() => {}} easterEgg.preload
  */
 
+// REALLY? You're gonna spoil all the easter eggs for yourself? Well, I guess I can't stop you...
+
 const utils = {
     easterEggActive: false,
     /**
