@@ -45,41 +45,59 @@ setInterval(() => {
 
 window.addEventListener('DOMContentLoaded', () => setTimeout(() => document.body.style.opacity = 1, 1000));
 
-document.querySelectorAll('a').forEach(hyperlink => hyperlink.addEventListener('click', (e) => {
+/**
+ * @param {HTMLAnchorElement} e 
+ */
+const hyperlinkHandler = (e) => {
     if (hyperlink.dataset.action === 'no_redirect') e.preventDefault();
-    else if (hyperlink.href && hyperlink.target !== '_blank' && new URL(hyperlink.href).pathname !== location.pathname) {
+    else if (hyperlink.href && hyperlink.target !== '_blank') {
         e.preventDefault();
 
         document.body.style.opacity = '0.7';
 
-        /*setTimeout(async () => {
-            document.body.style.transition = 'none';
-            document.body.style.position = 'absolute';
-            document.body.style.top = '0';
-            document.body.style.bottom = '0';
-            document.body.style.left = '0';
-            document.body.style.right = '0';
+        if (new URL(hyperlink.href).pathname === location.pathname) setTimeout(() => document.body.style.opacity = '', 1000);
+        else {
+            /*setTimeout(async () => {
+                const style = document.createElement('style');
+                style.textContent = `
+                * {
+                    transition: none;
+                }`;
 
-            document.body.querySelectorAll('*').forEach(el => {
-                el.style.transition = 'none';
-                el.style.display = 'none';
-            });
+                document.body.querySelectorAll('*').forEach(el => {
+                    el.style.transition = 'none';
+                    el.style.display = 'none';
+                });
 
-            if (new URL(hyperlink.href).host === location.host) {
-                const page = new DOMParser().parseFromString(await(await fetch(hyperlink.href)).text(), 'text/html');
-                document.head.innerHTML = page.head.innerHTML;
+                if (new URL(hyperlink.href).host === location.host) {
+                    const page = new DOMParser().parseFromString(await (await fetch(hyperlink.href)).text(), 'text/html');
+                    document.head.innerHTML = page.head.innerHTML;
+                    document.head.appendChild(style);
 
-                const scripts = page.body.querySelectorAll('script');
+                    window.history.pushState({}, '', hyperlink.href);
 
-                page.body.querySelectorAll('script').forEach(script => script.remove());
+                    const scripts = page.body.querySelectorAll('script');
 
-                document.body.innerHTML = page.body.innerHTML;
-            } else setTimeout(() => window.location.href = hyperlink.href, 500);
-        }, 500);*/
+                    page.body.querySelectorAll('script').forEach(script => script.remove());
 
-        setTimeout(() => window.location.href = hyperlink.href, 500);
+                    document.body.innerHTML = page.body.innerHTML;
+
+                    document.body.style.display = 'none';
+
+                    setTimeout(() => document.body.style.display = '', 100);
+
+                    setTimeout(() => {
+                        style.remove();
+                    }, 500);
+                } else setTimeout(() => window.location.href = hyperlink.href, 500);
+            }, 500);*/
+
+            setTimeout(() => window.location.href = hyperlink.href, 500);
+        }
     }
-}));
+}
+
+document.querySelectorAll('a').forEach(hyperlink => hyperlink.addEventListener('click', hyperlinkHandler));
 
 window.onhashchange = () => {
     if (location.hash === '#settings') document.querySelector('.sidebar').classList.add('active');
@@ -103,10 +121,6 @@ if (location.pathname !== '/view') fetch('/api/changelog')
         document.querySelector('#up_to_date').textContent = changelog.upToDate ? 'yes' : 'no';
         document.querySelector('#mode').textContent = changelog.mode;
     });
-
-window.addEventListener('blur', (e) => {
-
-});
 
 if (location.pathname === '/') {
     fetch('/api/games')

@@ -523,21 +523,6 @@ input:checked+.slider:before {
     box-shadow: 0vh 0.5vh 1vh 0vh var(--shadow-color);
 }
 
-.framei {
-    border-radius: 2vh;
-    box-shadow: 0vh 0.75vh 1.5vh 0vh var(--shadow-color);
-    border-width: 3vh;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.mainiframe {
-    position: relative;
-}
-
 .center-content {
     text-align: center;
     justify-content: center;
@@ -545,18 +530,20 @@ input:checked+.slider:before {
 }
 
 .container {
-    width: calc(50vw - 155px);
+    width: calc(calc(100vw / 2) - 134px);
     background-color: var(--background-color);
     box-shadow: 0vh 0.75vh 1.5vh 0vh var(--shadow-color);
-    margin-left: 15vh;
     padding: 2vw;
     border-radius: 2vh;
     color: var(--text);
-    min-width: 40vw;
     overflow: hidden;
     margin-left: 50px;
     margin-right: 25px;
     text-align: center;
+}
+
+.container.full {
+    width: 100%;
 }
 
 .container.centered {
