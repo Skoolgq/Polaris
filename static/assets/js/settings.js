@@ -6,8 +6,11 @@ import Theme from './themes.js';
 const settingsStorage = storage('settings');
 
 const loadSidebarInterface = () => {
+    if (settingsStorage.get('prevent_close')) document.querySelector('#prevent_close').checked = Boolean(settingsStorage.get('prevent_close'));
     if (settingsStorage.get('panic_key')) document.querySelector('#panic_key').value = settingsStorage.get('panic_key');
     if (settingsStorage.get('panic_url')) document.querySelector('#panic_url').value = settingsStorage.get('panic_url');
+
+    document.querySelector('#prevent_close').addEventListener('change', () => settingsStorage.set('prevent_close', document.querySelector('#prevent_close').checked));
 
     if (settingsStorage.get('cloak')) {
         document.querySelector('#cloak_select').value = settingsStorage.get('cloak');
@@ -352,6 +355,10 @@ const loadSettings = () => {
             else new PolarisError('A panic key was used but no url was found.');
         }
     }
+
+    /*if (new URLSearchParams(location.search).get('clickoff')) {
+
+    }*/
 };
 
 export default { loadSettings, loadSidebarInterface };

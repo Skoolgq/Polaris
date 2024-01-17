@@ -35,8 +35,17 @@ const load = () => {
             games.popular.forEach(game => {
                 const popularEl = document.createElement('div');
                 popularEl.classList = 'game';
-                popularEl.innerHTML = `<img loading='lazy' src='${game.image}'><h3>${game.name}</h3>`;
                 document.querySelector('.popular-games').appendChild(popularEl);
+                
+                const image = document.createElement('img');
+                image.src = game.image;
+                image.loading = 'lazy';
+                image.onerror = () => image.src = '/assets/img/logo.png';
+                popularEl.appendChild(image);
+
+                const name = document.createElement('h3');
+                name.textContent = game.name;
+                popularEl.appendChild(name);
 
                 popularEl.addEventListener('click', async () => {
                     document.body.style.opacity = '0.7';
@@ -66,8 +75,17 @@ const load = () => {
             games.all.forEach(game => {
                 const el = document.createElement('div');
                 el.classList = 'game';
-                el.innerHTML = `<img loading="lazy" src="${game.image}"><h3>${game.name}</h3>`;
                 document.querySelector('.games').appendChild(el);
+
+                const image = document.createElement('img');
+                image.src = game.image;
+                image.loading = 'lazy';
+                image.onerror = () => image.src = '/assets/img/logo.png';
+                el.appendChild(image);
+
+                const name = document.createElement('h3');
+                name.textContent = game.name;
+                el.appendChild(name);
 
                 effects.hoverTilt({
                     max: 8,

@@ -545,6 +545,7 @@ input:checked+.slider:before {
 }
 
 .container {
+    width: calc(50vw - 155px);
     background-color: var(--background-color);
     box-shadow: 0vh 0.75vh 1.5vh 0vh var(--shadow-color);
     margin-left: 15vh;
@@ -559,6 +560,7 @@ input:checked+.slider:before {
 }
 
 .container.centered {
+    width: auto;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -580,13 +582,12 @@ h1.nomargin {
 }
 
 img.featured {
-    width: 100%;
-    height: 100%;
+    height: 52.5vh;
+    width: 40vw;
     object-fit: cover;
     overflow: hidden;
     display: inline;
     margin-top: 2vh;
-    height: auto;
     cursor: pointer;
     border: solid;
     border-width: 0.5vh;

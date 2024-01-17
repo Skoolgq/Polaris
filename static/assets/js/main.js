@@ -1,4 +1,4 @@
-import { createViewPage, isValidURL, getVH, CrossTabCommunication, PolarisError } from './utils.js';
+import { createViewPage, isValidURL, getVH, CrossTabCommunication, PolarisError, storage } from './utils.js';
 import { loadSettings, loadSidebarInterface } from './settings.js';
 import loadEasterEggs from './eastereggs.js';
 import Search from './search.js';
@@ -21,15 +21,17 @@ ctcClient.on('open', (connection) => {
     ctcClient.brodcast('hello from ' + location.href);
 }, 1000);*/
 
-onbeforeunload = (e) => {
+const settingsStorage = storage('settings');
+
+window.addEventListener('beforeunload', (e) => {
     document.body.style.opacity = '0.7';
 
-    if (localStorage.getItem('prevent_close') === 'true') {
+    if (settingsStorage.get('prevent_close')) {
         e.preventDefault();
 
         return e;
     }
-}
+});
 
 /*await navigator.serviceWorker.register('/assets/js/offline.js', {
     scope: '/'
@@ -37,10 +39,15 @@ onbeforeunload = (e) => {
 
 window.addEventListener('DOMContentLoaded', () => setTimeout(() => document.body.style.opacity = 1, 1000));
 
-document.querySelectorAll('a').forEach(hyperlink => hyperlink.addEventListener('click', (e) => {
+document.querySelectorAll('a').forEach(hyperlink => hyperlink.addEventListener('click', async (e) => {
     if (hyperlink.dataset.action === 'no_redirect') e.preventDefault();
-    else if (hyperlink.href && !hyperlink.target && new URL(hyperlink.href).pathname !== location.pathname) {
+    else if (hyperlink.href && hyperlink.target !== '_blank' && new URL(hyperlink.href).pathname !== location.pathname) {
         e.preventDefault();
+
+        /*if (new URL(hyperlink.href).host === location.host) {
+            new DOM(await (await fetch(hyperlink.href)).text());
+        }*/
+
         document.body.style.opacity = '0.7';
 
         setTimeout(() => window.location.href = hyperlink.href, 500);

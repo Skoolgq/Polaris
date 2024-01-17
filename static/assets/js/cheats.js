@@ -6,8 +6,17 @@ const load = () => fetch('/api/cheats')
     .then(cheats => cheats.forEach(cheat => {
         const el = document.createElement('div');
         el.classList = 'game';
-        el.innerHTML = `<img src='${cheat.image}'><h3>${cheat.name}</h3>`;
         document.querySelector('.cheats').appendChild(el);
+        
+        const image = document.createElement('img');
+        image.src = cheat.image;
+        image.loading = 'lazy';
+        image.onerror = () => image.src = '/assets/img/logo.png';
+        el.appendChild(image);
+
+        const name = document.createElement('h3');
+        name.textContent = cheat.name;
+        el.appendChild(name);
 
         effects.hoverTilt({
             max: 8,

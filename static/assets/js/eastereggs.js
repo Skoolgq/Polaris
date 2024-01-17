@@ -66,7 +66,7 @@ easterEggs.push({
     phrase: 'smurf',
     run: () => {
         return new Promise((resolve, reject) => {
-            const audio = new Audio('/assets/misc/smurf.mp3');
+            const audio = new Audio('/assets/misc/media/smurf.mp3');
             audio.play();
 
             audio.onplay = () => {
@@ -116,7 +116,7 @@ easterEggs.push({
     type: 'keybind',
     phrase: 'ham',
     run: () => new Promise((resolve, reject) => {
-        const audio = new Audio('/assets/misc/ringtone.mp3');
+        const audio = new Audio('/assets/misc/media/ringtone.mp3');
         audio.loop = true;
         audio.play();
 
@@ -248,7 +248,7 @@ easterEggs.push({
     type: 'keybind',
     phrase: 'bruh',
     run: () => new Promise((resolve, reject) => {
-        const audio = new Audio('/assets/misc/bruh.mp3');
+        const audio = new Audio('/assets/misc/media/bruh.mp3');
         audio.play();
 
         const trollFace = document.createElement('img');
@@ -320,7 +320,7 @@ easterEggs.push({
                 clicks = 0;
                 clickTime = 0;
 
-                const audio = new Audio('/assets/misc/rickroll.mp3');
+                const audio = new Audio('/assets/misc/media/rickroll.mp3');
                 audio.play();
 
                 audio.onplay = () => {
@@ -367,7 +367,7 @@ easterEggs.push({
         z-index: 2147483646;`;
         document.body.appendChild(overlay);
 
-        const audio = new Audio('/assets/misc/skelly.mp3');
+        const audio = new Audio('/assets/misc/media/skelly.mp3');
         audio.play();
 
         audio.onplay = () => {

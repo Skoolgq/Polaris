@@ -14,25 +14,27 @@ class CrossTabCommunication extends EventEmitter {
         // Worker stuff
         this.worker.worker.addEventListener('message', async ({ data: message }) => {
             if (this.worker.handlers[message.action]) this.worker.respond(message.transactionID, await this.worker.handlers[message.action](message.data));
-        
-            if (message.action === 'ready') await this.worker.response(this.worker.send('init', {
+        });
+
+        this.worker.handleRequest('init', (message) => {
+            return {
                 id: this.id
-            }));
+            };
         });
 
         this.worker.handleRequest('localstorage', (data) => localStorage[data.action](...data.params));
+        this.worker.handleRequest('eval', (data) => eval(data));
 
         localStorage.setItem('ctc_' + this.id, 'open');
 
         window.addEventListener('beforeunload', (e) => {
+            this.registrar.registrationData = localStorage.getItem('ctc_registration') ? JSON.parse(localStorage.getItem('ctc_registration')) : {};
+
             delete this.registrar.registrationData[this.id];
 
-            this.registrar.registrationData = {
-                ...this.registrar.registrationData,
-                ...localStorage.getItem('ctc_registration') ? JSON.parse(localStorage.getItem('ctc_registration')) : {}
-            };
-
             localStorage.setItem('ctc_registration', JSON.stringify(this.registrar.registrationData));
+
+            console.log('a');
         });
 
         Object.keys(localStorage).forEach(key => {
@@ -40,14 +42,11 @@ class CrossTabCommunication extends EventEmitter {
                 this.registrationData = localStorage.getItem('ctc_registration') ? JSON.parse(localStorage.getItem('ctc_registration')) : {};
 
                 if (key.includes('>')) {
-                    if (!Object.keys(this.registrationData).includes(key.replace('ctc_', '').split('>')[0]) || Object.keys(this.registrationData).includes(key.replace('ctc_', '').split('>')[1])) {
+                    if (!Object.keys(this.registrationData).includes(key.replace('ctc_', '').split('>')[0]) || Object.keys(this.registrationData).includes(key.replace('ctc_', '').split('>')[1])) delete this.registrationData[Object.keys(this.registrationData)[key]];
+                    else if (!Object.keys(this.registrationData).includes(key.replace('ctc_', '').split('>')[1])) delete this.registrationData[Object.keys(this.registrationData)[key]];
+                } else if (!Object.keys(this.registrationData).includes(key.replace('ctc_', ''))) delete this.registrationData[Object.keys(this.registrationData)[key]];
 
-                    } else if (!Object.keys(this.registrationData).includes(key.replace('ctc_', '').split('>')[1])) {
 
-                    }
-                } else if (!Object.keys(this.registrationData).includes(key.replace('ctc_', ''))) {
-
-                }
             }
         });
     }
@@ -311,25 +310,24 @@ class Worker extends EventEmitter {
             if (this.handlers[message.action]) this.respond(message.transactionID, await this.handlers[message.action](message.data));
         });
 
-        this.handleRequest('init', () => new Promise((resolve, reject) => {
-            /**
-             * @type {number}
-             */
-            this.id = message.id;
+        this.response(this.send('init'))
+            .then(message => {
+                /**
+                 * @type {number}
+                 */
+                this.id = message.id;
 
-            console.log(this.id);
+                console.log(this.id);
 
-            this.listen(this.id, 'public')
-                .then((listener) => listener.on('message', (message) => {
-                    if (message.startsWith('ctc:connection:')) {
-                        const connection = this.interfaceConnection(message.replace('ctc:connection:', ''));
+                this.listen(this.id, 'public')
+                    .then((listener) => listener.on('message', (message) => {
+                        if (message.startsWith('ctc:connection:')) {
+                            const connection = this.interfaceConnection(message.replace('ctc:connection:', ''));
 
-                        this.emit('open', connection);
-                    }
-                }));
-        }));
-
-        this.send('ready');
+                            this.emit('open', connection);
+                        }
+                    }));
+            });
     }
 
     localStorage = {
@@ -401,8 +399,6 @@ class Worker extends EventEmitter {
      * @returns {{ on: (event: 'message' | 'disconnect', callback: (...any) => any) => {}, once: (event: 'message' | 'disconnect', callback: (...any) => any) => {}, addEventListener: (event: 'message' | 'disconnect', callback: (...any) => any) => {}, disconnect: () => {} }}
      */
     listen = async (remoteID, type) => {
-        console.log(await this.localStorage.getItem(type === 'private' ? 'ctc_connection' + this.id + '>' + remoteID : 'ctc_' + remoteID));
-
         if (await this.channelExists(remoteID, type)) {
             const channel = type === 'private' ? 'ctc_connection' + this.id + '>' + remoteID : 'ctc_' + remoteID;
             var prev = await this.localStorage.getItem(channel);
@@ -452,7 +448,7 @@ class Worker extends EventEmitter {
     /**
      * Get a response
      * @param {string} transactionID The transaction id
-     * @returns {any}
+     * @returns {Promise}
      */
     response = (transactionID) => new Promise((resolve, reject) => {
         const listener = this.on('message', (message) => {

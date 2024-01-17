@@ -17,7 +17,7 @@ var gitSupported = true;
 const routes = (app) => {
     app.get('/api/changelog', async (req, res) => {
         const changelog = {
-            version: packageFile.version || 'unknown',
+            version: packageFile.version + (Number(packageFile.version.split('.')[0]) <= 1 ? ' Beta' : '') || 'unknown',
             changelog: JSON.parse(fs.readFileSync(path.join(__dirname, '../static/assets/JSON/changelog.json')))
         }
 
@@ -45,7 +45,7 @@ const routes = (app) => {
         changelog.mode = mode === 'dev' ? 'development' : 'production';
 
         res.json(changelog);
-});
+    });
 
     app.get('/api/favicon', async (req, res) => {
         try {

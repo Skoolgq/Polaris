@@ -10,7 +10,7 @@
         "dev": "node server dev"
     },
     "engines": {
-        "node": "20.x"
+        "node": "18.x"
     },
     "author": "Polaris Development Group",
     "license": "GNU-3.0-or-later",
