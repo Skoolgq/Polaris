@@ -23,6 +23,8 @@ ctcClient.on('open', (connection) => {
 
 const settingsStorage = storage('settings');
 
+window.addEventListener('beforeunload', (e) => sessionStorage.setItem('was_closing', 'true'));
+
 window.addEventListener('beforeunload', (e) => {
     document.body.style.opacity = '0.7';
 
@@ -33,24 +35,47 @@ window.addEventListener('beforeunload', (e) => {
     }
 });
 
+setInterval(() => {
+    if (sessionStorage.getItem('was_closing') === 'true') document.body.style.opacity = '1';
+}, 1);
+
 /*await navigator.serviceWorker.register('/assets/js/offline.js', {
     scope: '/'
 });*/
 
 window.addEventListener('DOMContentLoaded', () => setTimeout(() => document.body.style.opacity = 1, 1000));
 
-document.querySelectorAll('a').forEach(hyperlink => hyperlink.addEventListener('click', async (e) => {
+document.querySelectorAll('a').forEach(hyperlink => hyperlink.addEventListener('click', (e) => {
     if (hyperlink.dataset.action === 'no_redirect') e.preventDefault();
     else if (hyperlink.href && hyperlink.target !== '_blank' && new URL(hyperlink.href).pathname !== location.pathname) {
         e.preventDefault();
 
-        /*if (new URL(hyperlink.href).host === location.host) {
-            new DOM(await (await fetch(hyperlink.href)).text());
-        }*/
-
         document.body.style.opacity = '0.7';
 
-        setTimeout(() => window.location.href = hyperlink.href, 500);
+        setTimeout(async () => {
+            document.body.style.transition = 'none';
+            document.body.style.position = 'absolute';
+            document.body.style.top = '0';
+            document.body.style.bottom = '0';
+            document.body.style.left = '0';
+            document.body.style.right = '0';
+
+            document.body.querySelectorAll('*').forEach(el => {
+                el.style.transition = 'none';
+                el.style.display = 'none';
+            });
+
+            if (new URL(hyperlink.href).host === location.host) {
+                const page = new DOMParser().parseFromString(await(await fetch(hyperlink.href)).text(), 'text/html');
+                document.head.innerHTML = page.head.innerHTML;
+
+                const scripts = page.body.querySelectorAll('script');
+
+                page.body.querySelectorAll('script').forEach(script => script.remove());
+
+                document.body.innerHTML = page.body.innerHTML;
+            } else setTimeout(() => window.location.href = hyperlink.href, 500);
+        }, 500);
     }
 }));
 

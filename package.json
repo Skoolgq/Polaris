@@ -9,9 +9,6 @@
         "prod": "node server prod",
         "dev": "node server dev"
     },
-    "engines": {
-        "node": "18.x"
-    },
     "author": "Polaris Development Group",
     "license": "GNU-3.0-or-later",
     "dependencies": {
