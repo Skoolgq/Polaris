@@ -52,7 +52,7 @@ document.querySelectorAll('a').forEach(hyperlink => hyperlink.addEventListener('
 
         document.body.style.opacity = '0.7';
 
-        setTimeout(async () => {
+        /*setTimeout(async () => {
             document.body.style.transition = 'none';
             document.body.style.position = 'absolute';
             document.body.style.top = '0';
@@ -75,7 +75,9 @@ document.querySelectorAll('a').forEach(hyperlink => hyperlink.addEventListener('
 
                 document.body.innerHTML = page.body.innerHTML;
             } else setTimeout(() => window.location.href = hyperlink.href, 500);
-        }, 500);
+        }, 500);*/
+
+        setTimeout(() => window.location.href = hyperlink.href, 500);
     }
 }));
 
