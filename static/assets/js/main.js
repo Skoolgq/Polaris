@@ -22,6 +22,7 @@ ctcClient.on('open', (connection) => {
 }, 1000);*/
 
 const settingsStorage = storage('settings');
+var preventClose = false;
 
 window.addEventListener('beforeunload', (e) => sessionStorage.setItem('was_closing', 'true'));
 
@@ -37,6 +38,7 @@ window.addEventListener('beforeunload', (e) => {
 
 setInterval(() => {
     if (sessionStorage.getItem('was_closing') === 'true') document.body.style.opacity = '1';
+    preventClose = settingsStorage.get('prevent_close');
 }, 1);
 
 /*await navigator.serviceWorker.register('/assets/js/offline.js', {
@@ -46,9 +48,9 @@ setInterval(() => {
 window.addEventListener('DOMContentLoaded', () => setTimeout(() => document.body.style.opacity = 1, 1000));
 
 /**
- * @param {HTMLAnchorElement} e 
+ * @param {HTMLAnchorElement} hyperlink
  */
-const hyperlinkHandler = (e) => {
+const hyperlinkHandler = (hyperlink, e) => {
     if (hyperlink.dataset.action === 'no_redirect') e.preventDefault();
     else if (hyperlink.href && hyperlink.target !== '_blank') {
         e.preventDefault();
@@ -84,6 +86,8 @@ const hyperlinkHandler = (e) => {
 
                     document.body.style.display = 'none';
 
+                    document.querySelectorAll('a').forEach(hyperlink => hyperlink.addEventListener('click', (e) => hyperlinkHandler(hyperlink, e)));
+
                     setTimeout(() => document.body.style.display = '', 100);
 
                     setTimeout(() => {
@@ -95,9 +99,9 @@ const hyperlinkHandler = (e) => {
             setTimeout(() => window.location.href = hyperlink.href, 500);
         }
     }
-}
+};
 
-document.querySelectorAll('a').forEach(hyperlink => hyperlink.addEventListener('click', hyperlinkHandler));
+document.querySelectorAll('a').forEach(hyperlink => hyperlink.addEventListener('click', (e) => hyperlinkHandler(hyperlink, e)));
 
 window.onhashchange = () => {
     if (location.hash === '#settings') document.querySelector('.sidebar').classList.add('active');
