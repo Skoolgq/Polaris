@@ -242,6 +242,12 @@
     "image": "/cdn/fruit-ninja/FruitNinjaTeaser.jpg"
   },
   {
+    "name": "Genshin Impact",
+    "target": "https://now.gg/play/cognosphere-pte-ltd-/1773/genshin-impact.html",
+    "image": "https://cdn2.steamgriddb.com/icon_thumb/73e5080f0f3804cb9cf470a8ce895dac.png",
+    "popular": true
+  },
+  {
     "name": "Geometry Dash",
     "target": "/cdn/geometrydash/index.html",
     "image": "https://upload.wikimedia.org/wikipedia/en/3/35/Geometry_Dash_Logo.PNG"
@@ -314,8 +320,7 @@
   {
     "name": "Melon Sandbox",
     "target": "https://now.gg/play/playducky/7199/melon-sandbox.html",
-    "image": "https://play-lh.googleusercontent.com/6q7J7_wky8t9gMihsZsvmKAIvfJ1h1gen2SwakrzN7OGigFFN2_VUycZBaOTn2Qs6_E",
-    "popular": true
+    "image": "https://play-lh.googleusercontent.com/6q7J7_wky8t9gMihsZsvmKAIvfJ1h1gen2SwakrzN7OGigFFN2_VUycZBaOTn2Qs6_E"
   },
   {
     "name": "Mindustry",
