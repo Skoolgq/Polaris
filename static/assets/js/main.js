@@ -94,7 +94,7 @@ const hyperlinkHandler = (hyperlink, e) => {
                         style.remove();
                     }, 500);
                 } else setTimeout(() => window.location.href = hyperlink.href, 500);
-            }, 500);*/
+            }, 500);//*/
 
             setTimeout(() => window.location.href = hyperlink.href, 500);
         }
