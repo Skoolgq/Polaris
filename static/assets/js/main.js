@@ -1,11 +1,13 @@
 import { createViewPage, isValidURL, getVH, CrossTabCommunication, PolarisError, storage } from './utils.js';
 import { loadSettings, loadSidebarInterface } from './settings.js';
 import loadEasterEggs from './eastereggs.js';
-import { umami } from './analytics.js';
+import loadAnalytics from './analytics.js';
 import Search from './search.js';
 import Cheats from './cheats.js';
 import Games from './games.js';
 import Apps from './apps.js';
+
+const umami = loadAnalytics();
 
 if (location.pathname !== '/view') loadSidebarInterface();
 loadEasterEggs();
