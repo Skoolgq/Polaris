@@ -34,8 +34,8 @@
         }
 
         if (location.pathname.slice(1).startsWith(settingsStorage.get('proxy') || 'uv')) loadProxyWorker(settingsStorage.get('proxy') || 'uv')
-            .then(e => location.reload())
-            .catch(e => {
+            .then(() => location.reload())
+            .catch(() => {
                 document.querySelector('h1').textContent = 'Error';
                 document.querySelector('p').textContent = 'Failed to load proxy';
             });

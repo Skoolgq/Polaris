@@ -26,6 +26,8 @@ const swPaths = [
     '/assets/js/offline.js'
 ];
 
+app.use(express.text());
+
 api(app);
 
 app.get('/cdn/3kh0/*', cors({
