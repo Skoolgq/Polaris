@@ -18,7 +18,7 @@ export default () => new Promise(async (resolve, reject) => {
             } catch (e) { analyticsPreferences.set('enabled', false); resolve({}); window.umami = window.umami || umamiSpoof; }
         } else analyticsData = analyticsPreferences.get('savedResponse');
 
-        if (analyticsData.success/* && analyticsData.data.domain === location.hostname*/) {
+        if (analyticsData.success && analyticsData.data.domain === location.hostname) {
             analyticsPreferences.set('enabled', true);
 
             const script = document.createElement('script');
