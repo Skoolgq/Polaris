@@ -8,7 +8,6 @@ import fs from 'node:fs';
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 const packageFile = JSON.parse(fs.readFileSync(path.join(__dirname, '../package.json')));
 const commits = await (await fetch(`https://api.github.com/repos/Skoolgq/Polaris/commits`)).json();
-const mode = (process.argv[2] === 'prod' || process.argv[2] === 'dev' ? process.argv[2] : (process.argv[3] === 'prod' || process.argv[3] === 'dev' ? process.argv[3] : (config.mode === 'prod' || config.mode === 'dev' ? config.mode : 'prod')));
 var gitSupported = true;
 
 /**
@@ -17,7 +16,7 @@ var gitSupported = true;
 const routes = (app) => {
     app.get('/api/analytics/site/:domain', async (req, res, next) => {
         try {
-            const request = await fetch('https://api.polarislearning.org/analytics/site/' + req.params.domain);
+            const request = await fetch((config.options.api.secure ? 'https' : 'http') + '://' + config.options.api.domain + '/analytics/site/' + req.params.domain);
             const buffer = Buffer.from(await request.arrayBuffer());
 
             res.header('content-type', request.headers.get('content-type')).end(buffer);
@@ -26,7 +25,7 @@ const routes = (app) => {
 
     app.get('/api/analytics/script.js', async (req, res, next) => {
         try {
-            const request = await fetch('https://api.polarislearning.org/analytics/script.js');
+            const request = await fetch((config.options.api.secure ? 'https' : 'http') + '://' + config.options.api.domain + '/analytics/script.js');
             const buffer = Buffer.from(await request.arrayBuffer());
 
             res.header('content-type', request.headers.get('content-type')).end(buffer);
@@ -35,7 +34,7 @@ const routes = (app) => {
 
     app.post('/api/analytics/api/send', async (req, res, next) => {
         try {
-            const request = await fetch('https://api.polarislearning.org/analytics/api/send', {
+            const request = await fetch((config.options.api.secure ? 'https' : 'http') + '://' + config.options.api.domain + '/analytics/api/send', {
                 method: 'POST',
                 headers: req.headers,
                 body: JSON.stringify(req.body)
@@ -73,7 +72,7 @@ const routes = (app) => {
             upToDate: false
         };
 
-        changelog.mode = mode === 'dev' ? 'development' : 'production';
+        changelog.mode = config.mode === 'dev' ? 'development' : 'production';
 
         res.json(changelog);
     });

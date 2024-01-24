@@ -7,7 +7,7 @@ import Cheats from './cheats.js';
 import Games from './games.js';
 import Apps from './apps.js';
 
-const umami = await loadAnalytics();
+await loadAnalytics();
 
 if (location.pathname !== '/view') loadSidebarInterface();
 loadEasterEggs();
@@ -47,8 +47,6 @@ setInterval(() => {
 /*await navigator.serviceWorker.register('/assets/js/offline.js', {
     scope: '/'
 });*/
-
-localStorage.clear();
 
 window.addEventListener('DOMContentLoaded', () => setTimeout(() => document.body.style.opacity = 1, 1000));
 
