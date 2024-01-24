@@ -389,9 +389,24 @@
     "image": "https://play-lh.googleusercontent.com/v7KwGdPjJGjJjRXn46sck4DwDBdKSeRzGN44CjiXUtKV0jjOi51Bt4wcXud0m-SkXg"
   },
   {
-    "name": "Papas Pizzeria",
+    "name": "Papa's Burgeria",
+    "target": "/cdn/3kh0/papasburgeria/index.html",
+    "image": "/cdn/3kh0/papasburgeria/splash.jpg"
+  },
+  {
+    "name": "Papa's Freezeria",
+    "target": "https://en.gameslol.net/data/awayjs/papa/freezeria.html",
+    "image": "https://www.speedrun.com/static/game/k6q4wmxd/cover.png?v=7eb2e2d"
+  },
+  {
+    "name": "Papa's Pizzeria",
     "target": "/cdn/3kh0/papaspizzaria/index.html",
     "image": "/cdn/images/pizzeria.jpeg"
+  },
+  {
+    "name": "Papa's Taco Mia",
+    "target": "https://www.numuki.com/gameframe/papa-s-taco-mia",
+    "image": "https://static.wikia.nocookie.net/fliplinestudios/images/d/d6/Taco_Mia_oldicon.jpg/revision/latest?cb=20121130030830"
   },
   {
     "name": "Penalty Kicks",
