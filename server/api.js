@@ -24,7 +24,7 @@ const routes = (app) => {
         } catch (e) { next(); }
     });
 
-    app.get('/api/analytics/script.js', async (req, res) => {
+    app.get('/api/analytics/script.js', async (req, res, next) => {
         try {
             const request = await fetch('https://api.polarislearning.org/analytics/script.js');
             const buffer = Buffer.from(await request.arrayBuffer());
@@ -33,7 +33,7 @@ const routes = (app) => {
         } catch (e) { next(); }
     });
 
-    app.post('/api/analytics/api/send', async (req, res) => {
+    app.post('/api/analytics/api/send', async (req, res, next) => {
         try {
             const request = await fetch('https://api.polarislearning.org/analytics/api/send', {
                 method: 'POST',
