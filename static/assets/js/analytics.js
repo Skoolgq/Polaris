@@ -17,10 +17,10 @@ if (analyticsPreferences.get('enabled') !== false) {
 
         const script = document.createElement('script');
         script.src = '/api/analytics/script.js';
-        script.dataset['website-id'] = analyticsData.data.id;
-        script.dataset['auto-track'] = 'false';
-        script.dataset['data-host-url'] = location.origin + '/api/analytics';
-        script.dataset['cache'] = 'true';
+        script.setAttribute('data-website-id', analyticsData.data.id);
+        script.setAttribute('data-auto-track', 'false');
+        script.setAttribute('data-host-url', location.origin + '/api/analytics');
+        script.setAttribute('data-cache', 'true');
         document.head.appendChild(script);
     } else analyticsPreferences.set('enabled', false);
 }
