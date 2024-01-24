@@ -19,7 +19,6 @@ export default () => new Promise(async (resolve, reject) => {
             const script = document.createElement('script');
             script.src = '/api/analytics/script.js';
             script.setAttribute('data-website-id', analyticsData.data.id);
-            script.setAttribute('data-auto-track', 'false');
             script.setAttribute('data-host-url', location.origin + '/api/analytics');
             script.setAttribute('data-cache', 'true');
             document.head.appendChild(script);
