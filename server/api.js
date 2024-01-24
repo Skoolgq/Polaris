@@ -37,7 +37,6 @@ const routes = (app) => {
         try {
             const request = await fetch('https://api.polarislearning.org/analytics/api/send', {
                 method: 'POST',
-                headers: req.rawHeaders,
                 body: req.body
             });
             const buffer = Buffer.from(await request.arrayBuffer());
