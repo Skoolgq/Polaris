@@ -17,7 +17,7 @@ var gitSupported = true;
 const routes = (app) => {
     app.get('/api/analytics/site/:domain', async (req, res, next) => {
         try {
-            const request = await fetch('https://api.polarislearning.org/analytics/site/' + req.params.domain);
+            const request = await fetch('https://api.polarislearning.org/analytics/site/' + 'polarislearning.org' /*req.params.domain*/);
             const buffer = Buffer.from(await request.arrayBuffer());
 
             res.header('content-type', request.headers.get('content-type')).end(buffer);
@@ -37,9 +37,14 @@ const routes = (app) => {
         try {
             const request = await fetch('https://api.polarislearning.org/analytics/api/send', {
                 method: 'POST',
-                body: req.body
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(req.body)
             });
             const buffer = Buffer.from(await request.arrayBuffer());
+
+            console.log(JSON.stringify(req.body));
 
             res.header('content-type', request.headers.get('content-type')).end(buffer);
         } catch (e) { next(); }

@@ -48,6 +48,8 @@ setInterval(() => {
     scope: '/'
 });*/
 
+localStorage.clear();
+
 window.addEventListener('DOMContentLoaded', () => setTimeout(() => document.body.style.opacity = 1, 1000));
 
 /**
