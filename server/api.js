@@ -15,6 +15,37 @@ var gitSupported = true;
  * @param {import('express').Express} app 
  */
 const routes = (app) => {
+    app.get('/api/analytics/site/:domain', async (req, res, next) => {
+        try {
+            const request = await fetch('https://api.polarislearning.org/analytics/site/' + req.params.domain);
+            const buffer = Buffer.from(await request.arrayBuffer());
+
+            res.header('content-type', request.headers.get('content-type')).end(buffer);
+        } catch (e) { next(); }
+    });
+
+    app.get('/api/analytics/script.js', async (req, res) => {
+        try {
+            const request = await fetch('https://api.polarislearning.org/analytics/script.js');
+            const buffer = Buffer.from(await request.arrayBuffer());
+
+            res.header('content-type', request.headers.get('content-type')).end(buffer);
+        } catch (e) { next(); }
+    });
+
+    app.post('/api/analytics/api/send', async (req, res) => {
+        try {
+            const request = await fetch('https://api.polarislearning.org/analytics/api/send', {
+                method: 'POST',
+                headers: req.rawHeaders,
+                body: req.body
+            });
+            const buffer = Buffer.from(await request.arrayBuffer());
+
+            res.header('content-type', request.headers.get('content-type')).end(buffer);
+        } catch (e) { next(); }
+    });
+
     app.get('/api/changelog', async (req, res) => {
         const changelog = {
             version: packageFile.version + (Number(packageFile.version.split('.')[0]) <= 1 ? ' Beta' : '') || 'unknown',

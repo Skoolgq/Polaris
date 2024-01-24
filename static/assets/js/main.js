@@ -1,6 +1,7 @@
 import { createViewPage, isValidURL, getVH, CrossTabCommunication, PolarisError, storage } from './utils.js';
 import { loadSettings, loadSidebarInterface } from './settings.js';
 import loadEasterEggs from './eastereggs.js';
+import { umami } from './analytics.js';
 import Search from './search.js';
 import Cheats from './cheats.js';
 import Games from './games.js';
@@ -104,8 +105,13 @@ const hyperlinkHandler = (hyperlink, e) => {
 document.querySelectorAll('a').forEach(hyperlink => hyperlink.addEventListener('click', (e) => hyperlinkHandler(hyperlink, e)));
 
 window.onhashchange = () => {
-    if (location.hash === '#settings') document.querySelector('.sidebar').classList.add('active');
-    else document.querySelector('.sidebar').classList.remove('active');
+    if (location.hash === '#settings') {
+        document.querySelector('.sidebar').classList.add('active');
+        umami.track('sidebar-open');
+    } else {
+        document.querySelector('.sidebar').classList.remove('active');
+        umami.track('sidebar-close');
+    }
 };
 
 if (window.self === window.top && location.pathname !== '/view') setTimeout(async () => {
@@ -134,15 +140,21 @@ if (location.pathname === '/') {
             const game = games.all.filter(g => g.name === gameName)[0];
 
             document.querySelector('.featured').addEventListener('click', () => {
-                if (isValidURL(game.target)) createViewPage({
-                    target: game.target,
-                    title: game.name,
-                    proxied: true
-                });
-                else createViewPage({
-                    target: game.target,
-                    title: game.name
-                });
+                document.body.style.opacity = '0.7';
+
+                umami.track('featured-game', { name: game.name });
+
+                setTimeout(() => {
+                    if (isValidURL(game.target)) createViewPage({
+                        target: game.target,
+                        title: game.name,
+                        proxied: true
+                    });
+                    else createViewPage({
+                        target: game.target,
+                        title: game.name
+                    });
+                }, 1000);
             });
 
             document.querySelector('.featured').src = '/assets/img/wide/retrobowl.png';

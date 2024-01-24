@@ -108,7 +108,7 @@ const load = () => {
                             target: game.target,
                             title: game.name
                         });
-                    }, 500);
+                    }, 1000);
                 });
             });
         })

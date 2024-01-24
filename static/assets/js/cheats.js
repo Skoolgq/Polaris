@@ -39,7 +39,7 @@ const load = () => fetch('/api/cheats')
                     target: cheat.target,
                     title: cheat.name
                 });
-            }, 500);
+            }, 1000);
         });
     })).catch(e => new PolarisError('Failed to load cheats.'));
 

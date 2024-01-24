@@ -38,7 +38,7 @@ const load = () => fetch('/api/apps').then(res => res.json()).then(apps => {
                     target: app.target,
                     title: app.name
                 });
-            }, 500);
+            }, 1000);
         });
     });
 }).catch(e => new PolarisError('Failed to load Apps'));
