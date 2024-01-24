@@ -26,8 +26,8 @@ if (analyticsPreferences.get('enabled') !== false) {
 }
 
 /**
- * @type {{ track: (event: string, props: {}) => {}}} umami
+ * @property {{ track: (event: string, props: {}) => {}}} umami
  */
-const umami = window.umami || {};
+var { umami } = window;
 
 export { umami };
