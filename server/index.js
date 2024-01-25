@@ -31,7 +31,7 @@ api(app);
 app.get('/cdn/3kh0/*', cors({
     origin: false
 }), async (req, res, next) => {
-    let reqTarget = `https://codeberg.org/3kh0/3kh0-assets/raw/branch/main/${req.path.replace('/cdn/3kh0/', '')}`;
+    let reqTarget = `https://codeberg.org/derpman/echo/raw/branch/main/${req.path.replace('/cdn/3kh0/', '')}`;
 
     const asset = await fetch(reqTarget);
     if (asset.status == 200) {
