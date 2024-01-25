@@ -10,7 +10,6 @@ import path from 'node:path';
 import url from 'node:url';
 import fs from 'node:fs';
 
-const mode = (process.argv[2] === 'prod' || process.argv[2] === 'dev' ? process.argv[2] : (process.argv[3] === 'prod' || process.argv[3] === 'dev' ? process.argv[3] : (config.mode === 'prod' || config.mode === 'dev' ? config.mode : 'prod')));
 const __dirname = url.fileURLToPath(new URL('../', import.meta.url));
 
 const templateParser = (data) => {

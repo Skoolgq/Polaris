@@ -1,5 +1,10 @@
 import { storage } from './utils.js';
 
+const umamiSpoof = {
+    track: () => {},
+    identify: () => {}
+};
+
 export default () => new Promise(async (resolve, reject) => {
     const analyticsPreferences = storage('analytics');
 
@@ -10,7 +15,7 @@ export default () => new Promise(async (resolve, reject) => {
             try {
                 analyticsData = await (await fetch('/api/analytics/site/' + location.hostname)).json();
                 analyticsPreferences.set('savedResponse', analyticsData);
-            } catch (e) { analyticsPreferences.set('enabled', false); resolve({}); }
+            } catch (e) { analyticsPreferences.set('enabled', false); resolve({}); window.umami = window.umami || umamiSpoof; }
         } else analyticsData = analyticsPreferences.get('savedResponse');
 
         if (analyticsData.success && analyticsData.data.domain === location.hostname) {
@@ -24,9 +29,14 @@ export default () => new Promise(async (resolve, reject) => {
             document.head.appendChild(script);
 
             script.onload = () => resolve(window.umami);
+            window.umami = window.umami || umamiSpoof;
         } else {
             analyticsPreferences.set('enabled', false);
             resolve({});
+            window.umami = window.umami || umamiSpoof;
         }
-    } else resolve({});
+    } else {
+        resolve({});
+        window.umami = window.umami || umamiSpoof;
+    }
 });

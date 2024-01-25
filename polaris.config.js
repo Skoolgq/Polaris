@@ -1,14 +1,17 @@
-import configTemplate from './polaris.config.template.js';
+import useConfig from './lib/config.js';
 
-/**
- * @type {configTemplate}
- */
-export default {
+export default useConfig({
     port: 8080,
     mode: 'prod',
-    //Messes up uv
-    minify: false,
-    //Beta
-    assetScrambling: false,
-    allowDangerousTemplateInsert: true
-};
+    options: {
+        //Messes up uv
+        minify: false,
+        //Beta
+        assetScrambling: false,
+        allowDangerousTemplateInsert: true,
+        api: {
+            domain: 'api.polarislearning.org',
+            secure: true
+        }
+    }
+});
