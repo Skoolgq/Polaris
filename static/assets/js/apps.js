@@ -28,6 +28,8 @@ const load = () => fetch('/api/apps').then(res => res.json()).then(apps => {
         el.addEventListener('click', async () => {
             document.body.style.opacity = '0.7';
 
+            umami.track('app-' + app.name);
+
             setTimeout(() => {
                 if (isValidURL(app.target)) createViewPage({
                     target: app.target,

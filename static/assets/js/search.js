@@ -11,6 +11,8 @@ const load = () => {
 
         document.body.style.opacity = '0.7';
 
+        umami.track('query-' + query.value);
+
         setTimeout(() => createViewPage({
             target: url,
             proxied: true,
