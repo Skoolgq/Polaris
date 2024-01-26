@@ -1,4 +1,4 @@
-import { createBareServer } from '@tomphttp/bare-server-node';
+import { createBareServer } from '@Skoolgq/bare-server-node-modified';
 import express from 'express';
 import mime from 'mime';
 import cors from 'cors';
