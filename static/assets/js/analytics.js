@@ -28,8 +28,10 @@ export default () => new Promise(async (resolve, reject) => {
             script.setAttribute('data-cache', 'true');
             document.head.appendChild(script);
 
-            script.onload = () => resolve(window.umami);
-            window.umami = window.umami || umamiSpoof;
+            script.onload = () => {
+                window.umami = window.umami || umamiSpoof;
+                resolve(window.umami);
+            }
         } else {
             analyticsPreferences.set('enabled', false);
             resolve({});
