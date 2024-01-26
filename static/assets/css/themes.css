@@ -1,6 +1,6 @@
 body[data-theme='dark'] {
     --background-color: rgba(0, 0, 0, 0.8);
-    --background-darker: rgba(0, 0, 0, 0.9);
+    --background-darker: rgba(26, 25, 32, 0.75);
     --text: #fff;
     --sidebar-bg: #161f2eef;
     --button-bg: #1c1c1c69;
@@ -16,8 +16,8 @@ body[data-theme='dark'] {
 }
 
 body[data-theme='light'] {
-    --background-color: #fff;
-    --background-darker: var(--background-color);
+    --background-color: rgba(255, 255, 255, 0.8);
+    --background-darker: rgba(235, 235, 235, 0.8);
     --text: #000;
     --hover: #757575;
     --sidebar-bg: #ffffffee;

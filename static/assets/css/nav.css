@@ -12,7 +12,7 @@
     top: 0;
     margin-left: 50px;
     margin-right: 50px;
-    margin-top: 50px;
+    margin-top: 35px;
     color: rgb(255, 255, 255);
     z-index: 100;
     display: flex;
@@ -22,13 +22,15 @@
     text-align: center;
     backdrop-filter: blur(7.1px);
     -webkit-backdrop-filter: blur(7.1px);
+    border: 1px solid rgb(83, 83, 83);
 }
 
 .navbar.scrolling {
     background-color: var(--background-darker);
     color: black;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+
 }
 
 .navbar>.title {
