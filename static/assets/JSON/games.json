@@ -17,7 +17,8 @@
   {
     "name": "99 Balls 3D",
     "target": "https://gamesnacks.com/games/99balls3d",
-    "image": "/cdn/images/99balls.png"
+    "image": "/cdn/images/99balls.png",
+    "popular": true
   },
   {
     "name": "Achievement Unlocked",
@@ -249,8 +250,7 @@
   {
     "name": "Genshin Impact",
     "target": "https://now.gg/play/cognosphere-pte-ltd-/1773/genshin-impact.html",
-    "image": "https://cdn2.steamgriddb.com/icon_thumb/73e5080f0f3804cb9cf470a8ce895dac.png",
-    "popular": true
+    "image": "https://cdn2.steamgriddb.com/icon_thumb/73e5080f0f3804cb9cf470a8ce895dac.png"
   },
   {
     "name": "Geometry Dash",

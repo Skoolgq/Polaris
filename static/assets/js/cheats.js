@@ -29,7 +29,7 @@ const load = () => fetch('/api/cheats')
         el.addEventListener('click', () => {
             document.body.style.opacity = '0.7';
 
-            umami.track('cheat-' + cheat.name);
+            umami.track('cheat_' + cheat.name);
 
             setTimeout(() => {
                 if (isValidURL(cheat.target)) createViewPage({

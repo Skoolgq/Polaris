@@ -50,7 +50,7 @@ const load = () => {
                 popularEl.addEventListener('click', async () => {
                     document.body.style.opacity = '0.7';
 
-                    umami.track('popular-game-' + game.name);
+                    umami.track('popular-game_' + game.name);
 
                     setTimeout(() => {
                         if (isValidURL(game.target)) createViewPage({
