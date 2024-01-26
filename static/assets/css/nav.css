@@ -22,7 +22,6 @@
     text-align: center;
     backdrop-filter: blur(7.1px);
     -webkit-backdrop-filter: blur(7.1px);
-    border: 1px solid rgb(83, 83, 83);
 }
 
 .navbar.scrolling {
