@@ -1,4 +1,4 @@
-import { createBareServer } from '@tomphttp/bare-server-node';
+import { createBareServer } from '../lib/bare-server-modified/createServer.cjs';
 import express from 'express';
 import mime from 'mime';
 import cors from 'cors';
