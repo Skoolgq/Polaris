@@ -12,7 +12,7 @@
     "author": "Polaris Development Group",
     "license": "GNU-3.0-or-later",
     "dependencies": {
-        "@Skoolgq/bare-server-node-modified": "github:Skoolgq/bare-server-node-modified",
+        "@tomphttp/bare-server-node": "^2.0.1",
         "cors": "*",
         "easyviolet": "github:Russell2259/Easyviolet",
         "express": "*",

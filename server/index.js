@@ -1,4 +1,4 @@
-import { createBareServer } from '@Skoolgq/bare-server-node-modified';
+import { createBareServer } from '@tomphttp/bare-server-node';
 import express from 'express';
 import mime from 'mime';
 import cors from 'cors';
@@ -132,13 +132,17 @@ app.use(async (req, res, next) => {
 });
 
 server.on('request', (req, res) => {
-    if (bareServer.shouldRoute(req)) bareServer.routeRequest(req, res);
-    else app(req, res);
+    if (bareServer.shouldRoute(req)) {
+        //console.log('request', req.headers['x-bare-url']);
+        bareServer.routeRequest(req, res);
+    } else app(req, res);
 });
 
 server.on('upgrade', (req, socket, head) => {
-    if (bareServer.shouldRoute(req)) bareServer.routeUpgrade(req, socket, head);
-    else socket.end();
+    if (bareServer.shouldRoute(req)) {
+        //console.log('upgrade', req.headers['x-bare-url']);
+        bareServer.routeUpgrade(req, socket, head);
+    } else socket.end();
 });
 
 server.listen(config.port, () => console.log(`Polaris running\n\nPort: ${server.address().port}\nVersion: ${packageFile.version + (Number(packageFile.version.split('.')[0]) <= 1 ? ' Beta' : '') || 'Unknown'} ${childProcess.execSync('git rev-parse HEAD').toString().trim().slice(0, 7) || 'Unknown'}\nMode: ${config.mode === 'dev' ? 'development' : 'production'}\nAPI Server: ${config.options.api.domain}\nNode.js: ${process.version}`));
