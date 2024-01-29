@@ -12,6 +12,7 @@ export default useConfig({
         api: {
             domain: 'api.polarislearning.org',
             secure: true
-        }
+        },
+        filtering: true
     }
 });

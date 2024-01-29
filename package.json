@@ -17,6 +17,7 @@
         "easyviolet": "github:Russell2259/Easyviolet",
         "express": "*",
         "html-minifier": "^4.0.0",
+        "is-word": "^1.0.4",
         "javascript-obfuscator": "^4.1.0",
         "jsdom": "^23.0.1",
         "mime": "*",

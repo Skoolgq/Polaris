@@ -16,7 +16,7 @@ body[data-theme='dark'] {
 }
 
 body[data-theme='light'] {
-    --background-color: rgba(255, 255, 255, 0.8);
+    --background-color: #ffffffcc;
     --background-darker: rgba(235, 235, 235, 0.8);
     --text: #000;
     --hover: #757575;
@@ -214,7 +214,7 @@ body[data-theme='violet'] {
 }
 
 @media screen and (prefers-color-scheme: light) {
-    body[data-theme='light'] {
+    body[data-theme='system-default'] {
         --background-color: #fff;
         --background-darker: var(--background-color);
         --text: #000;

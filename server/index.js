@@ -3,7 +3,7 @@ import express from 'express';
 import mime from 'mime';
 import cors from 'cors';
 
-import { pathToFile, TokenManager, rewriter } from './utils.js';
+import { pathToFile, TokenManager, rewriter, filter } from './utils.js';
 import config from '../polaris.config.js';
 import api from './api.js';
 
@@ -103,7 +103,10 @@ app.get('/asset/:token', async (req, res, next) => {
     }
 });
 
-app.get('/uv/service/*', async (req, res) => res.end(await rewriter.html(fs.readFileSync(path.join(__dirname, '../pages/proxy_404.html')))));
+app.get('/uv/service/*', async (req, res) => {
+    console.log(req.url);
+    res.end(await rewriter.html(fs.readFileSync(path.join(__dirname, '../pages/proxy_404.html'))));
+});
 app.get('/dynamic/service/*', async (req, res) => res.end(await rewriter.html(fs.readFileSync(path.join(__dirname, '../pages/proxy_404.html')))));
 
 app.use(async (req, res, next) => {
@@ -131,18 +134,40 @@ app.use(async (req, res, next) => {
     }
 });
 
-server.on('request', (req, res) => {
+server.on('request', async (req, res) => {
     if (bareServer.shouldRoute(req)) {
-        //console.log('request', req.headers['x-bare-url']);
+        try {
+            const results = await filter(req.headers['x-bare-url'].replace(req.headers['x-bare-url'].split('://')[0] + '://', ''));
+
+            console.log(results);
+
+            //console.log(req.headers.host);
+
+            if (results.flagged) {
+                return;
+            }
+        } catch (e) { }
+
         bareServer.routeRequest(req, res);
     } else app(req, res);
 });
 
-server.on('upgrade', (req, socket, head) => {
+server.on('upgrade', async (req, socket, head) => {
     if (bareServer.shouldRoute(req)) {
-        //console.log('upgrade', req.headers['x-bare-url']);
+        try {
+            const results = await filter(req.headers['x-bare-url'].replace(req.headers['x-bare-url'].split('://')[0] + '://', ''));
+
+            console.log(results);
+
+            //console.log(req.headers.host);
+
+            if (results.flagged) {
+                return;
+            }
+        } catch (e) { }
+
         bareServer.routeUpgrade(req, socket, head);
     } else socket.end();
 });
 
-server.listen(config.port, () => console.log(`Polaris running\n\nPort: ${server.address().port}\nVersion: ${packageFile.version + (Number(packageFile.version.split('.')[0]) <= 1 ? ' Beta' : '') || 'Unknown'} ${childProcess.execSync('git rev-parse HEAD').toString().trim().slice(0, 7) || 'Unknown'}\nMode: ${config.mode === 'dev' ? 'development' : 'production'}\nAPI Server: ${config.options.api.domain}\nNode.js: ${process.version}`));
+server.listen(config.port, () => console.log(`Polaris running\n\nPort: ${server.address().port}\nVersion: ${packageFile.version + (Number(packageFile.version.split('.')[0]) <= 1 ? ' Beta' : '') || 'Unknown'} ${childProcess.execSync('git rev-parse HEAD').toString().trim().slice(0, 7) || 'Unknown'}\nMode: ${config.mode === 'dev' ? 'development' : 'production'}\nProxy Filter: ${config.options.filtering ? 'enabled' : 'disabled'}\nAPI Server: ${config.options.api.domain}\nNode.js: ${process.version}`));

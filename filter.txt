@@ -1,0 +1,23 @@
+-> URL Filter
+-> Any proxied url with these words will be blocked
+
+porn
+pornography
+sex
+ass
+dick
+cock
+bitch
+busty
+boob
+cum
+fuck
+xx
+nude
+tit
+vagina
+semen
+penis
+masturbate
+anal
+anus
