@@ -1,5 +1,6 @@
 <div align="center">
-  <img src="./static/android-chrome-512x512.png" width="300px">
+  <img src="https://github.com/Skoolgq/Polaris/assets/93336301/dc994d43-06f4-4947-a15f-226c840f6880" width="600px">
+
   <h1>Polaris</h1>
   <p>The professional unblocked games site.</p>
 
