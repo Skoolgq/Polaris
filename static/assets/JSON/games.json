@@ -344,6 +344,11 @@
     "image": "/cdn/missiles/miss.png"
   },
   {
+    "name": "Mob Control",
+    "target": "//13240254712035459300.playables.usercontent.goog/v/assets/index.html",
+    "image": "https://play-lh.googleusercontent.com/WG9LoxydQHtU2S7iUvlLAdt1_fc5edPzT0Q_pJ7QJLhriQlz4G-ToaG6UJDiNJoBSAoA"
+  },
+  {
     "name": "Monkey Mart",
     "target": "/cdn/monkey-mart/index.html",
     "image": "https://play-lh.googleusercontent.com/Mq2MGUBjTRHMmx1NLlgQF3fKZQ5Yvtvy2Hg0nD5eDhVDHvyBDxcZEj830uUzGxlbg94=w240-h480-rw"
