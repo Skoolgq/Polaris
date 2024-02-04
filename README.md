@@ -1,13 +1,9 @@
 <div align="center">
   <img src="https://github.com/Skoolgq/Polaris/assets/93336301/dc994d43-06f4-4947-a15f-226c840f6880" width="600px">
 
-  <h1>Polaris</h1>
-  <p>The professional unblocked games site.</p>
-
   ![Discord](https://img.shields.io/discord/950407933408198717?label=Discord&style=for-the-badge)
   ![Commit activity](https://img.shields.io/github/commit-activity/w/SkoolGQ/Polaris?style=for-the-badge)
   
-  <br>
   <h2>Quick Web Deployment</h2>
 
 [![Deploy to Vercel](https://binbashbanana.github.io/deploy-buttons/buttons/remade/vercel.svg)](https://vercel.com/new/clone?repository-url=https://github.com/Skoolgq/Polaris)
