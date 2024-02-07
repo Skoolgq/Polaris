@@ -167,6 +167,11 @@
     "popular": true
   },
   {
+    "name": "[CSGO] Counter Strike",
+    "target": "//play-cs.com",
+    "image": "https://cdn2.iconfinder.com/data/icons/popular-games-1/50/csgo_squircle-512.png"
+  },
+  {
     "name": "Crossy Road",
     "target": "/cdn/crossy-road/index.html",
     "image": "/cdn/crossy-road/icon.png"
