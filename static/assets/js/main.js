@@ -159,7 +159,7 @@ if (location.pathname === '/') {
                 }, 1000);
             });
 
-            document.querySelector('.featured').src = '/assets/img/wide/99balls.jpg';
+            document.querySelector('.featured').src = '/assets/img/wide/99balls.png';
         }).catch(e => new PolarisError('Failed to load featured game.'));
 
     const logHeight = () => {
