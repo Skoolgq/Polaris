@@ -138,13 +138,13 @@ if (location.pathname === '/') {
     fetch('/api/games')
         .then(res => res.json())
         .then(games => {
-            const gameName = '99 Balls 3D';
+            const gameName = 'Run 3';
             const game = games.all.filter(g => g.name === gameName)[0];
 
             document.querySelector('.featured').addEventListener('click', () => {
                 document.body.style.opacity = '0.7';
 
-                umami.track('featured-game_' + game.name);
+                umami.track('game-' + game.name);
 
                 setTimeout(() => {
                     if (isValidURL(game.target)) createViewPage({
@@ -159,7 +159,7 @@ if (location.pathname === '/') {
                 }, 1000);
             });
 
-            document.querySelector('.featured').src = '/assets/img/wide/99balls.png';
+            document.querySelector('.featured').src = '/assets/img/wide/run3.png';
         }).catch(e => new PolarisError('Failed to load featured game.'));
 
     const logHeight = () => {
