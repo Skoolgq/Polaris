@@ -127,7 +127,7 @@
   },
   {
     "name": "Bonk.io",
-    "target": "//bonk.io",
+    "target": "https://bonk.io",
     "image": "https://b.thumbs.redditmedia.com/9p8-wn2_KPdgjPTaR9fx-NIVgFhvsgBL0WPdbv5GMkA.png"
   },
   {
@@ -168,7 +168,7 @@
   },
   {
     "name": "[CSGO] Counter Strike",
-    "target": "//play-cs.com",
+    "target": "https://play-cs.com",
     "image": "https://cdn2.iconfinder.com/data/icons/popular-games-1/50/csgo_squircle-512.png"
   },
   {
@@ -217,7 +217,7 @@
     "image": "/cdn/images/driftboss.png"
   },
   {
-    "name": "Drift Hunters (have patience)",
+    "name": "Drift Hunters",
     "target": "https://webglmath.github.io/drift-hunters/",
     "image": "https://play-lh.googleusercontent.com/smo8Ln-PRREDGq_QjA-Nws7ZNJQhvQfUB2oA8XV0GW12uq6hqdhvwXCB2rdl6zjekcow=w240-h480-rw"
   },
@@ -580,5 +580,10 @@
     "name": "Super Mario Bros",
     "target": "/cdn/mario/index.html",
     "image": "https://lh3.googleusercontent.com/PwJw4lIjmSVwOkpaeYigpJgwzEnTKIRQhxy7PmV0qnEVh4xuHb2vojFtNU4JCrCJL5YL5xi8WG7peK2kscQXjaEQ=w640-h400-e365-rj-sc0x00ffffff"
+  },
+  {
+    "name": "Funny Shooter 2",
+    "target": "https://rawcdn.githack.com/nightrose-labs/quartz/master/1/6af3cc65-32f9-4f3d-a66c-6c8882a7c5df/index.html",
+    "image": "https://raw.githubusercontent.com/nightrose-labs/quartz/master/thumb/6af3cc65-32f9-4f3d-a66c-6c8882a7c5df.jpg"
   }
 ]
