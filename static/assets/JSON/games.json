@@ -585,5 +585,50 @@
     "name": "Funny Shooter 2",
     "target": "https://rawcdn.githack.com/nightrose-labs/quartz/master/1/6af3cc65-32f9-4f3d-a66c-6c8882a7c5df/index.html",
     "image": "https://raw.githubusercontent.com/nightrose-labs/quartz/master/thumb/6af3cc65-32f9-4f3d-a66c-6c8882a7c5df.jpg"
+  },
+  {
+    "name": "Amongus",
+    "target": "/cdn/3kh0/among-us/index.html",
+    "image": "https://play-lh.googleusercontent.com/8ddL1kuoNUB5vUvgDVjYY3_6HwQcrg1K2fd_R8soD-e2QYj8fT9cfhfh3G0hnSruLKec"
+  },
+  {
+    "name": "Taming.io",
+    "target": "https://taming.io",
+    "image": "https://play-lh.googleusercontent.com/EoY1Ey67rMjTHXIUqZCL3m4Ad4Of8BQr7tUHIcHWkM4YEiMugylaTPBNPAZQ6J8jumI=w240-h480-rw"
+  },
+  {
+    "name": "Rooftop Snipers",
+    "target": "/cdn/3kh0/rooftop-snipers/index.html",
+    "image": "https://img.poki.com/cdn-cgi/image/quality=78,width=600,height=600,fit=cover,f=auto/c127771edb0e821e4109b7058ae3f094.jpeg"
+  },
+  {
+    "name": "Google Snake",
+    "target": "/cdn/3kh0/google-snake/index.html",
+    "image": "https://play-lh.googleusercontent.com/p19u9SINIT3SZUQ8NcdcX5ROSFeEgTBc8J2okk8TsqSz2cq6eFJ0ekT-TwwqEXAKrQ"
+  },
+  {
+    "name": "Hextris",
+    "target": "/cdn/3kh0/hextris/index.html",
+    "image": "https://codeberg.org/derpman/echo/raw/branch/main/hextris/images/hextris-logo.png"
+  },
+  {
+    "name": "HexGL",
+    "target": "/cdn/3kh0/HexGL/index.html",
+    "image": "https://codeberg.org/derpman/echo/raw/branch/main/HexGL/icon.png"
+  },
+  {
+    "name": "Appel",
+    "target": "/cdn/appel/index.html",
+    "image": "https://store-images.s-microsoft.com/image/apps.14476.13631454430641262.37c87ec2-8482-46a7-a63a-261257b0eba0.238f1630-e1a2-4cdc-ab31-ae80905aacb4?mode=scale&q=90&h=300&w=300"
+  },
+  {
+    "name": "Temple Run 2",
+    "target": "/cdn/3kh0/temple-run-2/index.html",
+    "image": "https://upload.wikimedia.org/wikipedia/en/9/98/Temple_Run_2.png"
+  },
+  {
+    "name": "Stack Bump 3D",
+    "target": "/cdn/3kh0/stack-bump-3d/index.html",
+    "image": "https://upload.wikimedia.org/wikipedia/en/9/98/Temple_Run_2.png"
   }
 ]
