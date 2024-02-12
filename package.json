@@ -20,7 +20,6 @@
         "javascript-obfuscator": "^4.1.0",
         "jsdom": "^23.0.1",
         "mime": "*",
-        "sweetalert": "^2.1.2",
         "uuid": "^9.0.1"
     }
 }
