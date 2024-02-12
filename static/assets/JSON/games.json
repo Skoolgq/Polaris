@@ -249,7 +249,7 @@
   },
   {
     "name": "Fruit Ninja",
-    "target": "/cdn/fruit-ninja/index.html",
+    "target": "/cdn/3kh0/fruitninja/index.html",
     "image": "/cdn/fruit-ninja/FruitNinjaTeaser.jpg"
   },
   {
@@ -629,6 +629,41 @@
   {
     "name": "Stack Bump 3D",
     "target": "/cdn/3kh0/stack-bump-3d/index.html",
-    "image": "https://upload.wikimedia.org/wikipedia/en/9/98/Temple_Run_2.png"
+    "image": "/cdn/3kh0/stack-bump-3d/thumbnail.jpg"
+  },
+  {
+    "name": "Stack",
+    "target": "/cdn/3kh0/stack/index.html",
+    "image": "/cdn/3kh0/stack/stack.png"
+  },
+  {
+    "name": "Death Run 3D",
+    "target": "/cdn/3kh0/death-run-3d/index.html",
+    "image": "/cdn/3kh0/death-run-3d/img/death.png"
+  },
+  {
+    "name": "Cut the Rope Time Travel",
+    "target": "/cdn/3kh0/ctr-tr/index.html",
+    "image": "/cdn/3kh0/ctr-tr/logo.png"
+  },
+  {
+    "name": "Cut the Rope Holiday",
+    "target": "/cdn/3kh0/ctr-holiday/index.html",
+    "image": "/cdn/3kh0/ctr-holiday/Holiday_Gift.webp"
+  },
+  {
+    "name": "Ducklife 3",
+    "target": "/cdn/3kh0/ducklife3/index.html",
+    "image": "/cdn/3kh0/ducklife3/duck.png"
+  },
+  {
+    "name": "Ducklife 4",
+    "target": "/cdn/3kh0/ducklife4/index.html",
+    "image": "/cdn/3kh0/ducklife4/splash.jpg"
+  },
+  {
+    "name": "Om-Nom Bounce",
+    "target": "/cdn/3kh0/om-bounce/index.html",
+    "image": "/cdn/3kh0/om-bounce/assets/icon.jpeg"
   }
 ]
