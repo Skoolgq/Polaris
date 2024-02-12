@@ -1,5 +1,7 @@
 <div align="center">
   <img src="https://github.com/Skoolgq/Polaris/assets/93336301/dc994d43-06f4-4947-a15f-226c840f6880" width="600px">
+  
+  <h2><a href="https://dsc.gg/skoolworld">Join our Discord server</a></h2>
 
   ![Discord](https://img.shields.io/discord/950407933408198717?label=Discord&style=for-the-badge)
   ![Commit activity](https://img.shields.io/github/commit-activity/w/SkoolGQ/Polaris?style=for-the-badge)
