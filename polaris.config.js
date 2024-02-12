@@ -8,7 +8,7 @@ export default useConfig({
         minify: false,
         //Beta
         assetScrambling: false,
-        allowDangerousTemplateInsert: true,
+        allowDangerousTemplateInsert: false,
         api: {
             domain: 'api.polarislearning.org',
             secure: true

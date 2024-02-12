@@ -11,6 +11,7 @@ import url from 'node:url';
 import fs from 'node:fs';
 
 const __dirname = url.fileURLToPath(new URL('../', import.meta.url));
+const mode = config.mode;
 
 const templateParser = (data) => {
     return new Promise(async (resolve, reject) => {

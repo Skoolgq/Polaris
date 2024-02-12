@@ -167,7 +167,7 @@ hr {
     transition: all 0.5s ease;
 }
 
-.proxyinput-index:focus{
+.proxyinput-index:focus {
     width: 30vw;
 }
 
@@ -610,6 +610,15 @@ img.featured:hover {
 .content {
     margin-left: 100px;
     margin-right: 100px;
+}
+
+#changelog i {
+    overflow: hidden;
+    white-space: nowrap;
+    display: block;
+    /*Converting percentage into px so text-overflow: ellipsis; will apply*/
+    width: calc(100% - 1px + 1px);
+    text-overflow: ellipsis;
 }
 
 @keyframes beat {

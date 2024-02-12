@@ -2,7 +2,7 @@
     "name": "polaris",
     "version": "1.2.1",
     "description": "The professional unblocked games site.",
-    "main": "index.js",
+    "main": "server/index.js",
     "type": "module",
     "scripts": {
         "start": "node server",

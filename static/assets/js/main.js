@@ -210,10 +210,9 @@ if (location.pathname === '/') {
                     description.textContent = change.simpleDescription;
                     description.classList = 'small';
                     log.appendChild(description);
-
                 });
 
-            const updateChangelog = (amount = 3) => {
+            const resizeChangelog = (amount = 3) => {
                 amount = amount - 1;
 
                 for (let i = 0; i < document.querySelector('#changelog').children.length; i++) {
@@ -222,8 +221,8 @@ if (location.pathname === '/') {
                 }
             }
 
-            updateChangelog(Math.floor(getAvalibleHeight() / logHeight()));
-            window.addEventListener('resize', () => updateChangelog(Math.floor(getAvalibleHeight() / logHeight())));
+            resizeChangelog(Math.floor(getAvalibleHeight() / logHeight()));
+            window.addEventListener('resize', () => resizeChangelog(Math.floor(getAvalibleHeight() / logHeight())));
         });
 }
 
