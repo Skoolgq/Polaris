@@ -116,7 +116,7 @@ h1.title {
 hr {
     border: 0;
     height: 0.3vh;
-    background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0));
+    background-image: var(--hr-style);
 }
 
 .small {
@@ -148,6 +148,27 @@ hr {
     transition: 0.5s;
     margin: auto;
     margin-top: 2vh;
+}
+
+.proxyinput-index {
+    text-align: center;
+    font-size: 2vh;
+    box-shadow: 0.5vh 0.5vh 1vh 0vh var(--shadow-color);
+    border: none;
+    border-radius: 2vh;
+    cursor: pointer;
+    background: var(--sidebar-bg);
+    width: 20vw;
+    height: 6vh;
+    color: var(--text);
+    transition: 0.5s;
+    margin: auto;
+    margin: 2vh;
+    transition: all 0.5s ease;
+}
+
+.proxyinput-index:focus{
+    width: 30vw;
 }
 
 button {

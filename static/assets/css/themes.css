@@ -10,6 +10,7 @@ body[data-theme='dark'] {
     --scrollbar-color: #ffffff59;
     --solid: #1b2735;
     --hover: #757575;
+    --hr-style: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0));
 
     background: radial-gradient(at center bottom, rgb(27, 39, 53) 0%, rgb(9, 10, 15) 100%);
     background-repeat: no-repeat;
@@ -20,7 +21,7 @@ body[data-theme='light'] {
     --background-darker: var(--background-color);
     --text: #000;
     --hover: #757575;
-    --sidebar-bg: #ffffffee;
+    --sidebar-bg: #e9e9e9ee;
     --button-bg: #ecececee;
     --shadow-color: #c9c9c9;
     --switch-color: #111111b0;
@@ -28,6 +29,7 @@ body[data-theme='light'] {
     --scrollbar-color: #4242424b;
     --solid: #ffffffee;
     --hover: #757575;
+    --hr-style: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.75), rgba(255, 255, 255, 0));
 
     background: radial-gradient(ellipse at bottom, #b1b1b1 0%, #f6f5f0 100%);
     background-repeat: no-repeat;
