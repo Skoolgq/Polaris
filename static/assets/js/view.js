@@ -54,6 +54,38 @@ if (params.get('load')) {
                 else if (frame.msRequestFullscreen) frame.msRequestFullscreen();
             });
 
+            document.querySelector('#discord-join').addEventListener('click', () => {
+                document.getElementById('loadframe').src = "/uv/service/hvtrs8%2F-dksaopd%2Ccmm-ilvktg%2Fqkmon-aoomwnkt%7B-%3B52427%3B3142839%3A737";
+            /*
+            swal("How would you like to open this?", {
+                buttons: {
+                  cancel: "Cancel",
+                  proxy: {
+                    text: "Proxy",
+                    value: "proxy",
+                  },
+                  newtab: true,
+                },
+              })
+              .then((value) => {
+                switch (value) {
+               
+                  case "newtab":
+                    window.open("https://dsc.gg/skoolworld", '_blank').focus();
+                    break;
+               
+                  case "proxy":
+                    document.getElementById('loadframe').src = "/uv/service/hvtrs8%2F-dksaopd%2Ccmm-ilvktg%2Fqkmon-aoomwnkt%7B-%3B52427%3B3142839%3A737";
+                    break;
+               
+                  default:
+                    swal("you should have joined the server 🙄");
+                }
+              });
+              */     
+              });       
+           
+
             window.addEventListener('fullscreenchange', () => {
                 if (document.fullscreenElement) document.querySelector('#loadframe').style.borderRadius = '0px';
                 else document.querySelector('#loadframe').style.borderRadius = '';
