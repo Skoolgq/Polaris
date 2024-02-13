@@ -670,5 +670,15 @@
     "name": "Stickman Hook",
     "target": "/cdn/3kh0/stickman-hook/index.html",
     "image": "/cdn/3kh0/stickman-hook/unnamed.jpg"
+  },
+  {
+    "name": "Slither.io",
+    "target": "https://slither.io",
+    "image": "https://play-lh.googleusercontent.com/oObkhKfUXOY5yzheKe9w1Y1pXZBgdiSksMeNmT0BijoQ8J75maTCIW2TA7-6pA6EMA"
+  },
+  {
+    "name": "Evowars.io",
+    "target": "https://evowars.io",
+    "image": "https://play-lh.googleusercontent.com/8MffWSh6-Onwm--Hb5r7UUi21c7MxurIFIrNbBfIPHbb6KIcthHB2PUKcch6L0dO7HA"
   }
 ]
