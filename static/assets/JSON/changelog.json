@@ -1,5 +1,9 @@
 [
 	{
+		"date": "2/13/2024",
+		"simpleDescription": "Fix issues with the cdn and add Stickman Hook"
+	},
+	{
 		"date": "2/12/2024",
 		"simpleDescription": "Added 15 new games and changed the featured game to Run 3"
 	},

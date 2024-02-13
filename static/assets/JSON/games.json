@@ -665,5 +665,10 @@
     "name": "Om-Nom Bounce",
     "target": "/cdn/3kh0/om-bounce/index.html",
     "image": "/cdn/3kh0/om-bounce/assets/icon.jpeg"
+  },
+  {
+    "name": "Stickman Hook",
+    "target": "/cdn/3kh0/stickman-hook/index.html",
+    "image": "/cdn/3kh0/stickman-hook/unnamed.jpg"
   }
 ]
