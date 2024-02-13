@@ -26,34 +26,13 @@ const swPaths = [
 
 app.use(express.json());
 
-api(app);
-
-app.get('/cdn/3kh0/*', cors({
-    origin: false
-}), async (req, res, next) => {
-    let reqTarget = `https://codeberg.org/derpman/echo/raw/branch/main/${req.path.replace('/cdn/3kh0/', '')}`;
-
-    const asset = await fetch(reqTarget);
-    if (asset.status == 200) {
-        var data = Buffer.from(await asset.arrayBuffer());
-
-        const noRewrite = ['.unityweb'];
-        if (!noRewrite.includes(mime.getExtension(reqTarget))) res.writeHead(200, {
-            'content-type': mime.getType(reqTarget)
-        });
-
-        if (mime.getType(reqTarget) === 'text/html') data = data + '<script src=\'/assets/js/cdn.inject.js\' preload=\'true\'></script>';
-
-        res.end(data);
-    } else next();
-});
-
 app.get('/cdn/*', cors({
     origin: false
 }), async (req, res, next) => {
-    let reqTarget = `https://raw.githubusercontent.com/Skoolgq/Polaris-Assets/main/${req.path.replace('/cdn/', '')}`;
+    const reqTarget = req.path.startsWith('/cdn/3kh0/') ? `https://codeberg.org/derpman/echo/raw/branch/main/${req.path.replace('/cdn/3kh0/', '')}` : `https://raw.githubusercontent.com/Skoolgq/Polaris-Assets/main/${req.path.replace('/cdn/', '')}`;
 
     const asset = await fetch(reqTarget);
+
     if (asset.status == 200) {
         var data = Buffer.from(await asset.arrayBuffer());
 
@@ -67,6 +46,8 @@ app.get('/cdn/*', cors({
         res.end(data);
     } else next();
 });
+
+api(app);
 
 app.get('*', (req, res, next) => {
     if (swPaths.includes(req.path)) res.setHeader('Service-Worker-Allowed', '/');
@@ -132,17 +113,13 @@ app.use(async (req, res, next) => {
 });
 
 server.on('request', (req, res) => {
-    if (bareServer.shouldRoute(req)) {
-        //console.log('request', req.headers['x-bare-url']);
-        bareServer.routeRequest(req, res);
-    } else app(req, res);
+    if (bareServer.shouldRoute(req)) bareServer.routeRequest(req, res);
+    else app(req, res);
 });
 
 server.on('upgrade', (req, socket, head) => {
-    if (bareServer.shouldRoute(req)) {
-        //console.log('upgrade', req.headers['x-bare-url']);
-        bareServer.routeUpgrade(req, socket, head);
-    } else socket.end();
+    if (bareServer.shouldRoute(req)) bareServer.routeUpgrade(req, socket, head);
+    else socket.end();
 });
 
 server.listen(config.port, () => console.log(`Polaris running\n\nPort: ${server.address().port}\nVersion: ${packageFile.version + (Number(packageFile.version.split('.')[0]) <= 1 ? ' Beta' : '') || 'Unknown'} ${childProcess.execSync('git rev-parse HEAD').toString().trim().slice(0, 7) || 'Unknown'}\nMode: ${config.mode === 'dev' ? 'development' : 'production'}\nAPI Server: ${config.options.api.domain}\nNode.js: ${process.version}`));
