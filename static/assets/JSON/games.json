@@ -715,5 +715,115 @@
     "name": "Cookie Clicker",
     "target": "https://orteil.dashnet.org/cookieclicker/",
     "image": "https://play-lh.googleusercontent.com/Z1MOuuiD05ZN5LkVmMEvKF0mqAc-FknaQ2j8s4dZiO-LSPQX4EEA3RVJdlQEtxe96ok"
+  },
+  {
+    "name": "Papery Planes",
+    "target": "/cdn/3kh0/papery-planes/index.html",
+    "image": "/cdn/3kh0/papery-planes/splash.jpg"
+  },
+  {
+    "name": "Rolly Vortex",
+    "target": "/cdn/3kh0/rolly-vortex/index.html",
+    "image": "/cdn/3kh0/rolly-vortex/icon-256.png"
+  },
+  {
+    "name": "Snowbattle.io",
+    "target": "/cdn/3kh0/snowbattle/index.html",
+    "image": "/cdn/3kh0/snowbattle/img/logo.png"
+  },
+  {
+    "name": "Swerve",
+    "target": "/cdn/3kh0/swerve/index.html",
+    "image": "/cdn/3kh0/swerve/img/favicon.jpg"
+  },
+  {
+    "name": "Tube Jumpers",
+    "target": "/cdn/3kh0/tube-jumpers/index.html",
+    "image": "/cdn/3kh0/tube-jumpers/img/shark.jpg"
+  },
+  {
+    "name": "Superhot",
+    "target": "/cdn/3kh0/superhot/index.html",
+    "image": "/cdn/3kh0/superhot/hot.jpg"
+  },
+  {
+    "name": "Glass City",
+    "target": "/cdn/3kh0/glass-city/index.html",
+    "image": "/cdn/3kh0/glass-city/image.png"
+  },
+  {
+    "name": "Connect 3",
+    "target": "/cdn/3kh0/connect3/index.html",
+    "image": "/cdn/3kh0/connect3/connect3.png"
+  },
+  {
+    "name": "Henry Stickmin: Breaking the Bank",
+    "target": "/cdn/3kh0/breakingthebank/index.html",
+    "image": "/cdn/3kh0/breakingthebank/breakingthebank.png"
+  },
+  {
+    "name": "Bloons TD",
+    "target": "/cdn/3kh0/bloonstd/index.html",
+    "image": "/cdn/3kh0/bloonstd/bloonstd.jpg"
+  },
+  {
+    "name": "Portal",
+    "target": "/cdn/3kh0/portalflash/index.html",
+    "image": "/cdn/3kh0/portalflash/portaltheflashversion.jpg"
+  },
+  {
+    "name": "Riddle School",
+    "target": "/cdn/3kh0/riddleschool/index.html",
+    "image": "/cdn/3kh0/riddleschool/riddleschool.png"
+  },
+  {
+    "name": "Riddle School 2",
+    "target": "/cdn/3kh0/riddleschool2/index.html",
+    "image": "/cdn/3kh0/riddleschool2/riddleschool2.png"
+  },
+  {
+    "name": "Riddle School 3",
+    "target": "/cdn/3kh0/riddleschool3/index.html",
+    "image": "/cdn/3kh0/riddleschool3/riddleschool3.png"
+  },
+  {
+    "name": "Riddle School 4",
+    "target": "/cdn/3kh0/riddleschool4/index.html",
+    "image": "/cdn/3kh0/riddleschool4/riddleschool4.png"
+  },
+  {
+    "name": "Riddle School 5",
+    "target": "/cdn/3kh0/riddleschool5/index.html",
+    "image": "/cdn/3kh0/riddleschool5/riddleschool5.png"
+  },
+  {
+    "name": "Riddle Transfer",
+    "target": "/cdn/3kh0/riddletransfer/index.html",
+    "image": "/cdn/3kh0/riddletransfer/riddletransfer.png"
+  },
+  {
+    "name": "Riddle Transfer 2",
+    "target": "/cdn/3kh0/riddletransfer2/index.html",
+    "image": "/cdn/3kh0/riddletransfer2/riddletransfer2.png"
+  },
+  {
+    "name": "Slope 2",
+    "target": "/cdn/3kh0/slope-2/index.html",
+    "image": "/cdn/3kh0/slope-2/slope-2-logo.png"
+  },
+  {
+    "name": "Slope Ball",
+    "target": "/cdn/3kh0/slope-ball/index.html",
+    "image": "/cdn/3kh0/slope-ball/splash.png"
+  },
+  {
+    "name": "Rabbit Samurai",
+    "target": "/cdn/3kh0/rabbit-samurai/index.html",
+    "image": "/cdn/3kh0/rabbit-samurai/splash.png"
+  },
+  {
+    "name": "Rabbit Samurai 2",
+    "target": "/cdn/3kh0/rabbit-samurai2/index.html",
+    "image": "/cdn/3kh0/rabbit-samurai2/splash.png"
   }
 ]
