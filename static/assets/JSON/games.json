@@ -167,7 +167,7 @@
     "popular": true
   },
   {
-    "name": "[CSGO] Counter Strike",
+    "name": "Counter Strike",
     "target": "https://play-cs.com",
     "image": "https://cdn2.iconfinder.com/data/icons/popular-games-1/50/csgo_squircle-512.png"
   },
@@ -440,7 +440,7 @@
     "image": "/cdn/images/risehigher.jpg"
   },
   {
-    "name": "Roblox [FIXED]",
+    "name": "Roblox",
     "target": "https://now.gg/iframe/snippet?app_pkg=com.roblox.client&partner=skool",
     "image": "/cdn/images/roblox.png",
     "popular": true
@@ -497,7 +497,7 @@
     "popular":true
   },
   {
-    "name": "Stumble Guys [Mobile]",
+    "name": "Stumble Guys",
     "target": "https://www.stumbleguys.com/play",
     "image": "https://now.gg/iframe/snippet?app_pkg=com.kitkagames.fallbuddies&partner=skool"
   },
@@ -708,6 +708,11 @@
   },
   {
     "name": "Eggy Car",
+    "target": "https://webglmath.github.io/eggy-car/",
+    "image": "https://eggy-car.github.io/img/hero/hero.jpg"
+  },
+  {
+    "name": "Cookie Clicker",
     "target": "https://webglmath.github.io/eggy-car/",
     "image": "https://eggy-car.github.io/img/hero/hero.jpg"
   }
