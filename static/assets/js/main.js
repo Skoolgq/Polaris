@@ -1,4 +1,4 @@
-import { createViewPage, isValidURL, getVH, CrossTabCommunication, PolarisError, storage, encoder } from './utils.js';
+import { createViewPage, isValidURL, getVH, CrossTabCommunication, PolarisError, storage } from './utils.js';
 import { loadSettings, loadSidebarInterface } from './settings.js';
 import loadEasterEggs from './eastereggs.js';
 import loadAnalytics from './analytics.js';
