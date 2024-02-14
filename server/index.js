@@ -26,6 +26,8 @@ const swPaths = [
 
 app.use(express.json());
 
+api(app);
+
 app.get('/cdn/*', cors({
     origin: false
 }), async (req, res, next) => {
@@ -46,8 +48,6 @@ app.get('/cdn/*', cors({
         res.end(data);
     } else next();
 });
-
-api(app);
 
 app.get('*', (req, res, next) => {
     if (swPaths.includes(req.path)) res.setHeader('Service-Worker-Allowed', '/');

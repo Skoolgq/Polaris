@@ -685,5 +685,25 @@
     "name": "Deepest Sword",
     "target": "https://html-classic.itch.zone/html/4017918/index.html",
     "image": "https://images.sftcdn.net/images/t_app-icon-m/p/f97701fd-a064-4cac-9247-9793e72d8220/2271577798/deepest-sword-logo"
+  },
+  {
+    "name": "Tunnel Rush Mania",
+    "target": "https://html5.gamemonetize.co/2fp4sd31llh6u6vjxe1wxbx8meapsgop/",
+    "image": "https://play-lh.googleusercontent.com/tl2qr3PCg-vpzloUgjMAY9eXz9y58Gdmb77_d9RbmrWoQu8rIvj4Fn3eCurqBoWsY84"
+  },
+  {
+    "name": "Bacon May Die",
+    "target": "https://game.enjoy4fun.com/baconmaydie/v2/index.html",
+    "image": "https://img.poki.com/cdn-cgi/image/quality=78,width=600,height=600,fit=cover,f=auto/0b3b5b2de68b3a604693bf23b3994aa7.png"
+  },
+  {
+    "name": "Google Feud",
+    "target": "/cdn/3kh0/google-feud/index.html",
+    "image": "/cdn/3kh0/google-feud/splash.png"
+  },
+  {
+    "name": "Eggy Car",
+    "target": "https://webglmath.github.io/eggy-car/",
+    "image": "https://eggy-car.github.io/img/hero/hero.jpg"
   }
 ]
