@@ -63,5 +63,10 @@
         "name": "Youtube",
         "image": "/cdn/images/youtube.png",
         "target": "https://youtube.com"
+    },
+    {
+        "name": "Youtube Music",
+        "image": "/cdn/images/yt-music.png",
+        "target": "https://music.youtube.com"
     }
 ]
