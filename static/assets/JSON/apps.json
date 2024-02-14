@@ -1,8 +1,18 @@
 [
     {
+        "name": "Android OS",
+        "image": "/cdn/images/android.png",
+        "target": "https://now.gg/iframe/snippet?app_pkg=com.uncube.launcher3&partner=skool"
+    },
+    {
         "name": "Spotify",
         "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Spotify_logo_without_text.svg/168px-Spotify_logo_without_text.svg.png",
         "target": "https://open.spotify.com/"
+    },
+    {
+        "name": "ChatGPT",
+        "image": "https://chat.shuttleai.app",
+        "target": "https://chess.com/"
     },
     {
         "name": "Chess.com",
