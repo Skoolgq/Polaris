@@ -825,5 +825,20 @@
     "name": "Rabbit Samurai 2",
     "target": "/cdn/3kh0/rabbit-samurai2/index.html",
     "image": "/cdn/3kh0/rabbit-samurai2/splash.png"
+  },
+  {
+    "name": "Little Alchemy",
+    "target": "https://littlealchemy.com",
+    "image": "https://assets-prd.ignimgs.com/2022/08/15/little-academy-mobile-1660600636606.png"
+  },
+  {
+    "name": "Little Alchemy 2",
+    "target": "https://littlealchemy2.com",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaLDbrBKQlCSOXK7WNgx3myLJKrMD--5F8YkpI7ILih54J3ka6hyXDGOmZJr8_aXhuQA4&usqp=CAU"
+  },
+  {
+    "name": "OvO 2",
+    "target": "https://dthesle.github.io/OvO2/",
+    "image": "https://lh3.googleusercontent.com/FOaLiWCIhdC5K-oE5UofoDpn3w2ZEAq359yAembr-Q-7mRqNd9ramV97FqyqPuqohwDdQZOm5MF9DL-QcTliLNmf=w640-h400-e365-rj-sc0x00ffffff"
   }
 ]
