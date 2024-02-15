@@ -1,15 +1,19 @@
 [
 	{
+		"date": "2/15/2024",
+		"simpleDescription": "Added 4 games"
+	},
+	{
 		"date": "2/14/2024",
-		"simpleDescription": "Fixed 3 games, added 1 game, and added Youtube Music"
+		"simpleDescription": "Fixed 3 games, added 23 games, and added Youtube Music"
 	},
 	{
 		"date": "2/13/2024",
-		"simpleDescription": "Fix issues with the cdn and added 8 new games"
+		"simpleDescription": "Fixed issues with the cdn and added 8 new games"
 	},
 	{
 		"date": "2/12/2024",
-		"simpleDescription": "Added 15 new games and changed the featured game to Run 3"
+		"simpleDescription": "Added 15 games and changed the featured game to Run 3"
 	},
 	{
 		"date": "1/25/2024",

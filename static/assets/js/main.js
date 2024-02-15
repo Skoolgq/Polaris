@@ -35,14 +35,11 @@ window.addEventListener('beforeunload', (e) => {
     if (settingsStorage.get('prevent_close')) {
         e.preventDefault();
 
+        document.body.style.opacity = '1';
+
         return e;
     }
 });
-
-setInterval(() => {
-    if (sessionStorage.getItem('was_closing') === 'true') document.body.style.opacity = '1';
-    preventClose = settingsStorage.get('prevent_close');
-}, 1);
 
 /*await navigator.serviceWorker.register('/assets/js/offline.js', {
     scope: '/'
