@@ -11,8 +11,8 @@
     },
     {
         "name": "ChatGPT",
-        "image": "https://chat.shuttleai.app",
-        "target": "https://chess.com/"
+        "image": "/cdn/images/chatgpt.webp",
+        "target": "https://chat.shuttleai.app"
     },
     {
         "name": "Chess.com",
