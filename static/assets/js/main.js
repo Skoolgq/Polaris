@@ -1,4 +1,4 @@
-import { createViewPage, isValidURL, getVH, CrossTabCommunication, PolarisError, storage, encoder } from './utils.js';
+import { createViewPage, isValidURL, getVH, CrossTabCommunication, PolarisError, storage } from './utils.js';
 import { loadSettings, loadSidebarInterface } from './settings.js';
 import loadEasterEggs from './eastereggs.js';
 import loadAnalytics from './analytics.js';
@@ -6,8 +6,6 @@ import Search from './search.js';
 import Cheats from './cheats.js';
 import Games from './games.js';
 import Apps from './apps.js';
-
-//alert(encoder.xor.decode('hvtrs8%2F-elcpyrtgd%2Ft%60n2.esvavia.aoo%2Fkmcggs%3Dq%3Ft%60n8ALd%3BGaTcLFbpBIQnCQOZK5WLgz3oyNJIrOD%2F-7F%3AYipK7KLkh74H3ia4h%7BXFGMmXJp8%5DaZhwQC4%24uqqr%3DAAW'));
 
 await loadAnalytics();
 
