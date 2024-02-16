@@ -441,7 +441,7 @@
   },
   {
     "name": "Roblox",
-    "target": "https://now.gg/play/roblox-corporation/5349/roblox",
+    "target": "https://now.gg/iframe/snippet?app_pkg=com.roblox.client&partner=skool",
     "image": "/cdn/images/roblox.png",
     "popular": true
   },
