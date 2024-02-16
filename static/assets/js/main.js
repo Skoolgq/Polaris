@@ -45,7 +45,7 @@ window.addEventListener('beforeunload', (e) => {
     scope: '/'
 });*/
 
-window.addEventListener('DOMContentLoaded', () => setTimeout(() => document.body.style.opacity = 1, 1000));
+window.addEventListener('load', () => setTimeout(() => document.body.style.opacity = 1, 1000));
 
 /**
  * @param {HTMLAnchorElement} hyperlink
