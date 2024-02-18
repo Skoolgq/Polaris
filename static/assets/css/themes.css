@@ -215,6 +215,66 @@ body[data-theme='violet'] {
     }
 }
 
+body[data-theme='cyan'] {
+    --background-color: #000000;
+    --background-darker: rgba(0, 0, 0, 0.9);
+    --text: #fff;
+    --sidebar-bg: #000000;
+    --button-bg: #000000;
+    --shadow-color: #00d1c7;
+    --switch-color: #00404b;
+    --switch-active: #00fff2;
+    --scrollbar-color: #000000;
+    --solid: #000000;
+    --hover: #8fe0dc;
+    background: linear-gradient(90deg, rgb(94, 255, 247) 0%, rgba(0, 0, 0, 1) 85%);
+    animation: cyan-gradient 12s ease infinite;
+
+    @keyframes cyan-gradient {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+}
+
+body[data-theme='bronze'] {
+    --background-color: #000000;
+    --background-darker: rgba(0, 0, 0, 0.9);
+    --text: #fff;
+    --sidebar-bg: #000000;
+    --button-bg: #000000;
+    --shadow-color: #ca720e;
+    --switch-color: #643c00;
+    --switch-active: #ffa318;
+    --scrollbar-color: #000000;
+    --solid: #000000;
+    --hover: #ffb74a;
+    background: linear-gradient(90deg, rgb(253, 135, 1) 0%, rgba(0, 0, 0, 1) 85%);
+    animation: bronze-gradient 12s ease infinite;
+
+    @keyframes bronze-gradient {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+}
+
 @media screen and (prefers-color-scheme: light) {
     body[data-theme='system-default'] {
         --background-color: #fff;
