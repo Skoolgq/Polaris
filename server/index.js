@@ -31,7 +31,7 @@ api(app);
 app.get('/cdn/*', cors({
     origin: false
 }), async (req, res, next) => {
-    const reqTarget = req.path.startsWith('/cdn/3kh0/') ? `https://codeberg.org/derpman/echo/raw/branch/main/${req.path.replace('/cdn/3kh0/', '')}` : `https://raw.githubusercontent.com/Skoolgq/Polaris-Assets/main/${req.path.replace('/cdn/', '')}`;
+    const reqTarget = req.path.startsWith('/cdn/3kh0/') ? `https://player.work/${req.path.replace('/cdn/3kh0/', '')}` : `https://raw.githubusercontent.com/Skoolgq/Polaris-Assets/main/${req.path.replace('/cdn/', '')}`;
 
     const asset = await fetch(reqTarget);
 
