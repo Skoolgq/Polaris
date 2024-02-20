@@ -41,6 +41,11 @@
     "image": "/cdn/amidst-the-clouds/splash.png"
   },
   {
+    "name": "Aquapark.io",
+    "target": "https://player.work/aquapark-slides/index.html",
+    "image": "https://teen.media/assets/aqua.jpeg"
+  },
+  {
     "name": "Archery World Tour",
     "target": "https://gamesnacks.com/embed/games/archery",
     "image": "/cdn/images/awt.jpg"

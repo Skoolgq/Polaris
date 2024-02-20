@@ -5,6 +5,7 @@ const load = () => {
     fetch('/api/games')
         .then(res => res.json())
         .then(games => {
+            games.all.sort((a, b) => a.name.localeCompare(b.name)); // sort games alphabetically
             const searchBar = document.querySelector('#searchInput');
 
             searchBar.setAttribute('placeholder', `Search ${games.all.length} Games`);
