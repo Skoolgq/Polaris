@@ -7,17 +7,58 @@ const load = () => {
     const sortListener = document.querySelector('#searchSort').addEventListener('change', () => {
         settingsStorage.set('game_sort', document.querySelector('#searchSort').value);
 
-        const games = document.querySelectorAll('.game');
+        const games = document.querySelectorAll('.games>.game');
 
         for (let i = 0; i < games.length; i++) games[i].remove();
 
-        document.querySelector('#searchSort').removeEventListener('change', sortListener);
+        fetch('/api/games')
+            .then(res => res.json())
+            .then(games => {
+                if (settingsStorage.get('game_sort') === 'abc') games.all.sort((a, b) => a.name.localeCompare(b.name));
+                if (settingsStorage.get('game_sort') === 'newest') games.all.reverse();
 
-        load();
+                games.all.forEach(game => {
+                    const el = document.createElement('div');
+                    el.classList = 'game';
+                    document.querySelector('.games').appendChild(el);
 
-        setTimeout(() => {
-            if (document.querySelector('#searchInput').value) document.querySelector('#searchInput').dispatchEvent(new Event('input'))
-        }, 500);
+                    const image = document.createElement('img');
+                    image.src = game.image;
+                    image.loading = 'lazy';
+                    image.onerror = () => image.src = '/assets/img/logo.png';
+                    el.appendChild(image);
+
+                    const name = document.createElement('h3');
+                    name.textContent = game.name;
+                    el.appendChild(name);
+
+                    effects.hoverTilt({
+                        max: 8,
+                        perspective: 1000,
+                        scale: 1.05,
+                        speed: 800,
+                        easing: 'cubic-bezier(.03,.98,.52,.99)'
+                    }, el);
+
+                    el.addEventListener('click', async () => {
+                        document.body.style.opacity = '0.7';
+
+                        umami.track('game-' + game.name);
+
+                        setTimeout(() => {
+                            if (isValidURL(game.target)) createViewPage({
+                                target: game.target,
+                                title: game.name,
+                                proxied: true
+                            });
+                            else createViewPage({
+                                target: game.target,
+                                title: game.name
+                            });
+                        }, 1000);
+                    });
+                });
+            });
     });
 
     if (!settingsStorage.get('game_sort')) settingsStorage.set('game_sort', 'none');
@@ -29,7 +70,7 @@ const load = () => {
         .then(games => {
             if (settingsStorage.get('game_sort') === 'abc') games.all.sort((a, b) => a.name.localeCompare(b.name));
             if (settingsStorage.get('game_sort') === 'newest') games.all.reverse();
-            
+
             const searchBar = document.querySelector('#searchInput');
 
             searchBar.setAttribute('placeholder', `Search ${games.all.length} Games`);
@@ -59,7 +100,7 @@ const load = () => {
                 const popularEl = document.createElement('div');
                 popularEl.classList = 'game';
                 document.querySelector('.popular-games').appendChild(popularEl);
-                
+
                 const image = document.createElement('img');
                 image.src = game.image;
                 image.loading = 'lazy';
