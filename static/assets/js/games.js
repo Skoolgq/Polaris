@@ -20,7 +20,7 @@ const load = () => {
         }, 500);
     });
 
-    if (!settingsStorage.get('game_sort')) settingsStorage.set('game_sort', 'abc');
+    if (!settingsStorage.get('game_sort')) settingsStorage.set('game_sort', 'none');
 
     document.querySelector('#searchSort').value = settingsStorage.get('game_sort');
 
@@ -28,6 +28,8 @@ const load = () => {
         .then(res => res.json())
         .then(games => {
             if (settingsStorage.get('game_sort') === 'abc') games.all.sort((a, b) => a.name.localeCompare(b.name));
+            if (settingsStorage.get('game_sort') === 'newest') games.all.reverse();
+            
             const searchBar = document.querySelector('#searchInput');
 
             searchBar.setAttribute('placeholder', `Search ${games.all.length} Games`);

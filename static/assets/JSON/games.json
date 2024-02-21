@@ -887,11 +887,6 @@
     "image": "/cdn/3kh0/bad-ice-cream-3/bad-ice-cream-3.png"
   },
   {
-    "name": "Bad Ice Cream 3",
-    "target": "/cdn/3kh0/bad-ice-cream-3/index.html",
-    "image": "/cdn/3kh0/bad-ice-cream-3/bad-ice-cream-3.png"
-  },
-  {
     "name": "Core Ball",
     "target": "/cdn/3kh0/core-ball/index.html",
     "image": "/cdn/3kh0/core-ball/pr_source.png"
@@ -900,5 +895,10 @@
     "name": "Champion Island",
     "target": "/cdn/3kh0/champion-island/index.html",
     "image": "/cdn/3kh0/champion-island/splash.png"
+  },
+  {
+    "name": "Cannon Basketball 4",
+    "target": "/cdn/3kh0/cannon-basketball-4/index.html",
+    "image": "/cdn/3kh0/cannon-basketball-4/img/splash.png"
   }
 ]
