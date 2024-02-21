@@ -9,7 +9,6 @@ const load = () => fetch('/api/apps').then(res => res.json()).then(apps => {
         
         const image = document.createElement('img');
         image.src = app.image;
-        image.loading = 'lazy';
         image.onerror = () => image.src = '/assets/img/logo.png';
         el.appendChild(image);
 
@@ -27,8 +26,6 @@ const load = () => fetch('/api/apps').then(res => res.json()).then(apps => {
 
         el.addEventListener('click', async () => {
             document.body.style.opacity = '0.7';
-
-            umami.track('app_' + app.name);
 
             setTimeout(() => {
                 if (isValidURL(app.target)) createViewPage({

@@ -43,8 +43,6 @@ const load = () => {
                     el.addEventListener('click', async () => {
                         document.body.style.opacity = '0.7';
 
-                        umami.track('game-' + game.name);
-
                         setTimeout(() => {
                             if (isValidURL(game.target)) createViewPage({
                                 target: game.target,
@@ -103,7 +101,6 @@ const load = () => {
 
                 const image = document.createElement('img');
                 image.src = game.image;
-                image.loading = 'lazy';
                 image.onerror = () => image.src = '/assets/img/logo.png';
                 popularEl.appendChild(image);
 
@@ -113,8 +110,6 @@ const load = () => {
 
                 popularEl.addEventListener('click', async () => {
                     document.body.style.opacity = '0.7';
-
-                    umami.track('popular-game_' + game.name);
 
                     setTimeout(() => {
                         if (isValidURL(game.target)) createViewPage({
@@ -145,7 +140,6 @@ const load = () => {
 
                 const image = document.createElement('img');
                 image.src = game.image;
-                image.loading = 'lazy';
                 image.onerror = () => image.src = '/assets/img/logo.png';
                 el.appendChild(image);
 
@@ -163,8 +157,6 @@ const load = () => {
 
                 el.addEventListener('click', async () => {
                     document.body.style.opacity = '0.7';
-
-                    umami.track('game-' + game.name);
 
                     setTimeout(() => {
                         if (isValidURL(game.target)) createViewPage({

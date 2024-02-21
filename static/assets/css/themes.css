@@ -216,18 +216,18 @@ body[data-theme='violet'] {
 }
 
 body[data-theme='cyan'] {
-    --background-color: #000000;
+    --background-color: rgba(0, 0, 0, 0.8);
     --background-darker: rgba(0, 0, 0, 0.9);
     --text: #fff;
     --sidebar-bg: #000000;
     --button-bg: #000000;
-    --shadow-color: #00d1c7;
+    --shadow-color: #1f4e4c;
     --switch-color: #00404b;
     --switch-active: #00fff2;
     --scrollbar-color: #000000;
     --solid: #000000;
     --hover: #8fe0dc;
-    background: linear-gradient(90deg, rgb(94, 255, 247) 0%, rgba(0, 0, 0, 1) 85%);
+    background: linear-gradient(90deg, rgb(94, 255, 247) 0%, rgb(78, 138, 157) 85%);
     animation: cyan-gradient 12s ease infinite;
 
     @keyframes cyan-gradient {
@@ -246,18 +246,18 @@ body[data-theme='cyan'] {
 }
 
 body[data-theme='bronze'] {
-    --background-color: #000000;
+    --background-color: rgba(0, 0, 0, 0.8);
     --background-darker: rgba(0, 0, 0, 0.9);
     --text: #fff;
     --sidebar-bg: #000000;
     --button-bg: #000000;
-    --shadow-color: #ca720e;
+    --shadow-color: #4c2b04;
     --switch-color: #643c00;
     --switch-active: #ffa318;
     --scrollbar-color: #000000;
     --solid: #000000;
     --hover: #ffb74a;
-    background: linear-gradient(90deg, rgb(253, 135, 1) 0%, rgba(0, 0, 0, 1) 85%);
+    background: linear-gradient(90deg, rgb(253, 135, 1) 0%, rgb(58, 32, 3));
     animation: bronze-gradient 12s ease infinite;
 
     @keyframes bronze-gradient {

@@ -104,13 +104,8 @@ const hyperlinkHandler = (hyperlink, e) => {
 document.querySelectorAll('a').forEach(hyperlink => hyperlink.addEventListener('click', (e) => hyperlinkHandler(hyperlink, e)));
 
 window.onhashchange = () => {
-    if (location.hash === '#settings') {
-        document.querySelector('.sidebar').classList.add('active');
-        umami.track('sidebar-open');
-    } else {
-        document.querySelector('.sidebar').classList.remove('active');
-        umami.track('sidebar-close');
-    }
+    if (location.hash === '#settings') document.querySelector('.sidebar').classList.add('active');
+    else document.querySelector('.sidebar').classList.remove('active');
 };
 
 if (window.self === window.top && location.pathname !== '/view') setTimeout(async () => {
@@ -141,8 +136,6 @@ if (location.pathname === '/') {
 
             document.querySelector('.featured').addEventListener('click', () => {
                 document.body.style.opacity = '0.7';
-
-                umami.track('game-' + game.name);
 
                 setTimeout(() => {
                     if (isValidURL(game.target)) createViewPage({

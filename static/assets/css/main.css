@@ -95,13 +95,20 @@ body::-webkit-scrollbar-corner {
         height: 7vh;
         border-radius: 2vh;
         font-size: 3vh;
+        cursor: text;
+        margin-right: 0px;
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
     }
 
     select {
-        height: 7vh;
+        height: calc(7vh + 2px);
         border-radius: 2vh;
         font-size: 3vh;
         background: var(--sidebar-bg);
+        margin-left: 0px;
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
     }
 }
 
