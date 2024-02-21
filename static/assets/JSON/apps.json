@@ -15,11 +15,6 @@
         "target": "https://chat.shuttleai.app"
     },
     {
-        "name": "Chatroom",
-        "image": "https://static.thenounproject.com/png/2206184-200.png",
-        "target": "https://chitchatter.im/public/skool?embed=1"
-    },
-    {
         "name": "Chess.com",
         "image": "https://play-lh.googleusercontent.com/a7R5nyeaX8lIEWdBOxjlvbyq9LcFwh3XMvNtBPEKR3LPGgdvgGrec4sJwn8tUaaSkw",
         "target": "https://chess.com/"
