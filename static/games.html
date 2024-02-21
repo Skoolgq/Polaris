@@ -27,7 +27,7 @@
       }
     });
   </script>
-  
+
   <div class="content centered">
     <h1 style="font-size: 6vh;">Games</h1>
 
@@ -38,10 +38,16 @@
 
     <h1 style="font-size: 4vh;" class="gamesectionheader">All Games</h1>
 
-    <input type="text" id="searchInput" placeholder="Search Games">
+    <div class="search">
+      <input type="text" id="searchInput" placeholder="Search Games">
+
+      <select id="searchSort">
+        <option value="none">None</option>
+        <option value="abc" selected>Alphabetical</option>
+      </select>
+    </div>
 
     <!--el:ad_horizontal-->
-
 
     <div class="games">
     </div>

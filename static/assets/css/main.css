@@ -87,12 +87,22 @@ body::-webkit-scrollbar-corner {
     display: none;
 }
 
-#searchInput {
+.search {
     margin-bottom: 20px;
-    width: 40vh;
-    height: 7vh;
-    border-radius: 2vh;
-    font-size: 3vh;
+
+    input {
+        width: 60vh;
+        height: 7vh;
+        border-radius: 2vh;
+        font-size: 3vh;
+    }
+
+    select {
+        height: 7vh;
+        border-radius: 2vh;
+        font-size: 3vh;
+        background: var(--sidebar-bg);
+    }
 }
 
 i {
@@ -622,6 +632,7 @@ img.featured:hover {
 }
 
 @keyframes beat {
+
     0%,
     50%,
     100% {

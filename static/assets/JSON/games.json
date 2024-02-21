@@ -172,7 +172,7 @@
   },
   {
     "name": "COD Mobile",
-    "target": "https://nowgg.nl/play/activision-publishing-inc/7935/call-of-duty.html", 
+    "target": "https://nowgg.nl/play/activision-publishing-inc/7935/call-of-duty.html",
     "image": "https://static.wikia.nocookie.net/callofduty/images/f/f4/App_Icon_CODM_Global.jpg/revision/latest?cb=20200507033012",
     "popular": true
   },
@@ -504,12 +504,7 @@
     "name": "Stumble Guys",
     "target": "https://www.stumbleguys.com/play",
     "image": "https://play-lh.googleusercontent.com/Oci7f4WR0JShbn-n5hnwubbXaMssleb2b1Dv7AMOzFFcgstIdC9kg-E3LHx3em8RCaLf",
-    "popular":true
-  },
-  {
-    "name": "Stumble Guys",
-    "target": "https://www.stumbleguys.com/play",
-    "image": "https://nowgg.nl/iframe/snippet?app_pkg=com.kitkagames.fallbuddies&partner=skool"
+    "popular": true
   },
   {
     "name": "Subway Surfers",
@@ -860,5 +855,50 @@
     "name": "OvO Dimensions",
     "target": "https://www.miniplay.com/embed/ovo-dimensions",
     "image": "https://img.poki.com/cdn-cgi/image/quality=78,width=600,height=600,fit=cover,f=auto/76d0bf7026c6bf569a2fa96e92289484.png"
+  },
+  {
+    "name": "Ages of Conflict",
+    "target": "/cdn/3kh0/ages-of-conflict/index.html",
+    "image": "/cdn/3kh0/ages-of-conflict/splash.jpg"
+  },
+  {
+    "name": "Amazing Rope Police",
+    "target": "/cdn/3kh0/amazing-rope-police/index.html",
+    "image": "https://3kh0.github.io/images/amazing-rope.jpeg"
+  },
+  {
+    "name": "99 Balls Evo",
+    "target": "/cdn/3kh0/99balls/index.html",
+    "image": "https://3kh0.github.io/images/99-balls-evo.jpg"
+  },
+  {
+    "name": "Bad Ice Cream",
+    "target": "/cdn/3kh0/bad-ice-cream/index.html",
+    "image": "/cdn/3kh0/bad-ice-cream/bad-ice-cream.png"
+  },
+  {
+    "name": "Bad Ice Cream 2",
+    "target": "/cdn/3kh0/bad-ice-cream-2/index.html",
+    "image": "/cdn/3kh0/bad-ice-cream-2/bad-ice-cream-2.png"
+  },
+  {
+    "name": "Bad Ice Cream 3",
+    "target": "/cdn/3kh0/bad-ice-cream-3/index.html",
+    "image": "/cdn/3kh0/bad-ice-cream-3/bad-ice-cream-3.png"
+  },
+  {
+    "name": "Bad Ice Cream 3",
+    "target": "/cdn/3kh0/bad-ice-cream-3/index.html",
+    "image": "/cdn/3kh0/bad-ice-cream-3/bad-ice-cream-3.png"
+  },
+  {
+    "name": "Core Ball",
+    "target": "/cdn/3kh0/core-ball/index.html",
+    "image": "/cdn/3kh0/core-ball/pr_source.png"
+  },
+  {
+    "name": "Champion Island",
+    "target": "/cdn/3kh0/champion-island/index.html",
+    "image": "/cdn/3kh0/champion-island/splash.png"
   }
 ]

@@ -1,18 +1,38 @@
-import { createViewPage, isValidURL, PolarisError } from './utils.js';
+import { createViewPage, isValidURL, PolarisError, storage } from './utils.js';
 import effects from './effects.js';
 
+const settingsStorage = storage('settings');
+
 const load = () => {
+    const sortListener = document.querySelector('#searchSort').addEventListener('change', () => {
+        settingsStorage.set('game_sort', document.querySelector('#searchSort').value);
+
+        const games = document.querySelectorAll('.game');
+
+        for (let i = 0; i < games.length; i++) games[i].remove();
+
+        document.querySelector('#searchSort').removeEventListener('change', sortListener);
+
+        load();
+
+        setTimeout(() => {
+            if (document.querySelector('#searchInput').value) document.querySelector('#searchInput').dispatchEvent(new Event('input'))
+        }, 500);
+    });
+
+    if (!settingsStorage.get('game_sort')) settingsStorage.set('game_sort', 'abc');
+
+    document.querySelector('#searchSort').value = settingsStorage.get('game_sort');
+
     fetch('/api/games')
         .then(res => res.json())
         .then(games => {
-            games.all.sort((a, b) => a.name.localeCompare(b.name)); // sort games alphabetically
+            if (settingsStorage.get('game_sort') === 'abc') games.all.sort((a, b) => a.name.localeCompare(b.name));
             const searchBar = document.querySelector('#searchInput');
 
             searchBar.setAttribute('placeholder', `Search ${games.all.length} Games`);
 
             searchBar.addEventListener('input', () => {
-                console.log(searchBar.value);
-
                 if (searchBar.value) {
                     var result = false;
 
