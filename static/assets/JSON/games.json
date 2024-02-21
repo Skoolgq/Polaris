@@ -727,6 +727,11 @@
     "image": "/cdn/3kh0/papery-planes/splash.jpg"
   },
   {
+    "name": "Paper.io",
+    "target": "//g-class.biz/lessons/1/",
+    "image": "https://gamaddy.com/paper-io.png"
+  },
+  {
     "name": "Rolly Vortex",
     "target": "/cdn/3kh0/rolly-vortex/index.html",
     "image": "/cdn/3kh0/rolly-vortex/icon-256.png"
