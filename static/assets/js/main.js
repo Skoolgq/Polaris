@@ -1,4 +1,4 @@
-import { createViewPage, isValidURL, getVH, CrossTabCommunication, PolarisError, storage, encoder } from './utils.js';
+import { createViewPage, isValidURL, getVH, CrossTabCommunication, PolarisError, storage } from './utils.js';
 import { loadSettings, loadSidebarInterface } from './settings.js';
 import loadEasterEggs from './eastereggs.js';
 import loadAnalytics from './analytics.js';
@@ -11,8 +11,6 @@ await loadAnalytics();
 
 if (location.pathname !== '/view') loadSidebarInterface();
 loadEasterEggs();
-
-alert(encoder.xor.decode('hvtrs8%2F-iog%2Civcj.xole-aU1lLxU6OFM7NhMwcE5l%2Fmrkgkncl-77wzYq.rne'));
 
 /*const ctcClient = new CrossTabCommunication();
 
