@@ -36,6 +36,11 @@
     "image": "/cdn/alienhominid/alienhominid.jpg"
   },
   {
+    "name": "Alto's Odyssey",
+    "target": "https://nowgg.nl/apps/noodlecake-inc/5990/altos-odyssey.html",
+    "image": "https://cdn.jim-nielsen.com/ios/512/altos-odyssey-2018-08-02.png"
+  },
+  {
     "name": "Amidst The Clouds",
     "target": "/cdn/amidst-the-clouds/index.html",
     "image": "/cdn/amidst-the-clouds/splash.png"
@@ -167,7 +172,7 @@
   },
   {
     "name": "COD Mobile",
-    "target": "https://now.gg/play/activision-publishing-inc/7935/call-of-duty.html", 
+    "target": "https://nowgg.nl/play/activision-publishing-inc/7935/call-of-duty.html", 
     "image": "https://static.wikia.nocookie.net/callofduty/images/f/f4/App_Icon_CODM_Global.jpg/revision/latest?cb=20200507033012",
     "popular": true
   },
@@ -233,7 +238,7 @@
   },
   {
     "name": "Fortnite",
-    "target": "https://now.gg/play/epic-games/7308/fortnite",
+    "target": "https://nowgg.nl/play/epic-games/7308/fortnite",
     "image": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Fortnite_F_lettermark_logo.png",
     "popular": true
   },
@@ -259,7 +264,7 @@
   },
   {
     "name": "Genshin Impact",
-    "target": "https://now.gg/play/cognosphere-pte-ltd-/1773/genshin-impact.html",
+    "target": "https://nowgg.nl/play/cognosphere-pte-ltd-/1773/genshin-impact.html",
     "image": "https://cdn2.steamgriddb.com/icon_thumb/73e5080f0f3804cb9cf470a8ce895dac.png"
   },
   {
@@ -334,7 +339,7 @@
   },
   {
     "name": "Melon Sandbox",
-    "target": "https://now.gg/play/playducky/7199/melon-sandbox.html",
+    "target": "https://nowgg.nl/play/playducky/7199/melon-sandbox.html",
     "image": "https://play-lh.googleusercontent.com/6q7J7_wky8t9gMihsZsvmKAIvfJ1h1gen2SwakrzN7OGigFFN2_VUycZBaOTn2Qs6_E"
   },
   {
@@ -504,7 +509,7 @@
   {
     "name": "Stumble Guys",
     "target": "https://www.stumbleguys.com/play",
-    "image": "https://now.gg/iframe/snippet?app_pkg=com.kitkagames.fallbuddies&partner=skool"
+    "image": "https://nowgg.nl/iframe/snippet?app_pkg=com.kitkagames.fallbuddies&partner=skool"
   },
   {
     "name": "Subway Surfers",
