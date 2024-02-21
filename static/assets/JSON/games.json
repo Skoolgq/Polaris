@@ -898,7 +898,32 @@
   },
   {
     "name": "Paper.io",
-    "target": "//g-class.biz/lessons/1/",
+    "target": "https://g-class.biz/lessons/1/",
     "image": "https://gamaddy.com/paper-io.png"
+  },
+  {
+    "name": "Slime Rush TD",
+    "target": "/cdn/3kh0/slime-rush-td/index.html",
+    "image": "/cdn/3kh0/slime-rush-td/splash.png"
+  },
+  {
+    "name": "Station 141",
+    "target": "/cdn/3kh0/station-141/index.html",
+    "image": "https://img.itch.zone/aW1nLzU4ODM5NjMucG5n/original/75wxYs.png"
+  },
+  {
+    "name": "Station Meltdown",
+    "target": "/cdn/3kh0/station-meltdown/index.html",
+    "image": "https://gamaverse.com/c/i/y/station-meltdown.jpg"
+  },
+  {
+    "name": "Rolling Forests",
+    "target": "/cdn/3kh0/rolling-forests/index.html",
+    "image": "/cdn/3kh0/rolling-forests/icon.png"
+  },
+  {
+    "name": "Veloce",
+    "target": "/cdn/3kh0/veloce/index.html",
+    "image": "/cdn/3kh0/rolling-forests/icon.png"
   }
 ]
