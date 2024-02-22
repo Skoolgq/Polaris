@@ -980,5 +980,35 @@
     "name": "Grey Box",
     "target": "/cdn/3kh0/greybox/index.html",
     "image": "/cdn/3kh0/greybox/ico.png"
+  },
+  {
+    "name": "Cars Simulator",
+    "target": "/cdn/3kh0/cars-simulator/index.html",
+    "image": "/cdn/3kh0/cars-simulator/splash.png"
+  },
+  {
+    "name": "Cell Machine",
+    "target": "/cdn/3kh0/cell-machine/index.html",
+    "image": "/cdn/3kh0/cell-machine/img/te9nDu.png"
+  },
+  {
+    "name": "Stickman Survival",
+    "target": "/cdn/3kh0/Stickman-Survival/index.html",
+    "image": "/cdn/3kh0/Stickman-Survival/Icon.png"
+  },
+  {
+    "name": "Avalanche",
+    "target": "/cdn/3kh0/avalanche/index.html",
+    "image": "/cdn/3kh0/avalanche/avalanche.png"
+  },
+  {
+    "name": "Ducklife",
+    "target": "/cdn/3kh0/ducklife1/index.html",
+    "image": "/cdn/3kh0/ducklife1/ducklife.png"
+  },
+  {
+    "name": "Ducklife 2",
+    "target": "/cdn/3kh0/ducklife2/index.html",
+    "image": "/cdn/3kh0/ducklife2/ducklife2.png"
   }
 ]
