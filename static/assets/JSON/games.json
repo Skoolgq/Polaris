@@ -47,7 +47,7 @@
   },
   {
     "name": "Aquapark.io",
-    "target": "https://player.work/aquapark-slides/index.html",
+    "target": "/cdn/3kh0/aquapark-slides/index.html",
     "image": "https://teen.media/assets/aqua.jpeg"
   },
   {
@@ -395,7 +395,7 @@
   },
   {
     "name": "osu!",
-    "target": "https://skoolgq.github.io/skool-osu",
+    "target": "/cdn/3kh0/osu/index.html",
     "image": "/cdn/images/osu.png"
   },
   {
@@ -912,11 +912,6 @@
     "image": "https://img.itch.zone/aW1nLzU4ODM5NjMucG5n/original/75wxYs.png"
   },
   {
-    "name": "Station Meltdown",
-    "target": "/cdn/3kh0/station-meltdown/index.html",
-    "image": "https://gamaverse.com/c/i/y/station-meltdown.jpg"
-  },
-  {
     "name": "Rolling Forests",
     "target": "/cdn/3kh0/rolling-forests/index.html",
     "image": "/cdn/3kh0/rolling-forests/icon.png"
@@ -924,6 +919,96 @@
   {
     "name": "Veloce",
     "target": "/cdn/3kh0/veloce/index.html",
-    "image": "/cdn/3kh0/rolling-forests/icon.png"
+    "image": "https://img.itch.zone/aW1nLzI1NjI0MjgucG5n/original/qN6zkD.png"
+  },
+  {
+    "name": "Polybranch",
+    "target": "/cdn/3kh0/polybranch/index.html",
+    "image": "/cdn/3kh0/polybranch/img/pic1.png"
+  },
+  {
+    "name": "Stick Archers",
+    "target": "/cdn/3kh0/stick-archers/index.html",
+    "image": "/cdn/3kh0/stick-archers/splash.jpg"
+  },
+  {
+    "name": "Soccer Skills",
+    "target": "/cdn/3kh0/soccer-skills/index.html",
+    "image": "/cdn/3kh0/soccer-skills/splash.png"
+  },
+  {
+    "name": "Stick Merge",
+    "target": "/cdn/3kh0/stick-merge/index.html",
+    "image": "/cdn/3kh0/stick-merge/splash.png"
+  },
+  {
+    "name": "Subway Surfers New York",
+    "target": "/cdn/3kh0/subway-surfers-ny/index.html",
+    "image": "/cdn/3kh0/subway-surfers-ny/NewYorkIcon.png"
+  },
+  {
+    "name": "Henry Stickmin: Escaping The Prision",
+    "target": "/cdn/3kh0/escapingtheprison/index.html",
+    "image": "/cdn/3kh0/escapingtheprison/escapingtheprison.jpg"
+  },
+  {
+    "name": "Knife Master",
+    "target": "/cdn/3kh0/knife-master/index.html",
+    "image": "/cdn/3kh0/knife-master/512x512.jpg"
+  },
+  {
+    "name": "Monster Tracks",
+    "target": "/cdn/3kh0/monster-tracks/index.html",
+    "image": "https://3kh0.github.io/images/monster-tracks.jpg"
+  },
+  {
+    "name": "Madalin Stunt Cars 2",
+    "target": "/cdn/3kh0/madalin-stunt-cars-2/index.html",
+    "image": "/cdn/3kh0/madalin-stunt-cars-2/img/logo.jpg"
+  },
+  {
+    "name": "Madalin Stunt Cars 3",
+    "target": "/cdn/3kh0/madalin-stunt-cars-3/index.html",
+    "image": "/cdn/3kh0/madalin-stunt-cars-3/img/index.jpg"
+  },
+  {
+    "name": "Henry Stickmin: Fleeing The Complex",
+    "target": "/cdn/3kh0/fleeingthecomplex/index.html",
+    "image": "https://3kh0.github.io/images/fleeing.jpeg"
+  },
+  {
+    "name": "Grey Box",
+    "target": "/cdn/3kh0/greybox/index.html",
+    "image": "/cdn/3kh0/greybox/ico.png"
+  },
+  {
+    "name": "Cars Simulator",
+    "target": "/cdn/3kh0/cars-simulator/index.html",
+    "image": "/cdn/3kh0/cars-simulator/splash.png"
+  },
+  {
+    "name": "Cell Machine",
+    "target": "/cdn/3kh0/cell-machine/index.html",
+    "image": "/cdn/3kh0/cell-machine/img/te9nDu.png"
+  },
+  {
+    "name": "Stickman Survival",
+    "target": "/cdn/3kh0/Stickman-Survival/index.html",
+    "image": "/cdn/3kh0/Stickman-Survival/Icon.png"
+  },
+  {
+    "name": "Avalanche",
+    "target": "/cdn/3kh0/avalanche/index.html",
+    "image": "/cdn/3kh0/avalanche/avalanche.png"
+  },
+  {
+    "name": "Ducklife",
+    "target": "/cdn/3kh0/ducklife1/index.html",
+    "image": "/cdn/3kh0/ducklife1/ducklife.png"
+  },
+  {
+    "name": "Ducklife 2",
+    "target": "/cdn/3kh0/ducklife2/index.html",
+    "image": "/cdn/3kh0/ducklife2/ducklife2.png"
   }
 ]

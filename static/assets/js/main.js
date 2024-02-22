@@ -114,7 +114,6 @@ if (window.self === window.top && location.pathname !== '/view') setTimeout(asyn
     if (location.pathname === '/games') Games.load();
     if (location.pathname === '/apps') Apps.load();
     if (location.pathname === '/search') Search.load();
-    if (location.pathname === '/') Search.load();
     if (location.pathname === '/cheats') Cheats.load();
 }, 500);
 
