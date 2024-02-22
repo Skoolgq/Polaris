@@ -91,7 +91,7 @@ body::-webkit-scrollbar-corner {
     margin-bottom: 20px;
 
     input {
-        width: 60vh;
+        width: 50vh;
         height: 7vh;
         border-radius: 2vh;
         font-size: 3vh;
@@ -99,6 +99,11 @@ body::-webkit-scrollbar-corner {
         margin-right: 0px;
         border-top-right-radius: 0px;
         border-bottom-right-radius: 0px;
+        transition: all 0.5s ease;
+    }
+
+    input:focus{
+        width: 60vh;
     }
 
     select {
