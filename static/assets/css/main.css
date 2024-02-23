@@ -114,6 +114,20 @@ body::-webkit-scrollbar-corner {
         opacity: 0;
     }
 
+    .randomGame{
+        height: calc(7vh + 2px);
+        font-size: 3vh;
+        background: var(--sidebar-bg);
+        margin-left: 0px;
+        border-radius: 0px;
+        box-shadow: 0.5vh 0.5vh 1vh 0vh var(--shadow-color);
+        transition: opacity 0.3s ease;
+    }
+
+    .randomGame:hover i{
+        opacity: 0.8;
+    }
+
     select {
         height: calc(7vh + 2px);
         border-radius: 2vh;
@@ -261,10 +275,6 @@ select {
     padding-left: 2vh;
     padding-right: 2vh;
     margin-top: 2vh;
-}
-
-button:hover {
-    opacity: 0.8;
 }
 
 .switch {
