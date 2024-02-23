@@ -173,8 +173,7 @@
   {
     "name": "COD Mobile",
     "target": "https://nowgg.nl/play/activision-publishing-inc/7935/call-of-duty.html",
-    "image": "https://static.wikia.nocookie.net/callofduty/images/f/f4/App_Icon_CODM_Global.jpg/revision/latest?cb=20200507033012",
-    "popular": true
+    "image": "https://static.wikia.nocookie.net/callofduty/images/f/f4/App_Icon_CODM_Global.jpg/revision/latest?cb=20200507033012"
   },
   {
     "name": "Counter Strike",
@@ -234,12 +233,7 @@
   {
     "name": "Drive Mad",
     "target": "/cdn/3kh0/drive-mad/index.html",
-    "image": "/cdn/images/dmd.jpg"
-  },
-  {
-    "name": "Fortnite",
-    "target": "https://nowgg.nl/play/epic-games/7308/fortnite",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Fortnite_F_lettermark_logo.png",
+    "image": "/cdn/images/dmd.jpg",
     "popular": true
   },
   {
@@ -498,13 +492,13 @@
   {
     "name": "Stickman Archero Fight",
     "target": "//html5.gamedistribution.com/rvvASMiM/3f4c166817ad4fd4b5b05d9adba22fcd/?gd_sdk_referrer_url=https://www.gamegab.com/play/16561/Stickman-Archero-Fight/",
-    "image": "https://www5.minijuegosgratis.com/v3/games/thumbnails/241942_7_sq.jpg"
+    "image": "https://www5.minijuegosgratis.com/v3/games/thumbnails/241942_7_sq.jpg",
+    "popular": true
   },
   {
     "name": "Stumble Guys",
     "target": "https://www.stumbleguys.com/play",
-    "image": "https://play-lh.googleusercontent.com/Oci7f4WR0JShbn-n5hnwubbXaMssleb2b1Dv7AMOzFFcgstIdC9kg-E3LHx3em8RCaLf",
-    "popular": true
+    "image": "https://play-lh.googleusercontent.com/Oci7f4WR0JShbn-n5hnwubbXaMssleb2b1Dv7AMOzFFcgstIdC9kg-E3LHx3em8RCaLf"
   },
   {
     "name": "Subway Surfers",
@@ -594,7 +588,8 @@
   {
     "name": "Funny Shooter 2",
     "target": "https://rawcdn.githack.com/nightrose-labs/quartz/master/1/6af3cc65-32f9-4f3d-a66c-6c8882a7c5df/index.html",
-    "image": "https://raw.githubusercontent.com/nightrose-labs/quartz/master/thumb/6af3cc65-32f9-4f3d-a66c-6c8882a7c5df.jpg"
+    "image": "https://raw.githubusercontent.com/nightrose-labs/quartz/master/thumb/6af3cc65-32f9-4f3d-a66c-6c8882a7c5df.jpg",
+    "popular": true
   },
   {
     "name": "Amongus",
