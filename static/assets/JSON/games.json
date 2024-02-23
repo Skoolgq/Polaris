@@ -1005,5 +1005,35 @@
     "name": "Ducklife 2",
     "target": "/cdn/3kh0/ducklife2/index.html",
     "image": "/cdn/3kh0/ducklife2/ducklife2.png"
+  },
+  {
+    "name": "Pool/Billiards Classic",
+    "target": "https://13582048327635951979.playables.usercontent.goog/v/assets/index.html",
+    "image": "https://play-lh.googleusercontent.com/KAyIN39YIUSorZxZ8iDtwO12C4V90ZSdi3tO7RUfxPxqGOhF6BYXv5VpAxlvfUWozI18"
+  },
+  {
+    "name": "Alien Shooter",
+    "target": "https://16702553337040190672.playables.usercontent.goog/v/assets/index.html",
+    "image": "https://www2.minijuegosgratis.com/v3/games/thumbnails/241062_7_sq.jpg"
+  },
+  {
+    "name": "AMAZE!",
+    "target": "https://580820627722902829.playables.usercontent.goog/v/assets/index.html",
+    "image": "https://play-lh.googleusercontent.com/hypAu2hPcTpg-FkZr7CjrWDspK_9Nm3UKvPWln9zaFUnIr-m6WQvEZ2baAaG0ufzrg"
+  },
+  {
+    "name": "Angry Birds: Showdown",
+    "target": "https://6381249690777614785.playables.usercontent.goog/v/assets/index.html",
+    "image": "https://static.wikia.nocookie.net/angrybirdsfanon/images/0/0a/Angry_Birds_Showdown_App_Icon_%28Alpha%29.png/revision/latest?cb=20190801034150"
+  },
+  {
+    "name": "Basketball FRVR",
+    "target": "https://11024365036548115513.playables.usercontent.goog/v/assets/index.html",
+    "image": "https://img.poki.com/cdn-cgi/image/quality=78,width=600,height=600,fit=cover,f=auto/5aae527bebe68094c3d3276387150197.png"
+  },
+  {
+    "name": "Cannon Balls 3D",
+    "target": "https://14726002176993811037.playables.usercontent.goog/v/assets/index.html",
+    "image": "https://gameforge.com/de-DE/littlegames/includes/images/games/7_5ea03e7e3fe27.jpg"
   }
 ]
