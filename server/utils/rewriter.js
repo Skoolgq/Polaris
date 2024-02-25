@@ -23,7 +23,7 @@ const templateParser = (data) => {
             .map(data => {
                 if (data) {
                     if (data.startsWith('{{') && data.split(':')[data.split(':').length - 2].endsWith('}}')) {
-                        if (config.allowDangerousTemplateInsert) {
+                        if (config.options.allowDangerousTemplateInsert) {
                             if (Boolean(eval(String(data.split(':')[data.split(':').length - 2]).slice(2, -2)))) return data;
                             else return undefined;
                         } else return undefined;
