@@ -1037,7 +1037,7 @@
   },
   {
     "name": "Buckshot Roulette",
-    "target": "https://phrazle.io/buckshot-roulette.embed",
+    "target": "//phrazle.io/buckshot-roulette.embed",
     "image": "https://buckshotroulette.com//data/image/game/buckshot-roulette-feature-image.jpg",
     "popular":true
   }
