@@ -344,8 +344,7 @@
   {
     "name": "Minecraft",
     "target": "/cdn/3kh0/minecraft-15/index.html",
-    "image": "/cdn/images/mc.jpeg",
-    "popular": true
+    "image": "/cdn/images/mc.jpeg"
   },
   {
     "name": "Missiles",
@@ -1035,5 +1034,11 @@
     "name": "Cannon Balls 3D",
     "target": "https://14726002176993811037.playables.usercontent.goog/v/assets/index.html",
     "image": "https://gameforge.com/de-DE/littlegames/includes/images/games/7_5ea03e7e3fe27.jpg"
+  },
+  {
+    "name": "Buckshot Roulette",
+    "target": "//buckshotroulette.online/game/v13/",
+    "image": "https://buckshotroulette.com//data/image/game/buckshot-roulette-feature-image.jpg",
+    "popular":true
   }
 ]
