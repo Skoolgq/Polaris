@@ -1036,12 +1036,6 @@
     "image": "https://gameforge.com/de-DE/littlegames/includes/images/games/7_5ea03e7e3fe27.jpg"
   },
   {
-    "name": "Buckshot Roulette",
-    "target": "https://phrazle.io/buckshot-roulette.embed",
-    "image": "https://buckshotroulette.com//data/image/game/buckshot-roulette-feature-image.jpg",
-    "popular": true
-  },
-  {
     "name": "Radius Raid",
     "target": "https://jackrugile.com/radius-raid/",
     "image": "/cdn/images/radiusraid.jpg"
