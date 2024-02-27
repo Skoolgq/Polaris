@@ -1040,5 +1040,10 @@
     "target": "https://phrazle.io/buckshot-roulette.embed",
     "image": "https://buckshotroulette.com//data/image/game/buckshot-roulette-feature-image.jpg",
     "popular": true
+  },
+  {
+    "name": "Radius Raid",
+    "target": "/cdn/images/radiusraid.jpg",
+    "image": "https://jackrugile.com/radius-raid/"
   }
 ]
