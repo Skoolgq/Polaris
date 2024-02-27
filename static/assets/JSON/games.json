@@ -1043,7 +1043,7 @@
   },
   {
     "name": "Radius Raid",
-    "target": "/cdn/images/radiusraid.jpg",
-    "image": "https://jackrugile.com/radius-raid/"
+    "target": "https://jackrugile.com/radius-raid/",
+    "image": "/cdn/images/radiusraid.jpg"
   }
 ]
