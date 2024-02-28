@@ -1054,5 +1054,15 @@
     "name": "Burrito Bison: Launcha Libre",
     "target": "https://rawcdn.githack.com/GameHub88/Yexex-Assets/main/bb/index.html",
     "image": "https://play-lh.googleusercontent.com/vpTgm9u7-GzZP_MceTWpDi0HbinXd_4phCoTwf4ZspFL-115FtNRdo_SU1p-khLDnLA" 
+  },
+  {
+    "name": "Yohoho.io",
+    "target": "https://rawcdn.githack.com/GameHub88/Yexex-Assets/main/yohoho/index.html",
+    "image": "https://lh3.googleusercontent.com/BulAgT61Ocg2r5obu2apG_IOYUi3t16vdmBwy0uAgmiOatFUfcRVuRKFPGSsz0kRJN8N" 
+  },
+  {
+    "name": "Jacksmith",
+    "target": "https://moonlight.silvereen.net/src/static/games/jacksmith/index.html",
+    "image": "https://img.poki.com/cdn-cgi/image/quality=78,width=600,height=600,fit=cover,f=auto/ebe99c6629baa3ea5f4d9c13f36a37bb.png" 
   }
 ]
