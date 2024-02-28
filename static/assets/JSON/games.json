@@ -1039,5 +1039,20 @@
     "name": "Radius Raid",
     "target": "https://jackrugile.com/radius-raid/",
     "image": "/cdn/images/radiusraid.jpg"
+  },
+  {
+    "name": "The Chroma Incident",
+    "target": "https://js13kgames.com/games/the-chroma-incident/index.html",
+    "image": "/cdn/images/thechromaincident.png" 
+  },
+  {
+    "name": "Dino Run 3d",
+    "target": "https://russell2259.github.io/dino3d/",
+    "image": "/cdn/images/dino3d.jpg" 
+  },
+  {
+    "name": "Burrito Bison: Launcha Libre",
+    "target": "https://rawcdn.githack.com/GameHub88/Yexex-Assets/main/bb/index.html",
+    "image": "https://play-lh.googleusercontent.com/vpTgm9u7-GzZP_MceTWpDi0HbinXd_4phCoTwf4ZspFL-115FtNRdo_SU1p-khLDnLA" 
   }
 ]
