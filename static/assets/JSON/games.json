@@ -1064,5 +1064,10 @@
     "name": "Jacksmith",
     "target": "https://moonlight.silvereen.net/src/static/games/jacksmith/index.html",
     "image": "https://img.poki.com/cdn-cgi/image/quality=78,width=600,height=600,fit=cover,f=auto/ebe99c6629baa3ea5f4d9c13f36a37bb.png" 
+  },
+  {
+    "name": "Sans Fight Simulator",
+    "target": "https://jcw87.github.io/c2-sans-fight/",
+    "image": "https://img.itch.zone/aW1nLzE2MDEzODIucG5n/original/oNevX4.png" 
   }
 ]
