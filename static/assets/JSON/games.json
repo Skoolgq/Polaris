@@ -36,11 +36,6 @@
     "image": "/cdn/alienhominid/alienhominid.jpg"
   },
   {
-    "name": "Alto's Odyssey",
-    "target": "https://nowgg.nl/apps/noodlecake-inc/5990/altos-odyssey.html",
-    "image": "https://cdn.jim-nielsen.com/ios/512/altos-odyssey-2018-08-02.png"
-  },
-  {
     "name": "Amidst The Clouds",
     "target": "/cdn/amidst-the-clouds/index.html",
     "image": "/cdn/amidst-the-clouds/splash.png"
@@ -172,7 +167,7 @@
   },
   {
     "name": "COD Mobile",
-    "target": "https://nowgg.nl/play/activision-publishing-inc/7935/call-of-duty.html",
+    "target": "https://now.gg/play/activision-publishing-inc/7935/call-of-duty.html",
     "image": "https://static.wikia.nocookie.net/callofduty/images/f/f4/App_Icon_CODM_Global.jpg/revision/latest?cb=20200507033012"
   },
   {
@@ -444,7 +439,7 @@
   },
   {
     "name": "Roblox",
-    "target": "https://nowgg.nl/play/roblox-corporation/5349/roblox",
+    "target": "https://now.gg/iframe/snippet?app_pkg=com.roblox.client&partner=skool",
     "image": "/cdn/images/roblox.png",
     "popular": true
   },
@@ -496,7 +491,7 @@
   },
   {
     "name": "Stumble Guys",
-    "target": "https://www.stumbleguys.com/play",
+    "target": "https://now.gg/iframe/snippet?app_pkg=com.kitkagames.fallbuddies&partner=skool",
     "image": "https://play-lh.googleusercontent.com/Oci7f4WR0JShbn-n5hnwubbXaMssleb2b1Dv7AMOzFFcgstIdC9kg-E3LHx3em8RCaLf"
   },
   {
