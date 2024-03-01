@@ -278,12 +278,12 @@ const loadSidebarInterface = () => {
 
     document.querySelector('#panic_url').addEventListener('input', (e) => settingsStorage.set('panic_url', document.querySelector('#panic_url').value));
 
-    window.onkeydown = (e) => {
+    window.addEventListener('keydown', (e) => {
         if (document.querySelector('#panic_key') == document.activeElement) {
             document.querySelector('#panic_key').value = e.key;
             settingsStorage.set('panic_key', document.querySelector('#panic_key').value);
         }
-    }
+    });
 
     document.querySelector('#themes').querySelectorAll('button').forEach(el => el.onclick = () => Theme.set(el.innerText.toLocaleLowerCase()));
 
@@ -349,12 +349,11 @@ const loadSettings = () => {
             });
     }
 
-    window.onkeydown = (e) => {
+    window.addEventListener('keydown', (e) => {
         if (e.key === settingsStorage.get('panic_key')) {
             if (settingsStorage.get('panic_url')) window.location.href = settingsStorage.get('panic_url');
-            else new PolarisError('A panic key was used but no url was found.');
         }
-    }
+    });
 
     /*if (new URLSearchParams(location.search).get('clickoff')) {
 

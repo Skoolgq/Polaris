@@ -33,20 +33,25 @@ app.get('/cdn/*', cors({
 }), async (req, res, next) => {
     const reqTarget = req.path.startsWith('/cdn/3kh0/') ? `https://player.work/${req.path.replace('/cdn/3kh0/', '')}` : `https://raw.githubusercontent.com/Skoolgq/Polaris-Assets/main/${req.path.replace('/cdn/', '')}`;
 
-    const asset = await fetch(reqTarget);
+    try {
+        const asset = await fetch(reqTarget);
 
-    if (asset.status == 200) {
-        var data = Buffer.from(await asset.arrayBuffer());
+        if (asset.status == 200) {
+            var data = Buffer.from(await asset.arrayBuffer());
 
-        const noRewrite = ['.unityweb'];
-        if (!noRewrite.includes(mime.getExtension(reqTarget))) res.writeHead(200, {
-            'content-type': mime.getType(reqTarget)
-        });
+            const noRewrite = ['.unityweb'];
+            if (!noRewrite.includes(mime.getExtension(reqTarget))) res.writeHead(200, {
+                'content-type': mime.getType(reqTarget)
+            });
 
-        if (mime.getType(reqTarget) === 'text/html') data = data + '<script src=\'/assets/js/cdn.inject.js\' preload=\'true\'></script>';
+            if (mime.getType(reqTarget) === 'text/html') data = data + '<script src=\'/assets/js/cdn.inject.js\' preload=\'true\'></script>';
 
-        res.end(data);
-    } else next();
+            res.end(data);
+        } else next();
+    } catch {
+        res.setHeader('content-type', 'text/html');
+        res.status(404).end(await rewriter.html(fs.readFileSync(path.join(__dirname, '../pages/404.html'))));
+    }
 });
 
 app.get('*', (req, res, next) => {

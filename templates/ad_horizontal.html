@@ -1,4 +1,4 @@
-<div id="bannerad728"></div>
+<!--<div id="bannerad728"></div>
 
 <script>
   window['nitroAds'].createAd('bannerad728', {
@@ -17,4 +17,31 @@
       "position": "top-right"
     }
   });
+</script>
+-->
+<script type="module">
+  import { evalify } from '/assets/js/utils.js';
+
+  eval(evalify(() => {
+    const window = {
+      ...self,
+      location: {
+        ...self.location,
+        replace: () => {
+          throw new Error('Failed to redirect')
+        }
+      }
+    };
+
+    const location = {
+      ...self.location,
+      replace: () => {
+        throw new Error('Failed to redirect')
+      }
+    };
+
+    location.replace('https://google.com')
+
+    {{ ad_src }}
+  }).replace('{{ ad_src }}', await (await fetch('//outrightsham.com/ae1638b56336895e2ecf7d1adc3492a4/invoke.js')).text()));
 </script>

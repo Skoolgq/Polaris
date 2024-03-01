@@ -103,10 +103,10 @@ const hyperlinkHandler = (hyperlink, e) => {
 
 document.querySelectorAll('a').forEach(hyperlink => hyperlink.addEventListener('click', (e) => hyperlinkHandler(hyperlink, e)));
 
-window.onhashchange = () => {
+window.addEventListener('hashchange', () => {
     if (location.hash === '#settings') document.querySelector('.sidebar').classList.add('active');
     else document.querySelector('.sidebar').classList.remove('active');
-};
+});
 
 if (window.self === window.top && location.pathname !== '/view') setTimeout(async () => {
     loadSettings();
@@ -114,7 +114,6 @@ if (window.self === window.top && location.pathname !== '/view') setTimeout(asyn
     if (location.pathname === '/games') Games.load();
     if (location.pathname === '/apps') Apps.load();
     if (location.pathname === '/search') Search.load();
-    if (location.pathname === '/') Search.load();
     if (location.pathname === '/cheats') Cheats.load();
 }, 500);
 
@@ -221,9 +220,9 @@ if (window.self === window.top && location.pathname !== '/view') {
     else document.querySelector('.navbar').classList.remove('scrolling');
 }
 
-if (window.self === window.top && location.pathname !== '/view') window.onscroll = () => {
+if (window.self === window.top && location.pathname !== '/view') window.addEventListener('scroll', () => {
     if (window.scrollY !== 0) document.querySelector('.navbar').classList.add('scrolling');
     else document.querySelector('.navbar').classList.remove('scrolling');
-}
+});
 
 if (window.self !== window.top && document.querySelector('.navbar')) document.querySelector('.navbar').remove();
