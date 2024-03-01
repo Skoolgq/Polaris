@@ -7,8 +7,9 @@
 /**
  * @typedef easterEgg
  * @type {object}
- * @property {'keybind' | 'click'} easterEgg.type
+ * @property {'keybind' | 'date'} easterEgg.type
  * @property {string} easterEgg.phrase
+ * @property {string} easterEgg.date
  * @property {number} easterEgg.clickCount
  * @property {object} easterEgg.element
  * @property {object} easterEgg.variables
@@ -55,6 +56,31 @@ const utils = {
         return {
             remove: () => window.removeEventListener(listener)
         };
+    },
+    /**
+     * @param {string} date 
+     * @param {easterEgg['run']} script 
+     */
+    createDate: async (date, script) => {
+        date = date.split('/');
+
+        if (date.length === 3) {
+            const day = date[1] === '*' ? new Date().getDate() : date[1];
+            const month = date[0] === '*' ? new Date().getMonth() : date[0];
+            const year = date[2] === '*' ? new Date().getFullYear() : date[2];
+
+            if (!utils.easterEggActive && (new Date().getDate() === day && new Date().getMonth() === month && new Date().getFullYear() === year)) {
+                try {
+                    await script({
+                        remove: () => window.removeEventListener('keydown', listener, true)
+                    });
+
+                    utils.easterEggActive = false;
+                } catch (e) {
+                    utils.easterEggActive = false;
+                }
+            }
+        } else throw new Error('Invalid date');
     }
 };
 
@@ -386,9 +412,23 @@ easterEggs.push({
     })
 });
 
+easterEggs.push({
+    type: 'date',
+    date: '4/1/*',
+    run: () => {
+        // April fools =)
+    }
+});
+
 export default () => easterEggs.forEach(easterEgg => {
     if (easterEgg.type === 'keybind') {
         utils.createKeybind(easterEgg.phrase, easterEgg.run);
+
+        try {
+            easterEgg.preload();
+        } catch (e) { }
+    } else if (easterEgg.type === 'date') {
+        utils.createDate(easterEgg.date, easterEgg.run);
 
         try {
             easterEgg.preload();

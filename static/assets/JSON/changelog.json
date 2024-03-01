@@ -1,5 +1,29 @@
 [
 	{
+		"date": "2/28/2024",
+		"simpleDescription": "Added 2 games"
+	},
+	{
+		"date": "2/27/2024",
+		"simpleDescription": "Added 4 games and removed Buckshot Roulette"
+	},
+	{
+		"date": "2/26/2024",
+		"simpleDescription": "Added Buckshot Roulette"
+	},
+	{
+		"date": "2/24/2024",
+		"simpleDescription": "Added a random game button"
+	},
+	{
+		"date": "2/23/2024",
+		"simpleDescription": "Added 6 games and changed popular games"
+	},
+	{
+		"date": "2/22/2024",
+		"simpleDescription": "Added 17 games (200+ games 🎉), and removed 1 game"
+	},
+	{
 		"date": "2/21/2024",
 		"simpleDescription": "Fixed more games, added 15 games, and added 2 new themes"
 	},

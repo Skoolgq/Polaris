@@ -130,7 +130,7 @@ if (location.pathname === '/') {
     fetch('/api/games')
         .then(res => res.json())
         .then(games => {
-            const gameName = 'Run 3';
+            const gameName = 'Stickman Archero Fight';
             const game = games.all.filter(g => g.name === gameName)[0];
 
             document.querySelector('.featured').addEventListener('click', () => {
@@ -149,7 +149,7 @@ if (location.pathname === '/') {
                 }, 1000);
             });
 
-            document.querySelector('.featured').src = '/assets/img/wide/run3.png';
+            document.querySelector('.featured').src = '/assets/img/wide/stickman-archero-fight.png';
         }).catch(e => new PolarisError('Failed to load featured game.'));
 
     const logHeight = () => {

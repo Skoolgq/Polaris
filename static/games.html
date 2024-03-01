@@ -34,12 +34,16 @@
     <div class="popular-games">
     </div>
 
-    <h1 style="font-size: 4vh;" class="gamesectionheader">All Games</h1>
+    <h1 style="font-size: 4vh;" class="gamesectionheader">All Games <small style="font-size: 2vh;">(200+ 🎉)</small></h1>
 
     <div class="search">
       <input type="text" id="searchInput" placeholder="Search Games">
+      
+      <button id="randomGame" title="Play a random game">
+        <i class="fa-solid fa-dice"></i>
+      </button>
 
-      <select id="searchSort">
+      <select id="searchSort" title="Sort the games">
         <option value="none" selected>Don't Sort</option>
         <option value="newest">Newest</option>
         <option value="abc">Alphabetical</option>

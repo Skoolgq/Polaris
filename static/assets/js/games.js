@@ -173,6 +173,16 @@ const load = () => {
             });
         })
         .catch(e => new PolarisError('Failed to load games'));
+
+    document.querySelector('#randomGame').addEventListener('click', () => {
+        const games = document.querySelectorAll('.games>.game');
+        
+        if (games.length > 0) {
+            const randomGame = games[Math.floor(Math.random() * games.length)];
+
+            randomGame.click();
+        }
+    });
 };
 
 export default {
