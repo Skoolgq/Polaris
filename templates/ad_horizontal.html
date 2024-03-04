@@ -1,24 +1,4 @@
 <div id="bannerad728"></div>
-
-<script>
-  window['nitroAds'].createAd('bannerad728', {
-    "refreshTime": 30,
-    "renderVisibleOnly": false,
-    "sizes": [
-      [
-        "728",
-        "90"
-      ]
-    ],
-    "report": {
-      "enabled": true,
-      "icon": true,
-      "wording": "Report Ad",
-      "position": "top-right"
-    }
-  });
-</script>
-
 <script type="module">
   import { evalify } from '/assets/js/utils.js';
 
@@ -41,13 +21,13 @@
     };
 
     self.adOptions = {
-        'key': 'ae1638b56336895e2ecf7d1adc3492a4',
-        'format': 'iframe',
-        'height': 50,
-        'width': 320,
-        'params': {}
+        'key' : 'cf0bb7d0401f5ae5534ac09c2e959d20',
+		    'format' : 'iframe',
+		    'height' : 90,
+		    'width' : 728,
+		    'params' : {}
     };
 
     {{ ad_src }}
-  }).replace('{{ ad_src }}', await (await fetch('//outrightsham.com/ae1638b56336895e2ecf7d1adc3492a4/invoke.js')).text()));
+  }).replace('{{ ad_src }}', await (await fetch('//outrightsham.com/cf0bb7d0401f5ae5534ac09c2e959d20/invoke.js')).text()));
 </script>
