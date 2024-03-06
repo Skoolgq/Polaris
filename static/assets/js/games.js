@@ -115,11 +115,13 @@ const load = () => {
                         if (isValidURL(game.target)) createViewPage({
                             target: game.target,
                             title: game.name,
+                            image: game.image,
                             proxied: true
                         });
                         else createViewPage({
                             target: game.target,
-                            title: game.name
+                            title: game.name,
+                            image: game.image
                         });
                     }, 500);
                 });
