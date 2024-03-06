@@ -1,4 +1,7 @@
 import { createBareServer } from '@tomphttp/bare-server-node';
+import { epoxyPath } from '@mercuryworkshop/epoxy-transport';
+import { uvPath } from '@titaniumnetwork-dev/ultraviolet';
+import { baremuxPath } from '@mercuryworkshop/bare-mux';
 import express from 'express';
 import mime from 'mime';
 import cors from 'cors';
@@ -92,6 +95,10 @@ app.get('/asset/:token', async (req, res, next) => {
 app.get('/uv/service/*', async (req, res) => res.end(await rewriter.html(fs.readFileSync(path.join(__dirname, '../pages/proxy_404.html')))));
 app.get('/dynamic/service/*', async (req, res) => res.end(await rewriter.html(fs.readFileSync(path.join(__dirname, '../pages/proxy_404.html')))));
 
+app.use('/uv/', express.static(uvPath));
+app.use('/epoxy/', express.static(epoxyPath));
+app.use('/baremux/', express.static(baremuxPath));
+
 app.use(async (req, res, next) => {
     if (req.path === '/index') res.redirect('/');
     else {
@@ -123,7 +130,8 @@ server.on('request', (req, res) => {
 });
 
 server.on('upgrade', (req, socket, head) => {
-    if (bareServer.shouldRoute(req)) bareServer.routeUpgrade(req, socket, head);
+    if (req.url.endsWith('/wisp/')) wisp.routeRequest(req, socket, head);
+    else if (bareServer.shouldRoute(req)) bareServer.routeUpgrade(req, socket, head);
     else socket.end();
 });
 
