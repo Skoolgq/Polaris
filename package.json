@@ -12,14 +12,14 @@
     "author": "Polaris Development Group",
     "license": "GNU-3.0-or-later",
     "dependencies": {
-        "@tomphttp/bare-server-node": "^2.0.2",
-        "cors": "*",
+        "@tomphttp/bare-server-node": "^2.0.1",
+        "cors": "^2.8.5",
         "easyviolet": "github:Russell2259/Easyviolet",
-        "express": "*",
+        "express": "^4.18.3",
         "html-minifier": "^4.0.0",
         "javascript-obfuscator": "^4.1.0",
         "jsdom": "^23.0.1",
-        "mime": "*",
+        "mime": "^4.0.1",
         "uuid": "^9.0.1"
     }
 }
