@@ -47,6 +47,8 @@ window.addEventListener('beforeunload', (e) => {
 
 window.addEventListener('load', () => setTimeout(() => document.body.style.opacity = 1, 1000));
 
+setTimeout(() => document.body.style.opacity = 1, 5000);
+
 /**
  * @param {HTMLAnchorElement} hyperlink
  */
