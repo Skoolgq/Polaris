@@ -10,7 +10,7 @@ export default useConfig({
         assetScrambling: false,
         allowDangerousTemplateInsert: false,
         api: {
-            domain: 'api.polarislearning.org',
+            domain: 'api.skoolworld.org',
             secure: true
         }
     }
