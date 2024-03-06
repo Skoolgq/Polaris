@@ -3,7 +3,7 @@
   import { createBareClient } from 'https://esm.sh/@tomphttp/bare-client@latest/dist/index.js';
   import { evalify } from '/assets/js/utils.js';
 
-  const client = createBareClient('/bare/');
+  const client = await createBareClient(location.origin + '/bare/');
 
   eval(evalify(() => {
     const window = {
