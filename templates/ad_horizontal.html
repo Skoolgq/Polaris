@@ -1,6 +1,9 @@
 <div id="bannerad728"></div>
 <script type="module">
+  import { createBareClient } from 'https://esm.sh/@tomphttp/bare-client@latest/dist/index.js';
   import { evalify } from '/assets/js/utils.js';
+
+  const client = createBareClient('/bare/');
 
   eval(evalify(() => {
     const window = {
@@ -21,13 +24,13 @@
     };
 
     self.adOptions = {
-        'key' : 'cf0bb7d0401f5ae5534ac09c2e959d20',
-		    'format' : 'iframe',
-		    'height' : 90,
-		    'width' : 728,
-		    'params' : {}
+      'key': 'cf0bb7d0401f5ae5534ac09c2e959d20',
+      'format': 'iframe',
+      'height': 90,
+      'width': 728,
+      'params': {}
     };
 
     {{ ad_src }}
-  }).replace('{{ ad_src }}', await (await fetch('outrightsham.com/cf0bb7d0401f5ae5534ac09c2e959d20/invoke.js')).text()));
+  }).replace('{{ ad_src }}', await (await client.fetch('//outrightsham.com/cf0bb7d0401f5ae5534ac09c2e959d20/invoke.js')).text()));
 </script>
