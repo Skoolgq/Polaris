@@ -1,9 +1,18 @@
 <div id="bannerad728"></div>
+<script src="//outrightsham.com/cf0bb7d0401f5ae5534ac09c2e959d20/invoke.js" type="text/html"></script>
 <script type="module">
   import { createBareClient } from 'https://esm.sh/@tomphttp/bare-client@latest/dist/index.js';
   import { evalify } from '/assets/js/utils.js';
 
   const client = await createBareClient(location.origin + '/bare/');
+
+  window.atOptions = {
+    'key': 'cf0bb7d0401f5ae5534ac09c2e959d20',
+    'format': 'iframe',
+    'height': 90,
+    'width': 728,
+    'params': {}
+  };
 
   eval(evalify(() => {
     const window = {
@@ -23,14 +32,17 @@
       }
     };
 
-    window.atOptions = {
-      'key': 'cf0bb7d0401f5ae5534ac09c2e959d20',
-      'format': 'iframe',
-      'height': 90,
-      'width': 728,
-      'params': {}
-    };
-
     {{ ad_src }}
-  }).replace('{{ ad_src }}', await (await client.fetch('//outrightsham.com/cf0bb7d0401f5ae5534ac09c2e959d20/invoke.js')).text()));
+  }).replace('{{ ad_src }}', await (await client.fetch('//outrightsham.com/cf0bb7d0401f5ae5534ac09c2e959d20/invoke.js', {
+    headers: {
+      'Accept': '*/*',
+      'Accept-Encoding': 'gzip, deflate, br, zstd',
+      'Accept-Language': 'en-US,en;q=0.9',
+      'Connection': 'keep-alive',
+      'Host': 'outrightsham.com',
+      'Origin': location.origin,
+      'Referer': document.referrer,
+      'User-Agent': window.navigator.userAgent
+    }
+  })).text()));
 </script>

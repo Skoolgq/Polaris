@@ -1,4 +1,4 @@
-import Dexie from 'https://unpkg.com/dexie@latest/dist/modern/dexie.mjs';
+import Dexie from 'https://esm.sh/dexie@latest/dist/modern/dexie.mjs';
 
 import { isScrollable, storage, indexedDBExporter, cookie, EventEmitter, PolarisError } from './utils.js';
 import Theme from './themes.js';
