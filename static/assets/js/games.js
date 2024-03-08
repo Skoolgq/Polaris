@@ -185,8 +185,31 @@ const load = () => {
             randomGame.click();
         }
     });
+
+};
+const loadGameFromURL = () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const gameName = urlParams.get('game');
+
+    if (!gameName) {
+        throw new PolarisError('No game specified in the URL');
+    }
+
+    fetch('/assets/JSON/games.json')
+        .then(res => res.json())
+        .then(data => {
+            const game = data.find(g => g.name === decodeURIComponent(gameName));
+
+            if (!game) {
+                throw new PolarisError(`Game "${gameName}" not found`);
+            }
+
+            renderGames([game]);
+        })
+        .catch(e => new PolarisError('Failed to load game'));
 };
 
 export default {
-    load
+    load,
+    loadGameFromURL
 };
