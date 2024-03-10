@@ -231,6 +231,4 @@ if (window.self !== window.top && document.querySelector('.navbar')) document.qu
 
 if (location.pathname === '/share' && new URLSearchParams(location.search).has('game')) {
     Games.loadGameFromURL();
-} else if (location.pathname !== '/view') {
-    loadSidebarInterface();
 }
