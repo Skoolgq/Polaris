@@ -1,11 +1,11 @@
 import { loadProxyWorker, encoder, storage } from './utils.js';
 import { loadSettings } from './settings.js';
 
-//BareMux.SetTransport('EpxMod.EpoxyClient', { wisp: location.origin.replace('http', 'ws') + '/wisp/' });
-BareMux.SetTransport('CurlMod.LibcurlClient', {
+BareMux.SetTransport('EpxMod.EpoxyClient', { wisp: location.origin.replace('http', 'ws') + '/wisp/' });
+/*BareMux.SetTransport('CurlMod.LibcurlClient', {
     wisp: location.origin.replace('http', 'ws') + '/wisp/',
-    wasm: 'https://cdn.jsdelivr.net/npm/libcurl.js@v0.5.3/libcurl.wasm'
-});
+    wasm: '/libcurl/libcurl.wasm'
+});*/
 //BareMux.SetTransport('BareMod.BareClient', location.origin + '/bare/');
 
 loadSettings();
