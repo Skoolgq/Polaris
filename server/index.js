@@ -1,8 +1,9 @@
 import { createBareServer } from '@tomphttp/bare-server-node';
+import { libcurlPath } from '@mercuryworkshop/libcurl-transport';
 import { epoxyPath } from '@mercuryworkshop/epoxy-transport';
 import { uvPath } from '@titaniumnetwork-dev/ultraviolet';
 import { baremuxPath } from '@mercuryworkshop/bare-mux';
-//import { dynamicPath } from '@nebula-services/dynamic';
+import { dynamicPath } from '@nebula-services/dynamic';
 import wisp from 'wisp-server-node';
 import express from 'express';
 import mime from 'mime';
@@ -123,6 +124,8 @@ app.use(async (req, res, next) => {
 app.use('/uv/', express.static(uvPath));
 app.use('/epoxy/', express.static(epoxyPath));
 app.use('/baremux/', express.static(baremuxPath));
+app.use('/libcurl/', express.static(libcurlPath));
+app.use('/dynamic/', express.static(dynamicPath));
 
 app.use(async (req, res) => {
     res.setHeader('content-type', 'text/html');
