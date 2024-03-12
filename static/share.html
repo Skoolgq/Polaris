@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--el:meta-->
+    <!--el:adtop-->
+    <!--el:analytics-->
+
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <title>Loading... | Polaris</title>
+</head>
+
+<body>
+    <div class="container centered">
+        <h1 style="font-size: 50px;">Loading</h1>
+
+        <p>
+            Loading game...
+        </p>
+    </div>
+
+    <script type="module">
+        import { createViewPage, isValidURL } from '/assets/js/utils.js';
+
+        fetch('/api/games')
+            .then(res => res.json())
+            .then(games => {
+                const searchParams = new URLSearchParams(location.search);
+                const game = games.all.filter(g => g.name.toLowerCase() === searchParams.get('name'))[0].toLowerCase() || games.all[searchParams.get('id')];
+
+                if (game) {
+                    if (isValidURL(game.target)) createViewPage({
+                        target: game.target,
+                        title: game.name,
+                        return: '/games',
+                        proxied: true,
+                        type: 'game'
+                    });
+                    else createViewPage({
+                        target: game.target,
+                        title: game.name,
+                        return: '/games',
+                        image: game.image,
+                        type: 'game'
+                    });
+                } else location.replace('/');
+            });
+    </script>
+
+    <!--el:{{mode === 'dev'}}:development-->
+</body>
+
+</html>
