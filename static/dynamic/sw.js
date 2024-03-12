@@ -1,9 +1,20 @@
 importScripts('/dynamic/dynamic.config.js');
 importScripts('/dynamic/dynamic.worker.js');
 
-const sw = new Dynamic();
+const dynamic = new Dynamic();
 
-self.addEventListener('fetch', async (event) => {
-    /*if (await sw.route(event)) */event.respondWith(sw.fetch(event));
-    //else event.respondWith(fetch(event.request));
-});
+self.dynamic = dynamic;
+
+self.addEventListener('fetch',
+    event => {
+        event.respondWith(
+            (async function() {
+                if (await dynamic.route(event)) {
+                    return await dynamic.fetch(event);
+                }
+
+                return await fetch(event.request);
+            })()
+        );
+    }
+);

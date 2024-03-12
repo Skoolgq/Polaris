@@ -1,9 +1,7 @@
 import { loadProxyWorker, encoder, storage } from './utils.js';
-//import {}
 import { loadSettings } from './settings.js';
 
-//BareMux.SetTransport('EpxMod.EpoxyClient', { wisp: location.origin.replace('http', 'ws') });
-BareMux.SetTransport('BareMod.BareClient', location.origin.replace('http', 'ws') + '/bare/');
+BareMux.SetTransport('EpxMod.EpoxyClient', { wisp: location.origin.replace('http', 'ws') + '/wisp/' });
 
 loadSettings();
 

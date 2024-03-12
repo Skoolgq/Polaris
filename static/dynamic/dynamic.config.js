@@ -21,8 +21,5 @@ self.__dynamic$config = {
       config: 'dynamic.config.js',
       inject: null
     }
-  },
-  block: [
-  
-  ]
+  }
 };
