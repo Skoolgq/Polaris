@@ -105,6 +105,7 @@ body::-webkit-scrollbar-corner {
         padding: 0px;
         margin-right: 2.5px;
         margin-left: calc(50vw - calc(44vh + 45px));
+        background-color: var(--background-darker);
     }
 
     input:focus {
@@ -124,7 +125,7 @@ body::-webkit-scrollbar-corner {
         height: 7.5vh;
         border-radius: 2vh;
         font-size: 3vh;
-        background: var(--sidebar-bg);
+        background-color: var(--background-darker);
         margin-left: 0px;
         border-top-left-radius: 0px;
         border-bottom-left-radius: 0px;
@@ -136,7 +137,7 @@ body::-webkit-scrollbar-corner {
         box-shadow: 0.5vh 0.5vh 1vh 0vh var(--shadow-color);
         cursor: pointer;
         height: 7.5vh;
-        background: var(--sidebar-bg);
+        background-color: var(--background-darker);
         color: var(--text);
         margin-left: 0px;
         border-radius: 0px;

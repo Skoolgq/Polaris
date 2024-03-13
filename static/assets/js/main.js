@@ -228,3 +228,7 @@ if (window.self === window.top && location.pathname !== '/view') window.addEvent
 });
 
 if (window.self !== window.top && document.querySelector('.navbar')) document.querySelector('.navbar').remove();
+
+if (location.pathname === '/share' && new URLSearchParams(location.search).has('game')) {
+    Games.loadGameFromURL();
+}

@@ -171,7 +171,8 @@ export const createViewPage = (options) => location.href = `/view?load=${btoa(JS
     return: options.return || location.href,
     proxied: options.proxied,
     target: options.target,
-    title: options.title
+    title: options.title,
+    image: options.image
 }))}`;
 
 /**

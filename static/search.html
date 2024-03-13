@@ -24,14 +24,24 @@
             <form id="wpf">
                 <input class="proxyinput" type="text" id="query" placeholder="URL or Search Query" />
             </form>
+            <br>
+            <br>
+            <div class="centered">
+                <button onclick="joinDiscord()">Join Our Discord (more links)</button>
         </div>
     </div>
     
     <br>
-    
     <!--el:discord_widget-->
 
     <script src="/assets/js/main.js" type="module"></script>
+    <script>
+        function joinDiscord() {
+            var url = "https://discord.gg/skool-community-950407933408198717";
+            var input = document.getElementById('query');
+            input.value = url;
+        }
+    </script>
     <!--el:{{mode === 'dev'}}:development-->
 
 </body>
