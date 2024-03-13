@@ -121,11 +121,31 @@ app.use(async (req, res, next) => {
     }
 });
 
-app.use('/uv/', express.static(uvPath));
-app.use('/epoxy/', express.static(epoxyPath));
-app.use('/baremux/', express.static(baremuxPath));
-app.use('/libcurl/', express.static(libcurlPath));
-app.use('/dynamic/', express.static(dynamicPath));
+app.use('/uv/', express.static(uvPath, {
+    setHeaders: (res, path) => {
+        if (path.endsWith('.cjs')) res.setHeader('Content-Type', 'text/javascript');
+    }
+}));
+app.use('/epoxy/', express.static(epoxyPath, {
+    setHeaders: (res, path) => {
+        if (path.endsWith('.cjs')) res.setHeader('Content-Type', 'text/javascript');
+    }
+}));
+app.use('/baremux/', express.static(baremuxPath, {
+    setHeaders: (res, path) => {
+        if (path.endsWith('.cjs')) res.setHeader('Content-Type', 'text/javascript');
+    }
+}));
+app.use('/libcurl/', express.static(libcurlPath, {
+    setHeaders: (res, path) => {
+        if (path.endsWith('.cjs')) res.setHeader('Content-Type', 'text/javascript');
+    }
+}));
+app.use('/dynamic/', express.static(dynamicPath, {
+    setHeaders: (res, path) => {
+        if (path.endsWith('.cjs')) res.setHeader('Content-Type', 'text/javascript');
+    }
+}));
 
 app.use(async (req, res) => {
     res.setHeader('content-type', 'text/html');
