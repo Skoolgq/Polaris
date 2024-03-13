@@ -12,14 +12,14 @@ self.__uv$config = {
 /**
  * The storage interface for polaris
  * @param {string} containerName 
- */
+ *
 const storage = (containerName) => {
     return {
         /**
          * Get a value from the storage container
          * @param {string} name The name of the value
          * @returns {string}
-         */
+         *
         get: (name) => {
             if (!localStorage.getItem(containerName)) localStorage.setItem(containerName, JSON.stringify({}));
             else {
@@ -37,7 +37,7 @@ const storage = (containerName) => {
          * Set a value from a storage container
          * @param {string} name The name of the value
          * @param {string | object} value The value to be set
-         */
+         *
         set: (name, value) => {
             if (!localStorage.getItem(containerName)) localStorage.setItem(containerName, JSON.stringify({}));
             else {
@@ -89,4 +89,4 @@ const setTransport = (name, options) => {
 
 const settingsStorage = storage('settings');
 
-setTransport((settingsStorage.get('proxy') || '').split(':')[1] || 'libcurl');
+setTransport((settingsStorage.get('proxy') || '').split(':')[1] || 'libcurl');*/
