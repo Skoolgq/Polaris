@@ -1,10 +1,14 @@
-import { loadProxyWorker, encoder, storage } from './utils.js';
+import { loadProxyWorker, encoder, storage, loadCJS, setTransport } from './utils.js';
 import { loadSettings } from './settings.js';
+
+await loadCJS('/baremux/bare.cjs');
 
 loadSettings();
 
 const params = new URLSearchParams(location.search);
 const settingsStorage = storage('settings');
+
+if ((settingsStorage.get('proxy') || 'uv').startsWith('uv')) await setTransport((settingsStorage.get('proxy') || '').split(':')[1] || 'libcurl');
 
 window.history.replaceState({}, '', location.pathname);
 
@@ -18,9 +22,9 @@ if (params.get('load')) {
             sessionStorage.setItem('loaddata', JSON.stringify(parsedData));
 
             if (parsedData.proxied) {
-                await loadProxyWorker(settingsStorage.get('proxy') || 'uv');
+                await loadProxyWorker((settingsStorage.get('proxy') || '').split(':')[0] || 'uv');
 
-                document.querySelector('#loadframe').src = `/${settingsStorage.get('proxy') || 'uv'}/service/${encoder['xor'].encode(parsedData.target)}`;
+                document.querySelector('#loadframe').src = `/${(settingsStorage.get('proxy') || '').split(':')[0] || 'uv'}/service/${encoder['xor'].encode(parsedData.target)}`;
             } else document.querySelector('#loadframe').src = parsedData.target;
 
             document.querySelector('#loadframe').addEventListener('load', () => {

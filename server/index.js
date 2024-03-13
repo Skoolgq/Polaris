@@ -1,4 +1,10 @@
 import { createBareServer } from '@tomphttp/bare-server-node';
+import { libcurlPath } from '@mercuryworkshop/libcurl-transport';
+import { epoxyPath } from '@mercuryworkshop/epoxy-transport';
+import { uvPath } from '@titaniumnetwork-dev/ultraviolet';
+import { baremuxPath } from '@mercuryworkshop/bare-mux';
+import { dynamicPath } from '@nebula-services/dynamic';
+import wisp from 'wisp-server-node';
 import express from 'express';
 import mime from 'mime';
 import cors from 'cors';
@@ -92,6 +98,7 @@ app.get('/asset/:token', async (req, res, next) => {
 app.get('/uv/service/*', async (req, res) => res.end(await rewriter.html(fs.readFileSync(path.join(__dirname, '../pages/proxy_404.html')))));
 app.get('/dynamic/service/*', async (req, res) => res.end(await rewriter.html(fs.readFileSync(path.join(__dirname, '../pages/proxy_404.html')))));
 
+
 app.use(async (req, res, next) => {
     if (req.path === '/index') res.redirect('/');
     else {
@@ -110,11 +117,39 @@ app.use(async (req, res, next) => {
                 else if (mime.getType(filePath) === 'text/css') res.end(await rewriter.css(fs.readFileSync(filePath), req.path));
                 else res.sendFile(filePath);
             }
-        } else {
-            res.setHeader('content-type', 'text/html');
-            res.status(404).end(await rewriter.html(fs.readFileSync(path.join(__dirname, '../pages/404.html'))));
-        }
+        } else next();
     }
+});
+
+app.use('/uv/', express.static(uvPath, {
+    setHeaders: (res, path) => {
+        if (path.endsWith('.cjs')) res.setHeader('Content-Type', 'text/javascript');
+    }
+}));
+app.use('/epoxy/', express.static(epoxyPath, {
+    setHeaders: (res, path) => {
+        if (path.endsWith('.cjs')) res.setHeader('Content-Type', 'text/javascript');
+    }
+}));
+app.use('/baremux/', express.static(baremuxPath, {
+    setHeaders: (res, path) => {
+        if (path.endsWith('.cjs')) res.setHeader('Content-Type', 'text/javascript');
+    }
+}));
+app.use('/libcurl/', express.static(libcurlPath, {
+    setHeaders: (res, path) => {
+        if (path.endsWith('.cjs')) res.setHeader('Content-Type', 'text/javascript');
+    }
+}));
+app.use('/dynamic/', express.static(dynamicPath, {
+    setHeaders: (res, path) => {
+        if (path.endsWith('.cjs')) res.setHeader('Content-Type', 'text/javascript');
+    }
+}));
+
+app.use(async (req, res) => {
+    res.setHeader('content-type', 'text/html');
+    res.status(404).end(await rewriter.html(fs.readFileSync(path.join(__dirname, '../pages/404.html'))));
 });
 
 server.on('request', (req, res) => {
@@ -124,6 +159,7 @@ server.on('request', (req, res) => {
 
 server.on('upgrade', (req, socket, head) => {
     if (bareServer.shouldRoute(req)) bareServer.routeUpgrade(req, socket, head);
+    else if (req.url.endsWith('/wisp/')) wisp.routeRequest(req, socket, head);
     else socket.end();
 });
 

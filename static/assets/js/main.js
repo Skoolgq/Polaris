@@ -7,7 +7,7 @@ import Cheats from './cheats.js';
 import Games from './games.js';
 import Apps from './apps.js';
 
-await loadAnalytics();
+loadAnalytics();
 
 if (location.pathname !== '/view') loadSidebarInterface();
 loadEasterEggs();

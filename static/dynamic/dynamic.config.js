@@ -8,7 +8,7 @@ self.__dynamic$config = {
     path: '/bare/'
   },
   tab: {
-    title: 'Service',
+    title: null,
     icon: null,
     ua: null
   },
@@ -21,8 +21,5 @@ self.__dynamic$config = {
       config: 'dynamic.config.js',
       inject: null
     }
-  },
-  block: [
-  
-  ]
+  }
 };

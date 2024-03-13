@@ -60,9 +60,48 @@ export const uuid = () => ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g,
  * Register a proxy service worker
  * @param {'uv' | 'dynamic'} proxy 
  */
-export const loadProxyWorker = async (proxy) => await navigator.serviceWorker.register(`/${proxy}/sw.js`, {
-    scope: `/${proxy}/service/`
+export const loadProxyWorker = async (proxy) => await navigator.serviceWorker.register(`/${proxy.split(':')[0]}/sw.js`, {
+    scope: `/${proxy.split(':')[0]}/service/`
 });
+
+/**
+ * Set the bare transport
+ * @param {'epoxy' | 'libcurl' | 'bare'} name 
+ * @param {any} options 
+ */
+export const setTransport = async (name, options) => {
+    const transports = {
+        'epoxy': {
+            src: '/epoxy/index.js',
+            id: 'EpxMod.EpoxyClient',
+            options: {
+                wisp: location.origin.replace('http', 'ws') + '/wisp/'
+            }
+        },
+        'libcurl': {
+            src: '/libcurl/index.cjs',
+            id: 'CurlMod.LibcurlClient',
+            options: {
+                wisp: location.origin.replace('http', 'ws') + '/wisp/',
+                wasm: location.origin + '/libcurl/libcurl.wasm'
+            }
+        },
+        'bare': {
+            src: '/assets/js/bare-transport.js',
+            id: 'BareMod.BareClient',
+            options: location.origin + '/bare/'
+        }
+    };
+
+    if (!Object.keys(transports).includes(name)) throw 'Invalid Transport';
+
+    const transport = transports[name];
+
+    await loadCJS(transport.src);
+    await loadCJS('/baremux/bare.cjs');
+
+    BareMux.SetTransport(transport.id, options || transport.options);
+}
 
 /**
 Broken
@@ -157,6 +196,13 @@ export const isScrollable = (element) => element.scrollWidth > element.clientWid
  */
 export const evalify = (code) => '(' + String(code) + ')()';
 
+export const loadCJS = (src) => new Promise((resolve, reject) => {
+    const el = document.createElement('script');
+    el.src = src;
+    document.body.appendChild(el);
+    el.onload = () => resolve();
+});
+
 /**
  * @type {import('./utils/ctc.js').CrossTabCommunication}
  */
@@ -164,7 +210,7 @@ var CrossTabCommunication;
 
 try {
     CrossTabCommunication = ctc;
-} catch { CrossTabCommunication = () => {}; }
+} catch { CrossTabCommunication = () => { }; }
 
 export default {
     storage,

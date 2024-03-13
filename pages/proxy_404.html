@@ -21,7 +21,7 @@
     </div>
 
     <script type="module">
-        import { loadProxyWorker, storage } from '/assets/js/utils.js';
+        import { loadProxyWorker, storage, loadCJS } from '/assets/js/utils.js';
 
         const settingsStorage = storage('settings');
 
@@ -33,7 +33,9 @@
             }));
         }
 
-        if (location.pathname.slice(1).startsWith(settingsStorage.get('proxy') || 'uv')) loadProxyWorker(settingsStorage.get('proxy') || 'uv')
+        await loadCJS('/baremux/bare.cjs');
+
+        if (location.pathname.slice(1).startsWith((settingsStorage.get('proxy') || '').split(':')[0] || 'uv')) loadProxyWorker((settingsStorage.get('proxy') || '').split(':')[0] || 'uv')
             .then(() => location.reload())
             .catch(() => {
                 document.querySelector('h1').textContent = 'Error';

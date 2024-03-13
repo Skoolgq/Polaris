@@ -12,7 +12,12 @@
     "author": "Polaris Development Group",
     "license": "GNU-3.0-or-later",
     "dependencies": {
-        "@tomphttp/bare-server-node": "^2.0.1",
+        "@mercuryworkshop/bare-mux": "^1.0.5",
+        "@mercuryworkshop/epoxy-transport": "^1.1.0",
+        "@mercuryworkshop/libcurl-transport": "^1.2.2",
+        "@nebula-services/dynamic": "^0.7.2-patch.2",
+        "@titaniumnetwork-dev/ultraviolet": "^3.0.0",
+        "@tomphttp/bare-server-node": "^2.0.3",
         "cors": "^2.8.5",
         "easyviolet": "github:Russell2259/Easyviolet",
         "express": "^4.18.3",
@@ -20,6 +25,7 @@
         "javascript-obfuscator": "^4.1.0",
         "jsdom": "^23.0.1",
         "mime": "^4.0.1",
-        "uuid": "^9.0.1"
+        "uuid": "^9.0.1",
+        "wisp-server-node": "^1.0.1"
     }
 }
