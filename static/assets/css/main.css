@@ -259,6 +259,11 @@ input {
     transition: 0.5s;
     margin: auto;
     margin-top: 2vh;
+    transition: border-color 0.4s linear;
+}
+
+input:hover{
+    border-color: var(--nav-hover);
 }
 
 input::placeholder {

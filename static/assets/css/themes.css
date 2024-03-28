@@ -1,12 +1,13 @@
 body[data-theme='dark'] {
-    --background-color: rgba(0, 0, 0, 0.8);
+    --background-color: rgba(17, 22, 31, 0.8);
     --background-darker: rgba(0, 0, 0, 0.9);
     --text: #fff;
     --sidebar-bg: #161f2eef;
-    --button-bg: #332a4769;
+    --button-bg: #44385e69;
     --shadow-color: #000;
     --switch-color: #42424259;
     --switch-active: #2196F3;
+    --nav-hover: #2196F3;
     --scrollbar-color: #ffffff59;
     --solid: #1b2735;
     --hover: #757575;
@@ -20,11 +21,11 @@ body[data-theme='light'] {
     --background-color: #fff;
     --background-darker: var(--background-color);
     --text: #000;
-    --hover: #757575;
     --sidebar-bg: #e9e9e9ee;
     --button-bg: #ecececee;
     --shadow-color: #c9c9c9;
     --switch-color: #111111b0;
+    --nav-hover: #9c9c9c;
     --switch-active: #2196F3;
     --scrollbar-color: #4242424b;
     --solid: #ffffffee;
