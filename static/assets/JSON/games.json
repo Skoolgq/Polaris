@@ -496,8 +496,7 @@
   {
     "name": "Stickman Archero Fight",
     "target": "https://html5.gamedistribution.com/rvvASMiM/3f4c166817ad4fd4b5b05d9adba22fcd/?gd_sdk_referrer_url=https://www.gamegab.com/play/16561/Stickman-Archero-Fight/",
-    "image": "https://www5.minijuegosgratis.com/v3/games/thumbnails/241942_7_sq.jpg",
-    "popular": true
+    "image": "https://www5.minijuegosgratis.com/v3/games/thumbnails/241942_7_sq.jpg"
   },
   {
     "name": "Stumble Guys",
@@ -1119,5 +1118,11 @@
     "name": "Subway Surfers: Singapore",
     "target": "https://rawcdn.githack.com/CybriaTech/Opium/main/games/subway-surfers-singapore/index.html",
     "image": "https://static.wikia.nocookie.net/subwaysurf/images/6/6d/Singapore2019LoadingScreen.png/revision/latest/scale-to-width-down/250?cb=20220403173202"
+  },
+  {
+    "name": "Polytrack",
+    "target": "https:/game.glimbo.xyz/polytrack",
+    "image": "https://www.speedrun.com/static/game/w6j7ml76/cover.jpg?v=05316e4",
+    "popular": true
   }
 ]

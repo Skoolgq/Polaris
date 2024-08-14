@@ -1,85 +1,98 @@
-@media (max-width:960px) {
-    .navbar>.right {
-        display: none;
-    }
+@media (max-width: 960px) {
+  .navbar > .right {
+    display: none;
+  }
 }
 
 .navbar {
-    box-shadow: 0vh 0.5vh 0.75vh 0vh var(--shadow-color);
-    position: fixed;
-    width: calc(calc(100% - 100px) - calc(1.5em * 2));
-    background-color: var(--background-color);
-    top: 0;
-    margin-left: 50px;
-    margin-right: 50px;
-    margin-top: 40px;
-    color: rgb(255, 255, 255);
-    z-index: 100;
-    display: flex;
-    border-radius: 2vh;
-    padding: 1.5em;
-    padding-bottom: 1em;
-    text-align: center;
-    backdrop-filter: blur(7.1px);
-    -webkit-backdrop-filter: blur(7.1px);
+  box-shadow: 0vh 0.5vh 0.75vh 0vh var(--shadow-color);
+  position: fixed;
+  width: calc(calc(100% - 100px) - calc(1.5em * 2));
+  background-color: var(--background-color);
+  top: 0;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: 40px;
+  color: rgb(255, 255, 255);
+  z-index: 100;
+  display: flex;
+  border-radius: 2vh;
+  padding: 1.5em;
+  padding-bottom: 1em;
+  text-align: center;
+  backdrop-filter: blur(7.1px);
+  -webkit-backdrop-filter: blur(7.1px);
 }
 
 .navbar.scrolling {
-    background-color: var(--background-darker);
-    color: black;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+  background-color: var(--background-darker);
+  color: black;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
-.navbar>.title {
-    margin: 1vh;
+.navbar > .title {
+  margin: 1vh;
 }
 
-.navbar>.title>img {
-    width: 6vh;
-    border-radius: 1vh;
+.navbar > .title > img {
+  width: 6vh;
+  border-radius: 1vh;
 }
 
-.navbar>.title>span {
-    font-family: 'Lato-Black';
-    font-size: 3vh;
-    left: 11vh;
-    position: absolute;
-    text-align: left;
+.navbar > .title > span {
+  font-family: "Lato-Black";
+  font-size: 3vh;
+  left: 11vh;
+  position: absolute;
+  text-align: left;
 }
 
-.navbar>.title>span>span {
-    display: flex;
-    position: relative;
-    font-size: 1.2vh;
-    width: auto;
+.navbar > .title > span > span {
+  display: flex;
+  position: relative;
+  font-size: 1.2vh;
+  width: auto;
 }
 
-.navbar>.right {
-    position: absolute;
-    right: 0;
-    margin: 2vh;
-    margin-top: 2.5vh;
-    margin-right: 3vh;
+.navbar > .right {
+  position: absolute;
+  right: 0;
+  margin: 2vh;
+  margin-top: 2.5vh;
+  margin-right: 3vh;
 }
 
-.navbar>.right>a {
-    border-style: solid;
-    border-width: 0.3vh;
-    margin: 0.3rem;
-    padding: 0.8rem;
-    cursor: pointer;
-    font-size: 2.7vh;
-    border-radius: 1.5vh;
-    border-color: var(--button-bg);
-    transition: border-color 0.4s linear;
-    background-color: var(--button-bg);
+.navbar > .right > a {
+  border-style: solid;
+  border-width: 0.3vh;
+  margin: 0.3rem;
+  padding: 0.8rem;
+  cursor: pointer;
+  font-size: 2.7vh;
+  border-radius: 1.5vh;
+  border-color: var(--button-bg);
+  transition: border-color 0.4s linear;
+  background-color: var(--button-bg);
 }
 
-.navbar>.right>a:hover {
-    border-color: var(--nav-hover);
+.premium {
+  border-style: solid;
+  border-width: 0.3vh;
+  margin: 0.3rem;
+  padding: 0.8rem;
+  cursor: pointer;
+  font-size: 2.7vh;
+  border-radius: 1.5vh;
+  border-color: var(--button-bg);
+  transition: border-color 0.4s linear;
+  background-color: blue;
 }
 
-.navbar>.right>a.active {
-    border-color: rgba(255, 255, 255, 1);
+.navbar > .right > a:hover {
+  border-color: var(--nav-hover);
+}
+
+.navbar > .right > a.active {
+  border-color: rgba(255, 255, 255, 1);
 }
