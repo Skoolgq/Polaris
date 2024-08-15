@@ -76,19 +76,6 @@
   background-color: var(--button-bg);
 }
 
-.premium {
-  border-style: solid;
-  border-width: 0.3vh;
-  margin: 0.3rem;
-  padding: 0.8rem;
-  cursor: pointer;
-  font-size: 2.7vh;
-  border-radius: 1.5vh;
-  border-color: var(--button-bg);
-  transition: border-color 0.4s linear;
-  background-color: blue;
-}
-
 .navbar > .right > a:hover {
   border-color: var(--nav-hover);
 }

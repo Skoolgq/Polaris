@@ -79,7 +79,7 @@ body::-webkit-scrollbar-corner {
 .row.mainpage {
     position: absolute;
     margin-top: 0px;
-    top: calc(calc(9vh + 2.5em) + 100px);
+    top: calc(calc(9vh + 2.5em) + 60px);
     bottom: 50px;
 }
 
@@ -621,7 +621,6 @@ input:checked+.slider:before {
     color: var(--text);
     overflow: hidden;
     margin-left: 50px;
-    margin-right: 25px;
     text-align: center;
 }
 
