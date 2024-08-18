@@ -388,7 +388,8 @@ input:checked+.slider:before {
     display: block;
     border: none;
     cursor: pointer;
-    transition: .4s;
+    transition: all 0.5s ease;
+    filter: brightness(100%);
     overflow: hidden;
     position: relative;
     box-shadow: 0vh 0.75vh 1.5vh 0vh black;
@@ -402,7 +403,7 @@ input:checked+.slider:before {
 }
 
 .game:hover {
-    filter: brightness(95%);
+    filter: brightness(105%);
     transform: translateY(-0.2vh);
     border-color: #ffffff;
 }
