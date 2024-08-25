@@ -66,7 +66,7 @@ export const loadProxyWorker = async (proxy) => await navigator.serviceWorker.re
 
 /**
  * Set the bare transport
- * @param {'epoxy' | 'libcurl' | 'bare'} name 
+ * @param {'epoxy' | 'libcurl'} name 
  * @param {any} options 
  */
 export const setTransport = async (name, options) => {
@@ -85,11 +85,6 @@ export const setTransport = async (name, options) => {
                 wisp: location.origin.replace('http', 'ws') + '/wisp/',
                 wasm: location.origin + '/libcurl/libcurl.wasm'
             }
-        },
-        'bare': {
-            src: '/assets/js/bare-transport.js',
-            id: 'BareMod.BareClient',
-            options: location.origin + '/bare/'
         }
     };
 
@@ -98,9 +93,6 @@ export const setTransport = async (name, options) => {
     const transport = transports[name];
 
     await loadCJS(transport.src);
-    await loadCJS('/baremux/bare.cjs');
-
-    BareMux.SetTransport(transport.id, options || transport.options);
 }
 
 /**
