@@ -75,6 +75,11 @@
         "target": "https://youtube.com"
     },
     {
+        "name": "Youtube Downloader",
+        "image": "/cdn/images/youtubedownloader.png",
+        "target": "https://cobalt.tools"
+    },
+    {
         "name": "Youtube Music",
         "image": "/cdn/images/yt-music.png",
         "target": "https://music.youtube.com"
