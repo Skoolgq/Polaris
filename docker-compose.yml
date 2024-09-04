@@ -1,0 +1,7 @@
+name: Polaris
+
+services:
+  polaris:
+    build: .
+    ports:
+      - "8080:8080"
