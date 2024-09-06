@@ -24,3 +24,4 @@
 2. Install Dependencies: `npm install`
 3. Start the app: `npm start`
 4. Visit [localhost:8080](http://localhost:8080) for your local Polaris!
+
