@@ -12,9 +12,12 @@
     "author": "Polaris Development Group",
     "license": "GNU-3.0-or-later",
     "dependencies": {
+        "@mercuryworkshop/bare-mux": "^1.0.5",
         "@mercuryworkshop/epoxy-transport": "^1.1.0",
         "@mercuryworkshop/libcurl-transport": "^1.2.2",
+        "@nebula-services/dynamic": "^0.7.2-patch.2",
         "@titaniumnetwork-dev/ultraviolet": "^3.0.0",
+        "@tomphttp/bare-server-node": "^2.0.3",
         "cors": "^2.8.5",
         "express": "^4.18.3",
         "html-minifier": "^4.0.0",

@@ -1,5 +1,7 @@
-import { loadProxyWorker, encoder, storage, setTransport } from './utils.js';
+import { loadProxyWorker, encoder, storage, loadCJS, setTransport } from './utils.js';
 import { loadSettings } from './settings.js';
+
+await loadCJS('/baremux/bare.cjs');
 
 loadSettings();
 
