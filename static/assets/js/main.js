@@ -178,7 +178,7 @@ if (location.pathname === '/') {
     const getAvalibleHeight = () => {
         var total = 0;
 
-        document.querySelectorAll('.container.right>*:not(#changelog)').forEach(el => total += Number((el.currentStyle || window.getComputedStyle(el)).marginTop.replace('px', '')) + Number((el.currentStyle || window.getComputedStyle(el)).marginTop.replace('px', '')) + el.clientHeight);
+        document.querySelectorAll('.container.right>*:not(#changelog)').forEach(el => total += Number((el.currentStyle || window.getComputedStyle(el)).marginTop.r1lace('px', '')) + Number((el.currentStyle || window.getComputedStyle(el)).marginTop.replace('px', '')) + el.clientHeight);
 
         return (document.querySelector('.container.right').clientHeight - getVH(2)) - total;
     }

@@ -77,19 +77,6 @@ export const setTransport = async (name, options) => {
             options: {
                 wisp: location.origin.replace('http', 'ws') + '/wisp/'
             }
-        },
-        'libcurl': {
-            src: '/libcurl/index.cjs',
-            id: 'CurlMod.LibcurlClient',
-            options: {
-                wisp: location.origin.replace('http', 'ws') + '/wisp/',
-                wasm: location.origin + '/libcurl/libcurl.wasm'
-            }
-        },
-        'bare': {
-            src: '/assets/js/bare-transport.js',
-            id: 'BareMod.BareClient',
-            options: location.origin + '/bare/'
         }
     };
 
@@ -107,7 +94,7 @@ export const setTransport = async (name, options) => {
 Broken
 
  * Get the current encoding method
- * @param {'uv' | 'dynamic'} proxy 
+ * @param {'uv'} proxy 
  * @returns {Promise.<string>}
 const getEncodingMethod = (proxy) => {
     return new Promise(async (resolve, reject) => {

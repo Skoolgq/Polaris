@@ -1,6 +1,4 @@
 // UV Transports
-importScripts('/assets/js/bare-transport.js');
-importScripts('/libcurl/index.cjs');
 importScripts('/epoxy/index.js');
 
 importScripts('/uv/uv.bundle.js');
