@@ -1,6 +1,6 @@
 import { epoxyPath } from '@mercuryworkshop/epoxy-transport';
 import { uvPath } from '@titaniumnetwork-dev/ultraviolet';
-import { baremuxPath } from '@mercuryworkshop/bare-mux';
+import { baremuxPath } from '@mercuryworkshop/bare-mux/node';
 import wisp from 'wisp-server-node';
 import express from 'express';
 import mime from 'mime';
@@ -23,8 +23,8 @@ const packageFile = JSON.parse(fs.readFileSync(path.join(__dirname, '../package.
 
 const swPaths = [
     '/uv/sw.js',
-    '/assets/js/offline.js'
 ];
+
 
 app.use(express.json());
 
@@ -116,26 +116,12 @@ app.use(async (req, res, next) => {
     }
 });
 
-app.use('/uv/', express.static(uvPath, {
-    setHeaders: (res, path) => {
-        if (path.endsWith('.cjs')) res.setHeader('Content-Type', 'text/javascript');
-    }
-}));
-app.use('/epoxy/', express.static(epoxyPath, {
-    setHeaders: (res, path) => {
-        if (path.endsWith('.cjs')) res.setHeader('Content-Type', 'text/javascript');
-    }
-}));
-app.use('/baremux/', express.static(baremuxPath, {
-    setHeaders: (res, path) => {
-        if (path.endsWith('.cjs')) res.setHeader('Content-Type', 'text/javascript');
-    }
-}));
 
-app.use(async (req, res) => {
-    res.setHeader('content-type', 'text/html');
-    res.status(404).end(await rewriter.html(fs.readFileSync(path.join(__dirname, '../pages/404.html'))));
-});
+app.get('/uv/service/*', async (req, res) => res.end(await rewriter.html(fs.readFileSync(path.join(__dirname, '../pages/proxy_404.html')))));
+
+app.use('/uv/', express.static(uvPath));
+app.use("/epoxy/", express.static(epoxyPath));
+app.use("/baremux/", express.static(baremuxPath));
 
 server.on('request', (req, res) => {
     app(req, res);
