@@ -17,7 +17,7 @@
         "@mercuryworkshop/libcurl-transport": "1.3.10",
         "@titaniumnetwork-dev/ultraviolet": "^3.2.7",
         "cors": "^2.8.5",
-        "express": "^4.18.3",
+        "express": "^4.21.2",
         "html-minifier": "^4.0.0",
         "javascript-obfuscator": "^4.1.0",
         "jsdom": "^23.0.1",
