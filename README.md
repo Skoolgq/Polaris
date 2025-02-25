@@ -1,7 +1,9 @@
 <div align="center">
   <img src="https://github.com/Skoolgq/Polaris/assets/93336301/dc994d43-06f4-4947-a15f-226c840f6880" width="600px">
+
+  <h2 style="color: yellow;">Polaris has been deprecated. New updates will not be made but bugs may still be fixed.</h2>
   
-  <h2><a href="https://dsc.gg/skoolworld">Join our Discord server</a></h2>
+  <s><p><a href="https://dsc.gg/skoolworld">Join our Discord server</a></p></s>
 
   ![Discord](https://img.shields.io/discord/950407933408198717?label=Discord&style=for-the-badge)
   ![Commit activity](https://img.shields.io/github/commit-activity/w/SkoolGQ/Polaris?style=for-the-badge)
